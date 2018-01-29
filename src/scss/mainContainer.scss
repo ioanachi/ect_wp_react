@@ -1,0 +1,53 @@
+.ContainerMain {
+  .userDiv {
+    label {
+      font-size: 20px;
+      margin-right: 20px;
+    }
+    padding: 20px;
+    margin-bottom: 10px;
+  }
+
+  .dayPicker {
+    padding: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    display: inline-block;
+  }
+
+  .fontdiv {
+    padding: 20px;
+    margin-bottom: 10px;
+
+    label {
+      font-size: 20px;
+      margin-right: 20px;
+    }
+  }
+
+  .stylesDiv {
+    padding: 20px;
+    margin-bottom: 10px;
+
+    label {
+      font-size: 20px;
+      margin-right: 20px;
+    }
+  }
+
+  .btnInsert {
+    height: 30px;
+    width: 130px;
+    margin: 20px;
+    background-color: rgb(40, 0, 235);
+    color: white;
+    border: 1px solid rgb(63, 63, 65);
+  }
+  // .previewDIv{
+  //   float: right;
+  //   width: 200px;
+  //   height: 200px;
+  //   border: 2px solid rgb(58, 2, 74);
+  // }
+}
