@@ -14,7 +14,7 @@ class MainContainer extends React.Component {
       selectedDay: undefined,
       isDisabled: false,
       endDate: '',
-      naMe: '',
+      naMeP: '',
       fontSizeP: ''
     };
     this.onFontSubmit = this.onFontSubmit.bind(this);
@@ -23,6 +23,9 @@ class MainContainer extends React.Component {
   onFontSubmit(fontSize) {
     this.setState({fontSizeP: fontSize});
   };
+  onNameSubmit(naMe){
+    this.setState({naMeP: naMe});
+  }
   handleDayChange(selectedDay, modifiers) {
     this.setState({
       selectedDay,
@@ -32,7 +35,7 @@ class MainContainer extends React.Component {
   render() {
     const {selectedDay, isDisabled} = this.state;
     return (<div className="ContainerMain">
-      <UserName/>
+      <UserName NameParent={this.onNameSubmit}/>
       <p className="dayPicker">
         {!selectedDay && 'End Date'}
         {selectedDay && isDisabled && '😡 This day is disabled'}
