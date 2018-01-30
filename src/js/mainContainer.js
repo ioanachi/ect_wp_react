@@ -52,4 +52,4 @@ class MainContainer extends React.Component {
   }
 };
 
-ReactDOM.render(<MainContainer/>, document.getElementById('ect'));
+ReactDOM.render(<MainContainer/>, document.getElementById('ectPopupContent'));
