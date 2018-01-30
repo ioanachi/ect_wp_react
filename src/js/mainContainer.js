@@ -5,6 +5,11 @@ import {UserName} from './nameInput';
 import {FontSize} from './fontSize';
 import {Styles} from './styles';
 import {Previews} from './prewieW';
+import MomentLocaleUtils, {
+  formatDate,
+  parseDate,
+} from 'react-day-picker/moment';
+// import 'moment/locale/it';
 
 class MainContainer extends React.Component {
   constructor(props) {
@@ -34,23 +39,30 @@ class MainContainer extends React.Component {
   }
   render() {
     const {selectedDay, isDisabled} = this.state;
-    return (<div className="ContainerMain">
+    return (
+      <div className="ContainerMain">
       <UserName NameParent={this.onNameSubmit}/>
       <p className="dayPicker">
         {!selectedDay && 'End Date'}
         {selectedDay && isDisabled && '😡 This day is disabled'}
         {selectedDay && !isDisabled}
       </p>
-      <DayPickerInput value={selectedDay} classonDayChange={this.handleDayChange} dayPickerProps={{
+      <DayPickerInput
+        formatDate={formatDate}
+        value={selectedDay}
+        classonDayChange={this.handleDayChange}
+        dayPickerProps={{
           selectedDays: selectedDay,
           disabledDays: {
             daysOfWeek: [0, 6]
           }
-        }}/>
+        }}
+        placeholder={`${formatDate(new Date())}`}
+        />
       <FontSize aaa={this.onFontSubmit}/>
 
       <button type="submit" className="btn btn-success" name="button">Insert</button>
-      <Previews/>
+      <Previews date={this.state.selectedDay}/>
     </div>);
   }
 };

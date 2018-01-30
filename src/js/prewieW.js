@@ -6,7 +6,7 @@ export class Previews extends React.Component {
     return(
       <div className="previewDIv">
       <p >
-jbkjghfigiyfyofouhy
+[ect-EndDate name="" date="{this.props.date}"]
       </p>
       </div>
     )
