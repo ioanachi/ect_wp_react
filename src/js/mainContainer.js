@@ -1,23 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DayPickerInput from 'react-day-picker/DayPickerInput';
 import {UserName} from './nameInput';
 import {FontSize} from './fontSize';
 import {Styles} from './styles';
-import {Previews} from './prewieW';
+import {EndDate} from './dayPicker.js';
 
 class MainContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.handleDayChange = this.handleDayChange.bind(this);
     this.state = {
-      selectedDay: undefined,
+      selectedDayP: '',
       isDisabled: false,
-      endDate: '',
       naMeP: '',
       fontSizeP: ''
     };
     this.onFontSubmit = this.onFontSubmit.bind(this);
+    this.onNameSubmit = this.onNameSubmit.bind(this);
 
   }
   onFontSubmit(fontSize) {
@@ -26,31 +24,17 @@ class MainContainer extends React.Component {
   onNameSubmit(naMe){
     this.setState({naMeP: naMe});
   }
-  handleDayChange(selectedDay, modifiers) {
-    this.setState({
-      selectedDay,
-      isDisabled: modifiers.disabled === true
-    });
+  onDatePick(selectedDay){
+    this.setState({selectedDayP: selectedDay});
   }
+
   render() {
-    const {selectedDay, isDisabled} = this.state;
+
     return (<div className="ContainerMain">
       <UserName NameParent={this.onNameSubmit}/>
-      <p className="dayPicker">
-        {!selectedDay && 'End Date'}
-        {selectedDay && isDisabled && '😡 This day is disabled'}
-        {selectedDay && !isDisabled}
-      </p>
-      <DayPickerInput value={selectedDay} classonDayChange={this.handleDayChange} dayPickerProps={{
-          selectedDays: selectedDay,
-          disabledDays: {
-            daysOfWeek: [0, 6]
-          }
-        }}/>
+      <EndDate dateEnd={this.onDatePick}/>
       <FontSize aaa={this.onFontSubmit}/>
-
       <button type="submit" className="btn btn-success" name="button">Insert</button>
-      <Previews/>
     </div>);
   }
 };

@@ -14,7 +14,7 @@ inputName(e){
     this.setState ({naMe: nameVal});
     const namex = this.state.naMe;
     const Submitx = this.props.NameParent;
-    Submitx(NameParent);
+    Submitx(namex);
   };
   render() {
     return (<div className="userDiv">
