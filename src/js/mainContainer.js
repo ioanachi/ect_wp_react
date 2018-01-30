@@ -6,16 +6,23 @@ import {FontSize} from './fontSize';
 import {Styles} from './styles';
 import {Previews} from './prewieW';
 
-
 class MainContainer extends React.Component {
   constructor(props) {
     super(props);
     this.handleDayChange = this.handleDayChange.bind(this);
     this.state = {
       selectedDay: undefined,
-      isDisabled: false
+      isDisabled: false,
+      endDate: '',
+      naMe: '',
+      fontSizeP: ''
     };
+    this.onFontSubmit = this.onFontSubmit.bind(this);
+
   }
+  onFontSubmit(fontSize) {
+    this.setState({fontSizeP: fontSize});
+  };
   handleDayChange(selectedDay, modifiers) {
     this.setState({
       selectedDay,
@@ -37,10 +44,10 @@ class MainContainer extends React.Component {
             daysOfWeek: [0, 6]
           }
         }}/>
-      <FontSize />
-      <Styles />
-      <button type="button" className="btnInsert" name="button">Insert</button>
+      <FontSize aaa={this.onFontSubmit}/>
 
+      <button type="submit" className="btn btn-success" name="button">Insert</button>
+      <Previews/>
     </div>);
   }
 };

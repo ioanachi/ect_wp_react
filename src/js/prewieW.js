@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-class Previews extends React.Component {
+export class Previews extends React.Component {
   render(){
     return(
       <div className="previewDIv">
