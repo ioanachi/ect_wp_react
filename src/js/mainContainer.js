@@ -3,7 +3,16 @@ import ReactDOM from 'react-dom';
 import {UserName} from './nameInput';
 import {FontSize} from './fontSize';
 import {Styles} from './styles';
+<<<<<<< HEAD
 import {EndDate} from './dayPicker.js';
+=======
+import {Previews} from './prewieW';
+import MomentLocaleUtils, {
+  formatDate,
+  parseDate,
+} from 'react-day-picker/moment';
+// import 'moment/locale/it';
+>>>>>>> cc9a8c04bcea916d9e8df73ce682961175396aac
 
 class MainContainer extends React.Component {
   constructor(props) {

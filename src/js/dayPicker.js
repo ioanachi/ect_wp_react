@@ -12,7 +12,9 @@ export class EndDate extends React.Component {
   }
   handleDayChange(day) {
     this.setState({ selectedDay: day });
-    console.log(day);
+  const dayx = this.state.selectedDay
+  const Submitx = this.props.NameParent;
+  Submitx(dayx);
   }
   render() {
     const { selectedDay } = this.state;
