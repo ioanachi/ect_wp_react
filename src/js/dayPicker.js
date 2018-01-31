@@ -6,23 +6,19 @@ export class EndDate extends React.Component {
   constructor(props) {
     super(props);
     this.handleDayChange = this.handleDayChange.bind(this);
-    this.state = {
-      selectedDay: null,
-    };
+
   }
   handleDayChange(day) {
-    this.setState({ selectedDay: day });
-  const dayx = this.state.selectedDay
-  const Submitx = this.props.NameParent;
-  Submitx(dayx);
+    const dayx = day;
+    const Submitx = this.props.NameParent;
+    console.log(day);
+    Submitx(dayx);
   }
   render() {
-    const { selectedDay } = this.state;
     return (
-      <div>
-        {selectedDay && <p>Day: {selectedDay.toLocaleDateString()}</p>}
-        {!selectedDay && <p>Choose a day</p>}
-        <DayPickerInput onDayChange={this.handleDayChange} />
+      <div className="componentContainer">
+        <label htmlFor="fontInput"> End Date</label>
+        <DayPickerInput onDayChange={this.handleDayChange}/>
       </div>
     );
   }

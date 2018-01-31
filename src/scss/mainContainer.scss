@@ -1,5 +1,5 @@
 .ContainerMain {
-  .userDiv {
+  .componentContainer {
     label {
       font-size: 20px;
       margin-right: 20px;
@@ -14,26 +14,6 @@
     font-size: 20px;
     font-weight: bold;
     display: inline-block;
-  }
-
-  .fontdiv {
-    padding: 20px;
-    margin-bottom: 10px;
-
-    label {
-      font-size: 20px;
-      margin-right: 20px;
-    }
-  }
-
-  .stylesDiv {
-    padding: 20px;
-    margin-bottom: 10px;
-
-    label {
-      font-size: 20px;
-      margin-right: 20px;
-    }
   }
 
   .btnInsert {
