@@ -9,10 +9,8 @@ export class EndDate extends React.Component {
 
   }
   handleDayChange(day) {
-    const dayx = day;
     const Submitx = this.props.NameParent;
-    console.log(day);
-    Submitx(dayx);
+    Submitx(day);
   }
   render() {
     return (
