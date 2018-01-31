@@ -41,7 +41,7 @@ class MainContainer extends React.Component {
       <UserName NameParent={this.onNameSubmit}/>
       <EndDate callbackChildProp={this.returnChildDate}/>
       <FontSize aaa={this.onFontSubmit}/>
-      <Previews pName={this.state.naMeP} pDate={this.state.selectedDay}/>
+      <Previews pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP}/>
     </div>);
   }
 };
