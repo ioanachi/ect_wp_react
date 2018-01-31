@@ -12,7 +12,6 @@ import MomentLocaleUtils, {formatDate, parseDate} from 'react-day-picker/moment'
 class MainContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.handleDayChange = this.handleDayChange.bind(this);
     this.state = {
       selectedDay: undefined,
       isDisabled: false,
@@ -21,7 +20,7 @@ class MainContainer extends React.Component {
       fontSizeP: ''
     };
     this.onFontSubmit = this.onFontSubmit.bind(this);
-    this.onNameSubmit = this.onNameSubmit.bind(this);
+    this.returnChildDate = this.returnChildDate.bind(this);
 
   }
   onFontSubmit(fontSize) {
@@ -30,18 +29,17 @@ class MainContainer extends React.Component {
   onNameSubmit(naMe) {
     this.setState({naMeP: naMe});
   }
-  handleDayChange(selectedDay, modifiers) {
+  returnChildDate(selectedDay) {
     this.setState({
-      selectedDay,
-      isDisabled: modifiers.disabled === true
+      selectedDay: selectedDay
     });
   }
   render() {
     const {selectedDay, isDisabled} = this.state;
     return (<div className="ContainerMain">
       <UserName NameParent={this.onNameSubmit}/>
-      
-      <EndDate NameParent={this.onDatePick}/>
+
+      <EndDate callbackChildProp={this.returnChildDate}/>
       <FontSize aaa={this.onFontSubmit}/>
 
       <button type="submit" className="btn btn-success" name="button">Insert</button>
