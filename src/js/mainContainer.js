@@ -21,6 +21,7 @@ class MainContainer extends React.Component {
     };
     this.onFontSubmit = this.onFontSubmit.bind(this);
     this.returnChildDate = this.returnChildDate.bind(this);
+    this.onNameSubmit = this.onNameSubmit.bind(this);
 
   }
   onFontSubmit(fontSize) {
@@ -42,8 +43,8 @@ class MainContainer extends React.Component {
       <EndDate callbackChildProp={this.returnChildDate}/>
       <FontSize aaa={this.onFontSubmit}/>
 
-      <button type="submit" className="btn btn-success" name="button">Insert</button>
-      <Previews name={this.state.naMeP} date={this.state.selectedDay}/>
+
+      <Previews pName={this.state.naMeP} pDate={this.state.selectedDay}/>
     </div>);
   }
 };

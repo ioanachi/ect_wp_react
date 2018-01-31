@@ -6,28 +6,12 @@
     }
     padding: 20px;
     margin-bottom: 10px;
-  }
 
-  .dayPicker {
-    padding: 20px;
-    margin-bottom: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    display: inline-block;
+    input {
+      &.shortcode {
+        padding:5px;
+        width: 60%;
+      }
+    }
   }
-
-  .btnInsert {
-    height: 30px;
-    width: 130px;
-    margin: 20px;
-    background-color: rgb(40, 0, 235);
-    color: white;
-    border: 1px solid rgb(63, 63, 65);
-  }
-  // .previewDIv{
-  //   float: right;
-  //   width: 200px;
-  //   height: 200px;
-  //   border: 2px solid rgb(58, 2, 74);
-  // }
 }

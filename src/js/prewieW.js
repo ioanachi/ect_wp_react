@@ -1,14 +1,21 @@
 import React from 'react';
 
-
 export class Previews extends React.Component {
-  render(){
-    return(
-      <div className="previewDIv">
-      <p >
-[ect-EndDate name="{this.props.name}" date="{this.props.date}"]
+  constructor(props) {
+    super(props);
+  }
+  selectAllText(e) {
+    e.target.setSelectionRange(0, e.target.value.length);
+    e.target.select();
+  }
+  render() {
+    return (<div className="componentContainer">
+      <p>
+        <button type="submit" className="btn btn-success " name="button">Insert</button>
       </p>
-      </div>
-    )
+      <p>
+          [ect-EndDate name=&quot;{this.props.pName}&quot; date=&quot;{this.props.pDate}&quot; font-size=&quot;&quot; ]
+      </p>
+    </div>)
   }
 }
