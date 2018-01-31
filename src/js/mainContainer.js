@@ -39,11 +39,8 @@ class MainContainer extends React.Component {
     const {selectedDay, isDisabled} = this.state;
     return (<div className="ContainerMain">
       <UserName NameParent={this.onNameSubmit}/>
-
       <EndDate callbackChildProp={this.returnChildDate}/>
       <FontSize aaa={this.onFontSubmit}/>
-
-
       <Previews pName={this.state.naMeP} pDate={this.state.selectedDay}/>
     </div>);
   }
