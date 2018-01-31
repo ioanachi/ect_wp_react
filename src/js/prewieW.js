@@ -14,7 +14,7 @@ export class Previews extends React.Component {
         <button type="submit" className="btn btn-success " name="button">Insert</button>
       </p>
       <p>
-          [ect-EndDate name=&quot;{this.props.pName}&quot; date=&quot;{this.props.pDate}&quot; font-size=&quot;{this.props.pFont}&quot; ]
+          [ect-EndDate name=&quot;{this.props.pName}&quot; date=&quot;{this.props.pDate}&quot; color=&quot;{this.props.pColor}&quot; font-size=&quot;{this.props.pFont}px&quot; ]
       </p>
     </div>)
   }
