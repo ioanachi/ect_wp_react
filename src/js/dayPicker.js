@@ -8,9 +8,15 @@ export class EndDate extends React.Component {
     this.handleDayChange = this.handleDayChange.bind(this);
 
   }
-  handleDayChange(day) {
+  handleDayChange(date) {
     const Submitx = this.props.callbackChildProp;
-    Submitx(day.toString());
+    var tempDate = new Date(date.toString());
+    var mm = tempDate.getMonth()+1;
+    var dd = tempDate.getDay();
+    var yyyy = tempDate.getFullYear();
+
+    var fiunalDateString = mm+'/'+dd+'/'+yyyy;
+    Submitx(fiunalDateString);
   }
   render() {
     return (
