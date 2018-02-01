@@ -8,17 +8,19 @@ class PickColor extends React.Component {
     super(props);
     this.state = {
       background: '',
-      displayColorPicker: false,
+      displayColorPicker: false
     };
     this.handleOnColorChange = this.handleOnColorChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleClose = this.handleClose.bind(this);
   };
-   handleClick(){
-     this.setState({ displayColorPicker: !this.state.displayColorPicker })
-   };
-   handleClose() {
-    this.setState({ displayColorPicker: false })
+  handleClick() {
+    this.setState({
+      displayColorPicker: !this.state.displayColorPicker
+    })
+  };
+  handleClose() {
+    this.setState({displayColorPicker: false})
   };
   handleOnColorChange(color) {
     const colorChanged = color.hex;
@@ -39,15 +41,12 @@ class PickColor extends React.Component {
       bottom: '0px',
       left: '0px'
     };
-    return (<div>
+    return (<div className="componentContainer">
+      <label>Color</label>
       <button onClick={this.handleClick}>Pick Color</button>
-      {
-        this.state.displayColorPicker? <div style={popover}>
-              <div style={cover} onClick={this.handleClose}/>
+      {this.state.displayColorPicker ? <div style={popover}> <div style={cover} onClick={this.handleClose}/>
               <SketchPicker color={this.state.background} onChangeComplete={this.handleOnColorChange}/>
-            </div>
-          : null
-      }
+            </div>:null}
     </div>)
   }
 }
