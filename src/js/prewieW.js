@@ -22,7 +22,7 @@ export class Previews extends React.Component {
   };
 
   render() {
-    const shortValue = '[ect-EndDate name="' + this.props.pName + '" date="' + this.props.pDate + '"  color= "' + this.props.pColor + '" font-size="' + this.props.pFont + '"px]';
+    const shortValue = '[ectShortcode   name="' + this.props.pName + '"   date="' + this.props.pDate + '"  color= "' + this.props.pColor + '"   fontSize="' + this.props.pFont + '"px]';
 
     return (<div className="componentContainer">
       <label>Shortcode</label>
