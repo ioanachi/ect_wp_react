@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -25,7 +25,8 @@ module.exports = {
       server: {
         baseDir: ['']
       },
-    })
+    }),
+    new UglifyJsPlugin()
   ],
   devServer: {
     contentBase: path.resolve(__dirname, './'),

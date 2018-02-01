@@ -12,7 +12,6 @@ export class Bold extends React.Component {
     this.setState({ectIsBold:evt.target.checked});
     const isBoldC = !this.state.ectIsBold;
     const SubmitB = this.props.callbackChildPropB;
-    console.log(isBoldC);
     SubmitB(isBoldC);
   };
   render() {
