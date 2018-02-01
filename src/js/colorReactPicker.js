@@ -1,31 +1,52 @@
-import { render } from 'react-dom'
+'use strict'
+import {render} from 'react-dom'
 import React from 'react';
-import { SketchPicker } from 'react-color'
+import {SketchPicker} from 'react-color'
 
-
-export class PickColor extends React.Component {
+class PickColor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        background: '',
+      background: '',
+      displayColorPicker: false,
     };
     this.handleOnColorChange = this.handleOnColorChange.bind(this);
-
-  }
+  };
+   handleClick(){
+     this.setState({ displayColorPicker: !this.state.displayColorPicker })
+   };
+   handleClose() {
+    this.setState({ displayColorPicker: false })
+  };
   handleOnColorChange(color) {
-    const colorChanged =  color.hex;
-    this.setState({ background: color.hex });
-   // this.setState({ color: evt.target.value });
+    const colorChanged = color.hex;
+    this.setState({background: color.hex});
+    // this.setState({ color: evt.target.value });
     const Submitx = this.props.callbackChildPropColor;
-
     Submitx(colorChanged);
   }
-
   render() {
-    return( <div>
-    <label htmlFor="fontInput">Pick a color</label>
-
-      <SketchPicker  color={ this.state.background } onChangeComplete={this.handleOnColorChange} />
+    const popover = {
+      position: 'absolute',
+      zIndex: '2'
+    };
+    const cover = {
+      position: 'fixed',
+      top: '0px',
+      right: '0px',
+      bottom: '0px',
+      left: '0px'
+    };
+    return (<div>
+      <button onClick={this.handleClick}>Pick Color</button>
+      {
+        this.state.displayColorPicker? <div style={popover}>
+              <div style={cover} onClick={this.handleClose}/>
+              <SketchPicker color={this.state.background} onChangeComplete={this.handleOnColorChange}/>
+            </div>
+          : null
+      }
     </div>)
   }
 }
+export default PickColor

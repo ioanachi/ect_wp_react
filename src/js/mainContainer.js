@@ -7,7 +7,7 @@ import {Styles} from './styles';
 import {Previews} from './prewieW';
 import {EndDate} from './dayPicker.js';
 import MomentLocaleUtils, {formatDate, parseDate} from 'react-day-picker/moment';
-import {PickColor} from './colorReactPicker.js';
+import PickColor from './colorReactPicker.js';
 
 // import 'moment/locale/it';
 

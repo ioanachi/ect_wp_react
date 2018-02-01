@@ -18,6 +18,9 @@
     "css-loader": "^0.28.7",
     "html-loader": "^0.5.1",
     "moment": "^2.20.1",
+    "classnames": "^2.2.5",
+    "react-timezone": "^1.0.5",
+    "prop-types": "^15.5.10",
     "node-sass": "^4.7.2",
     "raw-loader": "^0.5.1",
     "react": "^16.2.0",
@@ -30,7 +33,6 @@
     "webpack-dev-server": "^2.9.7",
     "lodash": "^4.0.1",
     "material-colors": "^1.2.1",
-    "prop-types": "^15.5.10",
     "reactcss": "^1.2.0",
     "react-color": "^2.13.8",
     "tinycolor2": "^1.4.1"
