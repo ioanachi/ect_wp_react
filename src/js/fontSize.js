@@ -4,20 +4,25 @@ export class FontSize extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fontSize: ''
+      fontSize: '',
+      ectIsBold:  false
     }
     this.inputfontSize = this.inputfontSize.bind(this);
   };
   inputfontSize(evt) {
     const fontVal = evt.target.value;
+    this.setState({ectIsBold:!this.state.ectIsBold})
     const Submitx = this.props.aaa;
-    Submitx(fontVal);
+    Submitx(fontVal, ectIsBold);
   };
 
   render() {
-    return (<div className="componentContainer">
-      <label htmlFor="fontInput">Font Size</label>
-      <input type="number" className="fontInput" onChange={this.inputfontSize}/>
+    return (<div>
+      <div className="componentContainer">
+        <label htmlFor="fontInput">Font Size</label>
+        <input type="number" className="fontInput" onChange={this.inputfontSize}/>
+      </div>
+      
     </div>);
   }
 }

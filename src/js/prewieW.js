@@ -5,7 +5,6 @@ export class Previews extends React.Component {
     super(props);
     this.state = {
       displayShortcode: false,
-      shortcodeValue: this.props.pName
     };
     this.selectAllText = this.selectAllText.bind(this);
   }
@@ -22,7 +21,7 @@ export class Previews extends React.Component {
   };
 
   render() {
-    const shortValue = '[ectShortcode   name="' + this.props.pName + '"   date="' + this.props.pDate + '"  color= "' + this.props.pColor + '"   fontSize="' + this.props.pFont + 'px"]';
+    const shortValue = '[ectShortcode   name="' + this.props.pName + '"   date="' + this.props.pDate + '"  color= "' + this.props.pColor + '"   fontSize="' + this.props.pFont + 'px"'+'    bold="'+this.props.pBold+'"]';
 
     return (<div className="componentContainer">
       <label>Shortcode</label>
