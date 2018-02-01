@@ -11,18 +11,27 @@ export class EndDate extends React.Component {
   handleDayChange(date) {
     const Submitx = this.props.callbackChildProp;
     var tempDate = new Date(date.toString());
-    var mm = tempDate.getMonth()+1;
-    var dd = tempDate.getDay();
+    var mm = parseInt(tempDate.getMonth())+1;
+    var dd = tempDate.getDate();
     var yyyy = tempDate.getFullYear();
 
-    var fiunalDateString = mm+'/'+dd+'/'+yyyy;
-    Submitx(fiunalDateString);
+    var finalDateString = yyyy+'/'+mm+'/'+dd;
+    Submitx(finalDateString);
+  }
+  ectFormatDate(tempDate,dateString){
+    var tempDate = new Date(tempDate.toString());
+    var mm = parseInt(tempDate.getMonth())+1;
+    var dd = tempDate.getDate();
+    var yyyy = tempDate.getFullYear();
+    var result = yyyy+'/'+mm+'/'+dd;
+    return result;
+
   }
   render() {
     return (
       <div className="componentContainer">
         <label htmlFor="fontInput"> End Date</label>
-        <DayPickerInput onDayChange={this.handleDayChange}/>
+        <DayPickerInput format="M/D/YYY" formatDate={this.ectFormatDate} onDayChange={this.handleDayChange} placeholder="YYYY/M/D" />
       </div>
     );
   }
