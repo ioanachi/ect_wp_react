@@ -11,6 +11,8 @@ class PickColor extends React.Component {
       displayColorPicker: false,
     };
     this.handleOnColorChange = this.handleOnColorChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   };
    handleClick(){
      this.setState({ displayColorPicker: !this.state.displayColorPicker })
