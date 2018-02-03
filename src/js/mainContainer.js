@@ -9,7 +9,7 @@ import {EndDate} from './Components/dayPicker.js';
 import MomentLocaleUtils, {formatDate, parseDate} from 'react-day-picker/moment';
 import PickColor from './Components/colorReactPicker.js';
 import {Bold} from './Components/bold.js';
-import {Timezones} from './Components/timezones.js';
+import {Timezones} from './Components/timezonePicker.js';
 // import 'moment/locale/it';
 
 class MainContainer extends React.Component {

@@ -11,7 +11,7 @@ export class Timezones extends React.Component {
     this.chooseTimezone = this.chooseTimezone.bind(this);
   };
 
-  chooseTimezone(timezone) {
+  chooseTimezone(timezone,x) {
     const JsonTimezones = {
       "(GMT-11:00) Niue": "Pacific/Niue",
       "(GMT-11:00) Pago Pago": "Pacific/Pago_Pago",
@@ -270,12 +270,12 @@ export class Timezones extends React.Component {
 
 
     var keysTimezone = Object.keys(JsonTimezones);
+
     var differenceTimePartial = keysTimezone.map(x => x = x.split('GMT')[1]);
     var differenceTimezone = differenceTimePartial.map(x => x = x.split(')')[0]);
-    // console.log(differenceTimezone);
+    console.log(typeof differenceTimezone);
 
     this.setState({timezoneC: timezone});
-console.log(timezone);
     const timezoneChosen = timezone;
     const sendTimezoneToParent = this.props.callbackChildPropT;
     sendTimezoneToParent(timezoneChosen);
