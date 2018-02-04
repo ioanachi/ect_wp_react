@@ -6,7 +6,6 @@ export class EndDate extends React.Component {
   constructor(props) {
     super(props);
     this.handleDayChange = this.handleDayChange.bind(this);
-    this.callbackChildPropT = this.callbackChildPropT.bind(this);
 
 
   }
@@ -27,9 +26,7 @@ export class EndDate extends React.Component {
     var yyyy = tempDate.getFullYear();
     var result = yyyy+'/'+mm+'/'+dd;
   };
-  callbackChildPropT(tz){
-    return tz;
-  }
+
   render() {
     return (
       <div className="componentContainer">
