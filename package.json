@@ -19,7 +19,8 @@
     "browser-sync-webpack-plugin": "^1.2.0",
     "classnames": "^2.2.5",
     "css-loader": "^0.28.7",
-    "html-loader": "^0.5.1",
+
+    "html-loader": "^0.5.5",
     "lodash": "^4.0.1",
     "material-colors": "^1.2.1",
     "moment": "^2.20.1",
@@ -27,7 +28,6 @@
     "prop-types": "^15.5.10",
     "raw-loader": "^0.5.1",
     "react": "^16.2.0",
-    "react-bootstrap-timezone-picker": "^1.0.12",
     "react-color": "^2.13.8",
     "react-day-picker": "^7.0.7",
     "react-dom": "^16.2.0",
@@ -36,6 +36,7 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "tinycolor2": "^1.4.1",
+    "uglifyjs-webpack-plugin": "^1.1.8",
     "url-loader": "^0.5.9",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7"
