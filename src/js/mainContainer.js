@@ -52,9 +52,8 @@ class MainContainer extends React.Component {
     this.setState({pColor:selectedColorChild})
   }
 returnTimezone (timezoneChosen){
-  console.log(timezoneChosen);
+  console.log(timezoneChosen,'aaa');
   this.setState({timezonep:timezoneChosen})
-
 }
   render() {
     const {selectedDay, isDisabled} = this.state;

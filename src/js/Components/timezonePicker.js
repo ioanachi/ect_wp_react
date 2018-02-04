@@ -3,15 +3,14 @@ import timezoneArr from './timezoneArr.js'
 export class Timezones extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      timezone: ''
-    }
+
     this.chooseTimezone = this.chooseTimezone.bind(this);
     this.getOptions = this.getOptions.bind(this);
   };
   chooseTimezone(evt) {
-    this.setState({timezone: evt.target.value});
-    console.log(evt.target.value);
+    const selectedValue = evt.target.value;
+    const returnDataToParent = this.props.callbackChildPropT;
+    returnDataToParent(selectedValue);
   };
   getOptions(x){
     return x.map(function(item,i) {

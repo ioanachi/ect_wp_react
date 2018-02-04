@@ -9,7 +9,6 @@ export class Previews extends React.Component {
     this.selectAllText = this.selectAllText.bind(this);
   }
   selectAllText(e) {
-    console.log(e.target.value, "run");
     e.target.setSelectionRange(0, e.target.value.length);
     e.target.select();
 
