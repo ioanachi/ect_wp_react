@@ -7,8 +7,5 @@ import 'react-day-picker/moment';
 import 'react-day-picker/lib/style.css';
 import 'react-color';
 
-
-
-
 import "./scss/main.scss";
 import "./js/script.js";

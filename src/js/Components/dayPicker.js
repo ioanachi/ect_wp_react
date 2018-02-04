@@ -7,16 +7,17 @@ export class EndDate extends React.Component {
     super(props);
     this.handleDayChange = this.handleDayChange.bind(this);
 
+
   }
   handleDayChange(date) {
-    const Submitx = this.props.callbackChildProp;
+    const returnDataToParent = this.props.callbackChildProp;
     var tempDate = new Date(date.toString());
     var mm = parseInt(tempDate.getMonth())+1;
     var dd = tempDate.getDate();
     var yyyy = tempDate.getFullYear();
 
     var finalDateString = yyyy+'/'+mm+'/'+dd;
-    Submitx(finalDateString);
+    returnDataToParent(finalDateString);
   }
   ectFormatDate(tempDate,dateString){
     var tempDate = new Date(tempDate.toString());
@@ -24,9 +25,8 @@ export class EndDate extends React.Component {
     var dd = tempDate.getDate();
     var yyyy = tempDate.getFullYear();
     var result = yyyy+'/'+mm+'/'+dd;
-    return result;
+  };
 
-  }
   render() {
     return (
       <div className="componentContainer">

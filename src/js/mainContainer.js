@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
-import {UserName} from './nameInput';
-import {FontSize} from './fontSize';
-import {Styles} from './styles';
-import {Previews} from './prewieW';
-import {EndDate} from './dayPicker.js';
+import {UserName} from './Components/nameInput';
+import {FontSize} from './Components/fontSize';
+import {Styles} from './Components/styles';
+import {Previews} from './Components/prewieW';
+import {EndDate} from './Components/dayPicker.js';
 import MomentLocaleUtils, {formatDate, parseDate} from 'react-day-picker/moment';
-import PickColor from './colorReactPicker.js';
-import {Bold} from './bold.js';
+import PickColor from './Components/colorReactPicker.js';
+import {Bold} from './Components/bold.js';
+import {Timezones} from './Components/timezonePicker.js';
 // import 'moment/locale/it';
 
 class MainContainer extends React.Component {
@@ -21,13 +22,15 @@ class MainContainer extends React.Component {
       naMeP: '',
       fontSizeP: '',
       pColor:'',
-      ectIsBoldP:false
+      ectIsBoldP:false,
+      timezonep:''
     };
     this.onFontSubmit = this.onFontSubmit.bind(this);
     this.returnChildDate = this.returnChildDate.bind(this);
     this.onNameSubmit = this.onNameSubmit.bind(this);
     this.returnChildColor = this.returnChildColor.bind(this);
     this.isBold = this.isBold.bind(this);
+    this.returnTimezone = this.returnTimezone.bind(this);
   }
 
   isBold(isBoldC){
@@ -48,6 +51,9 @@ class MainContainer extends React.Component {
   returnChildColor(selectedColorChild){
     this.setState({pColor:selectedColorChild})
   }
+returnTimezone (timezoneChosen){
+  this.setState({timezonep:timezoneChosen})
+}
   render() {
     const {selectedDay, isDisabled} = this.state;
     return (<div className="ContainerMain">
@@ -56,7 +62,8 @@ class MainContainer extends React.Component {
       <PickColor callbackChildPropColor = {this.returnChildColor}/>
       <FontSize aaa={this.onFontSubmit}/>
       <Bold callbackChildPropB={this.isBold}/>
-      <Previews pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP}/>
+      <Timezones callbackChildPropT={this.returnTimezone}/>
+      <Previews pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezone={this.state.timezonep}/>
     </div>);
   }
 };
