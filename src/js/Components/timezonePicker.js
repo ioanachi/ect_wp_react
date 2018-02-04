@@ -14,8 +14,7 @@ export class Timezones extends React.Component {
   };
   getOptions(x){
     return x.map(function(item,i) {
-      var newValue = item.text.split(')')[0];
-      newValue = newValue.split('(')[1];
+      var newValue = item.utc[0];
       return (<option key={i} value={newValue}>{item.text}</option>);
     });
   }
