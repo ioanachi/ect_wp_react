@@ -7,7 +7,7 @@ export class Timezones extends React.Component {
     this.chooseTimezone = this.chooseTimezone.bind(this);
     this.getOptions = this.getOptions.bind(this);
   };
-  chooseTimezone(evt) {
+  chooseTimezone(evt) { 
     const selectedValue = evt.target.value;
     const returnDataToParent = this.props.callbackChildPropT;
     returnDataToParent(selectedValue);
