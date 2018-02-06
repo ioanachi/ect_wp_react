@@ -4,12 +4,13 @@ import DayPickerInput from 'react-day-picker/DayPickerInput';
 import {UserName} from './Components/nameInput';
 import {FontSize} from './Components/fontSize';
 import {Styles} from './Components/styles';
-import {Previews} from './Components/prewieW';
+import {EctShortcode} from './Components/ectShortcode';
 import {EndDate} from './Components/dayPicker.js';
 import MomentLocaleUtils, {formatDate, parseDate} from 'react-day-picker/moment';
 import PickColor from './Components/colorReactPicker.js';
 import {Bold} from './Components/bold.js';
 import {Timezones} from './Components/timezonePicker.js';
+import {LivePreview} from './Components/livePreview.js';
 // import 'moment/locale/it';
 
 class MainContainer extends React.Component {
@@ -55,8 +56,8 @@ class MainContainer extends React.Component {
   render() {
     const {selectedDay, isDisabled} = this.state;
     return (<div className="ContainerMain">
-      <table>
-
+      <LivePreview pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezone={this.state.timezonep}/>
+      <table className="tableStyles">
         <tbody>
           <tr>
             <td className="componentContainer">
@@ -97,7 +98,7 @@ class MainContainer extends React.Component {
         </tbody>
       </table>
 
-      <Previews pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezone={this.state.timezonep}/>
+      <EctShortcode pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezone={this.state.timezonep}/>
     </div>);
   }
 };

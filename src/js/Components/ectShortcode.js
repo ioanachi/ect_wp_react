@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class Previews extends React.Component {
+export class EctShortcode extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
