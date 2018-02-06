@@ -36,4 +36,15 @@
     width: 87%;
     border: 1px solid rgb(154, 154, 154);
   }
+  .containerLabels{
+    padding: 20px;
+    margin: 20px;
+    font-style: italic;
+text-decoration: underline;
+    font-size: 20px;
+    font-weight: bold;
+    display: grid;
+    align-self: center;
+
+  }
 }

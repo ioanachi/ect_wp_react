@@ -21411,7 +21411,7 @@ __webpack_require__(411);
 /* 226 */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n\r\n  </div>\r\n\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n\r\n\r\n\r\n\r\n\r\n\r\n</body>\r\n</html>\r\n";
+module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n\r\n  </div>\r\n\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n</html>\r\n";
 
 /***/ }),
 /* 227 */
@@ -52018,7 +52018,7 @@ exports = module.exports = __webpack_require__(37)(undefined);
 
 
 // module
-exports.push([module.i, ".ContainerMain .componentContainer {\n  padding: 20px;\n  margin-bottom: 10px; }\n  .ContainerMain .componentContainer label {\n    font-size: 20px;\n    margin-right: 20px; }\n  .ContainerMain .componentContainer input.shortcode {\n    padding: 5px;\n    width: 60%; }\n\n.ContainerMain .shortcode {\n  margin: 10px; }\n  .ContainerMain .shortcode input {\n    padding: 5px;\n    width: 1100px; }\n\n.ContainerMain .timezones select {\n  max-width: 107px; }\n\n.ContainerMain .tableStyles {\n  height: 300px;\n  width: 90%; }\n\n.ContainerMain .containerPreview {\n  padding: 20px;\n  height: 300px;\n  width: 87%;\n  border: 1px solid #9a9a9a; }\n", ""]);
+exports.push([module.i, ".ContainerMain .componentContainer {\n  padding: 20px;\n  margin-bottom: 10px; }\n  .ContainerMain .componentContainer label {\n    font-size: 20px;\n    margin-right: 20px; }\n  .ContainerMain .componentContainer input.shortcode {\n    padding: 5px;\n    width: 60%; }\n\n.ContainerMain .shortcode {\n  margin: 10px; }\n  .ContainerMain .shortcode input {\n    padding: 5px;\n    width: 1100px; }\n\n.ContainerMain .timezones select {\n  max-width: 107px; }\n\n.ContainerMain .tableStyles {\n  height: 300px;\n  width: 90%; }\n\n.ContainerMain .containerPreview {\n  padding: 20px;\n  height: 300px;\n  width: 87%;\n  border: 1px solid #9a9a9a; }\n\n.ContainerMain .containerLabels {\n  padding: 20px;\n  margin: 20px;\n  font-style: italic;\n  text-decoration: underline;\n  font-size: 20px;\n  font-weight: bold;\n  display: grid;\n  align-self: center; }\n", ""]);
 
 // exports
 
@@ -52059,7 +52059,7 @@ var _fontSize = __webpack_require__(415);
 
 var _styles = __webpack_require__(416);
 
-var _ectShortcode = __webpack_require__(424);
+var _ectShortcode = __webpack_require__(417);
 
 var _dayPicker = __webpack_require__(418);
 
@@ -52906,7 +52906,72 @@ var Styles = exports.Styles = function (_React$Component) {
 }(_react2.default.Component);
 
 /***/ }),
-/* 417 */,
+/* 417 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.EctShortcode = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var EctShortcode = exports.EctShortcode = function (_React$Component) {
+  _inherits(EctShortcode, _React$Component);
+
+  function EctShortcode(props) {
+    _classCallCheck(this, EctShortcode);
+
+    var _this = _possibleConstructorReturn(this, (EctShortcode.__proto__ || Object.getPrototypeOf(EctShortcode)).call(this, props));
+
+    _this.state = {
+      displayShortcode: false
+    };
+    _this.selectAllText = _this.selectAllText.bind(_this);
+    return _this;
+  }
+
+  _createClass(EctShortcode, [{
+    key: 'selectAllText',
+    value: function selectAllText(e) {
+      e.target.setSelectionRange(0, e.target.value.length);
+      e.target.select();
+    }
+  }, {
+    key: 'showShortcode',
+    value: function showShortcode() {
+      this.setState({
+        displayShortcode: !this.state.displayShortcode
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var shortValue = '[ectShortcode   name="' + this.props.pName + '"   date="' + this.props.pDate + '"  color= "' + this.props.pColor + '"   fontSize="' + this.props.pFont + 'px"' + '    bold="' + this.props.pBold + '"   timezone="' + this.props.pTimezone + '"]';
+
+      return _react2.default.createElement('div', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Shortcode'), _react2.default.createElement('span', null, '(copy this)'), _react2.default.createElement('div', { className: 'shortcode' }, _react2.default.createElement('input', { onClick: this.selectAllText, value: shortValue, readOnly: 'readOnly' })));
+    }
+  }]);
+
+  return EctShortcode;
+}(_react2.default.Component);
+
+/***/ }),
 /* 418 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -53976,79 +54041,34 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
   }
 
   _createClass(LivePreview, [{
-    key: "render",
-    value: function render() {
-      return _react2.default.createElement("div", { className: "containerPreview" });
-    }
-  }]);
+    key: 'diffDays1',
+    value: function diffDays1() {
+      var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
 
-  return LivePreview;
-}(_react2.default.Component);
+      var secondDate = new Date(this.props.pDate);
 
-/***/ }),
-/* 424 */
-/***/ (function(module, exports, __webpack_require__) {
+      var firstDate = new Date();
+      if (secondDate.getTime() < firstDate.getTime()) {
+        return 0;
+      }
+      return Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / oneDay)) + 1;
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.EctShortcode = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var EctShortcode = exports.EctShortcode = function (_React$Component) {
-  _inherits(EctShortcode, _React$Component);
-
-  function EctShortcode(props) {
-    _classCallCheck(this, EctShortcode);
-
-    var _this = _possibleConstructorReturn(this, (EctShortcode.__proto__ || Object.getPrototypeOf(EctShortcode)).call(this, props));
-
-    _this.state = {
-      displayShortcode: false
-    };
-    _this.selectAllText = _this.selectAllText.bind(_this);
-    return _this;
-  }
-
-  _createClass(EctShortcode, [{
-    key: 'selectAllText',
-    value: function selectAllText(e) {
-      e.target.setSelectionRange(0, e.target.value.length);
-      e.target.select();
-    }
-  }, {
-    key: 'showShortcode',
-    value: function showShortcode() {
-      this.setState({
-        displayShortcode: !this.state.displayShortcode
-      });
+      // diferenta dintre milisecundele din viitor (de la 1970) si milisecundele actuale
+      // (de la anul 1970) impartite la o zi(care este egala cu 24h* 60 min si 60 sec* 1000milisecunde)
     }
   }, {
     key: 'render',
     value: function render() {
-      var shortValue = '[ectShortcode   name="' + this.props.pName + '"   date="' + this.props.pDate + '"  color= "' + this.props.pColor + '"   fontSize="' + this.props.pFont + 'px"' + '    bold="' + this.props.pBold + '"   timezone="' + this.props.pTimezone + '"]';
-
-      return _react2.default.createElement('div', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Shortcode'), _react2.default.createElement('span', null, '(copy this)'), _react2.default.createElement('div', { className: 'shortcode' }, _react2.default.createElement('input', { onClick: this.selectAllText, value: shortValue, readOnly: 'readOnly' })));
+      var divStyle = {
+        fontSize: this.props.pFont + 'px',
+        color: this.props.pColor,
+        fontWeight: this.props.pBold == true ? 'bold' : 'normal'
+      };
+      return _react2.default.createElement('div', null, _react2.default.createElement('label', { className: 'containerLabels' }, 'Live preview'), _react2.default.createElement('div', { className: 'containerPreview' }, _react2.default.createElement('h3', null, this.props.pName), _react2.default.createElement('h2', { style: divStyle }, this.diffDays1())), _react2.default.createElement('label', { className: 'containerLabels' }, 'Configuration'));
     }
   }]);
 
-  return EctShortcode;
+  return LivePreview;
 }(_react2.default.Component);
 
 /***/ })
