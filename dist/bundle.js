@@ -52018,7 +52018,7 @@ exports = module.exports = __webpack_require__(37)(undefined);
 
 
 // module
-exports.push([module.i, ".ContainerMain .componentContainer {\n  padding: 20px;\n  margin-bottom: 10px; }\n  .ContainerMain .componentContainer label {\n    font-size: 20px;\n    margin-right: 20px; }\n  .ContainerMain .componentContainer input.shortcode {\n    padding: 5px;\n    width: 60%; }\n\n.ContainerMain .shortcode {\n  margin: 10px; }\n  .ContainerMain .shortcode input {\n    padding: 5px;\n    width: 1100px; }\n\n.ContainerMain .timezones select {\n  max-width: 107px; }\n", ""]);
+exports.push([module.i, ".ContainerMain .componentContainer {\n  padding: 20px;\n  margin-bottom: 10px; }\n  .ContainerMain .componentContainer label {\n    font-size: 20px;\n    margin-right: 20px; }\n  .ContainerMain .componentContainer input.shortcode {\n    padding: 5px;\n    width: 60%; }\n\n.ContainerMain .shortcode {\n  margin: 10px; }\n  .ContainerMain .shortcode input {\n    padding: 5px;\n    width: 1100px; }\n\n.ContainerMain .timezones select {\n  max-width: 107px; }\n\n.ContainerMain .tableStyles {\n  height: 300px;\n  width: 90%; }\n\n.ContainerMain .containerPreview {\n  padding: 20px;\n  height: 300px;\n  width: 87%;\n  border: 1px solid #9a9a9a; }\n", ""]);
 
 // exports
 
@@ -52059,7 +52059,7 @@ var _fontSize = __webpack_require__(415);
 
 var _styles = __webpack_require__(416);
 
-var _prewieW = __webpack_require__(417);
+var _ectShortcode = __webpack_require__(424);
 
 var _dayPicker = __webpack_require__(418);
 
@@ -52074,6 +52074,8 @@ var _colorReactPicker2 = _interopRequireDefault(_colorReactPicker);
 var _bold = __webpack_require__(420);
 
 var _timezonePicker = __webpack_require__(421);
+
+var _livePreview = __webpack_require__(423);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -52149,7 +52151,7 @@ var MainContainer = function (_React$Component) {
           selectedDay = _state.selectedDay,
           isDisabled = _state.isDisabled;
 
-      return _react2.default.createElement('div', { className: 'ContainerMain' }, _react2.default.createElement('table', null, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_dayPicker.EndDate, { callbackChildProp: this.returnChildDate })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Font Size')), _react2.default.createElement('td', null, _react2.default.createElement(_fontSize.FontSize, { aaa: this.onFontSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Bold')), _react2.default.createElement('td', null, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { callbackChildPropT: this.returnTimezone }))))), _react2.default.createElement(_prewieW.Previews, { pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezone: this.state.timezonep }));
+      return _react2.default.createElement('div', { className: 'ContainerMain' }, _react2.default.createElement(_livePreview.LivePreview, { pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezone: this.state.timezonep }), _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_dayPicker.EndDate, { callbackChildProp: this.returnChildDate })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Font Size')), _react2.default.createElement('td', null, _react2.default.createElement(_fontSize.FontSize, { aaa: this.onFontSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Bold')), _react2.default.createElement('td', null, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { callbackChildPropT: this.returnTimezone }))))), _react2.default.createElement(_ectShortcode.EctShortcode, { pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezone: this.state.timezonep }));
     }
   }]);
 
@@ -52904,72 +52906,7 @@ var Styles = exports.Styles = function (_React$Component) {
 }(_react2.default.Component);
 
 /***/ }),
-/* 417 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Previews = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Previews = exports.Previews = function (_React$Component) {
-  _inherits(Previews, _React$Component);
-
-  function Previews(props) {
-    _classCallCheck(this, Previews);
-
-    var _this = _possibleConstructorReturn(this, (Previews.__proto__ || Object.getPrototypeOf(Previews)).call(this, props));
-
-    _this.state = {
-      displayShortcode: false
-    };
-    _this.selectAllText = _this.selectAllText.bind(_this);
-    return _this;
-  }
-
-  _createClass(Previews, [{
-    key: 'selectAllText',
-    value: function selectAllText(e) {
-      e.target.setSelectionRange(0, e.target.value.length);
-      e.target.select();
-    }
-  }, {
-    key: 'showShortcode',
-    value: function showShortcode() {
-      this.setState({
-        displayShortcode: !this.state.displayShortcode
-      });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var shortValue = '[ectShortcode   name="' + this.props.pName + '"   date="' + this.props.pDate + '"  color= "' + this.props.pColor + '"   fontSize="' + this.props.pFont + 'px"' + '    bold="' + this.props.pBold + '"   timezone="' + this.props.pTimezone + '"]';
-
-      return _react2.default.createElement('div', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Shortcode'), _react2.default.createElement('span', null, '(copy this)'), _react2.default.createElement('div', { className: 'shortcode' }, _react2.default.createElement('input', { onClick: this.selectAllText, value: shortValue, readOnly: 'readOnly' })));
-    }
-  }]);
-
-  return Previews;
-}(_react2.default.Component);
-
-/***/ }),
+/* 417 */,
 /* 418 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -53997,6 +53934,122 @@ var timezoneArr = [{
   "utc": ["Pacific/Apia"]
 }];
 exports.default = timezoneArr;
+
+/***/ }),
+/* 423 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.LivePreview = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var LivePreview = exports.LivePreview = function (_React$Component) {
+  _inherits(LivePreview, _React$Component);
+
+  function LivePreview(props) {
+    _classCallCheck(this, LivePreview);
+
+    var _this = _possibleConstructorReturn(this, (LivePreview.__proto__ || Object.getPrototypeOf(LivePreview)).call(this, props));
+
+    _this.state = {
+      livePreview: false
+    };
+    return _this;
+  }
+
+  _createClass(LivePreview, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement("div", { className: "containerPreview" });
+    }
+  }]);
+
+  return LivePreview;
+}(_react2.default.Component);
+
+/***/ }),
+/* 424 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.EctShortcode = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var EctShortcode = exports.EctShortcode = function (_React$Component) {
+  _inherits(EctShortcode, _React$Component);
+
+  function EctShortcode(props) {
+    _classCallCheck(this, EctShortcode);
+
+    var _this = _possibleConstructorReturn(this, (EctShortcode.__proto__ || Object.getPrototypeOf(EctShortcode)).call(this, props));
+
+    _this.state = {
+      displayShortcode: false
+    };
+    _this.selectAllText = _this.selectAllText.bind(_this);
+    return _this;
+  }
+
+  _createClass(EctShortcode, [{
+    key: 'selectAllText',
+    value: function selectAllText(e) {
+      e.target.setSelectionRange(0, e.target.value.length);
+      e.target.select();
+    }
+  }, {
+    key: 'showShortcode',
+    value: function showShortcode() {
+      this.setState({
+        displayShortcode: !this.state.displayShortcode
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var shortValue = '[ectShortcode   name="' + this.props.pName + '"   date="' + this.props.pDate + '"  color= "' + this.props.pColor + '"   fontSize="' + this.props.pFont + 'px"' + '    bold="' + this.props.pBold + '"   timezone="' + this.props.pTimezone + '"]';
+
+      return _react2.default.createElement('div', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Shortcode'), _react2.default.createElement('span', null, '(copy this)'), _react2.default.createElement('div', { className: 'shortcode' }, _react2.default.createElement('input', { onClick: this.selectAllText, value: shortValue, readOnly: 'readOnly' })));
+    }
+  }]);
+
+  return EctShortcode;
+}(_react2.default.Component);
 
 /***/ })
 ],[224]);
