@@ -28,11 +28,9 @@ export class EndDate extends React.Component {
     var yyyy = tempDate.getFullYear();
     var result = yyyy+'/'+mm+'/'+dd;
   };
-
   render() {
     return (
       <div className="componentContainer">
-        <label htmlFor="fontInput"> End Date</label>
         <DayPickerInput format="M/D/YYY" formatDate={this.ectFormatDate} onDayChange={this.handleDayChange} placeholder="YYYY/M/D" value={this.state.value} />
       </div>
     );

@@ -21,9 +21,9 @@ class MainContainer extends React.Component {
       endDate: '',
       naMeP: '',
       fontSizeP: '',
-      pColor:'',
-      ectIsBoldP:false,
-      timezonep:''
+      pColor: '',
+      ectIsBoldP: false,
+      timezonep: ''
     };
     this.onFontSubmit = this.onFontSubmit.bind(this);
     this.returnChildDate = this.returnChildDate.bind(this);
@@ -33,8 +33,8 @@ class MainContainer extends React.Component {
     this.returnTimezone = this.returnTimezone.bind(this);
   }
 
-  isBold(isBoldC){
-    this.setState({ectIsBoldP:isBoldC})
+  isBold(isBoldC) {
+    this.setState({ectIsBoldP: isBoldC})
 
   };
   onFontSubmit(fontSize) {
@@ -44,25 +44,59 @@ class MainContainer extends React.Component {
     this.setState({naMeP: naMe});
   }
   returnChildDate(selectedDay) {
-    this.setState({
-      selectedDay: selectedDay
-    });
+    this.setState({selectedDay: selectedDay});
   }
-  returnChildColor(selectedColorChild){
-    this.setState({pColor:selectedColorChild})
+  returnChildColor(selectedColorChild) {
+    this.setState({pColor: selectedColorChild})
   }
-returnTimezone (timezoneChosen){
-  this.setState({timezonep:timezoneChosen})
-}
+  returnTimezone(timezoneChosen) {
+    this.setState({timezonep: timezoneChosen})
+  }
   render() {
     const {selectedDay, isDisabled} = this.state;
     return (<div className="ContainerMain">
-      <UserName NameParent={this.onNameSubmit}/>
-      <EndDate callbackChildProp={this.returnChildDate}/>
-      <PickColor callbackChildPropColor = {this.returnChildColor}/>
-      <FontSize aaa={this.onFontSubmit}/>
-      <Bold callbackChildPropB={this.isBold}/>
-      <Timezones callbackChildPropT={this.returnTimezone}/>
+      <table>
+
+        <tbody>
+          <tr>
+            <td className="componentContainer">
+              <label htmlFor="username">Name
+              </label>
+            </td>
+            <td className="componentContainer">
+              <UserName NameParent={this.onNameSubmit}/></td>
+            <td className="componentContainer">
+              <label htmlFor="fontInput">
+                End Date</label>
+            </td>
+            <td className="componentContainer"><EndDate callbackChildProp={this.returnChildDate}/></td>
+            <td className="componentContainer">
+              <label>Color</label>
+            </td>
+            <td><PickColor callbackChildPropColor={this.returnChildColor}/></td>
+          </tr>
+          <tr>
+            <td className="componentContainer">
+              <label htmlFor="fontInput">Font Size</label>
+            </td>
+            <td>
+              <FontSize aaa={this.onFontSubmit}/></td>
+
+            <td className="componentContainer">
+              <label>Bold</label>
+            </td>
+            <td>
+              <Bold callbackChildPropB={this.isBold}/></td>
+
+            <td className="componentContainer">
+              <label>timezone</label>
+            </td>
+            <td className="timezones">
+              <Timezones callbackChildPropT={this.returnTimezone}/></td>
+          </tr>
+        </tbody>
+      </table>
+
       <Previews pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezone={this.state.timezonep}/>
     </div>);
   }

@@ -25,8 +25,9 @@ module.exports = {
       server: {
         baseDir: ['./']
       },
-    }),
-    new UglifyJsPlugin()
+    })
+    // ,
+    // new UglifyJsPlugin()
   ],
   devServer: {
     contentBase: path.resolve(__dirname, './'),

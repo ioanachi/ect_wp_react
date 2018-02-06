@@ -42,11 +42,11 @@ class PickColor extends React.Component {
       left: '0px'
     };
     return (<div className="componentContainer">
-      <label>Color</label>
-      <button onClick={this.handleClick}>Pick Color</button>
-      {this.state.displayColorPicker ? <div style={popover}> <div style={cover} onClick={this.handleClose}/>
-              <SketchPicker color={this.state.background} onChangeComplete={this.handleOnColorChange}/>
-            </div>:null}
+    <button onClick={this.handleClick}>Pick Color</button>
+    {this.state.displayColorPicker ? <div style={popover}> <div style={cover} onClick={this.handleClose}/>
+            <SketchPicker color={this.state.background} onChangeComplete={this.handleOnColorChange}/>
+          </div>:null}
+
     </div>)
   }
 }

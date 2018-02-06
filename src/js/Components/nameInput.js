@@ -12,9 +12,6 @@ export class UserName extends React.Component {
     Submitx(nameVal);
   };
   render() {
-    return (<div className="componentContainer">
-      <label htmlFor="username">Name</label>
-      <input className="username" type="text" onInput={this.inputName}/>
-    </div>);
+    return <input className="username" type="text" onInput={this.inputName}/>;
   }
 }
