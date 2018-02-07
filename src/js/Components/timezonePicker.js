@@ -12,6 +12,7 @@ export class Timezones extends React.Component {
   };
   chooseTimezone(evt) {
     const selectedValue = evt.target.value;
+    console.log(selectedValue, "initialValue");
     var offset = new Date().getTimezoneOffset();
     const epochTime = new Date(1)
     console.log(epochTime, "rush");

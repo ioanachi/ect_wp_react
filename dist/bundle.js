@@ -52134,7 +52134,6 @@ var MainContainer = function (_React$Component) {
     key: 'returnChildDate',
     value: function returnChildDate(selectedDay) {
       this.setState({ selectedDay: selectedDay });
-      console.log(Intl.DateTimeFormat().resolvedOptions().timeZone);
     }
   }, {
     key: 'returnChildColor',
@@ -52153,7 +52152,7 @@ var MainContainer = function (_React$Component) {
           selectedDay = _state.selectedDay,
           isDisabled = _state.isDisabled;
 
-      return _react2.default.createElement('div', { className: 'ContainerMain' }, _react2.default.createElement(_livePreview.LivePreview, { pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezone: this.state.timezonep }), _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_dayPicker.EndDate, { callbackChildProp: this.returnChildDate })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Font Size')), _react2.default.createElement('td', null, _react2.default.createElement(_fontSize.FontSize, { aaa: this.onFontSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Bold')), _react2.default.createElement('td', null, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { callbackChildPropT: this.returnTimezone }))))), _react2.default.createElement(_ectShortcode.EctShortcode, { pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezone: this.state.timezoneOffset }));
+      return _react2.default.createElement('div', { className: 'ContainerMain' }, _react2.default.createElement(_livePreview.LivePreview, { pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezoneOffset: this.state.timezoneOffset }), _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_dayPicker.EndDate, { callbackChildProp: this.returnChildDate })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Font Size')), _react2.default.createElement('td', null, _react2.default.createElement(_fontSize.FontSize, { aaa: this.onFontSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Bold')), _react2.default.createElement('td', null, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { callbackChildPropT: this.returnTimezone }))))), _react2.default.createElement(_ectShortcode.EctShortcode, { pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezoneOffset: this.state.timezoneOffset }));
     }
   }]);
 
@@ -52964,7 +52963,7 @@ var EctShortcode = exports.EctShortcode = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var shortValue = '[ectShortcode   name="' + this.props.pName + '"   date="' + this.props.pDate + '"  color= "' + this.props.pColor + '"   fontSize="' + this.props.pFont + 'px"' + '    bold="' + this.props.pBold + '"   timezone="' + this.props.pTimezone + '"]';
+      var shortValue = '[ectShortcode   name="' + this.props.pName + '"   date="' + this.props.pDate + '"  color= "' + this.props.pColor + '"   fontSize="' + this.props.pFont + 'px"' + '    bold="' + this.props.pBold + '"   timezone="' + this.props.pTimezoneOffset + '"]';
 
       return _react2.default.createElement('div', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Shortcode'), _react2.default.createElement('span', null, '(copy this)'), _react2.default.createElement('div', { className: 'shortcode' }, _react2.default.createElement('input', { onClick: this.selectAllText, value: shortValue, readOnly: 'readOnly' })));
     }
@@ -53249,6 +53248,7 @@ var Timezones = exports.Timezones = function (_React$Component) {
     key: 'chooseTimezone',
     value: function chooseTimezone(evt) {
       var selectedValue = evt.target.value;
+      console.log(selectedValue, "initialValue");
       var offset = new Date().getTimezoneOffset();
       var epochTime = new Date(1);
       console.log(epochTime, "rush");
@@ -54066,16 +54066,36 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
       return this.props.pDate;
     }
   }, {
+    key: 'timezoneRequired',
+    value: function timezoneRequired() {
+      var localDate = new Date();
+      var localTimeSeconds = localDate.getTime();
+      //  localTimeSeconds secundele trecute din 1 jan 1970 pana la ora locala (asta face .getTime() de data locala
+      // obtinuta cu newDate() )
+      console.log(localTimeSeconds, 'localUtc');
+      var localOffset = localDate.getTimezoneOffset() * 60000;
+      var utc = localTimeSeconds + localOffset;
+      var timezoneOffset = this.props.pTimezoneOffset;
+      // timezoneDateSeconds  timezone-ul ales in secunde (se inmulteste cu 3600000
+      // pentru ca 1000 millseconds = 1 second, and 1 hour = 3600  seconds)
+      // Therefore, converting hours to milliseconds involves multiplying by 3600 * 1000 = 3600000.
+      var timezoneDateSeconds = utc + timezoneOffset * 3600000;
+      // Change the time value calculated in the previous step to a human-readable date/time string by
+      // initializing a new Date() object with it, and calling the object's toLocaleString() method.
+      var timezoneDateH = new Date(timezoneDateSeconds);
+      console.log(timezoneDateH, 'timezoneDateH');
+      // return timezoneDateH;
+    }
+  }, {
     key: 'render',
     value: function render() {
-
       var divStyle = {
         fontSize: this.props.pFont + 'px',
         color: this.props.pColor,
         fontWeight: this.props.pBold == true ? 'bold' : 'normal'
       };
 
-      return _react2.default.createElement('div', null, _react2.default.createElement('label', { className: 'containerLabels' }, 'Live preview'), _react2.default.createElement('div', { className: 'containerPreview' }, _react2.default.createElement('h3', null, this.props.pName), _react2.default.createElement('h2', { style: divStyle }, this.diffDays1())), _react2.default.createElement('label', { className: 'containerLabels' }, 'Configuration'));
+      return _react2.default.createElement('div', null, _react2.default.createElement('label', { className: 'containerLabels' }, 'Live preview'), _react2.default.createElement('div', { className: 'containerPreview' }, _react2.default.createElement('h3', null, this.props.pName), _react2.default.createElement('h2', { style: divStyle }, this.diffDays1()), _react2.default.createElement('h2', null, this.timezoneRequired())), _react2.default.createElement('label', { className: 'containerLabels' }, 'Configuration'));
     }
   }]);
 

@@ -25,7 +25,7 @@ class MainContainer extends React.Component {
       pColor: '',
       ectIsBoldP: false,
       timezoneOffset: '',
-      differenceUtcP:''
+      differenceUtcP: ''
     };
     this.onFontSubmit = this.onFontSubmit.bind(this);
     this.returnChildDate = this.returnChildDate.bind(this);
@@ -37,7 +37,6 @@ class MainContainer extends React.Component {
 
   isBold(isBoldC) {
     this.setState({ectIsBoldP: isBoldC})
-
   };
   onFontSubmit(fontSize) {
     this.setState({fontSizeP: fontSize});
@@ -47,20 +46,17 @@ class MainContainer extends React.Component {
   }
   returnChildDate(selectedDay) {
     this.setState({selectedDay: selectedDay});
-    console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
-
   }
   returnChildColor(selectedColorChild) {
     this.setState({pColor: selectedColorChild})
   }
   returnTimezone(timezoneChosen) {
-    this.setState({timezoneOffset: timezoneChosen})
-
+    this.setState({timezoneOffset: timezoneChosen});
   }
   render() {
     const {selectedDay, isDisabled} = this.state;
     return (<div className="ContainerMain">
-      <LivePreview pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezone={this.state.timezonep}/>
+      <LivePreview pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset}/>
       <table className="tableStyles">
         <tbody>
           <tr>
@@ -102,7 +98,7 @@ class MainContainer extends React.Component {
         </tbody>
       </table>
 
-      <EctShortcode pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezone={this.state.timezoneOffset}/>
+      <EctShortcode pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset}/>
     </div>);
   }
 };
