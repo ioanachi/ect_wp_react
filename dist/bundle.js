@@ -54073,8 +54073,11 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
       //  localTimeSeconds secundele trecute din 1 jan 1970 pana la ora locala (asta face .getTime() de data locala
       // obtinuta cu newDate() )
       console.log(localTimeSeconds, 'localUtc');
-      var localOffset = localDate.getTimezoneOffset() * 60000;
+      var localOffset = localDate.getTimezoneOffset();
+      console.log(localOffset * 3600000, 'localOffset');
+
       var utc = localTimeSeconds + localOffset;
+
       var timezoneOffset = this.props.pTimezoneOffset;
       // timezoneDateSeconds  timezone-ul ales in secunde (se inmulteste cu 3600000
       // pentru ca 1000 millseconds = 1 second, and 1 hour = 3600  seconds)
@@ -54082,9 +54085,10 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
       var timezoneDateSeconds = utc + timezoneOffset * 3600000;
       // Change the time value calculated in the previous step to a human-readable date/time string by
       // initializing a new Date() object with it, and calling the object's toLocaleString() method.
-      var timezoneDateH = new Date(timezoneDateSeconds);
-      console.log(timezoneDateH, 'timezoneDateH');
-      // return timezoneDateH;
+      var timezoneDateH = JSON.stringify(new Date(timezoneDateSeconds));
+      var timeInZone = timezoneDateH.split('T')[1];
+      console.log(timeInZone.split('.')[0], 'timezoneDateH');
+      return timeInZone.split('.')[0];
     }
   }, {
     key: 'render',
