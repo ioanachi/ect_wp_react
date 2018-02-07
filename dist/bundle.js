@@ -52103,7 +52103,8 @@ var MainContainer = function (_React$Component) {
       fontSizeP: '',
       pColor: '',
       ectIsBoldP: false,
-      timezonep: ''
+      timezoneOffset: '',
+      differenceUtcP: ''
     };
     _this.onFontSubmit = _this.onFontSubmit.bind(_this);
     _this.returnChildDate = _this.returnChildDate.bind(_this);
@@ -52133,6 +52134,7 @@ var MainContainer = function (_React$Component) {
     key: 'returnChildDate',
     value: function returnChildDate(selectedDay) {
       this.setState({ selectedDay: selectedDay });
+      console.log(Intl.DateTimeFormat().resolvedOptions().timeZone);
     }
   }, {
     key: 'returnChildColor',
@@ -52142,7 +52144,7 @@ var MainContainer = function (_React$Component) {
   }, {
     key: 'returnTimezone',
     value: function returnTimezone(timezoneChosen) {
-      this.setState({ timezonep: timezoneChosen });
+      this.setState({ timezoneOffset: timezoneChosen });
     }
   }, {
     key: 'render',
@@ -52151,7 +52153,7 @@ var MainContainer = function (_React$Component) {
           selectedDay = _state.selectedDay,
           isDisabled = _state.isDisabled;
 
-      return _react2.default.createElement('div', { className: 'ContainerMain' }, _react2.default.createElement(_livePreview.LivePreview, { pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezone: this.state.timezonep }), _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_dayPicker.EndDate, { callbackChildProp: this.returnChildDate })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Font Size')), _react2.default.createElement('td', null, _react2.default.createElement(_fontSize.FontSize, { aaa: this.onFontSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Bold')), _react2.default.createElement('td', null, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { callbackChildPropT: this.returnTimezone }))))), _react2.default.createElement(_ectShortcode.EctShortcode, { pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezone: this.state.timezonep }));
+      return _react2.default.createElement('div', { className: 'ContainerMain' }, _react2.default.createElement(_livePreview.LivePreview, { pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezone: this.state.timezonep }), _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_dayPicker.EndDate, { callbackChildProp: this.returnChildDate })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Font Size')), _react2.default.createElement('td', null, _react2.default.createElement(_fontSize.FontSize, { aaa: this.onFontSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Bold')), _react2.default.createElement('td', null, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { callbackChildPropT: this.returnTimezone }))))), _react2.default.createElement(_ectShortcode.EctShortcode, { pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezone: this.state.timezoneOffset }));
     }
   }]);
 
@@ -53011,7 +53013,7 @@ var EndDate = exports.EndDate = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (EndDate.__proto__ || Object.getPrototypeOf(EndDate)).call(this, props));
 
-    _this.state = { value: '' };
+    _this.state = { valDate: '' };
     _this.handleDayChange = _this.handleDayChange.bind(_this);
     return _this;
   }
@@ -53024,9 +53026,8 @@ var EndDate = exports.EndDate = function (_React$Component) {
       var mm = parseInt(tempDate.getMonth()) + 1;
       var dd = tempDate.getDate();
       var yyyy = tempDate.getFullYear();
-
       var finalDateString = yyyy + '/' + mm + '/' + dd;
-      this.setState({ value: finalDateString });
+      this.setState({ valDate: finalDateString });
       returnDataToParent(finalDateString);
     }
   }, {
@@ -53041,7 +53042,7 @@ var EndDate = exports.EndDate = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', { className: 'componentContainer' }, _react2.default.createElement(_DayPickerInput2.default, { format: 'M/D/YYY', formatDate: this.ectFormatDate, onDayChange: this.handleDayChange, placeholder: 'YYYY/M/D', value: this.state.value }));
+      return _react2.default.createElement('div', { className: 'componentContainer' }, _react2.default.createElement(_DayPickerInput2.default, { format: 'M/D/YYY', formatDate: this.ectFormatDate, onDayChange: this.handleDayChange, placeholder: 'YYYY/M/D', value: this.state.valDate || '' }));
     }
   }]);
 
@@ -53236,6 +53237,9 @@ var Timezones = exports.Timezones = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Timezones.__proto__ || Object.getPrototypeOf(Timezones)).call(this, props));
 
+    _this.state = {
+      differenceUtc: ''
+    };
     _this.chooseTimezone = _this.chooseTimezone.bind(_this);
     _this.getOptions = _this.getOptions.bind(_this);
     return _this;
@@ -53245,6 +53249,9 @@ var Timezones = exports.Timezones = function (_React$Component) {
     key: 'chooseTimezone',
     value: function chooseTimezone(evt) {
       var selectedValue = evt.target.value;
+      var offset = new Date().getTimezoneOffset();
+      var epochTime = new Date(1);
+      console.log(epochTime, "rush");
       var returnDataToParent = this.props.callbackChildPropT;
       returnDataToParent(selectedValue);
     }
@@ -53252,7 +53259,8 @@ var Timezones = exports.Timezones = function (_React$Component) {
     key: 'getOptions',
     value: function getOptions(x) {
       return x.map(function (item, i) {
-        var newValue = item.utc[0];
+        var newValue = item.offset;
+
         return _react2.default.createElement('option', { key: i, value: newValue }, item.text);
       });
     }
@@ -54043,27 +54051,30 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
   _createClass(LivePreview, [{
     key: 'diffDays1',
     value: function diffDays1() {
-      var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
-
-      var secondDate = new Date(this.props.pDate);
-
-      var firstDate = new Date();
-      if (secondDate.getTime() < firstDate.getTime()) {
-        return 0;
+      console.log(this.props.pDate == '', "this.props.pDate");
+      if (this.props.pDate !== '') {
+        var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+        var secondDate = new Date(this.props.pDate);
+        var firstDate = new Date();
+        if (secondDate.getTime() < firstDate.getTime()) {
+          return 0;
+        }
+        return Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / oneDay)) + 1;
+        // diferenta dintre milisecundele din viitor (de la 1970) si milisecundele actuale
+        // (de la anul 1970) impartite la o zi(care este egala cu 24h* 60 min si 60 sec* 1000milisecunde)
       }
-      return Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / oneDay)) + 1;
-
-      // diferenta dintre milisecundele din viitor (de la 1970) si milisecundele actuale
-      // (de la anul 1970) impartite la o zi(care este egala cu 24h* 60 min si 60 sec* 1000milisecunde)
+      return this.props.pDate;
     }
   }, {
     key: 'render',
     value: function render() {
+
       var divStyle = {
         fontSize: this.props.pFont + 'px',
         color: this.props.pColor,
         fontWeight: this.props.pBold == true ? 'bold' : 'normal'
       };
+
       return _react2.default.createElement('div', null, _react2.default.createElement('label', { className: 'containerLabels' }, 'Live preview'), _react2.default.createElement('div', { className: 'containerPreview' }, _react2.default.createElement('h3', null, this.props.pName), _react2.default.createElement('h2', { style: divStyle }, this.diffDays1())), _react2.default.createElement('label', { className: 'containerLabels' }, 'Configuration'));
     }
   }]);

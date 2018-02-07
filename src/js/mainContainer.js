@@ -24,7 +24,8 @@ class MainContainer extends React.Component {
       fontSizeP: '',
       pColor: '',
       ectIsBoldP: false,
-      timezonep: ''
+      timezoneOffset: '',
+      differenceUtcP:''
     };
     this.onFontSubmit = this.onFontSubmit.bind(this);
     this.returnChildDate = this.returnChildDate.bind(this);
@@ -46,12 +47,15 @@ class MainContainer extends React.Component {
   }
   returnChildDate(selectedDay) {
     this.setState({selectedDay: selectedDay});
+    console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
+
   }
   returnChildColor(selectedColorChild) {
     this.setState({pColor: selectedColorChild})
   }
   returnTimezone(timezoneChosen) {
-    this.setState({timezonep: timezoneChosen})
+    this.setState({timezoneOffset: timezoneChosen})
+
   }
   render() {
     const {selectedDay, isDisabled} = this.state;
@@ -98,7 +102,7 @@ class MainContainer extends React.Component {
         </tbody>
       </table>
 
-      <EctShortcode pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezone={this.state.timezonep}/>
+      <EctShortcode pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezone={this.state.timezoneOffset}/>
     </div>);
   }
 };
