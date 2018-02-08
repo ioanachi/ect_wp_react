@@ -16,9 +16,9 @@ export class FontSize extends React.Component {
   };
 
   render() {
-    return (
-        <input type="number" className="fontInput" onChange={this.inputfontSize}/>
-
-  );
+    return (<div>
+      <input type="number" className="fontInput" onChange={this.inputfontSize}/>
+      px
+    </div>);
   }
 }
