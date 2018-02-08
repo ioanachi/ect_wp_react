@@ -52018,7 +52018,7 @@ exports = module.exports = __webpack_require__(37)(undefined);
 
 
 // module
-exports.push([module.i, ".ContainerMain .componentContainer {\n  padding: 20px;\n  margin-bottom: 10px; }\n  .ContainerMain .componentContainer label {\n    font-size: 20px;\n    margin-right: 20px; }\n  .ContainerMain .componentContainer input.shortcode {\n    padding: 5px;\n    width: 60%; }\n\n.ContainerMain .shortcode {\n  margin: 10px; }\n  .ContainerMain .shortcode input {\n    padding: 5px;\n    width: 1100px; }\n\n.ContainerMain .timezones select {\n  max-width: 107px; }\n\n.ContainerMain .tableStyles {\n  height: 300px;\n  width: 90%; }\n\n.ContainerMain .containerPreview {\n  padding: 20px;\n  height: 300px;\n  width: 87%;\n  border: 1px solid #9a9a9a; }\n\n.ContainerMain .containerLabels {\n  padding: 20px;\n  margin: 20px;\n  font-style: italic;\n  text-decoration: underline;\n  font-size: 20px;\n  font-weight: bold;\n  display: grid;\n  align-self: center; }\n", ""]);
+exports.push([module.i, ".ContainerMain .componentContainer {\n  padding: 20px;\n  margin-bottom: 10px; }\n  .ContainerMain .componentContainer label {\n    font-size: 20px;\n    margin-right: 20px; }\n  .ContainerMain .componentContainer input.shortcode {\n    padding: 5px;\n    width: 60%; }\n\n.ContainerMain .shortcode {\n  margin: 10px; }\n  .ContainerMain .shortcode input {\n    padding: 5px;\n    width: 1100px; }\n\n.ContainerMain .timezones select {\n  max-width: 107px; }\n\n.ContainerMain .tableStyles {\n  height: 300px;\n  width: 90%; }\n\n.ContainerMain .containerPreview {\n  padding: 20px;\n  height: 300px;\n  width: 87%;\n  border: 1px solid #9a9a9a; }\n\n.ContainerMain .containerLabels {\n  padding: 20px;\n  margin: 20px;\n  font-style: italic;\n  text-decoration: underline;\n  font-size: 20px;\n  font-weight: bold;\n  display: grid;\n  align-self: center; }\n\n.ContainerMain .hourAndMinutes {\n  margin-left: 10px; }\n", ""]);
 
 // exports
 
@@ -52077,6 +52077,8 @@ var _timezonePicker = __webpack_require__(421);
 
 var _livePreview = __webpack_require__(423);
 
+var _endTime = __webpack_require__(424);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -52104,7 +52106,9 @@ var MainContainer = function (_React$Component) {
       pColor: '',
       ectIsBoldP: false,
       timezoneOffset: '',
-      differenceUtcP: ''
+      differenceUtcP: '',
+      selectedH: '',
+      selectedM: ''
     };
     _this.onFontSubmit = _this.onFontSubmit.bind(_this);
     _this.returnChildDate = _this.returnChildDate.bind(_this);
@@ -52112,6 +52116,7 @@ var MainContainer = function (_React$Component) {
     _this.returnChildColor = _this.returnChildColor.bind(_this);
     _this.isBold = _this.isBold.bind(_this);
     _this.returnTimezone = _this.returnTimezone.bind(_this);
+    _this.returnChildTime = _this.returnChildTime.bind(_this);
     return _this;
   }
 
@@ -52146,13 +52151,20 @@ var MainContainer = function (_React$Component) {
       this.setState({ timezoneOffset: timezoneChosen });
     }
   }, {
+    key: 'returnChildTime',
+    value: function returnChildTime(selectedHour, selectedMinutes) {
+      this.setState({ selectedH: selectedHour });
+      this.setState({ selectedM: selectedMinutes });
+      console.log(this.state.selectedH, this.state.selectedH);
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _state = this.state,
           selectedDay = _state.selectedDay,
           isDisabled = _state.isDisabled;
 
-      return _react2.default.createElement('div', { className: 'ContainerMain' }, _react2.default.createElement(_livePreview.LivePreview, { pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezoneOffset: this.state.timezoneOffset }), _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_dayPicker.EndDate, { callbackChildProp: this.returnChildDate })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Font Size')), _react2.default.createElement('td', null, _react2.default.createElement(_fontSize.FontSize, { aaa: this.onFontSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Bold')), _react2.default.createElement('td', null, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { callbackChildPropT: this.returnTimezone }))))), _react2.default.createElement(_ectShortcode.EctShortcode, { pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezoneOffset: this.state.timezoneOffset }));
+      return _react2.default.createElement('div', { className: 'ContainerMain' }, _react2.default.createElement(_livePreview.LivePreview, { pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezoneOffset: this.state.timezoneOffset }), _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Font Size')), _react2.default.createElement('td', null, _react2.default.createElement(_fontSize.FontSize, { aaa: this.onFontSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Bold')), _react2.default.createElement('td', null, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { callbackChildPropT: this.returnTimezone }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_dayPicker.EndDate, { callbackChildProp: this.returnChildDate })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Time')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_endTime.EndTime, { TimeEnd: this.returnChildTime }))))), _react2.default.createElement(_ectShortcode.EctShortcode, { pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezoneOffset: this.state.timezoneOffset }));
     }
   }]);
 
@@ -54070,12 +54082,13 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
 
         var timezoneOffset = this.props.pTimezoneOffset;
         var timezoneOffsetInHours = timezoneOffset;
-        console.log(timezoneOffset, 'pppppppppppppppppppppppppppppppppppppppppp');
 
+        console.log(timezoneOffset, 'pppppppppppppppppppppppppppppppppppppppppp');
         // timezoneDateSeconds  timezone-ul ales in secunde (se inmulteste cu 3600000
         // pentru ca 1000 millseconds = 1 second, and 1 hour = 3600  seconds)
         // Therefore, converting hours to milliseconds involves multiplying by 3600 * 1000 = 3600000.
         var timezoneDateSeconds = utc + timezoneOffset * oneHour;
+
         console.log(endDate.getTime(), 'endDate.getTime()', timezoneDateSeconds, 'timezoneDateSeconds');
         // Change the time value calculated in the previous step to a human-readable date/time string by
         // initializing a new Date() object with it, and calling the object's toLocaleString() method.
@@ -54133,6 +54146,93 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
   }]);
 
   return LivePreview;
+}(_react2.default.Component);
+
+/***/ }),
+/* 424 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.EndTime = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var EndTime = exports.EndTime = function (_React$Component) {
+  _inherits(EndTime, _React$Component);
+
+  function EndTime(props) {
+    _classCallCheck(this, EndTime);
+
+    var _this = _possibleConstructorReturn(this, (EndTime.__proto__ || Object.getPrototypeOf(EndTime)).call(this, props));
+
+    _this.chooseHours = _this.chooseHours.bind(_this);
+    _this.chooseMinutes = _this.chooseMinutes.bind(_this);
+    return _this;
+  }
+
+  _createClass(EndTime, [{
+    key: 'setHour',
+    value: function setHour() {
+      var optionsJsx = [];
+      for (var i = 0; i <= 24; i++) {
+        if (i < 10) {
+          optionsJsx.push(_react2.default.createElement('option', { key: i, value: i }, '0' + i));
+        } else {
+          optionsJsx.push(_react2.default.createElement('option', { key: i, value: i }, i));
+        }
+      }
+      return optionsJsx;
+    }
+  }, {
+    key: 'setMinutes',
+    value: function setMinutes() {
+      var optionsSeconds = [];
+      for (var y = 0; y <= 60; y++) {
+        if (y < 10) {
+          optionsSeconds.push(_react2.default.createElement('option', { key: y, value: y }, '0' + y));
+        } else {
+          optionsSeconds.push(_react2.default.createElement('option', { key: y, value: y }, y));
+        }
+      }
+      return optionsSeconds;
+    }
+  }, {
+    key: 'chooseHours',
+    value: function chooseHours(evt) {
+      var Submitx = this.props.TimeEnd;
+      Submitx(evt.target.value, this.refs.endMinute.value);
+    }
+  }, {
+    key: 'chooseMinutes',
+    value: function chooseMinutes(evt) {
+      var Submitx = this.props.TimeEnd;
+      Submitx(this.refs.endHour.value, evt.target.value);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement('div', null, 'Hours:  ', _react2.default.createElement('select', { ref: 'endHour', onChange: this.chooseHours }, this.setHour()), 'Minutes:  ', _react2.default.createElement('select', { ref: 'endMinute', onChange: this.chooseMinutes }, this.setMinutes()));
+    }
+  }]);
+
+  return EndTime;
 }(_react2.default.Component);
 
 /***/ })

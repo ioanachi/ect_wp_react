@@ -27,8 +27,10 @@ export class Timezones extends React.Component {
     });
   }
   render() {
-    return (<select onChange={this.chooseTimezone}>
+    return (
+      <select onChange={this.chooseTimezone}>
       {this.getOptions(timezoneArr)}
-    </select>);
+    </select>
+  );
   }
 }

@@ -27,12 +27,13 @@ export class LivePreview extends React.Component {
 
       var timezoneOffset = this.props.pTimezoneOffset;
       var timezoneOffsetInHours = timezoneOffset;
-      console.log(timezoneOffset, 'pppppppppppppppppppppppppppppppppppppppppp');
 
+      console.log(timezoneOffset, 'pppppppppppppppppppppppppppppppppppppppppp');
       // timezoneDateSeconds  timezone-ul ales in secunde (se inmulteste cu 3600000
       // pentru ca 1000 millseconds = 1 second, and 1 hour = 3600  seconds)
       // Therefore, converting hours to milliseconds involves multiplying by 3600 * 1000 = 3600000.
       var timezoneDateSeconds = utc + (timezoneOffset * oneHour);
+      
       console.log(endDate.getTime(), 'endDate.getTime()', timezoneDateSeconds, 'timezoneDateSeconds');
       // Change the time value calculated in the previous step to a human-readable date/time string by
       // initializing a new Date() object with it, and calling the object's toLocaleString() method.
