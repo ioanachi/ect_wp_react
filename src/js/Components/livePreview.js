@@ -3,29 +3,25 @@ import React from 'react';
 export class LivePreview extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      livePreview: false
-    }
+
   };
-  diffDays1() {
+  timeToCountDown() {
     console.log(this.props.pDate == '', "this.props.pDate");
     if (this.props.pDate !== '') {
       var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
       var oneHour = 60 * 60 * 1000;
       var oneMinute = 60 * 1000;
-      var endDate = new Date(this.props.pDate);
       const localDate = new Date();
-      const localTimeSeconds = localDate.getTime();
+      const localTimeMiliseconds = localDate.getTime();
       //  localTimeSeconds secundele trecute din 1 jan 1970 pana la ora locala (asta face .getTime() de data locala
       // obtinuta cu newDate() )
-      console.log(localTimeSeconds, 'localUtc');
+      console.log(localTimeMiliseconds, 'localUtc');
       var localOffset = localDate.getTimezoneOffset();
 
-      var utc = localTimeSeconds + localOffset;
+      var utc = localTimeMiliseconds + localOffset;
 
       var timezoneOffset = this.props.pTimezoneOffset;
-      var timezoneOffsetInHours = timezoneOffset;
-      console.log(this.props.pHour, this.props.pMinutes, "this.props.pHour, this.props.pMinutes");
+
       let hourToMiliseconds = this.props.pHour * oneHour;
       let minutesToMiliseconds = this.props.pMinutes * oneMinute;
       let date = new Date(this.props.pDate);
@@ -35,9 +31,9 @@ export class LivePreview extends React.Component {
       // timezoneDateSeconds  timezone-ul ales in secunde (se inmulteste cu 3600000
       // pentru ca 1000 millseconds = 1 second, and 1 hour = 3600  seconds)
       // Therefore, converting hours to milliseconds involves multiplying by 3600 * 1000 = 3600000.
-      var timezoneDateSeconds = utc + (timezoneOffset * oneHour);
-      console.log(timezoneDateSeconds, 'timezoneDateSeconds');
-      const timeToCount = endTimeMiliseconds - timezoneDateSeconds;
+      var timezoneActualMiliseconds = utc + (timezoneOffset * oneHour);
+      console.log(timezoneActualMiliseconds, 'timezoneDateSeconds');
+      const timeToCount = endTimeMiliseconds - timezoneActualMiliseconds;
       console.log(timeToCount, 'timeToCounttimeToCounttimeToCounttimeToCounttimeToCounttimeToCounttimeToCount');
 
       var daysToCount = Math.floor(timeToCount / oneDay);
@@ -56,7 +52,7 @@ export class LivePreview extends React.Component {
 
       // Change the time value calculated in the previous step to a human-readable date/time string by
       // initializing a new Date() object with it, and calling the object's toLocaleString() method.
-      if (endTimeMiliseconds < timezoneDateSeconds) {
+      if (endTimeMiliseconds < timezoneActualMiliseconds) {
         return 0;
       }
         return daysToCount+ " day left and      " +hoursToCount+'hours : '+minutesToCount+ '  minutes left  until ' + this.props.pName;
@@ -109,7 +105,7 @@ export class LivePreview extends React.Component {
 
         <h3>{this.props.pName}
         </h3>
-        <h2 style={divStyle}>{this.diffDays1()}</h2>
+        <h2 style={divStyle}>{this.timeToCountDown()}</h2>
       </div>
       <label className="containerLabels">Configuration</label>
     </div>);
