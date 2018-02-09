@@ -12,6 +12,7 @@ export class LivePreview extends React.Component {
     if (this.props.pDate !== '') {
       var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
       var oneHour = 60 * 60 * 1000;
+      var oneMinute = 60*1000;
       var endDate = new Date(this.props.pDate);
       const localDate = new Date();
       const localTimeSeconds = localDate.getTime();
@@ -24,13 +25,32 @@ export class LivePreview extends React.Component {
 
       var timezoneOffset = this.props.pTimezoneOffset;
       var timezoneOffsetInHours = timezoneOffset;
+      console.log( this.props.pHour, this.props.pMinutes,  "this.props.pHour, this.props.pMinutes");
+      let hourToMiliseconds = this.props.pHour*oneHour;
+      let minutesToMiliseconds = this.props.pHour*oneMinute;
+      let date = new Date(this.props.pDate);
+      var endTimeMiliseconds = date.getTime() + hourToMiliseconds+ minutesToMiliseconds ;
+      console.log(endTimeMiliseconds, "endTimeMiliseconds");
 
       // timezoneDateSeconds  timezone-ul ales in secunde (se inmulteste cu 3600000
       // pentru ca 1000 millseconds = 1 second, and 1 hour = 3600  seconds)
       // Therefore, converting hours to milliseconds involves multiplying by 3600 * 1000 = 3600000.
       var timezoneDateSeconds = utc + (timezoneOffset * oneHour);
+      console.log(timezoneDateSeconds, 'timezoneDateSeconds');
+      const timeToCount = endTimeMiliseconds - timezoneDateSeconds;
+      console.log(timeToCount, 'timeToCounttimeToCounttimeToCounttimeToCounttimeToCounttimeToCounttimeToCount');
+      var daysToCount = Math.floor(timeToCount/oneDay);
+      console.log(daysToCount, 'Math.floorMath.floorMath.floorMath.floorMath.floorMath.floor');
 
-      console.log(endDate.getTime(), 'endDate.getTime()', timezoneDateSeconds, 'timezoneDateSeconds');
+var milisecLeftWithoutDays = timeToCount - daysToCount*oneDay;
+console.log(milisecLeftWithoutDays, 'milisecLeftWithoutDaysmilisecLeftWithoutDaysmilisecLeftWithoutDaysmilisecLeftWithoutDays');
+
+
+
+
+
+
+
       // Change the time value calculated in the previous step to a human-readable date/time string by
       // initializing a new Date() object with it, and calling the object's toLocaleString() method.
       if (endDate.getTime() + (Math.abs(localOffset) * 60 * 1000) < timezoneDateSeconds) {
