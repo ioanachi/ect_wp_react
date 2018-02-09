@@ -59,7 +59,7 @@ export class LivePreview extends React.Component {
       if (endDate.getTime() + (Math.abs(localOffset) * 60 * 1000) < timezoneDateSeconds) {
         return 0;
       }
-        return daysToCount+ " day left and      " +hoursToCount+': '+minutesToCount+ ' hours and minutes left  until ' + this.props.pName;
+        return daysToCount+ " day left and      " +hoursToCount+'hours : '+minutesToCount+ '  minutes left  until ' + this.props.pName;
 
       // return Math.round(Math.abs((timezoneDateSeconds - endDate.getTime()) / (oneDay)) + 1);
       // diferenta dintre milisecundele din viitor (de la 1970) si milisecundele actuale
