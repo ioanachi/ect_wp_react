@@ -66,7 +66,7 @@ class MainContainer extends React.Component {
   render() {
     const {selectedDay, isDisabled} = this.state;
     return (<div className="ContainerMain">
-      <LivePreview pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset}/>
+      <LivePreview pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset} pHour={this.state.selectedH} pMinutes={this.state.selectedM} />
       <table className="tableStyles">
         <tbody>
           <tr>
@@ -117,7 +117,7 @@ class MainContainer extends React.Component {
         </tbody>
       </table>
 
-      <EctShortcode pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset}/>
+      <EctShortcode pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset} pHour={this.state.selectedH} pMinutes={this.state.selectedM}/>
     </div>);
   }
 };
