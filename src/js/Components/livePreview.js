@@ -56,7 +56,7 @@ export class LivePreview extends React.Component {
 
       // Change the time value calculated in the previous step to a human-readable date/time string by
       // initializing a new Date() object with it, and calling the object's toLocaleString() method.
-      if (endDate.getTime() + (Math.abs(localOffset) * 60 * 1000) < timezoneDateSeconds) {
+      if (endTimeMiliseconds < timezoneDateSeconds) {
         return 0;
       }
         return daysToCount+ " day left and      " +hoursToCount+'hours : '+minutesToCount+ '  minutes left  until ' + this.props.pName;
