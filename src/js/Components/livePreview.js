@@ -9,9 +9,15 @@ export class LivePreview extends React.Component {
       minutes: '',
       seconds:''
     }
+this.forceRerender =this.forceRerender.bind(this);
   };
+  forceRerender() {
+    this.forceUpdate();
+  }
   diffDays1() {
-    console.log(this.props.pDate == '', "this.props.pDate");
+    setTimeout(()=>{
+      this.forceRerender();
+    },1000);
     if (this.props.pDate !== '') {
       var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
       var oneHour = 60 * 60 * 1000;
@@ -21,49 +27,38 @@ export class LivePreview extends React.Component {
       const localTimeMiliseconds = localDate.getTime();
       //  localTimeSeconds secundele trecute din 1 jan 1970 pana la ora locala (asta face .getTime() de data locala
       // obtinuta cu newDate() )
-      console.log(localTimeMiliseconds, 'localUtc');
       var localOffset = (localDate.getTimezoneOffset())*oneMinute;
 
       var utc = localTimeMiliseconds + localOffset;
 
       var timezoneOffset = this.props.pTimezoneOffset;
-      console.log(timezoneOffset, 'timezoneOffsettimezoneOffsettimezoneOffsettimezoneOffsettimezoneOffset');
 
 
       let hourToMiliseconds = this.props.pHour * oneHour;
       let minutesToMiliseconds = this.props.pMinutes * oneMinute;
       let date = new Date(this.props.pDate);
-      console.log(date.getTime(),'ddddddddddddddddddddddddddddddddddddd');
 
       var endTimeMiliseconds = date.getTime() + hourToMiliseconds + minutesToMiliseconds;
-      console.log(endTimeMiliseconds, "Y");
 
       // timezoneDateSeconds  timezone-ul ales in secunde (se inmulteste cu 3600000
       // pentru ca 1000 millseconds = 1 second, and 1 hour = 3600  seconds)
       // Therefore, converting hours to milliseconds involves multiplying by 3600 * 1000 = 3600000.
       var nowTimeMiliseconds = utc + parseInt(timezoneOffset) ;
-      console.log(nowTimeMiliseconds, 'X');
 
       const timeToCount = endTimeMiliseconds - nowTimeMiliseconds;
-      console.log(timeToCount, 'timeToCounttimeToCounttimeToCounttimeToCounttimeToCounttimeToCounttimeToCount');
 
       const daysToCount = Math.floor(timeToCount / oneDay);
-      console.log(daysToCount, 'Math.floorMath.floorMath.floorMath.floorMath.floorMath.floor');
 
       var milisecLeftWithoutDays = timeToCount - daysToCount * oneDay;
 
       const hoursToCount = Math.floor(milisecLeftWithoutDays / oneHour);
-      console.log(hoursToCount, 'hoursToCounthoursToCounthoursToCounthoursToCounthoursToCounthoursToCount');
 
       var milisecLeftWithoutHours = milisecLeftWithoutDays - hoursToCount * oneHour;
-      console.log(milisecLeftWithoutHours, 'milisecLeftWithoutHoursmilisecLeftWithoutHoursmilisecLeftWithoutHoursmilisecLeftWithoutHours');
 
       const minutesToCount = Math.floor(milisecLeftWithoutHours / oneMinute);
-      console.log(minutesToCount, 'minutesToCountminutesToCountminutesToCountminutesToCountminutesToCount');
 
       var milisecLeftWithoutMinutes = milisecLeftWithoutHours - minutesToCount * oneMinute;
-      const secondsToCount = Math.floor(milisecLeftWithoutMinutes / 60000);
-      console.log(secondsToCount, 'secondsToCountsecondsToCountsecondsToCountsecondsToCountsecondsToCountsecondsToCountsecondsToCount');
+      const secondsToCount = Math.floor(milisecLeftWithoutMinutes / 1000);
 
 
 
@@ -74,7 +69,7 @@ export class LivePreview extends React.Component {
       if (endTimeMiliseconds < nowTimeMiliseconds) {
         return 0;
       }
-      return daysToCount + " days  " + hoursToCount + 'hours  ' + minutesToCount + '  minutes   ' + secondsToCount + 'seconds left  until ' + this.props.pName;
+      return daysToCount + " days  " + hoursToCount + 'hours  ' + minutesToCount + '  minutes   ' + secondsToCount + 'seconds left';
 
       // return Math.round(Math.abs((timezoneDateSeconds - endDate.getTime()) / (oneDay)) + 1);
       // diferenta dintre milisecundele din viitor (de la 1970) si milisecundele actuale

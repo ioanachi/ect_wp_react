@@ -25,9 +25,9 @@ class MainContainer extends React.Component {
       fontSizeP: '',
       pColor: '',
       ectIsBoldP: false,
-      timezoneOffset: '',
-      selectedH:'',
-      selectedM:''
+      timezoneOffset: -12,
+      selectedH:0,
+      selectedM:0
     };
     this.onFontSubmit = this.onFontSubmit.bind(this);
     this.returnChildDate = this.returnChildDate.bind(this);

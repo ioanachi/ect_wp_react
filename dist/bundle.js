@@ -52105,9 +52105,9 @@ var MainContainer = function (_React$Component) {
       fontSizeP: '',
       pColor: '',
       ectIsBoldP: false,
-      timezoneOffset: '',
-      selectedH: '',
-      selectedM: ''
+      timezoneOffset: -12,
+      selectedH: 0,
+      selectedM: 0
     };
     _this.onFontSubmit = _this.onFontSubmit.bind(_this);
     _this.returnChildDate = _this.returnChildDate.bind(_this);
@@ -53803,7 +53803,7 @@ var timezoneArr = [{
   "abbr": "NST",
   "offset": 5.75,
   "isdst": false,
-  "text": "(UTC+05:45)",
+  "text": "(UTC+05:45) Kathmandu",
   "utc": ["Asia/Katmandu"]
 }, {
   "value": "Central Asia Standard Time",
@@ -54065,13 +54065,23 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                   minutes: '',
                   seconds: ''
             };
+            _this.forceRerender = _this.forceRerender.bind(_this);
             return _this;
       }
 
       _createClass(LivePreview, [{
+            key: 'forceRerender',
+            value: function forceRerender() {
+                  this.forceUpdate();
+            }
+      }, {
             key: 'diffDays1',
             value: function diffDays1() {
-                  console.log(this.props.pDate == '', "this.props.pDate");
+                  var _this2 = this;
+
+                  setTimeout(function () {
+                        _this2.forceRerender();
+                  }, 1000);
                   if (this.props.pDate !== '') {
                         var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
                         var oneHour = 60 * 60 * 1000;
@@ -54081,55 +54091,44 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                         var localTimeMiliseconds = localDate.getTime();
                         //  localTimeSeconds secundele trecute din 1 jan 1970 pana la ora locala (asta face .getTime() de data locala
                         // obtinuta cu newDate() )
-                        console.log(localTimeMiliseconds, 'localUtc');
                         var localOffset = localDate.getTimezoneOffset() * oneMinute;
 
                         var utc = localTimeMiliseconds + localOffset;
 
                         var timezoneOffset = this.props.pTimezoneOffset;
-                        console.log(timezoneOffset, 'timezoneOffsettimezoneOffsettimezoneOffsettimezoneOffsettimezoneOffset');
 
                         var hourToMiliseconds = this.props.pHour * oneHour;
                         var minutesToMiliseconds = this.props.pMinutes * oneMinute;
                         var date = new Date(this.props.pDate);
-                        console.log(date.getTime(), 'ddddddddddddddddddddddddddddddddddddd');
 
                         var endTimeMiliseconds = date.getTime() + hourToMiliseconds + minutesToMiliseconds;
-                        console.log(endTimeMiliseconds, "Y");
 
                         // timezoneDateSeconds  timezone-ul ales in secunde (se inmulteste cu 3600000
                         // pentru ca 1000 millseconds = 1 second, and 1 hour = 3600  seconds)
                         // Therefore, converting hours to milliseconds involves multiplying by 3600 * 1000 = 3600000.
                         var nowTimeMiliseconds = utc + parseInt(timezoneOffset);
-                        console.log(nowTimeMiliseconds, 'X');
 
                         var timeToCount = endTimeMiliseconds - nowTimeMiliseconds;
-                        console.log(timeToCount, 'timeToCounttimeToCounttimeToCounttimeToCounttimeToCounttimeToCounttimeToCount');
 
                         var daysToCount = Math.floor(timeToCount / oneDay);
-                        console.log(daysToCount, 'Math.floorMath.floorMath.floorMath.floorMath.floorMath.floor');
 
                         var milisecLeftWithoutDays = timeToCount - daysToCount * oneDay;
 
                         var hoursToCount = Math.floor(milisecLeftWithoutDays / oneHour);
-                        console.log(hoursToCount, 'hoursToCounthoursToCounthoursToCounthoursToCounthoursToCounthoursToCount');
 
                         var milisecLeftWithoutHours = milisecLeftWithoutDays - hoursToCount * oneHour;
-                        console.log(milisecLeftWithoutHours, 'milisecLeftWithoutHoursmilisecLeftWithoutHoursmilisecLeftWithoutHoursmilisecLeftWithoutHours');
 
                         var minutesToCount = Math.floor(milisecLeftWithoutHours / oneMinute);
-                        console.log(minutesToCount, 'minutesToCountminutesToCountminutesToCountminutesToCountminutesToCount');
 
                         var milisecLeftWithoutMinutes = milisecLeftWithoutHours - minutesToCount * oneMinute;
-                        var secondsToCount = Math.floor(milisecLeftWithoutMinutes / 60000);
-                        console.log(secondsToCount, 'secondsToCountsecondsToCountsecondsToCountsecondsToCountsecondsToCountsecondsToCountsecondsToCount');
+                        var secondsToCount = Math.floor(milisecLeftWithoutMinutes / 1000);
 
                         // Change the time value calculated in the previous step to a human-readable date/time string by
                         // initializing a new Date() object with it, and calling the object's toLocaleString() method.
                         if (endTimeMiliseconds < nowTimeMiliseconds) {
                               return 0;
                         }
-                        return daysToCount + " days  " + hoursToCount + 'hours  ' + minutesToCount + '  minutes   ' + secondsToCount + 'seconds left  until ' + this.props.pName;
+                        return daysToCount + " days  " + hoursToCount + 'hours  ' + minutesToCount + '  minutes   ' + secondsToCount + 'seconds left';
 
                         // return Math.round(Math.abs((timezoneDateSeconds - endDate.getTime()) / (oneDay)) + 1);
                         // diferenta dintre milisecundele din viitor (de la 1970) si milisecundele actuale
