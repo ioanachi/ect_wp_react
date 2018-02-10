@@ -12,7 +12,7 @@ import {Bold} from './Components/bold.js';
 import {Timezones} from './Components/timezonePicker.js';
 import {LivePreview} from './Components/livePreview.js';
 import {EndTime} from './Components/endTime.js';
-// import 'moment/locale/it';
+import {TimeFormat} from './Components/timeFormat.js';
 
 class MainContainer extends React.Component {
   constructor(props) {
@@ -26,9 +26,10 @@ class MainContainer extends React.Component {
       pColor: '',
       ectIsBoldP: false,
       timezoneOffset: -43200000,
-      selectedH:0,
-      selectedM:0,
-      utcTz: 'Etc/GMT+12'
+      selectedH: 0,
+      selectedM: 0,
+      utcTz: 'Etc/GMT+12',
+      timeFormat: 'D then H:M:S'
     };
     this.onFontSubmit = this.onFontSubmit.bind(this);
     this.returnChildDate = this.returnChildDate.bind(this);
@@ -37,6 +38,7 @@ class MainContainer extends React.Component {
     this.isBold = this.isBold.bind(this);
     this.returnTimezone = this.returnTimezone.bind(this);
     this.returnChildTime = this.returnChildTime.bind(this);
+    this.returnFormat = this.returnFormat.bind(this);
   }
 
   isBold(isBoldC) {
@@ -54,21 +56,21 @@ class MainContainer extends React.Component {
   returnChildColor(selectedColorChild) {
     this.setState({pColor: selectedColorChild})
   }
-  returnTimezone(timezoneChosen,utcTz) {
-    this.setState({
-      timezoneOffset: timezoneChosen,
-      utcTz:utcTz
-    });
+  returnTimezone(timezoneChosen, utcTz) {
+    this.setState({timezoneOffset: timezoneChosen, utcTz: utcTz});
   }
   returnChildTime(selectedHour, selectedMinutes) {
     this.setState({selectedH: selectedHour});
     this.setState({selectedM: selectedMinutes});
-}
+  }
+  returnFormat(formatType) {
+    this.setState({timeFormat: formatType});
+  }
 
   render() {
     const {selectedDay, isDisabled} = this.state;
     return (<div className="ContainerMain">
-      <LivePreview pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset} pHour={this.state.selectedH} pMinutes={this.state.selectedM} />
+      <LivePreview pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset} pHour={this.state.selectedH} pMinutes={this.state.selectedM} pFormat={this.state.timeFormat}/>
       <table className="tableStyles">
         <tbody>
           <tr>
@@ -80,11 +82,16 @@ class MainContainer extends React.Component {
             </td>
 
             <td className="componentContainer">
+              <label >Time Format</label>
+            </td>
+            <td><TimeFormat pTimeFormat={this.state.formatType} callBackSelectFormat={this.returnFormat}/></td>
+          </tr>
+          <tr>
+            <td className="componentContainer">
               <label>Color</label>
             </td>
             <td><PickColor callbackChildPropColor={this.returnChildColor}/></td>
-          </tr>
-          <tr>
+
             <td className="componentContainer">
               <label htmlFor="fontInput">Font Size</label>
             </td>
@@ -96,15 +103,13 @@ class MainContainer extends React.Component {
             </td>
             <td>
               <Bold callbackChildPropB={this.isBold}/></td>
-
+          </tr>
+          <tr>
             <td className="componentContainer">
-              <label>timezone</label>
+              <label>Timezone</label>
             </td>
             <td className="timezones">
               <Timezones callbackChildPropT={this.returnTimezone}/></td>
-
-          </tr>
-          <tr>
             <td className="componentContainer">
               <label htmlFor="datePicker">End Date</label>
             </td>
@@ -119,7 +124,7 @@ class MainContainer extends React.Component {
         </tbody>
       </table>
 
-      <EctShortcode pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pUtcTz={this.state.utcTz} pHour={this.state.selectedH} pMinutes={this.state.selectedM}/>
+      <EctShortcode pName={this.state.naMeP} pTimeFormat={this.state.timeFormat} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pUtcTz={this.state.utcTz} pHour={this.state.selectedH} pMinutes={this.state.selectedM} pFormat={this.state.timeFormat}/>
     </div>);
   }
 };

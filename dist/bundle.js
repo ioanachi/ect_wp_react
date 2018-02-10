@@ -52079,6 +52079,8 @@ var _livePreview = __webpack_require__(423);
 
 var _endTime = __webpack_require__(424);
 
+var _timeFormat = __webpack_require__(425);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -52086,8 +52088,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-// import 'moment/locale/it';
 
 var MainContainer = function (_React$Component) {
   _inherits(MainContainer, _React$Component);
@@ -52108,7 +52108,8 @@ var MainContainer = function (_React$Component) {
       timezoneOffset: -43200000,
       selectedH: 0,
       selectedM: 0,
-      utcTz: 'Etc/GMT+12'
+      utcTz: 'Etc/GMT+12',
+      timeFormat: 'D then H:M:S'
     };
     _this.onFontSubmit = _this.onFontSubmit.bind(_this);
     _this.returnChildDate = _this.returnChildDate.bind(_this);
@@ -52117,6 +52118,7 @@ var MainContainer = function (_React$Component) {
     _this.isBold = _this.isBold.bind(_this);
     _this.returnTimezone = _this.returnTimezone.bind(_this);
     _this.returnChildTime = _this.returnChildTime.bind(_this);
+    _this.returnFormat = _this.returnFormat.bind(_this);
     return _this;
   }
 
@@ -52148,10 +52150,7 @@ var MainContainer = function (_React$Component) {
   }, {
     key: 'returnTimezone',
     value: function returnTimezone(timezoneChosen, utcTz) {
-      this.setState({
-        timezoneOffset: timezoneChosen,
-        utcTz: utcTz
-      });
+      this.setState({ timezoneOffset: timezoneChosen, utcTz: utcTz });
     }
   }, {
     key: 'returnChildTime',
@@ -52160,13 +52159,18 @@ var MainContainer = function (_React$Component) {
       this.setState({ selectedM: selectedMinutes });
     }
   }, {
+    key: 'returnFormat',
+    value: function returnFormat(formatType) {
+      this.setState({ timeFormat: formatType });
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _state = this.state,
           selectedDay = _state.selectedDay,
           isDisabled = _state.isDisabled;
 
-      return _react2.default.createElement('div', { className: 'ContainerMain' }, _react2.default.createElement(_livePreview.LivePreview, { pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezoneOffset: this.state.timezoneOffset, pHour: this.state.selectedH, pMinutes: this.state.selectedM }), _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Font Size')), _react2.default.createElement('td', null, _react2.default.createElement(_fontSize.FontSize, { pFont: this.state.fontSizeP, aaa: this.onFontSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Select to make text Bold')), _react2.default.createElement('td', null, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { callbackChildPropT: this.returnTimezone }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_dayPicker.EndDate, { callbackChildProp: this.returnChildDate })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Time')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_endTime.EndTime, { TimeEnd: this.returnChildTime }))))), _react2.default.createElement(_ectShortcode.EctShortcode, { pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pUtcTz: this.state.utcTz, pHour: this.state.selectedH, pMinutes: this.state.selectedM }));
+      return _react2.default.createElement('div', { className: 'ContainerMain' }, _react2.default.createElement(_livePreview.LivePreview, { pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezoneOffset: this.state.timezoneOffset, pHour: this.state.selectedH, pMinutes: this.state.selectedM, pFormat: this.state.timeFormat }), _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Time Format')), _react2.default.createElement('td', null, _react2.default.createElement(_timeFormat.TimeFormat, { pTimeFormat: this.state.formatType, callBackSelectFormat: this.returnFormat }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Font Size')), _react2.default.createElement('td', null, _react2.default.createElement(_fontSize.FontSize, { pFont: this.state.fontSizeP, aaa: this.onFontSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Select to make text Bold')), _react2.default.createElement('td', null, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { callbackChildPropT: this.returnTimezone })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_dayPicker.EndDate, { callbackChildProp: this.returnChildDate })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Time')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_endTime.EndTime, { TimeEnd: this.returnChildTime }))))), _react2.default.createElement(_ectShortcode.EctShortcode, { pName: this.state.naMeP, pTimeFormat: this.state.timeFormat, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pUtcTz: this.state.utcTz, pHour: this.state.selectedH, pMinutes: this.state.selectedM, pFormat: this.state.timeFormat }));
     }
   }]);
 
@@ -52979,7 +52983,7 @@ var EctShortcode = exports.EctShortcode = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var shortValue = '[ectShortcode   name="' + this.props.pName + '"   date="' + this.props.pDate + '"  color= "' + this.props.pColor + '"   fontSize="' + this.props.pFont + 'px"' + '    bold="' + this.props.pBold + '" UtcTz="' + this.props.pUtcTz + '" hour="' + this.props.pHour + '"  minutes= "' + this.props.pMinutes + '"]';
+      var shortValue = '[ectShortcode   name="' + this.props.pName + '"   date="' + this.props.pDate + '"  color= "' + this.props.pColor + '"   fontSize="' + this.props.pFont + 'px"' + '    bold="' + this.props.pBold + '" timezone="' + this.props.pUtcTz + '" hour="' + this.props.pHour + '"  minutes= "' + this.props.pMinutes + ' timeFormat=' + this.props.pFormat + '"]';
 
       return _react2.default.createElement('div', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Shortcode'), _react2.default.createElement('span', null, '(click to automatically select all, then copy)'), _react2.default.createElement('div', { className: 'shortcode' }, _react2.default.createElement('input', { onClick: this.selectAllText, value: shortValue, readOnly: 'readOnly' }), _react2.default.createElement('h4', null, 'This interface helps you generate customly a shortcode for later use with a wordpress plugin, what you select in the fields will be given to the shortcode as attributes and used later.')));
     }
@@ -54036,7 +54040,7 @@ exports.default = timezoneArr;
 
 
 Object.defineProperty(exports, "__esModule", {
-      value: true
+  value: true
 });
 exports.LivePreview = undefined;
 
@@ -54055,97 +54059,152 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var LivePreview = exports.LivePreview = function (_React$Component) {
-      _inherits(LivePreview, _React$Component);
+  _inherits(LivePreview, _React$Component);
 
-      function LivePreview(props) {
-            _classCallCheck(this, LivePreview);
+  function LivePreview(props) {
+    _classCallCheck(this, LivePreview);
 
-            var _this = _possibleConstructorReturn(this, (LivePreview.__proto__ || Object.getPrototypeOf(LivePreview)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (LivePreview.__proto__ || Object.getPrototypeOf(LivePreview)).call(this, props));
 
-            _this.forceRerender = _this.forceRerender.bind(_this);
-            return _this;
+    _this.forceRerender = _this.forceRerender.bind(_this);
+    return _this;
+  }
+
+  _createClass(LivePreview, [{
+    key: 'forceRerender',
+    value: function forceRerender() {
+      this.forceUpdate();
+    }
+  }, {
+    key: 'liveCountDown',
+    value: function liveCountDown() {
+      var _this2 = this;
+
+      var stm = setTimeout(function () {
+        _this2.forceRerender();
+      }, 1000);
+
+      if (this.props.pDate !== '') {
+        var oneSecond = 1000;
+        var oneMinute = 60 * oneSecond;
+        var oneHour = 60 * oneMinute;
+        var oneDay = 24 * oneHour; // hours*minutes*seconds*milliseconds
+        var endDate = new Date(this.props.pDate);
+        var localDate = new Date();
+        var localTimeMiliseconds = localDate.getTime();
+        //  localTimeSeconds secundele trecute din 1 jan 1970 pana la ora locala (asta face .getTime() de data locala
+        // obtinuta cu newDate() )
+        var localOffset = localDate.getTimezoneOffset() * oneMinute;
+        var utc = localTimeMiliseconds + localOffset;
+        var timezoneOffset = this.props.pTimezoneOffset;
+        var hourToMiliseconds = this.props.pHour * oneHour;
+        var minutesToMiliseconds = this.props.pMinutes * oneMinute;
+        var date = new Date(this.props.pDate);
+        var endTimeMiliseconds = date.getTime() + hourToMiliseconds + minutesToMiliseconds;
+
+        // timezoneDateSeconds  timezone-ul ales in secunde (se inmulteste cu 3600000
+        // pentru ca 1000 millseconds = 1 second, and 1 hour = 3600  seconds)
+        // Therefore, converting hours to milliseconds involves multiplying by 3600 * 1000 = 3600000.
+        var nowTimeMiliseconds = utc + parseInt(timezoneOffset);
+
+        var timeToCount = endTimeMiliseconds - nowTimeMiliseconds;
+
+        var daysToCount = Math.floor(timeToCount / oneDay);
+
+        var milisecLeftWithoutDays = timeToCount - daysToCount * oneDay;
+
+        var hoursToCount = Math.floor(milisecLeftWithoutDays / oneHour);
+
+        var milisecLeftWithoutHours = milisecLeftWithoutDays - hoursToCount * oneHour;
+
+        var minutesToCount = Math.floor(milisecLeftWithoutHours / oneMinute);
+
+        var milisecLeftWithoutMinutes = milisecLeftWithoutHours - minutesToCount * oneMinute;
+        var secondsToCount = Math.floor(milisecLeftWithoutMinutes / 1000);
+
+        var onlyHMS_Hours = Math.floor(timeToCount / oneHour);
+        var onlyHMSNoHours = timeToCount - onlyHMS_Hours * oneHour;
+        var onlyHMS_Minutes = Math.floor(onlyHMSNoHours / oneMinute);
+        var onlyHMSNoHM = onlyHMSNoHours - onlyHMS_Minutes * oneMinute;
+        var onlyHMS_Seconds = Math.floor(onlyHMSNoHM / oneSecond);
+
+        var onlyMS_Min = Math.floor(timeToCount / oneMinute);
+        var onlyMSNoMin = timeToCount - onlyMS_Min * oneMinute;
+        var onlyMS_Sec = Math.floor(onlyMSNoMin / oneSecond);
+
+        var onlySeconds = Math.floor(timeToCount / oneSecond);
+
+        // Change the time value calculated in the previous step to a human-readable date/time string by
+        // initializing a new Date() object with it, and calling the object's toLocaleString() method.
+        if (endTimeMiliseconds < nowTimeMiliseconds) {
+          return 0;
+        }
+        switch (this.props.pFormat) {
+          case 'D:H:M:S':
+            return daysToCount + " days  " + hoursToCount + 'hours  ' + minutesToCount + '  minutes   ' + secondsToCount + 'seconds left';
+            break;
+          case 'days':
+            return daysToCount;
+            break;
+          case 'hours:minutes:seconds':
+            return onlyHMS_Hours + ':' + onlyHMS_Minutes + ':' + onlyHMS_Seconds;
+            break;
+          case 'hours:minutes':
+            return onlyHMS_Hours + ':' + onlyHMS_Minutes;
+            break;
+          case 'minutes:seconds':
+            return onlyMS_Min + ':' + onlyMS_Sec;
+            break;
+          case 'seconds':
+            return onlySeconds;
+            break;
+          case 'D then H:M:S':
+            if (daysToCount == 0) {
+              if (hoursToCount == 0) {
+                if (minutesToCount == 0) {
+                  return secondsToCount + 'seconds left';
+                }
+                return minutesToCount + '  minutes   ' + secondsToCount + 'seconds left';
+              }
+              return hoursToCount + 'hours  ' + minutesToCount + '  minutes   ' + secondsToCount + 'seconds left';
+            }
+            return daysToCount + " days  " + hoursToCount + 'hours  ' + minutesToCount + '  minutes   ' + secondsToCount + 'seconds left';
+            break;
+
+          default:
+            if (daysToCount == 0) {
+              if (hoursToCount == 0) {
+                if (minutesToCount == 0) {
+                  return secondsToCount + 'seconds left';
+                }
+                return minutesToCount + '  minutes   ' + secondsToCount + 'seconds left';
+              }
+              return hoursToCount + 'hours  ' + minutesToCount + '  minutes   ' + secondsToCount + 'seconds left';
+            }
+            return daysToCount + " days  " + hoursToCount + 'hours  ' + minutesToCount + '  minutes   ' + secondsToCount + 'seconds left';
+            break;
+        }
+
+        // return Math.round(Math.abs((timezoneDateSeconds - endDate.getTime()) / (oneDay)) + 1);
+        // diferenta dintre milisecundele din viitor (de la 1970) si milisecundele actuale
+        // (de la anul 1970) impartite la o zi(care este egala cu 24h* 60 min si 60 sec* 1000milisecunde)
       }
+      return "Pick an End Date";
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var divStyle = {
+        fontSize: this.props.pFont + 'px',
+        color: this.props.pColor,
+        fontWeight: this.props.pBold == true ? 'bold' : 'normal'
+      };
 
-      _createClass(LivePreview, [{
-            key: 'forceRerender',
-            value: function forceRerender() {
-                  this.forceUpdate();
-            }
-      }, {
-            key: 'liveCountDown',
-            value: function liveCountDown() {
-                  var _this2 = this;
+      return _react2.default.createElement('div', null, _react2.default.createElement('label', { className: 'containerLabels' }, 'Live preview'), _react2.default.createElement('div', { className: 'containerPreview' }, _react2.default.createElement('h3', null, this.props.pName), _react2.default.createElement('h2', { style: divStyle }, this.liveCountDown())), _react2.default.createElement('label', { className: 'containerLabels' }, 'Configuration'));
+    }
+  }]);
 
-                  setTimeout(function () {
-                        _this2.forceRerender();
-                  }, 1000);
-                  if (this.props.pDate !== '') {
-                        var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
-                        var oneHour = 60 * 60 * 1000;
-                        var oneMinute = 60 * 1000;
-                        var endDate = new Date(this.props.pDate);
-                        var localDate = new Date();
-                        var localTimeMiliseconds = localDate.getTime();
-                        //  localTimeSeconds secundele trecute din 1 jan 1970 pana la ora locala (asta face .getTime() de data locala
-                        // obtinuta cu newDate() )
-                        var localOffset = localDate.getTimezoneOffset() * oneMinute;
-
-                        var utc = localTimeMiliseconds + localOffset;
-
-                        var timezoneOffset = this.props.pTimezoneOffset;
-                        var hourToMiliseconds = this.props.pHour * oneHour;
-                        var minutesToMiliseconds = this.props.pMinutes * oneMinute;
-                        var date = new Date(this.props.pDate);
-
-                        var endTimeMiliseconds = date.getTime() + hourToMiliseconds + minutesToMiliseconds;
-
-                        // timezoneDateSeconds  timezone-ul ales in secunde (se inmulteste cu 3600000
-                        // pentru ca 1000 millseconds = 1 second, and 1 hour = 3600  seconds)
-                        // Therefore, converting hours to milliseconds involves multiplying by 3600 * 1000 = 3600000.
-                        var nowTimeMiliseconds = utc + parseInt(timezoneOffset);
-
-                        var timeToCount = endTimeMiliseconds - nowTimeMiliseconds;
-
-                        var daysToCount = Math.floor(timeToCount / oneDay);
-
-                        var milisecLeftWithoutDays = timeToCount - daysToCount * oneDay;
-
-                        var hoursToCount = Math.floor(milisecLeftWithoutDays / oneHour);
-
-                        var milisecLeftWithoutHours = milisecLeftWithoutDays - hoursToCount * oneHour;
-
-                        var minutesToCount = Math.floor(milisecLeftWithoutHours / oneMinute);
-
-                        var milisecLeftWithoutMinutes = milisecLeftWithoutHours - minutesToCount * oneMinute;
-                        var secondsToCount = Math.floor(milisecLeftWithoutMinutes / 1000);
-
-                        // Change the time value calculated in the previous step to a human-readable date/time string by
-                        // initializing a new Date() object with it, and calling the object's toLocaleString() method.
-                        if (endTimeMiliseconds < nowTimeMiliseconds) {
-                              return 0;
-                        }
-                        return daysToCount + " days  " + hoursToCount + 'hours  ' + minutesToCount + '  minutes   ' + secondsToCount + 'seconds left';
-
-                        // return Math.round(Math.abs((timezoneDateSeconds - endDate.getTime()) / (oneDay)) + 1);
-                        // diferenta dintre milisecundele din viitor (de la 1970) si milisecundele actuale
-                        // (de la anul 1970) impartite la o zi(care este egala cu 24h* 60 min si 60 sec* 1000milisecunde)
-                  }
-                  return "Pick an End Date";
-            }
-      }, {
-            key: 'render',
-            value: function render() {
-                  var divStyle = {
-                        fontSize: this.props.pFont + 'px',
-                        color: this.props.pColor,
-                        fontWeight: this.props.pBold == true ? 'bold' : 'normal'
-                  };
-
-                  return _react2.default.createElement('div', null, _react2.default.createElement('label', { className: 'containerLabels' }, 'Live preview'), _react2.default.createElement('div', { className: 'containerPreview' }, _react2.default.createElement('h3', null, this.props.pName), _react2.default.createElement('h2', { style: divStyle }, this.liveCountDown())), _react2.default.createElement('label', { className: 'containerLabels' }, 'Configuration'));
-            }
-      }]);
-
-      return LivePreview;
+  return LivePreview;
 }(_react2.default.Component);
 
 /***/ }),
@@ -54233,6 +54292,96 @@ var EndTime = exports.EndTime = function (_React$Component) {
   }]);
 
   return EndTime;
+}(_react2.default.Component);
+
+/***/ }),
+/* 425 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.TimeFormat = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var TimeFormat = exports.TimeFormat = function (_React$Component) {
+  _inherits(TimeFormat, _React$Component);
+
+  function TimeFormat(props) {
+    _classCallCheck(this, TimeFormat);
+
+    var _this = _possibleConstructorReturn(this, (TimeFormat.__proto__ || Object.getPrototypeOf(TimeFormat)).call(this, props));
+
+    console.log(_this.props);
+    _this.state = {
+      timeFormat: _this.props.pTimeFormat
+    };
+    _this.chooseFormat = _this.chooseFormat.bind(_this);
+    _this.optionsFormat = _this.optionsFormat.bind(_this);
+    return _this;
+  }
+
+  _createClass(TimeFormat, [{
+    key: 'chooseFormat',
+    value: function chooseFormat(evt) {
+      var formatType = evt.target.value;
+      this.setState({ timeFormat: formatType });
+      var SubmitFormat = this.props.callBackSelectFormat;
+      SubmitFormat(formatType);
+    }
+  }, {
+    key: 'optionsFormat',
+    value: function optionsFormat() {
+      var Obj = [{
+        "value": 'D then H:M:S',
+        "text": 'Days then Hours/Minutes/Seconds'
+      }, {
+        "value": 'days',
+        "text": 'Days'
+      }, {
+        "value": 'D:H:M:S',
+        "text": 'Days/Hours/Minutes/Seconds'
+      }, {
+        "value": 'hours:minutes:seconds',
+        "text": 'Hours:Minutes:Seconds'
+      }, {
+        "value": 'hours:minutes',
+        "text": 'Hours:Minutes'
+      }, {
+        "value": 'minutes:seconds',
+        "text": 'Minutes:Seconds'
+      }, {
+        "value": 'seconds',
+        "text": 'Seconds'
+      }];
+      return Obj.map(function (item, i) {
+        return _react2.default.createElement('option', { key: i, value: item.value }, item.text);
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement('select', { onChange: this.chooseFormat }, this.optionsFormat());
+    }
+  }]);
+
+  return TimeFormat;
 }(_react2.default.Component);
 
 /***/ })
