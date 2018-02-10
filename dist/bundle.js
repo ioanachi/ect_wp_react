@@ -52105,10 +52105,10 @@ var MainContainer = function (_React$Component) {
       fontSizeP: 42,
       pColor: '',
       ectIsBoldP: false,
-      timezoneOffset: -12,
+      timezoneOffset: -43200000,
       selectedH: 0,
       selectedM: 0,
-      utcTz: 'Europe/Bucharest'
+      utcTz: 'Etc/GMT+12'
     };
     _this.onFontSubmit = _this.onFontSubmit.bind(_this);
     _this.returnChildDate = _this.returnChildDate.bind(_this);

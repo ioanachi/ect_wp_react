@@ -25,10 +25,10 @@ class MainContainer extends React.Component {
       fontSizeP: 42,
       pColor: '',
       ectIsBoldP: false,
-      timezoneOffset: -12,
+      timezoneOffset: -43200000,
       selectedH:0,
       selectedM:0,
-      utcTz: 'Asia/Nicosia'
+      utcTz: 'Etc/GMT+12'
     };
     this.onFontSubmit = this.onFontSubmit.bind(this);
     this.returnChildDate = this.returnChildDate.bind(this);
