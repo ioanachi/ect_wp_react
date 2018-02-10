@@ -19,13 +19,16 @@ export class Timezones extends React.Component {
   getOptions(x) {
     return x.map(function(item, i) {
       var partialParsing = item.text.split('UTC')[1];
-      var newValue = partialParsing.split('0)')[0];
+      var newValue = partialParsing.split(')')[0];
       var oneHour = 60 * 60 * 1000;
       var oneMinute = 60 * 1000;
+
       var offsetHMilisec = newValue.split(':')[0] * oneHour;
       var offsetMMilisec = newValue.split(':')[1] * oneMinute;
+
       var offsetMilisec = offsetHMilisec + offsetMMilisec;
-      console.log(offsetMilisec, "newValuenewValuenewValuenewValuenewValuenewValue");
+
+      // console.log(offsetMilisec, "newValu/senewValuenewValuenewValuenewValuenewValue");
       return (<option key={i} value={offsetMilisec}>{item.text}</option>);
     });
   }

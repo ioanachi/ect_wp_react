@@ -472,7 +472,7 @@ var timezoneArr = [
     "abbr": "MDT",
     "offset": 1,
     "isdst": true,
-    "text": "(UTC) Casablanca",
+    "text": "(UTC-00:00) Casablanca",
     "utc": [
       "Africa/Casablanca",
       "Africa/El_Aaiun"
@@ -483,7 +483,7 @@ var timezoneArr = [
     "abbr": "UTC",
     "offset": 0,
     "isdst": false,
-    "text": "(UTC) Coordinated Universal Time",
+    "text": "(UTC-00:00) Coordinated Universal Time",
     "utc": [
       "America/Danmarkshavn",
       "Etc/GMT"
@@ -494,7 +494,7 @@ var timezoneArr = [
     "abbr": "GDT",
     "offset": 1,
     "isdst": true,
-    "text": "(UTC) Dublin, Edinburgh, Lisbon, London",
+    "text": "(UTC-00:00) Dublin, Edinburgh, Lisbon, London",
     "utc": [
       "Atlantic/Canary",
       "Atlantic/Faeroe",
@@ -512,7 +512,7 @@ var timezoneArr = [
     "abbr": "GST",
     "offset": 0,
     "isdst": false,
-    "text": "(UTC) Monrovia, Reykjavik",
+    "text": "(UTC-00:00) Monrovia, Reykjavik",
     "utc": [
       "Africa/Abidjan",
       "Africa/Accra",
@@ -991,7 +991,7 @@ var timezoneArr = [
     "abbr": "NST",
     "offset": 5.75,
     "isdst": false,
-    "text": "(UTC+05:45) Kathmandu",
+    "text": "(UTC+05:45)",
     "utc": [
       "Asia/Katmandu"
     ]

@@ -52106,7 +52106,6 @@ var MainContainer = function (_React$Component) {
       pColor: '',
       ectIsBoldP: false,
       timezoneOffset: '',
-      differenceUtcP: '',
       selectedH: '',
       selectedM: ''
     };
@@ -52148,6 +52147,7 @@ var MainContainer = function (_React$Component) {
   }, {
     key: 'returnTimezone',
     value: function returnTimezone(timezoneChosen) {
+      console.log(timezoneChosen, "11111112222222222255555555555555555555555555555522222222222222222");
       this.setState({ timezoneOffset: timezoneChosen });
     }
   }, {
@@ -52155,7 +52155,6 @@ var MainContainer = function (_React$Component) {
     value: function returnChildTime(selectedHour, selectedMinutes) {
       this.setState({ selectedH: selectedHour });
       this.setState({ selectedM: selectedMinutes });
-      console.log(this.state.selectedH, this.state.selectedH);
     }
   }, {
     key: 'render',
@@ -53269,13 +53268,16 @@ var Timezones = exports.Timezones = function (_React$Component) {
     value: function getOptions(x) {
       return x.map(function (item, i) {
         var partialParsing = item.text.split('UTC')[1];
-        var newValue = partialParsing.split('0)')[0];
+        var newValue = partialParsing.split(')')[0];
         var oneHour = 60 * 60 * 1000;
         var oneMinute = 60 * 1000;
+
         var offsetHMilisec = newValue.split(':')[0] * oneHour;
         var offsetMMilisec = newValue.split(':')[1] * oneMinute;
+
         var offsetMilisec = offsetHMilisec + offsetMMilisec;
-        console.log(offsetMilisec, "newValuenewValuenewValuenewValuenewValuenewValue");
+
+        // console.log(offsetMilisec, "newValu/senewValuenewValuenewValuenewValuenewValue");
         return _react2.default.createElement('option', { key: i, value: offsetMilisec }, item.text);
       });
     }
@@ -53535,28 +53537,28 @@ var timezoneArr = [{
   "abbr": "MDT",
   "offset": 1,
   "isdst": true,
-  "text": "(UTC) Casablanca",
+  "text": "(UTC-00:00) Casablanca",
   "utc": ["Africa/Casablanca", "Africa/El_Aaiun"]
 }, {
   "value": "UTC",
   "abbr": "UTC",
   "offset": 0,
   "isdst": false,
-  "text": "(UTC) Coordinated Universal Time",
+  "text": "(UTC-00:00) Coordinated Universal Time",
   "utc": ["America/Danmarkshavn", "Etc/GMT"]
 }, {
   "value": "GMT Standard Time",
   "abbr": "GDT",
   "offset": 1,
   "isdst": true,
-  "text": "(UTC) Dublin, Edinburgh, Lisbon, London",
+  "text": "(UTC-00:00) Dublin, Edinburgh, Lisbon, London",
   "utc": ["Atlantic/Canary", "Atlantic/Faeroe", "Atlantic/Madeira", "Europe/Dublin", "Europe/Guernsey", "Europe/Isle_of_Man", "Europe/Jersey", "Europe/Lisbon", "Europe/London"]
 }, {
   "value": "Greenwich Standard Time",
   "abbr": "GST",
   "offset": 0,
   "isdst": false,
-  "text": "(UTC) Monrovia, Reykjavik",
+  "text": "(UTC-00:00) Monrovia, Reykjavik",
   "utc": ["Africa/Abidjan", "Africa/Accra", "Africa/Bamako", "Africa/Banjul", "Africa/Bissau", "Africa/Conakry", "Africa/Dakar", "Africa/Freetown", "Africa/Lome", "Africa/Monrovia", "Africa/Nouakchott", "Africa/Ouagadougou", "Africa/Sao_Tome", "Atlantic/Reykjavik", "Atlantic/St_Helena"]
 }, {
   "value": "W. Europe Standard Time",
@@ -53801,7 +53803,7 @@ var timezoneArr = [{
   "abbr": "NST",
   "offset": 5.75,
   "isdst": false,
-  "text": "(UTC+05:45) Kathmandu",
+  "text": "(UTC+05:45)",
   "utc": ["Asia/Katmandu"]
 }, {
   "value": "Central Asia Standard Time",
@@ -54081,11 +54083,11 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                         // obtinuta cu newDate() )
                         console.log(localTimeMiliseconds, 'localUtc');
                         var localOffset = localDate.getTimezoneOffset() * oneMinute;
-                        console.log(-localOffset, 'localOffsetlocalOffsetlocalOffsetlocalOffset');
 
                         var utc = localTimeMiliseconds + localOffset;
 
                         var timezoneOffset = this.props.pTimezoneOffset;
+                        console.log(timezoneOffset, 'timezoneOffsettimezoneOffsettimezoneOffsettimezoneOffsettimezoneOffset');
 
                         var hourToMiliseconds = this.props.pHour * oneHour;
                         var minutesToMiliseconds = this.props.pMinutes * oneMinute;
@@ -54093,13 +54095,13 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                         console.log(date.getTime(), 'ddddddddddddddddddddddddddddddddddddd');
 
                         var endTimeMiliseconds = date.getTime() + hourToMiliseconds + minutesToMiliseconds;
-                        console.log(minutesToMiliseconds, "minutesToMilisecondsminutesToMilisecondsminutesToMilisecondsminutesToMilisecondsminutesToMiliseconds");
+                        console.log(endTimeMiliseconds, "Y");
 
                         // timezoneDateSeconds  timezone-ul ales in secunde (se inmulteste cu 3600000
                         // pentru ca 1000 millseconds = 1 second, and 1 hour = 3600  seconds)
                         // Therefore, converting hours to milliseconds involves multiplying by 3600 * 1000 = 3600000.
-                        var nowTimeMiliseconds = utc + timezoneOffset;
-                        console.log(nowTimeMiliseconds, 'timezoneOffsettimezoneOffsettimezoneOffsettimezoneOffsetmmmmiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii');
+                        var nowTimeMiliseconds = utc + parseInt(timezoneOffset);
+                        console.log(nowTimeMiliseconds, 'X');
 
                         var timeToCount = endTimeMiliseconds - nowTimeMiliseconds;
                         console.log(timeToCount, 'timeToCounttimeToCounttimeToCounttimeToCounttimeToCounttimeToCounttimeToCount');

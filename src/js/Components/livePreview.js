@@ -23,11 +23,12 @@ export class LivePreview extends React.Component {
       // obtinuta cu newDate() )
       console.log(localTimeMiliseconds, 'localUtc');
       var localOffset = (localDate.getTimezoneOffset())*oneMinute;
-      console.log(-localOffset, 'localOffsetlocalOffsetlocalOffsetlocalOffset');
 
       var utc = localTimeMiliseconds + localOffset;
 
       var timezoneOffset = this.props.pTimezoneOffset;
+      console.log(timezoneOffset, 'timezoneOffsettimezoneOffsettimezoneOffsettimezoneOffsettimezoneOffset');
+
 
       let hourToMiliseconds = this.props.pHour * oneHour;
       let minutesToMiliseconds = this.props.pMinutes * oneMinute;
@@ -35,13 +36,13 @@ export class LivePreview extends React.Component {
       console.log(date.getTime(),'ddddddddddddddddddddddddddddddddddddd');
 
       var endTimeMiliseconds = date.getTime() + hourToMiliseconds + minutesToMiliseconds;
-      console.log(minutesToMiliseconds, "minutesToMilisecondsminutesToMilisecondsminutesToMilisecondsminutesToMilisecondsminutesToMiliseconds");
+      console.log(endTimeMiliseconds, "Y");
 
       // timezoneDateSeconds  timezone-ul ales in secunde (se inmulteste cu 3600000
       // pentru ca 1000 millseconds = 1 second, and 1 hour = 3600  seconds)
       // Therefore, converting hours to milliseconds involves multiplying by 3600 * 1000 = 3600000.
-      var nowTimeMiliseconds = utc + timezoneOffset ;
-      console.log(nowTimeMiliseconds, 'timezoneOffsettimezoneOffsettimezoneOffsettimezoneOffsetmmmmiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii');
+      var nowTimeMiliseconds = utc + parseInt(timezoneOffset) ;
+      console.log(nowTimeMiliseconds, 'X');
 
       const timeToCount = endTimeMiliseconds - nowTimeMiliseconds;
       console.log(timeToCount, 'timeToCounttimeToCounttimeToCounttimeToCounttimeToCounttimeToCounttimeToCount');

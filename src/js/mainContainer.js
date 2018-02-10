@@ -26,7 +26,6 @@ class MainContainer extends React.Component {
       pColor: '',
       ectIsBoldP: false,
       timezoneOffset: '',
-      differenceUtcP: '',
       selectedH:'',
       selectedM:''
     };
@@ -55,13 +54,13 @@ class MainContainer extends React.Component {
     this.setState({pColor: selectedColorChild})
   }
   returnTimezone(timezoneChosen) {
+    console.log(timezoneChosen, "11111112222222222255555555555555555555555555555522222222222222222");
     this.setState({timezoneOffset: timezoneChosen});
   }
   returnChildTime(selectedHour, selectedMinutes) {
     this.setState({selectedH: selectedHour});
     this.setState({selectedM: selectedMinutes});
-    console.log(this.state.selectedH, this.state.selectedH,);
-  }
+}
 
   render() {
     const {selectedDay, isDisabled} = this.state;
