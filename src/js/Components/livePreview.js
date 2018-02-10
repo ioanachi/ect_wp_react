@@ -3,16 +3,16 @@ import React from 'react';
 export class LivePreview extends React.Component {
   constructor(props) {
     super(props);
-  
-this.forceRerender =this.forceRerender.bind(this);
+
+    this.forceRerender = this.forceRerender.bind(this);
   };
   forceRerender() {
     this.forceUpdate();
   }
   liveCountDown() {
-    setTimeout(()=>{
+    setTimeout(() => {
       this.forceRerender();
-    },1000);
+    }, 1000);
     if (this.props.pDate !== '') {
       var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
       var oneHour = 60 * 60 * 1000;
@@ -22,7 +22,7 @@ this.forceRerender =this.forceRerender.bind(this);
       const localTimeMiliseconds = localDate.getTime();
       //  localTimeSeconds secundele trecute din 1 jan 1970 pana la ora locala (asta face .getTime() de data locala
       // obtinuta cu newDate() )
-      var localOffset = (localDate.getTimezoneOffset())*oneMinute;
+      var localOffset = (localDate.getTimezoneOffset()) * oneMinute;
 
       var utc = localTimeMiliseconds + localOffset;
 
@@ -36,7 +36,7 @@ this.forceRerender =this.forceRerender.bind(this);
       // timezoneDateSeconds  timezone-ul ales in secunde (se inmulteste cu 3600000
       // pentru ca 1000 millseconds = 1 second, and 1 hour = 3600  seconds)
       // Therefore, converting hours to milliseconds involves multiplying by 3600 * 1000 = 3600000.
-      var nowTimeMiliseconds = utc + parseInt(timezoneOffset) ;
+      var nowTimeMiliseconds = utc + parseInt(timezoneOffset);
 
       const timeToCount = endTimeMiliseconds - nowTimeMiliseconds;
 
@@ -64,9 +64,8 @@ this.forceRerender =this.forceRerender.bind(this);
       // diferenta dintre milisecundele din viitor (de la 1970) si milisecundele actuale
       // (de la anul 1970) impartite la o zi(care este egala cu 24h* 60 min si 60 sec* 1000milisecunde)
     }
-
+    return "Pick an End Date"
   };
-
 
   render() {
     var divStyle = {
@@ -81,12 +80,9 @@ this.forceRerender =this.forceRerender.bind(this);
     return (<div>
       <label className="containerLabels">Live preview</label>
       <div className="containerPreview">
-
         <h3>{this.props.pName}
         </h3>
         <h2 style={divStyle}>{this.liveCountDown()}</h2>
-
-
       </div>
       <label className="containerLabels">Configuration</label>
     </div>);
