@@ -13,7 +13,6 @@ import {Timezones} from './Components/timezonePicker.js';
 import {LivePreview} from './Components/livePreview.js';
 import {EndTime} from './Components/endTime.js';
 import {TimeFormat} from './Components/timeFormat.js';
-
 class MainContainer extends React.Component {
   constructor(props) {
     super(props);
