@@ -89,8 +89,6 @@ class MainContainer extends React.Component {
             <td className="componentContainer">
               <UserName NameParent={this.onNameSubmit}/>
             </td>
-
-
           </tr>
           <tr>
           <td className="componentContainer">
