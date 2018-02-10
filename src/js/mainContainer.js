@@ -27,7 +27,8 @@ class MainContainer extends React.Component {
       ectIsBoldP: false,
       timezoneOffset: -12,
       selectedH:0,
-      selectedM:0
+      selectedM:0,
+      utcTz: 'Europe/Bucharest'
     };
     this.onFontSubmit = this.onFontSubmit.bind(this);
     this.returnChildDate = this.returnChildDate.bind(this);
@@ -53,8 +54,11 @@ class MainContainer extends React.Component {
   returnChildColor(selectedColorChild) {
     this.setState({pColor: selectedColorChild})
   }
-  returnTimezone(timezoneChosen) {
-    this.setState({timezoneOffset: timezoneChosen});
+  returnTimezone(timezoneChosen,utcTz) {
+    this.setState({
+      timezoneOffset: timezoneChosen,
+      utcTz:utcTz
+    });
   }
   returnChildTime(selectedHour, selectedMinutes) {
     this.setState({selectedH: selectedHour});
@@ -115,7 +119,7 @@ class MainContainer extends React.Component {
         </tbody>
       </table>
 
-      <EctShortcode pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset} pHour={this.state.selectedH} pMinutes={this.state.selectedM}/>
+      <EctShortcode pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pUtcTz={this.state.utcTz} pHour={this.state.selectedH} pMinutes={this.state.selectedM}/>
     </div>);
   }
 };

@@ -12,9 +12,11 @@ export class Timezones extends React.Component {
   };
   chooseTimezone(evt) {
     const selectedValue = evt.target.value;
+    const utcTz = evt.target[evt.target.selectedIndex].getAttribute('utctz');
     const returnDataToParent = this.props.callbackChildPropT;
-    returnDataToParent(selectedValue);
+    returnDataToParent(selectedValue,utcTz);
   };
+
   getOptions(x) {
     return x.map(function(item, i) {
       var partialParsing = item.text.split('UTC')[1];
@@ -26,11 +28,11 @@ export class Timezones extends React.Component {
       var offsetMMilisec = newValue.split(':')[1] * oneMinute;
 
       var offsetMilisec = offsetHMilisec + offsetMMilisec;
-      return (<option key={i} value={offsetMilisec}>{item.text}</option>);
+      return (<option key={i} utctz={item['utc'][0]} value={offsetMilisec}>{item.text}</option>);
     });
   }
   render() {
-    return (<select onChange={this.chooseTimezone}>
+    return (<select onChange={this.chooseTimezone} ref="utcShortcode">
       {this.getOptions(timezoneArr)}
     </select>);
   }
