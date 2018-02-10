@@ -52147,7 +52147,6 @@ var MainContainer = function (_React$Component) {
   }, {
     key: 'returnTimezone',
     value: function returnTimezone(timezoneChosen) {
-      console.log(timezoneChosen, "11111112222222222255555555555555555555555555555522222222222222222");
       this.setState({ timezoneOffset: timezoneChosen });
     }
   }, {
@@ -53259,7 +53258,6 @@ var Timezones = exports.Timezones = function (_React$Component) {
     key: 'chooseTimezone',
     value: function chooseTimezone(evt) {
       var selectedValue = evt.target.value;
-      console.log(selectedValue, "initialValue");
       var returnDataToParent = this.props.callbackChildPropT;
       returnDataToParent(selectedValue);
     }
@@ -53276,8 +53274,6 @@ var Timezones = exports.Timezones = function (_React$Component) {
         var offsetMMilisec = newValue.split(':')[1] * oneMinute;
 
         var offsetMilisec = offsetHMilisec + offsetMMilisec;
-
-        // console.log(offsetMilisec, "newValu/senewValuenewValuenewValuenewValuenewValue");
         return _react2.default.createElement('option', { key: i, value: offsetMilisec }, item.text);
       });
     }
@@ -54059,12 +54055,6 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
 
             var _this = _possibleConstructorReturn(this, (LivePreview.__proto__ || Object.getPrototypeOf(LivePreview)).call(this, props));
 
-            _this.state = {
-                  days: '',
-                  hours: '',
-                  minutes: '',
-                  seconds: ''
-            };
             _this.forceRerender = _this.forceRerender.bind(_this);
             return _this;
       }
@@ -54075,8 +54065,8 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                   this.forceUpdate();
             }
       }, {
-            key: 'diffDays1',
-            value: function diffDays1() {
+            key: 'liveCountDown',
+            value: function liveCountDown() {
                   var _this2 = this;
 
                   setTimeout(function () {
@@ -54096,7 +54086,6 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                         var utc = localTimeMiliseconds + localOffset;
 
                         var timezoneOffset = this.props.pTimezoneOffset;
-
                         var hourToMiliseconds = this.props.pHour * oneHour;
                         var minutesToMiliseconds = this.props.pMinutes * oneMinute;
                         var date = new Date(this.props.pDate);
@@ -54135,40 +54124,6 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                         // (de la anul 1970) impartite la o zi(care este egala cu 24h* 60 min si 60 sec* 1000milisecunde)
                   }
             }
-
-            // liveCountDown() {
-            //
-            //
-            //     console.log(daysToCount);;
-            //
-            // }
-            // timezoneRequired() {
-            //   const localDate = new Date();
-            //   const localTimeSeconds = localDate.getTime();
-            //     localTimeSeconds secundele trecute din 1 jan 1970 pana la ora locala (asta face .getTime() de data locala
-            //    obtinuta cu newDate() )
-            //   console.log(localTimeSeconds, 'localUtc');
-            //   var localOffset = localDate.getTimezoneOffset();
-            //   console.log(localOffset * 3600000, 'localOffset');
-            //
-            //   var utc = localTimeSeconds + localOffset;
-            //
-            //   var timezoneOffset = this.props.pTimezoneOffset;
-            //    timezoneDateSeconds  timezone-ul ales in secunde (se inmulteste cu 3600000
-            //    pentru ca 1000 millseconds = 1 second, and 1 hour = 3600  seconds)
-            //    Therefore, converting hours to milliseconds involves multiplying by 3600 * 1000 = 3600000.
-            //   var timezoneDateSeconds = utc + (timezoneOffset * 3600000);
-            //    Change the time value calculated in the previous step to a human-readable date/time string by
-            //    initializing a new Date() object with it, and calling the object's toLocaleString() method.
-            //   var timezoneDateH = JSON.stringify(new Date(timezoneDateSeconds));
-            //   console.log(timezoneDateH, 'timezoneDateHtimezoneDateHtimezoneDateHtimezoneDateHtimezoneDateH');
-            //
-            //   var timeInZone = timezoneDateH.split('T')[1]
-            //   console.log(timeInZone.split('.')[0], 'timezoneDateH');
-            //   return timeInZone.split('.')[0];
-            //
-            // }
-
       }, {
             key: 'render',
             value: function render() {
@@ -54178,7 +54133,7 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                         fontWeight: this.props.pBold == true ? 'bold' : 'normal'
                   };
 
-                  return _react2.default.createElement('div', null, _react2.default.createElement('label', { className: 'containerLabels' }, 'Live preview'), _react2.default.createElement('div', { className: 'containerPreview' }, _react2.default.createElement('h3', null, this.props.pName), _react2.default.createElement('h2', { style: divStyle }, this.diffDays1())), _react2.default.createElement('label', { className: 'containerLabels' }, 'Configuration'));
+                  return _react2.default.createElement('div', null, _react2.default.createElement('label', { className: 'containerLabels' }, 'Live preview'), _react2.default.createElement('div', { className: 'containerPreview' }, _react2.default.createElement('h3', null, this.props.pName), _react2.default.createElement('h2', { style: divStyle }, this.liveCountDown())), _react2.default.createElement('label', { className: 'containerLabels' }, 'Configuration'));
             }
       }]);
 

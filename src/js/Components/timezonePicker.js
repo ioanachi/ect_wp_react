@@ -12,7 +12,6 @@ export class Timezones extends React.Component {
   };
   chooseTimezone(evt) {
     const selectedValue = evt.target.value;
-    console.log(selectedValue, "initialValue");
     const returnDataToParent = this.props.callbackChildPropT;
     returnDataToParent(selectedValue);
   };
@@ -27,8 +26,6 @@ export class Timezones extends React.Component {
       var offsetMMilisec = newValue.split(':')[1] * oneMinute;
 
       var offsetMilisec = offsetHMilisec + offsetMMilisec;
-
-      // console.log(offsetMilisec, "newValu/senewValuenewValuenewValuenewValuenewValue");
       return (<option key={i} value={offsetMilisec}>{item.text}</option>);
     });
   }
