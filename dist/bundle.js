@@ -52105,7 +52105,7 @@ var MainContainer = function (_React$Component) {
       fontSizeP: 42,
       pColor: '',
       ectIsBoldP: false,
-      timezoneOffset: -43200000,
+      timezoneOffset: -(new Date().getTimezoneOffset() * 60000),
       selectedH: 0,
       selectedM: 0,
       utcTz: 'Etc/GMT+12',
@@ -52150,6 +52150,7 @@ var MainContainer = function (_React$Component) {
   }, {
     key: 'returnTimezone',
     value: function returnTimezone(timezoneChosen, utcTz) {
+      console.log(this.state.timezoneOffset, 'timezoneOffsettimezoneOffsettimezoneOffsettimezoneOffset');
       this.setState({ timezoneOffset: timezoneChosen, utcTz: utcTz });
     }
   }, {
@@ -53067,12 +53068,7 @@ var PickColor = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (PickColor.__proto__ || Object.getPrototypeOf(PickColor)).call(this, props));
 
     _this.state = {
-      color: {
-        r: '241',
-        g: '112',
-        b: '19',
-        a: '1'
-      },
+      color: '#000',
       background: '',
       displayColorPicker: false
     };
@@ -53112,7 +53108,7 @@ var PickColor = function (_React$Component) {
             width: '36px',
             height: '14px',
             borderRadius: '2px',
-            background: 'rgba(' + this.state.color.r + ', ' + this.state.color.g + ', ' + this.state.color.b + ', ' + this.state.color.a + ')'
+            background: '' + this.state.color
           },
           swatch: {
             padding: '5px',
@@ -53252,7 +53248,12 @@ var Timezones = exports.Timezones = function (_React$Component) {
   _createClass(Timezones, [{
     key: 'chooseTimezone',
     value: function chooseTimezone(evt) {
+      // var date = new Date().split('');
+      var offsetInHours = new Date().getTimezoneOffset() / 60;
+
       var selectedValue = evt.target.value;
+      console.log(selectedValue, "jgyytdtrs");
+
       var utcTz = evt.target[evt.target.selectedIndex].getAttribute('utctz');
       var returnDataToParent = this.props.callbackChildPropT;
       returnDataToParent(selectedValue, utcTz);
@@ -54090,6 +54091,7 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
         // pentru ca 1000 millseconds = 1 second, and 1 hour = 3600  seconds)
         // Therefore, converting hours to milliseconds involves multiplying by 3600 * 1000 = 3600000.
         var nowTimeMiliseconds = utc + parseInt(timezoneOffset);
+        console.log(nowTimeMiliseconds / oneHour, ' parseInt(timezoneOffset) parseInt(timezoneOffset) parseInt(timezoneOffset)');
 
         var timeToCount = endTimeMiliseconds - nowTimeMiliseconds;
 

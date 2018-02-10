@@ -8,12 +8,7 @@ class PickColor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      color: {
-        r: '241',
-        g: '112',
-        b: '19',
-        a: '1'
-      },
+      color: '#000',
       background: '',
       displayColorPicker: false
     };
@@ -43,7 +38,7 @@ class PickColor extends React.Component {
           width: '36px',
           height: '14px',
           borderRadius: '2px',
-          background: `rgba(${ this.state.color.r }, ${ this.state.color.g }, ${ this.state.color.b }, ${ this.state.color.a })`,
+          background: `${ this.state.color}`,
         },
         swatch: {
           padding: '5px',

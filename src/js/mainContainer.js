@@ -23,7 +23,7 @@ class MainContainer extends React.Component {
       fontSizeP: 42,
       pColor: '',
       ectIsBoldP: false,
-      timezoneOffset: -43200000,
+      timezoneOffset: -(new Date().getTimezoneOffset()*60000),
       selectedH: 0,
       selectedM: 0,
       utcTz: 'Etc/GMT+12',
@@ -55,6 +55,7 @@ class MainContainer extends React.Component {
     this.setState({pColor: selectedColorChild})
   }
   returnTimezone(timezoneChosen, utcTz) {
+    console.log(this.state.timezoneOffset, 'timezoneOffsettimezoneOffsettimezoneOffsettimezoneOffset');
     this.setState({timezoneOffset: timezoneChosen, utcTz: utcTz});
   }
   returnChildTime(selectedHour, selectedMinutes) {
