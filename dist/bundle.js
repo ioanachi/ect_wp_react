@@ -21403,6 +21403,8 @@ __webpack_require__(184);
 
 __webpack_require__(185);
 
+__webpack_require__(2);
+
 __webpack_require__(409);
 
 __webpack_require__(411);
@@ -52057,29 +52059,27 @@ var _nameInput = __webpack_require__(414);
 
 var _fontSize = __webpack_require__(415);
 
-var _styles = __webpack_require__(416);
+var _ectShortcode = __webpack_require__(416);
 
-var _ectShortcode = __webpack_require__(417);
-
-var _dayPicker = __webpack_require__(418);
+var _dayPicker = __webpack_require__(417);
 
 var _moment = __webpack_require__(63);
 
 var _moment2 = _interopRequireDefault(_moment);
 
-var _colorReactPicker = __webpack_require__(419);
+var _colorReactPicker = __webpack_require__(418);
 
 var _colorReactPicker2 = _interopRequireDefault(_colorReactPicker);
 
-var _bold = __webpack_require__(420);
+var _bold = __webpack_require__(419);
 
-var _timezonePicker = __webpack_require__(421);
+var _timezonePicker = __webpack_require__(420);
 
-var _livePreview = __webpack_require__(423);
+var _livePreview = __webpack_require__(422);
 
-var _endTime = __webpack_require__(424);
+var _endTime = __webpack_require__(423);
 
-var _timeFormat = __webpack_require__(425);
+var _timeFormat = __webpack_require__(424);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -52170,7 +52170,9 @@ var MainContainer = function (_React$Component) {
           selectedDay = _state.selectedDay,
           isDisabled = _state.isDisabled;
 
-      return _react2.default.createElement('div', { className: 'ContainerMain' }, _react2.default.createElement(_livePreview.LivePreview, { pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezoneOffset: this.state.timezoneOffset, pHour: this.state.selectedH, pMinutes: this.state.selectedM, pFormat: this.state.timeFormat }), _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Time Format')), _react2.default.createElement('td', null, _react2.default.createElement(_timeFormat.TimeFormat, { pTimeFormat: this.state.formatType, callBackSelectFormat: this.returnFormat }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Font Size')), _react2.default.createElement('td', null, _react2.default.createElement(_fontSize.FontSize, { pFont: this.state.fontSizeP, aaa: this.onFontSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Select to make text Bold')), _react2.default.createElement('td', null, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { callbackChildPropT: this.returnTimezone })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_dayPicker.EndDate, { callbackChildProp: this.returnChildDate })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Time')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_endTime.EndTime, { TimeEnd: this.returnChildTime }))))), _react2.default.createElement(_ectShortcode.EctShortcode, { pName: this.state.naMeP, pTimeFormat: this.state.timeFormat, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pUtcTz: this.state.utcTz, pHour: this.state.selectedH, pMinutes: this.state.selectedM, pFormat: this.state.timeFormat }));
+      return _react2.default.createElement('div', { className: 'ContainerMain' }, _react2.default.createElement(_livePreview.LivePreview, { pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezoneOffset: this.state.timezoneOffset, pHour: this.state.selectedH, pMinutes: this.state.selectedM,
+        pFormat: this.state.timeFormat }), _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_dayPicker.EndDate, { callbackChildProp: this.returnChildDate })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Time Format')), _react2.default.createElement('td', null, _react2.default.createElement(_timeFormat.TimeFormat, { pTimeFormat: this.state.formatType, callBackSelectFormat: this.returnFormat }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Time')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_endTime.EndTime, { TimeEnd: this.returnChildTime })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Font Size')), _react2.default.createElement('td', null, _react2.default.createElement(_fontSize.FontSize, { pFont: this.state.fontSizeP, aaa: this.onFontSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Select to make text Bold')), _react2.default.createElement('td', null, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { callbackChildPropT: this.returnTimezone }))))), _react2.default.createElement(_ectShortcode.EctShortcode, { pName: this.state.naMeP, pTimeFormat: this.state.timeFormat, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pUtcTz: this.state.utcTz, pHour: this.state.selectedH, pMinutes: this.state.selectedM,
+        pFormat: this.state.timeFormat }));
     }
   }]);
 
@@ -52891,51 +52893,6 @@ var FontSize = exports.FontSize = function (_React$Component) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Styles = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Styles = exports.Styles = function (_React$Component) {
-  _inherits(Styles, _React$Component);
-
-  function Styles() {
-    _classCallCheck(this, Styles);
-
-    return _possibleConstructorReturn(this, (Styles.__proto__ || Object.getPrototypeOf(Styles)).apply(this, arguments));
-  }
-
-  _createClass(Styles, [{
-    key: "render",
-    value: function render() {
-      return _react2.default.createElement("div", { className: "stylesDiv" }, _react2.default.createElement("label", { htmlFor: "stylesDrop" }, "Style"), _react2.default.createElement("select", { className: "stylesDrop" }, _react2.default.createElement("option", { value: "1" }, "a"), _react2.default.createElement("option", { value: "2" }, "b"), _react2.default.createElement("option", { value: "3" }, "c"), _react2.default.createElement("option", { value: "4" }, "d")));
-    }
-  }]);
-
-  return Styles;
-}(_react2.default.Component);
-
-/***/ }),
-/* 417 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 exports.EctShortcode = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -52993,7 +52950,7 @@ var EctShortcode = exports.EctShortcode = function (_React$Component) {
 }(_react2.default.Component);
 
 /***/ }),
-/* 418 */
+/* 417 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53069,7 +53026,7 @@ var EndDate = exports.EndDate = function (_React$Component) {
 }(_react2.default.Component);
 
 /***/ }),
-/* 419 */
+/* 418 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53086,6 +53043,10 @@ var _reactDom = __webpack_require__(23);
 var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _reactcss = __webpack_require__(2);
+
+var _reactcss2 = _interopRequireDefault(_reactcss);
 
 var _reactColor = __webpack_require__(185);
 
@@ -53106,6 +53067,12 @@ var PickColor = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (PickColor.__proto__ || Object.getPrototypeOf(PickColor)).call(this, props));
 
     _this.state = {
+      color: {
+        r: '241',
+        g: '112',
+        b: '19',
+        a: '1'
+      },
       background: '',
       displayColorPicker: false
     };
@@ -53131,7 +53098,7 @@ var PickColor = function (_React$Component) {
     key: 'handleOnColorChange',
     value: function handleOnColorChange(color) {
       var colorChanged = color.hex;
-      this.setState({ background: color.hex });
+      this.setState({ color: color.hex });
       // this.setState({ color: evt.target.value });
       var Submitx = this.props.callbackChildPropColor;
       Submitx(colorChanged);
@@ -53139,18 +53106,36 @@ var PickColor = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var popover = {
-        position: 'absolute',
-        zIndex: '2'
-      };
-      var cover = {
-        position: 'fixed',
-        top: '0px',
-        right: '0px',
-        bottom: '0px',
-        left: '0px'
-      };
-      return _react2.default.createElement('div', { className: 'componentContainer' }, _react2.default.createElement('button', { onClick: this.handleClick }, 'Pick Color'), this.state.displayColorPicker ? _react2.default.createElement('div', { style: popover }, ' ', _react2.default.createElement('div', { style: cover, onClick: this.handleClose }), _react2.default.createElement(_reactColor.SketchPicker, { color: this.state.background, onChangeComplete: this.handleOnColorChange })) : null);
+      var styles = (0, _reactcss2.default)({
+        'default': {
+          color: {
+            width: '36px',
+            height: '14px',
+            borderRadius: '2px',
+            background: 'rgba(' + this.state.color.r + ', ' + this.state.color.g + ', ' + this.state.color.b + ', ' + this.state.color.a + ')'
+          },
+          swatch: {
+            padding: '5px',
+            background: '#fff',
+            borderRadius: '1px',
+            boxShadow: '0 0 0 1px rgba(0,0,0,.1)',
+            display: 'inline-block',
+            cursor: 'pointer'
+          },
+          popover: {
+            position: 'absolute',
+            zIndex: '2'
+          },
+          cover: {
+            position: 'fixed',
+            top: '0px',
+            right: '0px',
+            bottom: '0px',
+            left: '0px'
+          }
+        }
+      });
+      return _react2.default.createElement('div', { className: 'componentContainer' }, _react2.default.createElement('div', { style: styles.swatch, onClick: this.handleClick }, _react2.default.createElement('div', { style: styles.color })), this.state.displayColorPicker ? _react2.default.createElement('div', { style: styles.popover }, _react2.default.createElement('div', { style: styles.cover, onClick: this.handleClose }), _react2.default.createElement(_reactColor.SketchPicker, { color: this.state.color, onChange: this.handleOnColorChange })) : null);
     }
   }]);
 
@@ -53160,7 +53145,7 @@ var PickColor = function (_React$Component) {
 exports.default = PickColor;
 
 /***/ }),
-/* 420 */
+/* 419 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53219,7 +53204,7 @@ var Bold = exports.Bold = function (_React$Component) {
 }(_react2.default.Component);
 
 /***/ }),
-/* 421 */
+/* 420 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53236,7 +53221,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _timezoneArr = __webpack_require__(422);
+var _timezoneArr = __webpack_require__(421);
 
 var _timezoneArr2 = _interopRequireDefault(_timezoneArr);
 
@@ -53299,7 +53284,7 @@ var Timezones = exports.Timezones = function (_React$Component) {
 }(_react2.default.Component);
 
 /***/ }),
-/* 422 */
+/* 421 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54033,7 +54018,7 @@ var timezoneArr = [{
 exports.default = timezoneArr;
 
 /***/ }),
-/* 423 */
+/* 422 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54208,7 +54193,7 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
 }(_react2.default.Component);
 
 /***/ }),
-/* 424 */
+/* 423 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54295,7 +54280,7 @@ var EndTime = exports.EndTime = function (_React$Component) {
 }(_react2.default.Component);
 
 /***/ }),
-/* 425 */
+/* 424 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

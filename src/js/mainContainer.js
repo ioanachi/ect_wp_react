@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import {UserName} from './Components/nameInput';
 import {FontSize} from './Components/fontSize';
-import {Styles} from './Components/styles';
 import {EctShortcode} from './Components/ectShortcode';
 import {EndDate} from './Components/dayPicker.js';
 import MomentLocaleUtils, {formatDate, parseDate} from 'react-day-picker/moment';
@@ -70,10 +69,17 @@ class MainContainer extends React.Component {
   render() {
     const {selectedDay, isDisabled} = this.state;
     return (<div className="ContainerMain">
-      <LivePreview pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset} pHour={this.state.selectedH} pMinutes={this.state.selectedM} pFormat={this.state.timeFormat}/>
+      <LivePreview pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset} pHour={this.state.selectedH} pMinutes={this.state.selectedM}
+       pFormat={this.state.timeFormat}/>
       <table className="tableStyles">
         <tbody>
           <tr>
+          <td className="componentContainer">
+            <label htmlFor="datePicker">End Date</label>
+          </td>
+          <td className="componentContainer"><EndDate callbackChildProp={this.returnChildDate}/>
+          </td>
+
             <td className="componentContainer">
               <label htmlFor="username">Name</label>
             </td>
@@ -87,6 +93,11 @@ class MainContainer extends React.Component {
             <td><TimeFormat pTimeFormat={this.state.formatType} callBackSelectFormat={this.returnFormat}/></td>
           </tr>
           <tr>
+          <td className="componentContainer">
+            <label htmlFor="datePicker">End Time</label>
+          </td>
+          <td className="componentContainer"><EndTime TimeEnd={this.returnChildTime}/>
+          </td>
             <td className="componentContainer">
               <label>Color</label>
             </td>
@@ -110,21 +121,14 @@ class MainContainer extends React.Component {
             </td>
             <td className="timezones">
               <Timezones callbackChildPropT={this.returnTimezone}/></td>
-            <td className="componentContainer">
-              <label htmlFor="datePicker">End Date</label>
-            </td>
-            <td className="componentContainer"><EndDate callbackChildProp={this.returnChildDate}/>
-            </td>
-            <td className="componentContainer">
-              <label htmlFor="datePicker">End Time</label>
-            </td>
-            <td className="componentContainer"><EndTime TimeEnd={this.returnChildTime}/>
-            </td>
+
+
           </tr>
         </tbody>
       </table>
 
-      <EctShortcode pName={this.state.naMeP} pTimeFormat={this.state.timeFormat} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pUtcTz={this.state.utcTz} pHour={this.state.selectedH} pMinutes={this.state.selectedM} pFormat={this.state.timeFormat}/>
+      <EctShortcode pName={this.state.naMeP} pTimeFormat={this.state.timeFormat} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pUtcTz={this.state.utcTz} pHour={this.state.selectedH} pMinutes={this.state.selectedM}
+       pFormat={this.state.timeFormat}/>
     </div>);
   }
 };
