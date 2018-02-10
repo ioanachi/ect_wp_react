@@ -3,17 +3,16 @@ import React from 'react';
 export class LivePreview extends React.Component {
   constructor(props) {
     super(props);
-
-    this.forceRerender = this.forceRerender.bind(this);
+    this.state = {timeout:[]};
+    this.liveCountDown = this.liveCountDown.bind(this);
   };
-  forceRerender() {
-    this.forceUpdate();
-  }
   liveCountDown() {
-
-    var stm = setTimeout(() => {
-      this.forceRerender();
-    }, 1000);
+    var tempTimeout = this.state.timeout;
+    if(!tempTimeout[0]){
+      tempTimeout.push(setTimeout(() => {
+        this.setState({timeout: []});
+      }, 1000));
+    }
 
     if (this.props.pDate !== '') {
       var oneSecond = 1000;

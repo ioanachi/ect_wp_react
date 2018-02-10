@@ -54066,23 +54066,22 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (LivePreview.__proto__ || Object.getPrototypeOf(LivePreview)).call(this, props));
 
-    _this.forceRerender = _this.forceRerender.bind(_this);
+    _this.state = { timeout: [] };
+    _this.liveCountDown = _this.liveCountDown.bind(_this);
     return _this;
   }
 
   _createClass(LivePreview, [{
-    key: 'forceRerender',
-    value: function forceRerender() {
-      this.forceUpdate();
-    }
-  }, {
     key: 'liveCountDown',
     value: function liveCountDown() {
       var _this2 = this;
 
-      var stm = setTimeout(function () {
-        _this2.forceRerender();
-      }, 1000);
+      var tempTimeout = this.state.timeout;
+      if (!tempTimeout[0]) {
+        tempTimeout.push(setTimeout(function () {
+          _this2.setState({ timeout: [] });
+        }, 1000));
+      }
 
       if (this.props.pDate !== '') {
         var oneSecond = 1000;
