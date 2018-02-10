@@ -28,7 +28,7 @@ class MainContainer extends React.Component {
       timezoneOffset: -12,
       selectedH:0,
       selectedM:0,
-      utcTz: 'Europe/Bucharest'
+      utcTz: 'Asia/Nicosia'
     };
     this.onFontSubmit = this.onFontSubmit.bind(this);
     this.returnChildDate = this.returnChildDate.bind(this);
