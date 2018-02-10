@@ -22,7 +22,7 @@ class MainContainer extends React.Component {
       isDisabled: false,
       endDate: '',
       naMeP: '',
-      fontSizeP: '',
+      fontSizeP: 42,
       pColor: '',
       ectIsBoldP: false,
       timezoneOffset: -12,
@@ -85,10 +85,10 @@ class MainContainer extends React.Component {
               <label htmlFor="fontInput">Font Size</label>
             </td>
             <td>
-              <FontSize aaa={this.onFontSubmit}/></td>
+              <FontSize pFont={this.state.fontSizeP} aaa={this.onFontSubmit}/></td>
 
             <td className="componentContainer">
-              <label>Bold</label>
+              <label>Select to make text Bold</label>
             </td>
             <td>
               <Bold callbackChildPropB={this.isBold}/></td>
