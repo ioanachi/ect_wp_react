@@ -79,7 +79,10 @@ class MainContainer extends React.Component {
           </td>
           <td className="componentContainer"><EndDate callbackChildProp={this.returnChildDate}/>
           </td>
-
+          <td className="componentContainer">
+            <label >Time Format</label>
+          </td>
+          <td><TimeFormat pTimeFormat={this.state.formatType} callBackSelectFormat={this.returnFormat}/></td>
             <td className="componentContainer">
               <label htmlFor="username">Name</label>
             </td>
@@ -87,10 +90,7 @@ class MainContainer extends React.Component {
               <UserName NameParent={this.onNameSubmit}/>
             </td>
 
-            <td className="componentContainer">
-              <label >Time Format</label>
-            </td>
-            <td><TimeFormat pTimeFormat={this.state.formatType} callBackSelectFormat={this.returnFormat}/></td>
+
           </tr>
           <tr>
           <td className="componentContainer">
