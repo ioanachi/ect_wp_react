@@ -991,7 +991,7 @@ var timezoneArr = [
     "abbr": "NST",
     "offset": 5.75,
     "isdst": false,
-    "text": "(UTC+05:45)",
+    "text": "(UTC+05:45) Kathmandu",
     "utc": [
       "Asia/Katmandu"
     ]
