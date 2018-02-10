@@ -10,27 +10,27 @@ export class LivePreview extends React.Component {
     this.forceUpdate();
   }
   liveCountDown() {
-    setTimeout(() => {
+
+    var stm = setTimeout(() => {
       this.forceRerender();
     }, 1000);
+
     if (this.props.pDate !== '') {
-      var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
-      var oneHour = 60 * 60 * 1000;
-      var oneMinute = 60 * 1000;
+      var oneSecond = 1000;
+      var oneMinute = 60 * oneSecond;
+      var oneHour = 60 * oneMinute;
+      var oneDay = 24 * oneHour; // hours*minutes*seconds*milliseconds
       var endDate = new Date(this.props.pDate);
       const localDate = new Date();
       const localTimeMiliseconds = localDate.getTime();
       //  localTimeSeconds secundele trecute din 1 jan 1970 pana la ora locala (asta face .getTime() de data locala
       // obtinuta cu newDate() )
       var localOffset = (localDate.getTimezoneOffset()) * oneMinute;
-
       var utc = localTimeMiliseconds + localOffset;
-
       var timezoneOffset = this.props.pTimezoneOffset;
       let hourToMiliseconds = this.props.pHour * oneHour;
       let minutesToMiliseconds = this.props.pMinutes * oneMinute;
       let date = new Date(this.props.pDate);
-
       var endTimeMiliseconds = date.getTime() + hourToMiliseconds + minutesToMiliseconds;
 
       // timezoneDateSeconds  timezone-ul ales in secunde (se inmulteste cu 3600000
@@ -53,12 +53,68 @@ export class LivePreview extends React.Component {
       var milisecLeftWithoutMinutes = milisecLeftWithoutHours - minutesToCount * oneMinute;
       const secondsToCount = Math.floor(milisecLeftWithoutMinutes / 1000);
 
+      var onlyHMS_Hours = Math.floor(timeToCount / oneHour);
+      var onlyHMSNoHours = timeToCount - onlyHMS_Hours * oneHour;
+      var onlyHMS_Minutes = Math.floor(onlyHMSNoHours / oneMinute);
+      var onlyHMSNoHM = onlyHMSNoHours - onlyHMS_Minutes * oneMinute;
+      var onlyHMS_Seconds = Math.floor(onlyHMSNoHM / oneSecond);
+
+      var onlyMS_Min = Math.floor(timeToCount / oneMinute);
+      var onlyMSNoMin = timeToCount - onlyMS_Min * oneMinute;
+      var onlyMS_Sec = Math.floor(onlyMSNoMin / oneSecond);
+
+      var onlySeconds = Math.floor(timeToCount / oneSecond);
+
       // Change the time value calculated in the previous step to a human-readable date/time string by
       // initializing a new Date() object with it, and calling the object's toLocaleString() method.
       if (endTimeMiliseconds < nowTimeMiliseconds) {
         return 0;
       }
-      return daysToCount + " days  " + hoursToCount + 'hours  ' + minutesToCount + '  minutes   ' + secondsToCount + 'seconds left';
+      switch (this.props.pFormat) {
+        case 'D:H:M:S':
+          return daysToCount + " days  " + hoursToCount + 'hours  ' + minutesToCount + '  minutes   ' + secondsToCount + 'seconds left';
+          break;
+        case 'days':
+          return daysToCount;
+          break;
+        case 'hours:minutes:seconds':
+          return onlyHMS_Hours + ':' + onlyHMS_Minutes + ':' + onlyHMS_Seconds;
+          break;
+        case 'hours:minutes':
+          return onlyHMS_Hours + ':' + onlyHMS_Minutes;
+          break;
+        case 'minutes:seconds':
+          return onlyMS_Min + ':' + onlyMS_Sec;
+          break;
+        case 'seconds':
+          return onlySeconds;
+          break;
+        case 'D then H:M:S':
+          if (daysToCount == 0) {
+            if (hoursToCount == 0) {
+              if (minutesToCount == 0) {
+                return secondsToCount + 'seconds left';
+              }
+              return minutesToCount + '  minutes   ' + secondsToCount + 'seconds left';
+            }
+            return hoursToCount + 'hours  ' + minutesToCount + '  minutes   ' + secondsToCount + 'seconds left'
+          }
+          return daysToCount + " days  " + hoursToCount + 'hours  ' + minutesToCount + '  minutes   ' + secondsToCount + 'seconds left';
+          break;
+
+        default:
+          if (daysToCount == 0) {
+            if (hoursToCount == 0) {
+              if (minutesToCount == 0) {
+                return secondsToCount + 'seconds left';
+              }
+              return minutesToCount + '  minutes   ' + secondsToCount + 'seconds left';
+            }
+            return hoursToCount + 'hours  ' + minutesToCount + '  minutes   ' + secondsToCount + 'seconds left'
+          }
+          return daysToCount + " days  " + hoursToCount + 'hours  ' + minutesToCount + '  minutes   ' + secondsToCount + 'seconds left';
+          break;
+      }
 
       // return Math.round(Math.abs((timezoneDateSeconds - endDate.getTime()) / (oneDay)) + 1);
       // diferenta dintre milisecundele din viitor (de la 1970) si milisecundele actuale
