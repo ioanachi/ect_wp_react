@@ -24,7 +24,7 @@ export class EctShortcode extends React.Component {
     this.props.pName + '"   date="' + this.props.pDate +
     '"  color= "' + this.props.pColor+'"   fontSize="' +
     this.props.pFont + 'px"'+'    bold="'+this.props.pBold+
-    '" UtcTz="'+this.props.pUtcTz+'" hour="' +
+    '" Timezone="'+this.props.pUtcTz+'" hour="' +
     this.props.pHour + '"  minutes= "' + this.props.pMinutes+'"]';
 
     return (<div className="componentContainer">
