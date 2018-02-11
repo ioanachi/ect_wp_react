@@ -12,6 +12,8 @@ import {Timezones} from './Components/timezonePicker.js';
 import {LivePreview} from './Components/livePreview.js';
 import {EndTime} from './Components/endTime.js';
 import {TimeFormat} from './Components/timeFormat.js';
+import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
+
 class MainContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -71,66 +73,102 @@ class MainContainer extends React.Component {
     const livePreviewOnly = (<LivePreview key="LivePreview" parentID={this.props.parentID} pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset} pHour={this.state.selectedH} pMinutes={this.state.selectedM} pFormat={this.state.timeFormat}/>);
     // the rest of the data
     var configurationComponentsJSX = (<div key="configurationComponentsJSX">
-      <label htmlFor="tableStyles" className="containerLabels">
-        Configuration</label>
-      <table className="tableStyles">
-        <tbody>
-          <tr>
-            <td className="componentContainer">
-              <label htmlFor="datePicker">End Date</label>
-            </td>
-            <td className="componentContainer"><EndDate callbackChildProp={this.returnChildDate}/>
-            </td>
-            <td className="componentContainer">
-              <label >Time Format</label>
-            </td>
-            <td><TimeFormat pTimeFormat={this.state.formatType} callBackSelectFormat={this.returnFormat}/></td>
-            <td className="componentContainer">
-              <label htmlFor="username">Name</label>
-            </td>
-            <td className="componentContainer">
-              <UserName NameParent={this.onNameSubmit}/>
-            </td>
-          </tr>
-          <tr>
-            <td className="componentContainer">
-              <label htmlFor="datePicker">End Time</label>
-            </td>
-            <td className="componentContainer"><EndTime TimeEnd={this.returnChildTime}/>
-            </td>
-            <td className="componentContainer">
-              <label>Color</label>
-            </td>
-            <td><PickColor callbackChildPropColor={this.returnChildColor}/></td>
 
-            <td className="componentContainer">
-              <label htmlFor="fontInput">Font Size</label>
-            </td>
-            <td>
-              <FontSize pFont={this.state.fontSizeP} aaa={this.onFontSubmit}/></td>
+      <label htmlFor="tableStyles" className="containerLabels">Configuration</label>
+      <Tabs>
+        <TabList>
+          <Tab>General</Tab>
+          <Tab>Styles</Tab>
+        </TabList>
 
-            <td className="componentContainer">
-              <label>Select to make text Bold</label>
-            </td>
-            <td>
-              <Bold callbackChildPropB={this.isBold}/></td>
-          </tr>
-          <tr>
-            <td className="componentContainer">
-              <label>Timezone</label>
-            </td>
-            <td className="timezones">
-              <Timezones callbackChildPropT={this.returnTimezone}/></td>
-          </tr>
-        </tbody>
-      </table>
+        <TabPanel>
+          <table className="tableStyles">
+            <tbody>
+              <tr>
+                <td className="componentContainer">
+                  <label htmlFor="datePicker">End Date</label>
+                </td>
+                <td className="componentContainer"><EndDate callbackChildProp={this.returnChildDate}/>
+                </td>
+              </tr>
+              <tr>
+
+                <td className="componentContainer">
+                  <label htmlFor="datePicker">End Time</label>
+                </td>
+                <td className="componentContainer"><EndTime TimeEnd={this.returnChildTime}/>
+                </td>
+              </tr>
+              <tr>
+
+                <td className="componentContainer">
+                  <label>Timezone</label>
+                </td>
+                <td className="timezones">
+                  <Timezones callbackChildPropT={this.returnTimezone}/></td>
+
+              </tr>
+              <tr>
+
+                <td className="componentContainer">
+                  <label >Time Format</label>
+                </td>
+                <td><TimeFormat pTimeFormat={this.state.formatType} callBackSelectFormat={this.returnFormat}/></td>
+              </tr>
+
+            </tbody>
+          </table>
+        </TabPanel>
+        <TabPanel>
+          <table className="tableStyles">
+            <tbody>
+              <tr>
+
+                <td className="componentContainer">
+                  <label htmlFor="username">Name</label>
+                </td>
+                <td className="componentContainer">
+                  <UserName NameParent={this.onNameSubmit}/>
+                </td>
+              </tr>
+              <tr>
+
+                <td className="componentContainer">
+                  <label>Color</label>
+                </td>
+                <td><PickColor callbackChildPropColor={this.returnChildColor}/></td>
+              </tr>
+              <tr>
+
+                <td className="componentContainer">
+                  <label htmlFor="fontInput">Font Size</label>
+                </td>
+                <td className="componentContainer">
+
+                  <FontSize pFont={this.state.fontSizeP} aaa={this.onFontSubmit}/></td>
+              </tr>
+              <tr>
+
+                <td className="componentContainer">
+                  <label>Select to make text Bold</label>
+                </td>
+                <td className="componentContainer">
+
+                  <Bold callbackChildPropB={this.isBold}/></td>
+              </tr>
+              <tr></tr>
+            </tbody>
+          </table>
+
+        </TabPanel>
+      </Tabs>
 
       <EctShortcode pName={this.state.naMeP} pTimeFormat={this.state.timeFormat} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pUtcTz={this.state.utcTz} pTimezoneOffset={this.state.timezoneOffset} pHour={this.state.selectedH} pMinutes={this.state.selectedM} pFormat={this.state.timeFormat}/>
     </div>);
     if (!isOnlyPreview) {
       returnAllData.push(labelPreview);
-    }
-    returnAllData.push(livePreviewOnly)
+    };
+    returnAllData.push(livePreviewOnly);
     if (!isOnlyPreview) {
       returnAllData.push(configurationComponentsJSX);
     }

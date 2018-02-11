@@ -8,6 +8,8 @@ import 'react-day-picker/lib/style.css';
 
 import 'react-color';
 import 'reactcss';
+import 'react-tabs';
+import '../node_modules/react-tabs/style/react-tabs.css';
 
 
 import "./scss/main.scss";
