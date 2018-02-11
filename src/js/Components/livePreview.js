@@ -68,7 +68,7 @@ liveCountDown(){
       fontWeight: propertiesObj.fontWeight
     };
   }
-  return (<h2 style={divStyle}>{mathCountDown.mathFunc(dataProps)}</h2>);
+  return (<span style={divStyle}>{mathCountDown.mathFunc(dataProps)}</span>);
 }
 
   render() {
