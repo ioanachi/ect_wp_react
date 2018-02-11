@@ -23,7 +23,7 @@ class MainContainer extends React.Component {
       fontSizeP: 42,
       pColor: '',
       ectIsBoldP: false,
-      timezoneOffset: -(new Date().getTimezoneOffset()*60000),
+      timezoneOffset: -(new Date().getTimezoneOffset() * 60000),
       selectedH: 0,
       selectedM: 0,
       utcTz: 'Etc/GMT+12',
@@ -65,24 +65,23 @@ class MainContainer extends React.Component {
   returnFormat(formatType) {
     this.setState({timeFormat: formatType});
   }
-
-  render() {
-    const {selectedDay, isDisabled} = this.state;
-    return (<div className="ContainerMain">
-      <LivePreview pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset} pHour={this.state.selectedH} pMinutes={this.state.selectedM}
-       pFormat={this.state.timeFormat}/>
+  showOnlyLivePreview() {
+    var returnAllData = [];
+    const livePreviewOnly = (<LivePreview key="LivePreview" pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset} pHour={this.state.selectedH} pMinutes={this.state.selectedM} pFormat={this.state.timeFormat}/>);
+    // the rest of the data
+    var configurationComponentsJSX = (<div key="configurationComponentsJSX">
       <table className="tableStyles">
         <tbody>
           <tr>
-          <td className="componentContainer">
-            <label htmlFor="datePicker">End Date</label>
-          </td>
-          <td className="componentContainer"><EndDate callbackChildProp={this.returnChildDate}/>
-          </td>
-          <td className="componentContainer">
-            <label >Time Format</label>
-          </td>
-          <td><TimeFormat pTimeFormat={this.state.formatType} callBackSelectFormat={this.returnFormat}/></td>
+            <td className="componentContainer">
+              <label htmlFor="datePicker">End Date</label>
+            </td>
+            <td className="componentContainer"><EndDate callbackChildProp={this.returnChildDate}/>
+            </td>
+            <td className="componentContainer">
+              <label >Time Format</label>
+            </td>
+            <td><TimeFormat pTimeFormat={this.state.formatType} callBackSelectFormat={this.returnFormat}/></td>
             <td className="componentContainer">
               <label htmlFor="username">Name</label>
             </td>
@@ -91,11 +90,11 @@ class MainContainer extends React.Component {
             </td>
           </tr>
           <tr>
-          <td className="componentContainer">
-            <label htmlFor="datePicker">End Time</label>
-          </td>
-          <td className="componentContainer"><EndTime TimeEnd={this.returnChildTime}/>
-          </td>
+            <td className="componentContainer">
+              <label htmlFor="datePicker">End Time</label>
+            </td>
+            <td className="componentContainer"><EndTime TimeEnd={this.returnChildTime}/>
+            </td>
             <td className="componentContainer">
               <label>Color</label>
             </td>
@@ -119,15 +118,26 @@ class MainContainer extends React.Component {
             </td>
             <td className="timezones">
               <Timezones callbackChildPropT={this.returnTimezone}/></td>
-
-
           </tr>
         </tbody>
       </table>
 
-      <EctShortcode pName={this.state.naMeP} pTimeFormat={this.state.timeFormat} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pUtcTz={this.state.utcTz} pHour={this.state.selectedH} pMinutes={this.state.selectedM}
-       pFormat={this.state.timeFormat}/>
+      <EctShortcode pName={this.state.naMeP} pTimeFormat={this.state.timeFormat} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pUtcTz={this.state.utcTz} pHour={this.state.selectedH} pMinutes={this.state.selectedM} pFormat={this.state.timeFormat}/>
     </div>);
+    returnAllData.push(livePreviewOnly)
+    if (!isOnlyPreview) {
+      returnAllData.push(configurationComponentsJSX);
+    }
+    return returnAllData;
+  }
+  render() {
+    const {selectedDay, isDisabled} = this.state;
+    //only the live preview section
+
+    var renderReturn = (<div className="ContainerMain">
+      {this.showOnlyLivePreview()}
+    </div>);
+    return renderReturn;
   }
 };
 

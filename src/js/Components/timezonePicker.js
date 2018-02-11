@@ -3,6 +3,7 @@ import timezoneArr from './timezoneArr.js'
 
 export class Timezones extends React.Component {
   constructor(props) {
+
     super(props);
     this.state = {
       differenceUtc: ''
@@ -12,13 +13,13 @@ export class Timezones extends React.Component {
   };
   chooseTimezone(evt) {
     // var date = new Date().split('');
-    var offsetInHours = new Date().getTimezoneOffset()/60;
+    var offsetInHours = new Date();
+    console.log(new Date(), "jgyytdtrs");
 
 
 
 
     const selectedValue = evt.target.value;
-    console.log(selectedValue, "jgyytdtrs");
 
     const utcTz = evt.target[evt.target.selectedIndex].getAttribute('utctz');
     const returnDataToParent = this.props.callbackChildPropT;
