@@ -5061,7 +5061,7 @@ module.exports = map;
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(19),
+var Symbol = __webpack_require__(20),
     getRawTag = __webpack_require__(258),
     objectToString = __webpack_require__(259);
 
@@ -5517,6 +5517,48 @@ module.exports = invariant;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+function checkDCE() {
+  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
+  if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function') {
+    return;
+  }
+  if (process.env.NODE_ENV !== 'production') {
+    // This branch is unreachable because this function is only called
+    // in production, but the condition is true only in development.
+    // Therefore if the branch is still here, dead code elimination wasn't
+    // properly applied.
+    // Don't change the message. React DevTools relies on it. Also make sure
+    // this message doesn't occur elsewhere in this function, or it will cause
+    // a false positive.
+    throw new Error('^_^');
+  }
+  try {
+    // Verify that the code above has been dead code eliminated (DCE'd).
+    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
+  } catch (err) {
+    // DevTools shouldn't crash React, no matter what.
+    // We should still report in case we break this code.
+    console.error(err);
+  }
+}
+
+if (process.env.NODE_ENV === 'production') {
+  // DCE check should happen before ReactDOM bundle executes so that
+  // DevTools can report bad minification during injection.
+  checkDCE();
+  module.exports = __webpack_require__(236);
+} else {
+  module.exports = __webpack_require__(239);
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
@@ -5533,7 +5575,7 @@ var TAB = exports.TAB = 9;
 //# sourceMappingURL=keys.js.map
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var root = __webpack_require__(7);
@@ -5544,7 +5586,7 @@ var Symbol = root.Symbol;
 module.exports = Symbol;
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var arrayLikeKeys = __webpack_require__(188),
@@ -5586,7 +5628,7 @@ function keys(object) {
 module.exports = keys;
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5610,7 +5652,7 @@ module.exports = emptyObject;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5676,48 +5718,6 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = warning;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
-
-/***/ }),
-/* 23 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-function checkDCE() {
-  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
-  if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function') {
-    return;
-  }
-  if (process.env.NODE_ENV !== 'production') {
-    // This branch is unreachable because this function is only called
-    // in production, but the condition is true only in development.
-    // Therefore if the branch is still here, dead code elimination wasn't
-    // properly applied.
-    // Don't change the message. React DevTools relies on it. Also make sure
-    // this message doesn't occur elsewhere in this function, or it will cause
-    // a false positive.
-    throw new Error('^_^');
-  }
-  try {
-    // Verify that the code above has been dead code eliminated (DCE'd).
-    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
-  } catch (err) {
-    // DevTools shouldn't crash React, no matter what.
-    // We should still report in case we break this code.
-    console.error(err);
-  }
-}
-
-if (process.env.NODE_ENV === 'production') {
-  // DCE check should happen before ReactDOM bundle executes so that
-  // DevTools can report bad minification during injection.
-  checkDCE();
-  module.exports = __webpack_require__(236);
-} else {
-  module.exports = __webpack_require__(239);
-}
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
@@ -6815,7 +6815,7 @@ function updateLink (link, options, obj) {
 
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(17);
-  var warning = __webpack_require__(22);
+  var warning = __webpack_require__(23);
   var ReactPropTypesSecret = __webpack_require__(40);
   var loggedTypeFailures = {};
 }
@@ -7640,7 +7640,7 @@ var _classNames = __webpack_require__(25);
 
 var _classNames2 = _interopRequireDefault(_classNames);
 
-var _keys = __webpack_require__(18);
+var _keys = __webpack_require__(19);
 
 function _interopRequireWildcard(obj) {
   if (obj && obj.__esModule) {
@@ -8257,7 +8257,7 @@ var _classNames = __webpack_require__(25);
 
 var _classNames2 = _interopRequireDefault(_classNames);
 
-var _keys = __webpack_require__(18);
+var _keys = __webpack_require__(19);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -19899,7 +19899,7 @@ module.exports = freeGlobal;
 /***/ (function(module, exports, __webpack_require__) {
 
 var baseFor = __webpack_require__(260),
-    keys = __webpack_require__(20);
+    keys = __webpack_require__(21);
 
 /**
  * The base implementation of `_.forOwn` without support for iteratee shorthands.
@@ -20408,7 +20408,7 @@ module.exports = setToArray;
 
 var baseGetAllKeys = __webpack_require__(204),
     getSymbols = __webpack_require__(50),
-    keys = __webpack_require__(20);
+    keys = __webpack_require__(21);
 
 /**
  * Creates an array of own enumerable property names and symbols of `object`.
@@ -21393,7 +21393,7 @@ __webpack_require__(227);
 
 __webpack_require__(1);
 
-__webpack_require__(23);
+__webpack_require__(18);
 
 __webpack_require__(244);
 
@@ -21413,7 +21413,7 @@ __webpack_require__(411);
 /* 226 */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n  </div>\r\n  <div id=\"ectPopupContent1\">\r\n  </div>\r\n  <div id=\"ectPopupContent2\">\r\n  </div>\r\n  <div id=\"ectPopupContent3\">\r\n  </div>\r\n  <script type=\"text/javascript\">\r\n    var isOnlyPreview = true;\r\n    var idOfContainer = 'testID';\r\n    var ectProperties = [{\r\n        'ectPopupContent': {\r\n          timeout: [],\r\n          pDate: '2018/2/12',\r\n          pTimezoneOffset: '+7200000',\r\n          pHour: '00',\r\n          pMinutes: '00',\r\n          pFormat: 'D then H:M:S',\r\n          fontSize: '32px',\r\n          color: '#F00',\r\n          fontWeight: 'bold'\r\n        }\r\n      }, {\r\n        'ectPopupContent1': {\r\n          timeout: [],\r\n          pDate: '2018/2/13',\r\n          pTimezoneOffset: '+7200000',\r\n          pHour: '00',\r\n          pMinutes: '00',\r\n          pFormat: 'D then H:M:S',\r\n          fontSize: '42px',\r\n          color: '#F00',\r\n          fontWeight: 'bold'\r\n        }\r\n      }, {\r\n        'ectPopupContent2': {\r\n          timeout: [],\r\n          pDate: '2018/2/12',\r\n          pTimezoneOffset: '+7200000',\r\n          pHour: '12',\r\n          pMinutes: '00',\r\n          pFormat: 'D then H:M:S',\r\n          fontSize: '42px',\r\n          color: '#F00',\r\n          fontWeight: 'bold'\r\n        }\r\n      },\r\n      {\r\n        'ectPopupContent3': {\r\n          timeout: [],\r\n          pDate: '2018/2/12',\r\n          pTimezoneOffset: '+7200000',\r\n          pHour: '12',\r\n          pMinutes: '00',\r\n          pFormat: 'D then H:M:S',\r\n          fontSize: '42px',\r\n          color: '#F00',\r\n          fontWeight: 'bold'\r\n        }\r\n      }\r\n    ];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>\r\n";
+module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n  </div>\r\n\r\n  <script type=\"text/javascript\">\r\n    var isOnlyPreview = false;\r\n    var idOfContainer = 'testID';\r\n    var ectProperties = [{\r\n        'ectPopupContent': {\r\n          timeout: [],\r\n          pDate: '2018/2/12',\r\n          pTimezoneOffset: '+7200000',\r\n          pHour: '00',\r\n          pMinutes: '00',\r\n          pFormat: 'D then H:M:S',\r\n          fontSize: '32px',\r\n          color: '#F00',\r\n          fontWeight: 'bold'\r\n        }\r\n      }\r\n    ];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>\r\n";
 
 /***/ }),
 /* 227 */
@@ -21593,7 +21593,7 @@ module.exports = function (css) {
 
 
 var m = __webpack_require__(15),
-    n = __webpack_require__(21),
+    n = __webpack_require__(22),
     p = __webpack_require__(10),
     q = "function" === typeof Symbol && Symbol["for"],
     r = q ? Symbol["for"]("react.element") : 60103,
@@ -21710,9 +21710,9 @@ if (process.env.NODE_ENV !== "production") {
     'use strict';
 
     var _assign = __webpack_require__(15);
-    var emptyObject = __webpack_require__(21);
+    var emptyObject = __webpack_require__(22);
     var invariant = __webpack_require__(17);
-    var warning = __webpack_require__(22);
+    var warning = __webpack_require__(23);
     var emptyFunction = __webpack_require__(10);
     var checkPropTypes = __webpack_require__(39);
 
@@ -23074,7 +23074,7 @@ var aa = __webpack_require__(1),
     ea = __webpack_require__(57),
     fa = __webpack_require__(58),
     ia = __webpack_require__(59),
-    D = __webpack_require__(21);
+    D = __webpack_require__(22);
 function E(a) {
   for (var b = arguments.length - 1, c = "Minified React error #" + a + "; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d" + a, d = 0; d < b; d++) c += "\x26args[]\x3d" + encodeURIComponent(arguments[d + 1]);b = Error(c + " for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name = "Invariant Violation";b.framesToPop = 1;throw b;
 }aa ? void 0 : E("227");
@@ -24992,7 +24992,7 @@ if (process.env.NODE_ENV !== "production") {
 
     var React = __webpack_require__(1);
     var invariant = __webpack_require__(17);
-    var warning = __webpack_require__(22);
+    var warning = __webpack_require__(23);
     var ExecutionEnvironment = __webpack_require__(54);
     var _assign = __webpack_require__(15);
     var emptyFunction = __webpack_require__(10);
@@ -25001,7 +25001,7 @@ if (process.env.NODE_ENV !== "production") {
     var shallowEqual = __webpack_require__(57);
     var containsNode = __webpack_require__(58);
     var focusNode = __webpack_require__(59);
-    var emptyObject = __webpack_require__(21);
+    var emptyObject = __webpack_require__(22);
     var checkPropTypes = __webpack_require__(39);
     var hyphenateStyleName = __webpack_require__(240);
     var camelizeStyleName = __webpack_require__(242);
@@ -40533,7 +40533,7 @@ module.exports.PropTypes = PropTypes;
 
 var emptyFunction = __webpack_require__(10);
 var invariant = __webpack_require__(17);
-var warning = __webpack_require__(22);
+var warning = __webpack_require__(23);
 var assign = __webpack_require__(15);
 
 var ReactPropTypesSecret = __webpack_require__(40);
@@ -41132,7 +41132,7 @@ var _LocaleUtils = __webpack_require__(24);
 
 var _LocaleUtils2 = _interopRequireDefault(_LocaleUtils);
 
-var _keys = __webpack_require__(18);
+var _keys = __webpack_require__(19);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -41252,7 +41252,7 @@ var _Day = __webpack_require__(250);
 
 var _Day2 = _interopRequireDefault(_Day);
 
-var _keys = __webpack_require__(18);
+var _keys = __webpack_require__(19);
 
 var _ModifiersUtils = __webpack_require__(27);
 
@@ -42343,7 +42343,7 @@ module.exports = g;
 /* 258 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(19);
+var Symbol = __webpack_require__(20);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -43747,7 +43747,7 @@ module.exports = cacheHas;
 /* 306 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(19),
+var Symbol = __webpack_require__(20),
     Uint8Array = __webpack_require__(200),
     eq = __webpack_require__(47),
     equalArrays = __webpack_require__(199),
@@ -44027,7 +44027,7 @@ module.exports = WeakMap;
 /***/ (function(module, exports, __webpack_require__) {
 
 var isStrictComparable = __webpack_require__(208),
-    keys = __webpack_require__(20);
+    keys = __webpack_require__(21);
 
 /**
  * Gets the property names, values, and compare flags of `object`.
@@ -44304,7 +44304,7 @@ module.exports = toString;
 /* 320 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(19),
+var Symbol = __webpack_require__(20),
     arrayMap = __webpack_require__(196),
     isArray = __webpack_require__(6),
     isSymbol = __webpack_require__(34);
@@ -44696,7 +44696,7 @@ var Stack = __webpack_require__(46),
     isArray = __webpack_require__(6),
     isBuffer = __webpack_require__(42),
     isObject = __webpack_require__(8),
-    keys = __webpack_require__(20);
+    keys = __webpack_require__(21);
 
 /** Used to compose bitmasks for cloning. */
 var CLONE_DEEP_FLAG = 1,
@@ -44838,7 +44838,7 @@ module.exports = defineProperty;
 /***/ (function(module, exports, __webpack_require__) {
 
 var copyObject = __webpack_require__(36),
-    keys = __webpack_require__(20);
+    keys = __webpack_require__(21);
 
 /**
  * The base implementation of `_.assign` without support for multiple sources
@@ -45327,7 +45327,7 @@ module.exports = addSetEntry;
 /* 350 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(19);
+var Symbol = __webpack_require__(20);
 
 /** Used to convert symbols to primitives and strings. */
 var symbolProto = Symbol ? Symbol.prototype : undefined,
@@ -52047,7 +52047,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(23);
+var _reactDom = __webpack_require__(18);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -52167,9 +52167,13 @@ var MainContainer = function (_React$Component) {
     key: 'showOnlyLivePreview',
     value: function showOnlyLivePreview() {
       var returnAllData = [];
+      var labelPreview = _react2.default.createElement('label', { key: 'labelLivePreview', htmlFor: 'tableStyles', className: 'containerLabels' }, 'Preview');
       var livePreviewOnly = _react2.default.createElement(_livePreview.LivePreview, { key: 'LivePreview', parentID: this.props.parentID, pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezoneOffset: this.state.timezoneOffset, pHour: this.state.selectedH, pMinutes: this.state.selectedM, pFormat: this.state.timeFormat });
       // the rest of the data
-      var configurationComponentsJSX = _react2.default.createElement('div', { key: 'configurationComponentsJSX' }, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_dayPicker.EndDate, { callbackChildProp: this.returnChildDate })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Time Format')), _react2.default.createElement('td', null, _react2.default.createElement(_timeFormat.TimeFormat, { pTimeFormat: this.state.formatType, callBackSelectFormat: this.returnFormat })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Time')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_endTime.EndTime, { TimeEnd: this.returnChildTime })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Font Size')), _react2.default.createElement('td', null, _react2.default.createElement(_fontSize.FontSize, { pFont: this.state.fontSizeP, aaa: this.onFontSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Select to make text Bold')), _react2.default.createElement('td', null, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { callbackChildPropT: this.returnTimezone }))))), _react2.default.createElement(_ectShortcode.EctShortcode, { pName: this.state.naMeP, pTimeFormat: this.state.timeFormat, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pUtcTz: this.state.utcTz, pHour: this.state.selectedH, pMinutes: this.state.selectedM, pFormat: this.state.timeFormat }));
+      var configurationComponentsJSX = _react2.default.createElement('div', { key: 'configurationComponentsJSX' }, _react2.default.createElement('label', { htmlFor: 'tableStyles', className: 'containerLabels' }, 'Configuration'), _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_dayPicker.EndDate, { callbackChildProp: this.returnChildDate })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Time Format')), _react2.default.createElement('td', null, _react2.default.createElement(_timeFormat.TimeFormat, { pTimeFormat: this.state.formatType, callBackSelectFormat: this.returnFormat })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Time')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_endTime.EndTime, { TimeEnd: this.returnChildTime })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Font Size')), _react2.default.createElement('td', null, _react2.default.createElement(_fontSize.FontSize, { pFont: this.state.fontSizeP, aaa: this.onFontSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Select to make text Bold')), _react2.default.createElement('td', null, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { callbackChildPropT: this.returnTimezone }))))), _react2.default.createElement(_ectShortcode.EctShortcode, { pName: this.state.naMeP, pTimeFormat: this.state.timeFormat, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pUtcTz: this.state.utcTz, pTimezoneOffset: this.state.timezoneOffset, pHour: this.state.selectedH, pMinutes: this.state.selectedM, pFormat: this.state.timeFormat }));
+      if (!isOnlyPreview) {
+        returnAllData.push(labelPreview);
+      }
       returnAllData.push(livePreviewOnly);
       if (!isOnlyPreview) {
         returnAllData.push(configurationComponentsJSX);
@@ -52181,7 +52185,7 @@ var MainContainer = function (_React$Component) {
     value: function render() {
       var _state = this.state,
           selectedDay = _state.selectedDay,
-          isDisabled = _state.isDisabled;
+          isDisabled = _state.isDisabled; //from the day picker
       //only the live preview section
 
       var renderReturn = _react2.default.createElement('div', { className: 'ContainerMain' }, this.showOnlyLivePreview());
@@ -52249,7 +52253,7 @@ var _DayPicker2 = _interopRequireDefault(_DayPicker);
 
 var _ModifiersUtils = __webpack_require__(27);
 
-var _keys = __webpack_require__(18);
+var _keys = __webpack_require__(19);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -52798,7 +52802,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(23);
+var _reactDom = __webpack_require__(18);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -52956,7 +52960,7 @@ var EctShortcode = exports.EctShortcode = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var shortValue = '[ectShortcode   name="' + this.props.pName + '"   date="' + this.props.pDate + '"  color= "' + this.props.pColor + '"   fontSize="' + this.props.pFont + 'px"' + '    bold="' + this.props.pBold + '" timezone="' + this.props.pUtcTz + '" hour="' + this.props.pHour + '"  minutes= "' + this.props.pMinutes + ' timeFormat=' + this.props.pFormat + '"]';
+      var shortValue = '[ectShortcode   name="' + this.props.pName + '"   date="' + this.props.pDate + '"  color= "' + this.props.pColor + '"   fontSize="' + this.props.pFont + 'px"' + '    bold="' + this.props.pBold + '" timezone="' + this.props.pTimezoneOffset + '" hour="' + this.props.pHour + '"  minutes= "' + this.props.pMinutes + ' timeFormat=' + this.props.pFormat + '"]';
 
       return _react2.default.createElement('div', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Shortcode'), _react2.default.createElement('span', null, '(click to automatically select all, then copy)'), _react2.default.createElement('div', { className: 'shortcode' }, _react2.default.createElement('input', { onClick: this.selectAllText, value: shortValue, readOnly: 'readOnly' }), _react2.default.createElement('h4', null, 'This interface helps you generate customly a shortcode for later use with a wordpress plugin, what you select in the fields will be given to the shortcode as attributes and used later.')));
     }
@@ -53054,7 +53058,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _reactDom = __webpack_require__(23);
+var _reactDom = __webpack_require__(18);
 
 var _react = __webpack_require__(1);
 
@@ -54050,7 +54054,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(23);
+var _reactDom = __webpack_require__(18);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 

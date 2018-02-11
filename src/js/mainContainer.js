@@ -66,9 +66,13 @@ class MainContainer extends React.Component {
   }
   showOnlyLivePreview() {
     var returnAllData = [];
+    var labelPreview = (<label key="labelLivePreview" htmlFor="tableStyles" className="containerLabels">
+      Preview</label>)
     const livePreviewOnly = (<LivePreview key="LivePreview" parentID={this.props.parentID} pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset} pHour={this.state.selectedH} pMinutes={this.state.selectedM} pFormat={this.state.timeFormat}/>);
     // the rest of the data
     var configurationComponentsJSX = (<div key="configurationComponentsJSX">
+      <label htmlFor="tableStyles" className="containerLabels">
+        Configuration</label>
       <table className="tableStyles">
         <tbody>
           <tr>
@@ -121,8 +125,11 @@ class MainContainer extends React.Component {
         </tbody>
       </table>
 
-      <EctShortcode pName={this.state.naMeP} pTimeFormat={this.state.timeFormat} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pUtcTz={this.state.utcTz} pHour={this.state.selectedH} pMinutes={this.state.selectedM} pFormat={this.state.timeFormat}/>
+      <EctShortcode pName={this.state.naMeP} pTimeFormat={this.state.timeFormat} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pUtcTz={this.state.utcTz} pTimezoneOffset={this.state.timezoneOffset} pHour={this.state.selectedH} pMinutes={this.state.selectedM} pFormat={this.state.timeFormat}/>
     </div>);
+    if (!isOnlyPreview) {
+      returnAllData.push(labelPreview);
+    }
     returnAllData.push(livePreviewOnly)
     if (!isOnlyPreview) {
       returnAllData.push(configurationComponentsJSX);
@@ -130,7 +137,7 @@ class MainContainer extends React.Component {
     return returnAllData;
   }
   render() {
-    const {selectedDay, isDisabled} = this.state;
+    const {selectedDay, isDisabled} = this.state; //from the day picker
     //only the live preview section
 
     var renderReturn = (<div className="ContainerMain">
@@ -139,9 +146,9 @@ class MainContainer extends React.Component {
     return renderReturn;
   }
 };
-ectProperties.forEach(function(eachTimer){
-  for(var key in eachTimer){
-  // ectProperties.forEach(function(item){
+ectProperties.forEach(function(eachTimer) {
+  for (var key in eachTimer) {
+    // ectProperties.forEach(function(item){
     ReactDOM.render(<MainContainer parentID={key}/>, document.getElementById(key));
   };
 })
