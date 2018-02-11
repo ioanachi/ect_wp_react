@@ -20,7 +20,7 @@ export class EctShortcode extends React.Component {
   };
 
   render() {
-    const shortValue = '[ectShortcode   name="' + this.props.pName + '"   date="' + this.props.pDate + '"  color= "' + this.props.pColor + '"   fontSize="' + this.props.pFont + 'px"' + '    bold="' + this.props.pBold + '" timezone="' + this.props.pUtcTz +
+    const shortValue = '[ectShortcode   name="' + this.props.pName + '"   date="' + this.props.pDate + '"  color= "' + this.props.pColor + '"   fontSize="' + this.props.pFont + 'px"' + '    bold="' + this.props.pBold + '" timezone="' + this.props.pTimezoneOffset +
     '" hour="' + this.props.pHour + '"  minutes= "' + this.props.pMinutes + ' timeFormat=' + this.props.pFormat + '"]';
 
     return (<div className="componentContainer">
