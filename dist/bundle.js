@@ -21413,7 +21413,7 @@ __webpack_require__(411);
 /* 226 */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n\r\n  </div>\r\n<script type=\"text/javascript\">\r\n  var isOnlyPreview = true;\r\n  var idOfContainer = 'testID';\r\n  var ectProperties ={\r\n    timeout: [],\r\n    pDate: '2018/2/12',\r\n    pTimezoneOffset: '+7200000',\r\n    pHour: '00',\r\n    pMinutes: '00',\r\n    pFormat: 'D then H:M:S',\r\n    fontSize:'32px',\r\n    color:'#F00',\r\n    fontWeight:'bold'\r\n\r\n  };\r\n</script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n</html>\r\n";
+module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n\r\n  </div>\r\n<script type=\"text/javascript\">\r\n  var isOnlyPreview = false;\r\n  var idOfContainer = 'testID';\r\n  var ectProperties ={\r\n    timeout: [],\r\n    pDate: '2018/2/12',\r\n    pTimezoneOffset: '+7200000',\r\n    pHour: '00',\r\n    pMinutes: '00',\r\n    pFormat: 'D then H:M:S',\r\n    fontSize:'32px',\r\n    color:'#F00',\r\n    fontWeight:'bold'\r\n\r\n  };\r\n</script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n</html>\r\n";
 
 /***/ }),
 /* 227 */
