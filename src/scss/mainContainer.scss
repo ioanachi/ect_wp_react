@@ -19,6 +19,7 @@
     input{
       padding: 5px;
       width: 1100px;
+      border:1px solid #C3C49E;
     }
   }
   .timezones{
@@ -31,8 +32,6 @@
     width: 90%;
   }
   .containerPreview{
-    padding: 20px;
-    margin-left: 70px;
     display: inline-block;
   }
   .containerLabels{
