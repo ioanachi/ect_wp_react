@@ -9,9 +9,6 @@ export class LivePreview extends React.Component {
     this.liveCountDown = this.liveCountDown.bind(this);
   };
 
-
-
-
 liveCountDown(){
   var tempTimeout = this.state.timeout;
   if(!tempTimeout[0]){

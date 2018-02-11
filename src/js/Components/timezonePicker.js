@@ -12,14 +12,9 @@ export class Timezones extends React.Component {
     this.getOptions = this.getOptions.bind(this);
   };
   chooseTimezone(evt) {
-    // var date = new Date().split('');
+    
     var offsetInHours = new Date();
-
-
-
-
     const selectedValue = evt.target.value;
-
     const utcTz = evt.target[evt.target.selectedIndex].getAttribute('utctz');
     const returnDataToParent = this.props.callbackChildPropT;
     returnDataToParent(selectedValue, utcTz);
