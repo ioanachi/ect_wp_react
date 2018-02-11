@@ -21413,7 +21413,7 @@ __webpack_require__(411);
 /* 226 */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n\r\n  </div>\r\n<script type=\"text/javascript\">\r\n  var isOnlyPreview = false;\r\n  var idOfContainer = 'testID';\r\n  var ectProperties ={\r\n    timeout: [],\r\n    pDate: '2018/2/12',\r\n    pTimezoneOffset: '+7200000',\r\n    pHour: '00',\r\n    pMinutes: '00',\r\n    pFormat: 'D then H:M:S',\r\n    fontSize:'32px',\r\n    color:'#F00',\r\n    fontWeight:'bold'\r\n\r\n  };\r\n</script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n</html>\r\n";
+module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n  </div>\r\n  <div id=\"ectPopupContent1\">\r\n  </div>\r\n  <div id=\"ectPopupContent2\">\r\n  </div>\r\n  <div id=\"ectPopupContent3\">\r\n  </div>\r\n  <script type=\"text/javascript\">\r\n    var isOnlyPreview = true;\r\n    var idOfContainer = 'testID';\r\n    var ectProperties = [{\r\n        'ectPopupContent': {\r\n          timeout: [],\r\n          pDate: '2018/2/12',\r\n          pTimezoneOffset: '+7200000',\r\n          pHour: '00',\r\n          pMinutes: '00',\r\n          pFormat: 'D then H:M:S',\r\n          fontSize: '32px',\r\n          color: '#F00',\r\n          fontWeight: 'bold'\r\n        }\r\n      }, {\r\n        'ectPopupContent1': {\r\n          timeout: [],\r\n          pDate: '2018/2/13',\r\n          pTimezoneOffset: '+7200000',\r\n          pHour: '00',\r\n          pMinutes: '00',\r\n          pFormat: 'D then H:M:S',\r\n          fontSize: '42px',\r\n          color: '#F00',\r\n          fontWeight: 'bold'\r\n        }\r\n      }, {\r\n        'ectPopupContent2': {\r\n          timeout: [],\r\n          pDate: '2018/2/12',\r\n          pTimezoneOffset: '+7200000',\r\n          pHour: '12',\r\n          pMinutes: '00',\r\n          pFormat: 'D then H:M:S',\r\n          fontSize: '42px',\r\n          color: '#F00',\r\n          fontWeight: 'bold'\r\n        }\r\n      },\r\n      {\r\n        'ectPopupContent3': {\r\n          timeout: [],\r\n          pDate: '2018/2/12',\r\n          pTimezoneOffset: '+7200000',\r\n          pHour: '12',\r\n          pMinutes: '00',\r\n          pFormat: 'D then H:M:S',\r\n          fontSize: '42px',\r\n          color: '#F00',\r\n          fontWeight: 'bold'\r\n        }\r\n      }\r\n    ];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>\r\n";
 
 /***/ }),
 /* 227 */
@@ -52150,7 +52150,6 @@ var MainContainer = function (_React$Component) {
   }, {
     key: 'returnTimezone',
     value: function returnTimezone(timezoneChosen, utcTz) {
-      console.log(this.state.timezoneOffset, 'timezoneOffsettimezoneOffsettimezoneOffsettimezoneOffset');
       this.setState({ timezoneOffset: timezoneChosen, utcTz: utcTz });
     }
   }, {
@@ -52168,7 +52167,7 @@ var MainContainer = function (_React$Component) {
     key: 'showOnlyLivePreview',
     value: function showOnlyLivePreview() {
       var returnAllData = [];
-      var livePreviewOnly = _react2.default.createElement(_livePreview.LivePreview, { key: 'LivePreview', pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezoneOffset: this.state.timezoneOffset, pHour: this.state.selectedH, pMinutes: this.state.selectedM, pFormat: this.state.timeFormat });
+      var livePreviewOnly = _react2.default.createElement(_livePreview.LivePreview, { key: 'LivePreview', parentID: this.props.parentID, pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezoneOffset: this.state.timezoneOffset, pHour: this.state.selectedH, pMinutes: this.state.selectedM, pFormat: this.state.timeFormat });
       // the rest of the data
       var configurationComponentsJSX = _react2.default.createElement('div', { key: 'configurationComponentsJSX' }, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_dayPicker.EndDate, { callbackChildProp: this.returnChildDate })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Time Format')), _react2.default.createElement('td', null, _react2.default.createElement(_timeFormat.TimeFormat, { pTimeFormat: this.state.formatType, callBackSelectFormat: this.returnFormat })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Time')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_endTime.EndTime, { TimeEnd: this.returnChildTime })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Font Size')), _react2.default.createElement('td', null, _react2.default.createElement(_fontSize.FontSize, { pFont: this.state.fontSizeP, aaa: this.onFontSubmit })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Select to make text Bold')), _react2.default.createElement('td', null, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { callbackChildPropT: this.returnTimezone }))))), _react2.default.createElement(_ectShortcode.EctShortcode, { pName: this.state.naMeP, pTimeFormat: this.state.timeFormat, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pUtcTz: this.state.utcTz, pHour: this.state.selectedH, pMinutes: this.state.selectedM, pFormat: this.state.timeFormat }));
       returnAllData.push(livePreviewOnly);
@@ -52194,8 +52193,12 @@ var MainContainer = function (_React$Component) {
 }(_react2.default.Component);
 
 ;
-
-_reactDom2.default.render(_react2.default.createElement(MainContainer, null), document.getElementById('ectPopupContent'));
+ectProperties.forEach(function (eachTimer) {
+  for (var key in eachTimer) {
+    // ectProperties.forEach(function(item){
+    _reactDom2.default.render(_react2.default.createElement(MainContainer, { parentID: key }), document.getElementById(key));
+  };
+});
 
 /***/ }),
 /* 413 */
@@ -52870,7 +52873,6 @@ var FontSize = exports.FontSize = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (FontSize.__proto__ || Object.getPrototypeOf(FontSize)).call(this, props));
 
-    console.log(_this.props.pFont, 'x');
     _this.state = {
       fontSize: _this.props.pFont
 
@@ -52880,7 +52882,7 @@ var FontSize = exports.FontSize = function (_React$Component) {
   }
 
   _createClass(FontSize, [{
-    key: 'inputfontSize',
+    key: "inputfontSize",
     value: function inputfontSize(evt) {
       var fontVal = evt.target.value;
       this.setState({ fontSize: fontVal });
@@ -52888,9 +52890,9 @@ var FontSize = exports.FontSize = function (_React$Component) {
       Submitx(fontVal);
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
-      return _react2.default.createElement('div', null, _react2.default.createElement('input', { type: 'number', className: 'fontInput', value: this.state.fontSize, onChange: this.inputfontSize }), 'px');
+      return _react2.default.createElement("div", null, _react2.default.createElement("input", { type: "number", className: "fontInput", value: this.state.fontSize, onChange: this.inputfontSize }), "px");
     }
   }]);
 
@@ -53263,7 +53265,6 @@ var Timezones = exports.Timezones = function (_React$Component) {
     value: function chooseTimezone(evt) {
       // var date = new Date().split('');
       var offsetInHours = new Date();
-      console.log(new Date(), "jgyytdtrs");
 
       var selectedValue = evt.target.value;
 
@@ -54049,6 +54050,10 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactDom = __webpack_require__(23);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
 var _mathCountDown = __webpack_require__(423);
 
 var _mathCountDown2 = _interopRequireDefault(_mathCountDown);
@@ -54100,21 +54105,34 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
         fontWeight: this.props.pBold == true ? 'bold' : 'normal'
       };
       if (isOnlyPreview) {
+        var theMainID = this.props.parentID;
+
+        var ectPIndex;
+        ectProperties.forEach(function (item, index) {
+          for (var key in item) {
+            if (key == theMainID) {
+              ectPIndex = index;
+              return;
+            }
+          }
+        });
+        var propertiesObj = ectProperties[ectPIndex][theMainID];
+
         dataProps = {
-          timeout: ectProperties.timeout,
-          pDate: ectProperties.pDate,
-          pTimezoneOffset: ectProperties.pTimezoneOffset,
-          pHour: ectProperties.pHour,
-          pMinutes: ectProperties.pMinutes,
-          pFormat: ectProperties.pFormat,
-          fontSize: ectProperties.fontSize,
-          color: ectProperties.color,
-          fontWeight: ectProperties.fontWeight
+          timeout: propertiesObj.timeout,
+          pDate: propertiesObj.pDate,
+          pTimezoneOffset: propertiesObj.pTimezoneOffset,
+          pHour: propertiesObj.pHour,
+          pMinutes: propertiesObj.pMinutes,
+          pFormat: propertiesObj.pFormat,
+          fontSize: propertiesObj.fontSize,
+          color: propertiesObj.color,
+          fontWeight: propertiesObj.fontWeight
         };
         divStyle = {
-          fontSize: ectProperties.fontSize,
-          color: ectProperties.color,
-          fontWeight: ectProperties.fontWeight
+          fontSize: propertiesObj.fontSize,
+          color: propertiesObj.color,
+          fontWeight: propertiesObj.fontWeight
         };
       }
       return _react2.default.createElement('h2', { style: divStyle }, _mathCountDown2.default.mathFunc(dataProps));
@@ -54181,7 +54199,6 @@ var _class = function () {
         // pentru ca 1000 millseconds = 1 second, and 1 hour = 3600  seconds)
         // Therefore, converting hours to milliseconds involves multiplying by 3600 * 1000 = 3600000.
         var nowTimeMiliseconds = utc + parseInt(timezoneOffset);
-        console.log(nowTimeMiliseconds / oneHour, ' parseInt(timezoneOffset) parseInt(timezoneOffset) parseInt(timezoneOffset)');
 
         var timeToCount = endTimeMiliseconds - nowTimeMiliseconds;
 
@@ -54393,7 +54410,6 @@ var TimeFormat = exports.TimeFormat = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (TimeFormat.__proto__ || Object.getPrototypeOf(TimeFormat)).call(this, props));
 
-    console.log(_this.props);
     _this.state = {
       timeFormat: _this.props.pTimeFormat
     };

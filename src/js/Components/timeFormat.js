@@ -3,7 +3,6 @@ import React from 'react';
 export class TimeFormat extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
     this.state = {
       timeFormat: this.props.pTimeFormat
     }

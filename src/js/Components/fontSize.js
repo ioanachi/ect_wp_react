@@ -3,7 +3,6 @@ import React from 'react';
 export class FontSize extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.pFont,'x');
     this.state = {
       fontSize: this.props.pFont
 

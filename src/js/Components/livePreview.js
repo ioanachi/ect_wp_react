@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import mathCountDown from './mathCountDown';
 
 export class LivePreview extends React.Component {
@@ -7,6 +8,8 @@ export class LivePreview extends React.Component {
     this.state = {timeout:[]};
     this.liveCountDown = this.liveCountDown.bind(this);
   };
+
+
 
 
 liveCountDown(){
@@ -34,21 +37,35 @@ liveCountDown(){
       : 'normal')
   };
   if(isOnlyPreview){
+    var theMainID =this.props.parentID;
+
+    var ectPIndex;
+    ectProperties.forEach(function(item,index){
+      for(var key in item){
+        if(key==theMainID){
+          ectPIndex = index;
+          return;
+        }
+      }
+
+    });
+    var propertiesObj = ectProperties[ectPIndex][theMainID];
+
     dataProps = {
-      timeout: ectProperties.timeout,
-      pDate: ectProperties.pDate,
-      pTimezoneOffset: ectProperties.pTimezoneOffset,
-      pHour: ectProperties.pHour,
-      pMinutes: ectProperties.pMinutes,
-      pFormat: ectProperties.pFormat,
-      fontSize:ectProperties.fontSize,
-      color:ectProperties.color,
-      fontWeight:ectProperties.fontWeight
+      timeout: propertiesObj.timeout,
+      pDate: propertiesObj.pDate,
+      pTimezoneOffset: propertiesObj.pTimezoneOffset,
+      pHour: propertiesObj.pHour,
+      pMinutes: propertiesObj.pMinutes,
+      pFormat: propertiesObj.pFormat,
+      fontSize:propertiesObj.fontSize,
+      color:propertiesObj.color,
+      fontWeight:propertiesObj.fontWeight
     }
     divStyle = {
-      fontSize: ectProperties.fontSize,
-      color: ectProperties.color,
-      fontWeight: ectProperties.fontWeight
+      fontSize: propertiesObj.fontSize,
+      color: propertiesObj.color,
+      fontWeight: propertiesObj.fontWeight
     };
   }
   return (<h2 style={divStyle}>{mathCountDown.mathFunc(dataProps)}</h2>);

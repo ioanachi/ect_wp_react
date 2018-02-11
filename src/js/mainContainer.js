@@ -55,7 +55,6 @@ class MainContainer extends React.Component {
     this.setState({pColor: selectedColorChild})
   }
   returnTimezone(timezoneChosen, utcTz) {
-    console.log(this.state.timezoneOffset, 'timezoneOffsettimezoneOffsettimezoneOffsettimezoneOffset');
     this.setState({timezoneOffset: timezoneChosen, utcTz: utcTz});
   }
   returnChildTime(selectedHour, selectedMinutes) {
@@ -67,7 +66,7 @@ class MainContainer extends React.Component {
   }
   showOnlyLivePreview() {
     var returnAllData = [];
-    const livePreviewOnly = (<LivePreview key="LivePreview" pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset} pHour={this.state.selectedH} pMinutes={this.state.selectedM} pFormat={this.state.timeFormat}/>);
+    const livePreviewOnly = (<LivePreview key="LivePreview" parentID={this.props.parentID} pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset} pHour={this.state.selectedH} pMinutes={this.state.selectedM} pFormat={this.state.timeFormat}/>);
     // the rest of the data
     var configurationComponentsJSX = (<div key="configurationComponentsJSX">
       <table className="tableStyles">
@@ -140,5 +139,9 @@ class MainContainer extends React.Component {
     return renderReturn;
   }
 };
-
-ReactDOM.render(<MainContainer/>, document.getElementById('ectPopupContent'));
+ectProperties.forEach(function(eachTimer){
+  for(var key in eachTimer){
+  // ectProperties.forEach(function(item){
+    ReactDOM.render(<MainContainer parentID={key}/>, document.getElementById(key));
+  };
+})

@@ -28,7 +28,6 @@ export default class {
       // pentru ca 1000 millseconds = 1 second, and 1 hour = 3600  seconds)
       // Therefore, converting hours to milliseconds involves multiplying by 3600 * 1000 = 3600000.
       var nowTimeMiliseconds = utc + parseInt(timezoneOffset);
-      console.log(nowTimeMiliseconds / oneHour, ' parseInt(timezoneOffset) parseInt(timezoneOffset) parseInt(timezoneOffset)');
 
       const timeToCount = endTimeMiliseconds - nowTimeMiliseconds;
 

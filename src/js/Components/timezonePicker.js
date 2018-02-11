@@ -14,7 +14,6 @@ export class Timezones extends React.Component {
   chooseTimezone(evt) {
     // var date = new Date().split('');
     var offsetInHours = new Date();
-    console.log(new Date(), "jgyytdtrs");
 
 
 
