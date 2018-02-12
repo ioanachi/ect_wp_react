@@ -5,6 +5,11 @@ import 'react-day-picker';
 import 'react-day-picker/moment';
 import 'react-day-picker/lib/style.css';
 
+// slider
+import 'rc-slider';
+import 'rc-slider/assets/index.css';
+import 'rc-slider/lib/Range';
+
 import 'react-color';
 import 'reactcss';
 import 'react-tabs';
