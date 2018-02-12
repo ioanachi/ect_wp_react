@@ -55554,6 +55554,12 @@ var TimeFormat = exports.TimeFormat = function (_React$Component) {
       }, {
         "value": 'seconds',
         "text": 'Seconds'
+      }, {
+        "value": 'years',
+        "text": 'Years'
+      }, {
+        "value": 'months',
+        "text": 'Months'
       }];
       return Obj.map(function (item, i) {
         return _react2.default.createElement('option', { key: i, value: item.value }, item.text);

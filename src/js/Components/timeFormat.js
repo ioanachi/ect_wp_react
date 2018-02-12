@@ -39,7 +39,13 @@ export class TimeFormat extends React.Component {
       }, {
         "value": 'seconds',
         "text": 'Seconds'
-      }
+      },{
+        "value": 'years',
+        "text": 'Years'
+      },{
+        "value": 'months',
+        "text": 'Months'
+      },
     ];
     return Obj.map(function(item, i) {
       return (<option key={i} value={item.value}>{item.text}</option>)
