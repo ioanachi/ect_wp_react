@@ -9,43 +9,60 @@
 
     input {
       &.shortcode {
-        padding:5px;
+        padding: 5px;
         width: 60%;
       }
     }
   }
-  .shortcode{
+
+  .shortcode {
     margin: 10px;
-    input{
+
+    input {
       padding: 5px;
       width: 1100px;
-      border:1px solid #C3C49E;
+      border: 1px solid #C3C49E;
     }
   }
-  .timezones{
-    select{
+
+  .timezones {
+    select {
       max-width: 107px;
     }
   }
-  .tableStyles{
+
+  .tableStyles {
     height: 300px;
-    width: 90%;
+    width: 300px;
+
+
+    label {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    tr:nth-child(2n){
+        background-color: rgb(241, 241, 241);
+
+    }
   }
-  .containerPreview{
+
+  .containerPreview {
     display: inline-block;
   }
-  .containerLabels{
+
+  .containerLabels {
     padding: 20px;
     margin: 20px;
     font-style: italic;
-text-decoration: underline;
+    text-decoration: underline;
     font-size: 20px;
     font-weight: bold;
     display: grid;
     align-self: center;
-
   }
-  .hourAndMinutes{
+
+  .hourAndMinutes {
     margin-left: 10px;
   }
 }

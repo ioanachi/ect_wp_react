@@ -5,6 +5,9 @@ import 'react-day-picker';
 import 'react-day-picker/moment';
 import 'react-day-picker/lib/style.css';
 
+import 'material-ui';
+import 'material-ui/styles/MuiThemeProvider';
+
 import 'react-color';
 import 'reactcss';
 import 'react-tabs';

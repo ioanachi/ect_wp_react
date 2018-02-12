@@ -1,4 +1,7 @@
 import React from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Slider from 'material-ui/Slider';
+import MyAwesomeReactComponent from './MyAwesomeReactComponent';
 
 export class FontSize extends React.Component {
   constructor(props) {
@@ -9,17 +12,18 @@ export class FontSize extends React.Component {
     }
     this.inputfontSize = this.inputfontSize.bind(this);
   };
-  inputfontSize(evt) {
-    const fontVal = evt.target.value;
-    this.setState({fontSize:fontVal})
+  inputfontSize(evt, valx) {
+    this.setState({fontSize: valx})
     const Submitx = this.props.aaa;
-    Submitx(fontVal);
+    Submitx(valx);
   };
 
   render() {
-    return (<div>
-      <input type="number" className="fontInput" value={this.state.fontSize} onChange={this.inputfontSize}/>
-      px
-    </div>);
+    return (<MuiThemeProvider>
+      <span>{this.state.fontSize}px </span>
+      <Slider min={8} max={100} step={1} value={this.state.fontSize} onChange={this.inputfontSize} sliderStyle={{'height': '5px',marginTop:'5px'}} defaultValue={this.props.pFont}/>
+    </MuiThemeProvider>);
   }
 }
+// <input type="number" className="fontInput" value={this.state.fontSize} onChange={this.inputfontSize}/>
+//
