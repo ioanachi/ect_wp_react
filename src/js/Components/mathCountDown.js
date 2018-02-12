@@ -3,7 +3,7 @@ export default class {
     // var tempTimeout = obj.timeout;
     // if (!tempTimeout[0]) {
     //   tempTimeout.push(setTimeout(() => {
-    //     // obj.tThis.setState({timeout: []});
+    //      obj.tThis.setState({timeout: []});
     //   }, 1000));
     // }
     if (obj.pDate !== '') {
@@ -11,6 +11,10 @@ export default class {
       var oneMinute = 60 * oneSecond;
       var oneHour = 60 * oneMinute;
       var oneDay = 24 * oneHour; // hours*minutes*seconds*milliseconds
+      var oneWeek = 7 * oneDay;
+      var oneMonth = 4 * oneWeek;
+      var oneYear = 12 * oneMonth;
+
       var endDate = new Date(obj.pDate);
       const localDate = new Date();
       const localTimeMiliseconds = localDate.getTime();
@@ -53,8 +57,31 @@ export default class {
       var onlyMS_Min = Math.floor(timeToCount / oneMinute);
       var onlyMSNoMin = timeToCount - onlyMS_Min * oneMinute;
       var onlyMS_Sec = Math.floor(onlyMSNoMin / oneSecond);
-
       var onlySeconds = Math.floor(timeToCount / oneSecond);
+
+      var YearsMWDHMS = Math.floor(timeToCount / oneYear);
+      var timeWithoutY = timeToCount - YearsMWDHMS * oneYear;
+
+      var MonthsYWDHMS = Math.floor(timeWithoutY / oneMonth);
+      var timeWithoutM = timeWithoutY - MonthsYWDHMS * oneMonth;
+
+      var WeeksYMDHMS = Math.floor(timeWithoutM / oneWeek);
+      var timeWithoutW = timeWithoutM - WeeksYMDHMS * oneWeek;
+
+      var DaysYMWHMS = Math.floor(timeWithoutW / oneDay);
+      var timeWithoutD = timeWithoutW - DaysYMWHMS * oneDay;
+
+      var HoursYMWDMS = Math.floor(timeWithoutD / oneHour);
+      var timeWithoutH = timeWithoutD - HoursYMWDMS * oneHour;
+
+      var MinutesYMWDHS = Math.floor(timeWithoutH / oneMinute);
+      var timeWithoutM = timeWithoutH - MinutesYMWDHS * oneMinute;
+
+      var SecondsYMWDHM = Math.floor(timeWithoutM / oneSecond);
+
+var weeksOnly
+
+
 
       // Change the time value calculated in the previous step to a human-readable date/time string by
       // initializing a new Date() object with it, and calling the object's toLocaleString() method.
@@ -80,6 +107,35 @@ export default class {
         case 'seconds':
           return onlySeconds;
           break;
+        case 'weeks':
+          return onlySeconds;
+          break;
+        case 'Y:M:W:D:H:M:S':
+          if (YearsMWDHMS == 0) {
+            if (MonthsYWDHMS == 0) {
+              if (WeeksYMDHMS == 0) {
+
+                if (DaysYMWHMS == 0) {
+                  if (HoursYMWDMS == 0) {
+                    if (MinutesYMWDHS == 0) {
+                      return SecondsYMWDHM + ' seconds left';
+                    };
+                    return MinutesYMWDHS + '  minutes   ' + SecondsYMWDHM + ' seconds left';
+                  };
+                  return HoursYMWDMS + ' hours  ' + MinutesYMWDHS + '  minutes   ' + SecondsYMWDHM + 'seconds left';
+                };
+                return DaysYMWHMS + " days  " + HoursYMWDMS + ' hours  ' + MinutesYMWDHS + '  minutes   ' + SecondsYMWDHM + 'seconds left';
+
+              };
+              return WeeksYMDHMS + ' weeks ' + DaysYMWHMS + " days  " + HoursYMWDMS + ' hours  ' + MinutesYMWDHS + '  minutes   ' + SecondsYMWDHM + ' seconds left';
+
+            };
+            return MonthsYWDHMS + ' months ' + WeeksYMDHMS + ' weeks ' + DaysYMWHMS + " days  " + HoursYMWDMS + ' hours  ' + MinutesYMWDHS + '  minutes   ' + SecondsYMWDHM + ' seconds left';
+
+          };
+          return YearsMWDHMS + ' years  ' + MonthsYWDHMS + ' months ' + WeeksYMDHMS + ' weeks ' + DaysYMWHMS + " days  " + HoursYMWDMS + ' hours  ' + MinutesYMWDHS + '  minutes   ' + SecondsYMWDHM + ' seconds left';
+          break;
+
         case 'D then H:M:S':
           if (daysToCount == 0) {
             if (hoursToCount == 0) {
@@ -92,17 +148,27 @@ export default class {
           }
           return daysToCount + " days  " + hoursToCount + 'hours  ' + minutesToCount + '  minutes   ' + secondsToCount + 'seconds left';
           break;
+
         default:
-          if (daysToCount == 0) {
-            if (hoursToCount == 0) {
-              if (minutesToCount == 0) {
-                return secondsToCount + 'seconds left';
-              }
-              return minutesToCount + '  minutes   ' + secondsToCount + 'seconds left';
-            }
-            return hoursToCount + 'hours  ' + minutesToCount + '  minutes   ' + secondsToCount + 'seconds left'
-          }
-          return daysToCount + " days  " + hoursToCount + 'hours  ' + minutesToCount + '  minutes   ' + secondsToCount + 'seconds left';
+          if (YearsMWDHMS == 0) {
+            if (MonthsYWDHMS == 0) {
+              if (WeeksYMDHMS == 0) {
+                if (DaysYMWHMS == 0) {
+                  if (HoursYMWDMS == 0) {
+                    if (MinutesYMWDHS == 0) {
+                      return SecondsYMWDHM + ' seconds left';
+                    };
+                    return MinutesYMWDHS + '  minutes   ' + SecondsYMWDHM + ' seconds left';
+                  };
+                  return HoursYMWDMS + ' hours  ' + MinutesYMWDHS + '  minutes   ' + SecondsYMWDHM + 'seconds left';
+                };
+                return DaysYMWHMS + " days  " + HoursYMWDMS + ' hours  ' + MinutesYMWDHS + '  minutes   ' + SecondsYMWDHM + 'seconds left';
+              };
+              return WeeksYMDHMS + ' weeks ' + DaysYMWHMS + " days  " + HoursYMWDMS + ' hours  ' + MinutesYMWDHS + '  minutes   ' + SecondsYMWDHM + ' seconds left';
+            };
+            return MonthsYWDHMS + ' months ' + WeeksYMDHMS + ' weeks ' + DaysYMWHMS + " days  " + HoursYMWDMS + ' hours  ' + MinutesYMWDHS + '  minutes   ' + SecondsYMWDHM + ' seconds left';
+          };
+          return YearsMWDHMS + ' years  ' + MonthsYWDHMS + ' months ' + WeeksYMDHMS + ' weeks ' + DaysYMWHMS + " days  " + HoursYMWDMS + ' hours  ' + MinutesYMWDHS + '  minutes   ' + SecondsYMWDHM + ' seconds left';
           break;
       }
       // return Math.round(Math.abs((timezoneDateSeconds - endDate.getTime()) / (oneDay)) + 1);

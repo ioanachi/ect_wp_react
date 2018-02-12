@@ -11,7 +11,6 @@ export class TimeFormat extends React.Component {
   };
   chooseFormat(evt) {
     var formatType = evt.target.value;
-    this.setState({timeFormat: formatType});
     const SubmitFormat = this.props.callBackSelectFormat;
     SubmitFormat(formatType);
   };
@@ -45,16 +44,29 @@ export class TimeFormat extends React.Component {
       },{
         "value": 'months',
         "text": 'Months'
+      },{
+        "value": 'weeks',
+        "text": 'Weeks'
       },
+      {
+        "value": 'Y2S',
+        "text": 'Years to Seconds'
+      }
     ];
     return Obj.map(function(item, i) {
       return (<option key={i} value={item.value}>{item.text}</option>)
     });
+
   };
 
   render() {
-    return (<select onChange={this.chooseFormat}>
+    console.log(this.state.timeFormat);
+    return (
+      <div>
+{}
+      <select onChange={this.chooseFormat} value={this.state.timeFormat}>
       {this.optionsFormat()}
-    </select>);
+    </select>
+  </div>);
   }
 }

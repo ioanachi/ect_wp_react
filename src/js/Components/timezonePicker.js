@@ -39,7 +39,7 @@ export class Timezones extends React.Component {
     });
   }
   render() {
-    return (<select value={this.state.selectedOption}  onChange={this.chooseTimezone} ref="utcShortcode">
+    return (<select value={this.state.selectedOption}  onChange={this.chooseTimezone}>
       {this.getOptions(timezoneArr)}
     </select>);
   }
