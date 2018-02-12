@@ -105,7 +105,7 @@ class MainContainer extends React.Component {
                   <label>Timezone</label>
                 </td>
                 <td className="timezones">
-                  <Timezones callbackChildPropT={this.returnTimezone}/></td>
+                  <Timezones pTimezoneOffset={this.state.timezoneOffset} callbackChildPropT={this.returnTimezone}/></td>
 
               </tr>
               <tr>
