@@ -5,10 +5,8 @@ import 'react-day-picker';
 import 'react-day-picker/moment';
 import 'react-day-picker/lib/style.css';
 
-// slider
-import 'rc-slider';
-import 'rc-slider/assets/index.css';
-import 'rc-slider/lib/Range';
+import 'material-ui';
+import 'material-ui/styles/MuiThemeProvider';
 
 import 'react-color';
 import 'reactcss';
