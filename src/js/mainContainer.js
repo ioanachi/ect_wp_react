@@ -139,27 +139,22 @@ class MainContainer extends React.Component {
                 <td><PickColor callbackChildPropColor={this.returnChildColor}/></td>
               </tr>
               <tr>
-
                 <td className="componentContainer">
                   <label htmlFor="fontInput">Font Size</label>
                 </td>
                 <td className="componentContainer">
-
                   <FontSize pFont={this.state.fontSizeP} aaa={this.onFontSubmit}/></td>
               </tr>
               <tr>
-
                 <td className="componentContainer">
                   <label>Select to make text Bold</label>
                 </td>
                 <td className="componentContainer">
-
                   <Bold callbackChildPropB={this.isBold}/></td>
               </tr>
               <tr></tr>
             </tbody>
           </table>
-
         </TabPanel>
       </Tabs>
 

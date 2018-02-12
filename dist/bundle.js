@@ -54352,7 +54352,8 @@ var Timezones = exports.Timezones = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Timezones.__proto__ || Object.getPrototypeOf(Timezones)).call(this, props));
 
     _this.state = {
-      differenceUtc: ''
+      differenceUtc: '',
+      selectedOption: ''
     };
     _this.chooseTimezone = _this.chooseTimezone.bind(_this);
     _this.getOptions = _this.getOptions.bind(_this);
@@ -54362,12 +54363,18 @@ var Timezones = exports.Timezones = function (_React$Component) {
   _createClass(Timezones, [{
     key: 'chooseTimezone',
     value: function chooseTimezone(evt) {
+      var selectedOption;
 
       var offsetInHours = new Date();
       var selectedValue = evt.target.value;
       var utcTz = evt.target[evt.target.selectedIndex].getAttribute('utctz');
       var returnDataToParent = this.props.callbackChildPropT;
+      if (utcTz == _timezoneArr2.default[evt.target.selectedIndex].utc[0]) {
+        this.setState({ selectedOption: evt.target });
+      }
+
       returnDataToParent(selectedValue, utcTz);
+      // return selectedOption;
     }
   }, {
     key: 'getOptions',
@@ -54382,13 +54389,13 @@ var Timezones = exports.Timezones = function (_React$Component) {
         var offsetMMilisec = newValue.split(':')[1] * oneMinute;
 
         var offsetMilisec = offsetHMilisec + offsetMMilisec;
-        return _react2.default.createElement('option', { key: i, utctz: item['utc'][0], value: offsetMilisec }, item.text);
+        return _react2.default.createElement('option', { id: i, key: i, utctz: item['utc'][0], value: offsetMilisec }, item.text);
       });
     }
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('select', { onChange: this.chooseTimezone, ref: 'utcShortcode' }, this.getOptions(_timezoneArr2.default));
+      return _react2.default.createElement('select', { value: this.state.selectedOption, onChange: this.chooseTimezone, ref: 'utcShortcode' }, this.getOptions(_timezoneArr2.default));
     }
   }]);
 
