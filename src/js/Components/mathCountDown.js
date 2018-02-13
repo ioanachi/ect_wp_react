@@ -79,9 +79,9 @@ export default class {
 
       var SecondsYMWDHM = Math.floor(timeWithoutM / oneSecond);
 
-var weeksOnly
-
-
+      var weeksOnly = Math.floor(timeToCount / oneWeek);
+      var yearsOnly = Math.floor(timeToCount / oneYear);
+      var monthsOnly = Math.floor(timeToCount / oneMonth);
 
       // Change the time value calculated in the previous step to a human-readable date/time string by
       // initializing a new Date() object with it, and calling the object's toLocaleString() method.
@@ -89,7 +89,7 @@ var weeksOnly
         return 0;
       }
       switch (obj.pFormat) {
-        case 'D:H:M:S':
+        case 'D2S':
           return daysToCount + " days  " + hoursToCount + 'hours  ' + minutesToCount + '  minutes   ' + secondsToCount + 'seconds left';
           break;
         case 'days':
@@ -107,10 +107,16 @@ var weeksOnly
         case 'seconds':
           return onlySeconds;
           break;
-        case 'weeks':
+        case 'years':
           return onlySeconds;
           break;
-        case 'Y:M:W:D:H:M:S':
+        case 'months':
+          return onlySeconds;
+          break;
+        case 'weeks':
+          return weeksOnly;
+          break;
+        case 'Y2S':
           if (YearsMWDHMS == 0) {
             if (MonthsYWDHMS == 0) {
               if (WeeksYMDHMS == 0) {
@@ -136,7 +142,7 @@ var weeksOnly
           return YearsMWDHMS + ' years  ' + MonthsYWDHMS + ' months ' + WeeksYMDHMS + ' weeks ' + DaysYMWHMS + " days  " + HoursYMWDMS + ' hours  ' + MinutesYMWDHS + '  minutes   ' + SecondsYMWDHM + ' seconds left';
           break;
 
-        case 'D then H:M:S':
+        case 'D then H2S':
           if (daysToCount == 0) {
             if (hoursToCount == 0) {
               if (minutesToCount == 0) {

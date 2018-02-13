@@ -18,13 +18,13 @@ export class TimeFormat extends React.Component {
   optionsFormat() {
     var Obj = [
       {
-        "value": 'D then H:M:S',
+        "value": 'D then H2S',
         "text": 'Days then Hours/Minutes/Seconds'
       }, {
         "value": 'days',
         "text": 'Days'
       }, {
-        "value": 'D:H:M:S',
+        "value": 'D2S',
         "text": 'Days/Hours/Minutes/Seconds'
       }, {
         "value": 'hours:minutes:seconds',
@@ -38,17 +38,16 @@ export class TimeFormat extends React.Component {
       }, {
         "value": 'seconds',
         "text": 'Seconds'
-      },{
+      }, {
         "value": 'years',
         "text": 'Years'
-      },{
+      }, {
         "value": 'months',
         "text": 'Months'
-      },{
+      }, {
         "value": 'weeks',
         "text": 'Weeks'
-      },
-      {
+      }, {
         "value": 'Y2S',
         "text": 'Years to Seconds'
       }
@@ -61,11 +60,9 @@ export class TimeFormat extends React.Component {
 
   render() {
     console.log(this.state.timeFormat);
-    return (
-      <div>
-{}
-      <select onChange={this.chooseFormat} value={this.state.timeFormat}>
-      {this.optionsFormat()}
+    return (<div>
+      {}<selec onChange={this.chooseFormat}>
+      value={this.state.timeFormat}> {this.optionsFormat()}
     </select>
   </div>);
   }
