@@ -1,4 +1,6 @@
 .ContainerMain {
+  position: relative;
+  padding:30px;
   .componentContainer {
     label {
       font-size: 20px;
@@ -52,8 +54,8 @@
   }
 
   .containerLabels {
-    padding: 20px;
-    margin: 20px;
+    padding: 20px 0;
+    margin: 20px 0;
     font-style: italic;
     text-decoration: underline;
     font-size: 20px;
@@ -69,5 +71,17 @@
     padding: 5px;
     width: 60%;
     display: none;
+  }
+  button{
+    &.insertButton{
+      margin:20px 0;
+    }
+    &.ectClosePopupButton{
+      position: absolute;
+      top:0px;
+      right: 0px;
+      padding:5px;
+      font-size: 18px;
+    }
   }
 }

@@ -27,7 +27,7 @@ export class EctShortcode extends React.Component {
       <label>Shortcode</label>
       <span>(click to automatically select all, then copy)</span>
       <div className="shortcode">
-        <input onClick={this.selectAllText} value={shortValue} />
+        <input id="ectSCInput" onClick={this.selectAllText} value={shortValue} />
         <h4>This interface helps you generate customly a shortcode for later use with a wordpress plugin, what you select in the fields will be given to the shortcode as attributes and used later.</h4>
       </div>
     </div>)

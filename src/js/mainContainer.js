@@ -158,6 +158,10 @@ class MainContainer extends React.Component {
       </Tabs>
 
       <EctShortcode pName={this.state.naMeP} pTimeFormat={this.state.timeFormat} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pUtcTz={this.state.utcTz} pTimezoneOffset={this.state.timezoneOffset} pHour={this.state.selectedH} pMinutes={this.state.selectedM} pFormat={this.state.timeFormat}/>
+      <button type="button" id="ectInsertSC" className="insertButton button button-primary">Insert Shortcode</button>
+      <button type="button" class="ectClosePopupButton" name="button">X Close</button>
+
+
     </div>);
     if (!isOnlyPreview) {
       returnAllData.push(labelPreview);
@@ -181,6 +185,6 @@ class MainContainer extends React.Component {
 ectProperties.forEach(function(eachTimer) {
   for (var key in eachTimer) {
     // ectProperties.forEach(function(item){
-    ReactDOM.render(<MainContainer parentID={key}/>, document.getElementById(key));
+    ReactDOM.render(<MainContainer id="ectInsertSC" parentID={key}/>, document.getElementById(key));
   };
 })
