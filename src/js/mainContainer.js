@@ -29,7 +29,7 @@ class MainContainer extends React.Component {
       selectedH: 0,
       selectedM: 0,
       utcTz: 'Etc/GMT+12',
-      timeFormat: 'D then H:M:S'
+      timeFormat: 'Y2S'
     };
     this.onFontSubmit = this.onFontSubmit.bind(this);
     this.returnChildDate = this.returnChildDate.bind(this);
@@ -100,7 +100,6 @@ class MainContainer extends React.Component {
                 </td>
               </tr>
               <tr>
-
                 <td className="componentContainer">
                   <label>Timezone</label>
                 </td>
@@ -113,7 +112,7 @@ class MainContainer extends React.Component {
                 <td className="componentContainer">
                   <label >Time Format</label>
                 </td>
-                <td><TimeFormat pTimeFormat={this.state.formatType} callBackSelectFormat={this.returnFormat}/></td>
+                <td><TimeFormat pTimeFormat={this.state.timeFormat} callBackSelectFormat={this.returnFormat}/></td>
               </tr>
 
             </tbody>
