@@ -5,6 +5,8 @@ import {UserName} from './Components/nameInput';
 import {FontSize} from './Components/fontSize';
 import {EctShortcode} from './Components/ectShortcode';
 import {EndDate} from './Components/dayPicker.js';
+import {CustomText} from './Components/customText.js';
+
 import MomentLocaleUtils, {formatDate, parseDate} from 'react-day-picker/moment';
 import PickColor from './Components/colorReactPicker.js';
 import {Bold} from './Components/bold.js';
@@ -79,6 +81,7 @@ class MainContainer extends React.Component {
         <TabList>
           <Tab>General</Tab>
           <Tab>Styles</Tab>
+          <Tab>Custom Text</Tab>
         </TabList>
 
         <TabPanel>
@@ -151,9 +154,12 @@ class MainContainer extends React.Component {
                 <td className="componentContainer">
                   <Bold callbackChildPropB={this.isBold}/></td>
               </tr>
-              <tr></tr>
+
             </tbody>
           </table>
+        </TabPanel>
+        <TabPanel>
+          <CustomText/>
         </TabPanel>
       </Tabs>
 

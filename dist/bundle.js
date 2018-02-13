@@ -92492,6 +92492,8 @@ var _ectShortcode = __webpack_require__(775);
 
 var _dayPicker = __webpack_require__(776);
 
+var _customText = __webpack_require__(785);
+
 var _moment = __webpack_require__(154);
 
 var _moment2 = _interopRequireDefault(_moment);
@@ -92601,7 +92603,7 @@ var MainContainer = function (_React$Component) {
       var labelPreview = _react2.default.createElement('label', { key: 'labelLivePreview', htmlFor: 'tableStyles', className: 'containerLabels' }, 'Preview');
       var livePreviewOnly = _react2.default.createElement(_livePreview.LivePreview, { key: 'LivePreview', parentID: this.props.parentID, pName: this.state.naMeP, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pTimezoneOffset: this.state.timezoneOffset, pHour: this.state.selectedH, pMinutes: this.state.selectedM, pFormat: this.state.timeFormat });
       // the rest of the data
-      var configurationComponentsJSX = _react2.default.createElement('div', { key: 'configurationComponentsJSX' }, _react2.default.createElement('label', { htmlFor: 'tableStyles', className: 'containerLabels' }, 'Configuration'), _react2.default.createElement(_reactTabs.Tabs, null, _react2.default.createElement(_reactTabs.TabList, null, _react2.default.createElement(_reactTabs.Tab, null, 'General'), _react2.default.createElement(_reactTabs.Tab, null, 'Styles')), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_dayPicker.EndDate, { callbackChildProp: this.returnChildDate }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Time')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_endTime.EndTime, { TimeEnd: this.returnChildTime }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { pTimezoneOffset: this.state.timezoneOffset, callbackChildPropT: this.returnTimezone }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Time Format')), _react2.default.createElement('td', null, _react2.default.createElement(_timeFormat.TimeFormat, { pTimeFormat: this.state.timeFormat, callBackSelectFormat: this.returnFormat })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Font Size')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_fontSize.FontSize, { pFont: this.state.fontSizeP, aaa: this.onFontSubmit }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Select to make text Bold')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold }))), _react2.default.createElement('tr', null))))), _react2.default.createElement(_ectShortcode.EctShortcode, { pName: this.state.naMeP, pTimeFormat: this.state.timeFormat, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pUtcTz: this.state.utcTz, pTimezoneOffset: this.state.timezoneOffset, pHour: this.state.selectedH, pMinutes: this.state.selectedM, pFormat: this.state.timeFormat }));
+      var configurationComponentsJSX = _react2.default.createElement('div', { key: 'configurationComponentsJSX' }, _react2.default.createElement('label', { htmlFor: 'tableStyles', className: 'containerLabels' }, 'Configuration'), _react2.default.createElement(_reactTabs.Tabs, null, _react2.default.createElement(_reactTabs.TabList, null, _react2.default.createElement(_reactTabs.Tab, null, 'General'), _react2.default.createElement(_reactTabs.Tab, null, 'Styles'), _react2.default.createElement(_reactTabs.Tab, null, 'Custom Text')), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_dayPicker.EndDate, { callbackChildProp: this.returnChildDate }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Time')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_endTime.EndTime, { TimeEnd: this.returnChildTime }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { pTimezoneOffset: this.state.timezoneOffset, callbackChildPropT: this.returnTimezone }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Time Format')), _react2.default.createElement('td', null, _react2.default.createElement(_timeFormat.TimeFormat, { pTimeFormat: this.state.timeFormat, callBackSelectFormat: this.returnFormat })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Font Size')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_fontSize.FontSize, { pFont: this.state.fontSizeP, aaa: this.onFontSubmit }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Select to make text Bold')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement(_customText.CustomText, null))), _react2.default.createElement(_ectShortcode.EctShortcode, { pName: this.state.naMeP, pTimeFormat: this.state.timeFormat, pDate: this.state.selectedDay, pFont: this.state.fontSizeP, pColor: this.state.pColor, pBold: this.state.ectIsBoldP, pUtcTz: this.state.utcTz, pTimezoneOffset: this.state.timezoneOffset, pHour: this.state.selectedH, pMinutes: this.state.selectedM, pFormat: this.state.timeFormat }));
       if (!isOnlyPreview) {
         returnAllData.push(labelPreview);
       };
@@ -95020,6 +95022,74 @@ var TimeFormat = exports.TimeFormat = function (_React$Component) {
   }]);
 
   return TimeFormat;
+}(_react2.default.Component);
+
+/***/ }),
+/* 785 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.CustomText = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CustomText = exports.CustomText = function (_React$Component) {
+  _inherits(CustomText, _React$Component);
+
+  function CustomText(props) {
+    _classCallCheck(this, CustomText);
+
+    var _this = _possibleConstructorReturn(this, (CustomText.__proto__ || Object.getPrototypeOf(CustomText)).call(this, props));
+
+    _this.state = {};
+    _this.chooseYears = _this.chooseYears.bind(_this);
+    _this.chooseMonths = _this.chooseMonths.bind(_this);
+    _this.chooseWeeks = _this.chooseWeeks.bind(_this);
+    _this.chooseDsys = _this.chooseDsys.bind(_this);
+    _this.chooseHours = _this.chooseHours.bind(_this);
+    _this.chooseMinutes = _this.chooseMinutes.bind(_this);
+    _this.chooseSeconds = _this.chooseSeconds.bind(_this);
+    return _this;
+  }
+
+  _createClass(CustomText, [{
+    key: "chooseBold",
+    value: function chooseBold(evt) {
+      this.setState({ ectIsBold: evt.target.checked });
+      var isBoldC = !this.state.ectIsBold;
+      var SubmitB = this.props.callbackChildPropB;
+      SubmitB(isBoldC);
+    }
+    //   chooseFormatText(evt) {})
+    //
+    // }
+
+  }, {
+    key: "render",
+    value: function render() {
+      // textArr = ['Years', 'Months', 'Weeks', 'Days', 'Hours', 'Minutes', 'Seconds'];
+      return _react2.default.createElement("table", null, _react2.default.createElement("tbody", null, _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Years")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseYears, ref: "yearsFormat" }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Months")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseMonths, ref: "monthsFormat" }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Weeks")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseWeeks, ref: "weeksFormat" }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Days")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseDsys, ref: "daysFormat" }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Hours")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseHours, ref: "hoursFormat" }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "MInutes")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseMinutes, ref: "minutesFormat" }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Seconds")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseSeconds, ref: "secondsFormat" })))));
+    }
+  }]);
+
+  return CustomText;
 }(_react2.default.Component);
 
 /***/ })
