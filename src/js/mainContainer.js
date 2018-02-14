@@ -79,26 +79,21 @@ class MainContainer extends React.Component {
     this.setState({timeFormat: formatType});
   };
   returnTextFormat(Y, M, W, D, H, Minute, S) {
-    this.setState({yearsFormat: Y});
-    this.setState({monthsFormat: M});
-    this.setState({weeksFormat: W});
-    this.setState({daysFormat: D});
-    this.setState({hoursFormat: H});
-    this.setState({minutesFormat: Minute});
-    this.setState({secondsFormat: S});
+    this.setState({
+      yearsFormat: Y,
+      monthsFormat: M,
+      weeksFormat: W,
+      daysFormat: D,
+      hoursFormat: H,
+      minutesFormat: Minute,
+      secondsFormat: S
+    });
   };
   showOnlyLivePreview() {
     var returnAllData = [];
     var labelPreview = (<label key="labelLivePreview" htmlFor="tableStyles" className="containerLabels">
       Preview</label>)
-    const livePreviewOnly = (<LivePreview key="LivePreview" pYears={this.state.yearsFormat}  pMonths={this.state.monthsFormat}
-    pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat} pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat}
-     pSecondsFormat={this.state.secondsFormat} parentID={this.props.parentID} pName={this.state.naMeP} pDate={this.state.selectedDay}
-     pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset}
-      pHourSelected={this.state.selectedH} pMinutesSelected={this.state.selectedM} pFormat={this.state.timeFormat}/>);
-
-
-
+    const livePreviewOnly = (<LivePreview key="LivePreview" pYears={this.state.yearsFormat} pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat} pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat} parentID={this.props.parentID} pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset} pHourSelected={this.state.selectedH} pMinutesSelected={this.state.selectedM} pFormat={this.state.timeFormat}/>);
 
     // the rest of the data
     var configurationComponentsJSX = (<div key="configurationComponentsJSX">
@@ -185,12 +180,11 @@ class MainContainer extends React.Component {
           </table>
         </TabPanel>
         <TabPanel>
-          <CustomText callbackChildPropFormatText={this.returnTextFormat}/>
+          <CustomText pYears={this.state.yearsFormat} pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat} pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat} callbackChildPropFormatText={this.returnTextFormat}/>
         </TabPanel>
       </Tabs>
 
-      <EctShortcode pYears={this.state.yearsFormat}  pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat} pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat} pName={this.state.naMeP} pTimeFormat={this.state.timeFormat}
-       pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pUtcTz={this.state.utcTz} pTimezoneOffset={this.state.timezoneOffset} pHourSelected={this.state.selectedH} pMinutesSelected={this.state.selectedM} pFormat={this.state.timeFormat}/>
+      <EctShortcode pYears={this.state.yearsFormat} pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat} pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat} pName={this.state.naMeP} pTimeFormat={this.state.timeFormat} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pUtcTz={this.state.utcTz} pTimezoneOffset={this.state.timezoneOffset} pHourSelected={this.state.selectedH} pMinutesSelected={this.state.selectedM} pFormat={this.state.timeFormat}/>
     </div>);
     if (!isOnlyPreview) {
       returnAllData.push(labelPreview);

@@ -3,7 +3,15 @@ import React from 'react';
 export class CustomText extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      yearsFormat: this.props.pYears,
+      monthsFormat: this.props.pMonths,
+      weeksFormat: this.props.pWeeks,
+      daysFormat: this.props.pDays,
+      hoursFormat: this.props.pHoursFormat,
+      minutesFormat: this.props.pMinutesFormat,
+      secondsFormat: this.props.pSecondsFormat
+    }
     this.chooseYears = this.chooseYears.bind(this);
     this.chooseMonths = this.chooseMonths.bind(this);
     this.chooseWeeks = this.chooseWeeks.bind(this);
@@ -12,39 +20,50 @@ export class CustomText extends React.Component {
     this.chooseMinutes = this.chooseMinutes.bind(this);
     this.chooseSeconds = this.chooseSeconds.bind(this);
   };
+
   chooseYears(evt) {
-    const SubmitTF = this.props.callbackChildPropFormatText;
-    SubmitTF(evt.target.value, this.refs.monthsFormat.value, this.refs.weeksFormat.value, this.refs.daysFormat.value, this.refs.hoursFormat.value, this.refs.minutesFormat.value, this.refs.secondsFormat.value);
+    const FormatValue = evt.target.value;
+    this.setState({yearsFormat: FormatValue});
+    this.sendValuesToParent();
   };
-  //   chooseFormatText(evt) {})
-  //
-  // }
+
   chooseMonths(evt) {
-    const SubmitTF = this.props.callbackChildPropFormatText;
-    SubmitTF(this.refs.yearsFormat.value, evt.target.value, this.refs.weeksFormat.value, this.refs.daysFormat.value, this.refs.hoursFormat.value, this.refs.minutesFormat.value, this.refs.secondsFormat.value);
+    const FormatValue = evt.target.value;
+    this.setState({monthsFormat: FormatValue});
+    this.sendValuesToParent();
   };
   chooseWeeks(evt) {
-    const SubmitTF = this.props.callbackChildPropFormatText;
-    SubmitTF(this.refs.yearsFormat.value, this.refs.monthsFormat.value, evt.target.value, this.refs.daysFormat.value, this.refs.hoursFormat.value, this.refs.minutesFormat.value, this.refs.secondsFormat.value);
+    const FormatValue = evt.target.value;
+    this.setState({weeksFormat: FormatValue});
+    this.sendValuesToParent();
 
   };
   chooseDays(evt) {
-    const SubmitTF = this.props.callbackChildPropFormatText;
-    SubmitTF(this.refs.yearsFormat.value, this.refs.monthsFormat.value, this.refs.weeksFormat.value, evt.target.value, this.refs.hoursFormat.value, this.refs.minutesFormat.value, this.refs.secondsFormat.value);
+    const FormatValue = evt.target.value;
+    this.setState({daysFormat: FormatValue});
+    this.sendValuesToParent();
 
   };
   chooseHours(evt) {
-    const SubmitTF = this.props.callbackChildPropFormatText;
-    SubmitTF(this.refs.yearsFormat.value, this.refs.monthsFormat.value, this.refs.weeksFormat.value, this.refs.daysFormat.value, evt.target.value, this.refs.minutesFormat.value, this.refs.secondsFormat.value);
+    const FormatValue = evt.target.value;
+    this.setState({hoursFormat: FormatValue});
+    this.sendValuesToParent();
   };
   chooseMinutes(evt) {
-    const SubmitTF = this.props.callbackChildPropFormatText;
-    SubmitTF(this.refs.yearsFormat.value, this.refs.monthsFormat.value, this.refs.weeksFormat.value, this.refs.daysFormat.value, this.refs.hoursFormat.value, evt.target.value, this.refs.secondsFormat.value);
+    const FormatValue = evt.target.value;
+    this.setState({minutesFormat: FormatValue});
+    this.sendValuesToParent();
   };
   chooseSeconds(evt) {
-    const SubmitTF = this.props.callbackChildPropFormatText;
-    SubmitTF(this.refs.yearsFormat.value, this.refs.monthsFormat.value, this.refs.weeksFormat.value, this.refs.daysFormat.value, this.refs.hoursFormat.value, this.refs.minutesFormat.value, evt.target.value,);
+    const FormatValue = evt.target.value;
+    this.setState({secondsFormat: FormatValue});
+    this.sendValuesToParent();
   };
+  sendValuesToParent() {
+    const SubmitTF = this.props.callbackChildPropFormatText;
+    SubmitTF(this.state.yearsFormat, this.state.monthsFormat, this.state.weeksFormat, this.state.daysFormat, this.state.hoursFormat, this.state.minutesFormat, this.state.secondsFormat);
+
+  }
   render() {
     // textArr = ['Years', 'Months', 'Weeks', 'Days', 'Hours', 'Minutes', 'Seconds'];
     return (<table>
