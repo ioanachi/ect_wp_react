@@ -93591,10 +93591,19 @@ var CustomText = exports.CustomText = function (_React$Component) {
     _this.chooseHours = _this.chooseHours.bind(_this);
     _this.chooseMinutes = _this.chooseMinutes.bind(_this);
     _this.chooseSeconds = _this.chooseSeconds.bind(_this);
+    _this.sendValuesToParent = _this.sendValuesToParent.bind(_this);
+    _this.dateFormat = _this.dateFormat.bind(_this);
     return _this;
   }
 
   _createClass(CustomText, [{
+    key: "dateFormat",
+    value: function dateFormat() {
+      return {
+        hoursFormat: this.props.pHoursFormat
+      };
+    }
+  }, {
     key: "chooseYears",
     value: function chooseYears(evt) {
       var FormatValue = evt.target.value;
@@ -93634,6 +93643,7 @@ var CustomText = exports.CustomText = function (_React$Component) {
     value: function chooseMinutes(evt) {
       var FormatValue = evt.target.value;
       this.setState({ minutesFormat: FormatValue });
+      console.log(this.dateFormat());
       this.sendValuesToParent();
     }
   }, {
@@ -93653,7 +93663,7 @@ var CustomText = exports.CustomText = function (_React$Component) {
     key: "render",
     value: function render() {
       // textArr = ['Years', 'Months', 'Weeks', 'Days', 'Hours', 'Minutes', 'Seconds'];
-      return _react2.default.createElement("table", null, _react2.default.createElement("tbody", null, _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Years")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseYears, ref: "yearsFormat" }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Months")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseMonths, ref: "monthsFormat" }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Weeks")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseWeeks, ref: "weeksFormat" }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Days")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseDays, ref: "daysFormat" }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Hours")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseHours, ref: "hoursFormat" }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Minutes")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseMinutes, ref: "minutesFormat" }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Seconds")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseSeconds, ref: "secondsFormat" })))));
+      return _react2.default.createElement("table", null, _react2.default.createElement("tbody", null, _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Years")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseYears, ref: "yearsFormat" }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Months")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseMonths, ref: "monthsFormat" }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Weeks")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseWeeks, ref: "weeksFormat" }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Days")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseDays, ref: "daysFormat" }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Hours")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onInput: this.chooseHours, ref: "hoursFormat" }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Minutes")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseMinutes, ref: "minutesFormat" }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Seconds")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseSeconds, ref: "secondsFormat" })))));
     }
   }]);
 

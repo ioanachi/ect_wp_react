@@ -19,6 +19,15 @@ export class CustomText extends React.Component {
     this.chooseHours = this.chooseHours.bind(this);
     this.chooseMinutes = this.chooseMinutes.bind(this);
     this.chooseSeconds = this.chooseSeconds.bind(this);
+    this.sendValuesToParent = this.sendValuesToParent.bind(this);
+    this.dateFormat = this.dateFormat.bind(this);
+
+
+  };
+  dateFormat(){
+    return {
+      hoursFormat: this.props.pHoursFormat
+    }
   };
 
   chooseYears(evt) {
@@ -52,7 +61,9 @@ export class CustomText extends React.Component {
   chooseMinutes(evt) {
     const FormatValue = evt.target.value;
     this.setState({minutesFormat: FormatValue});
+    console.log(this.dateFormat());
     this.sendValuesToParent();
+
   };
   chooseSeconds(evt) {
     const FormatValue = evt.target.value;
@@ -106,7 +117,7 @@ export class CustomText extends React.Component {
             <label>Hours</label>
           </td>
           <td className="componentContainer">
-            <input type="text" onChange={this.chooseHours} ref="hoursFormat"/>
+            <input type="text" onInput={this.chooseHours} ref="hoursFormat"/>
           </td>
         </tr>
         <tr>
