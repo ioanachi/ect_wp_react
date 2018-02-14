@@ -21,7 +21,8 @@ export class EctShortcode extends React.Component {
 
   render() {
     const shortValue = '[ectShortcode name="' + this.props.pName + '"   date="' + this.props.pDate + '"  color= "' + this.props.pColor + '"   fontSize="' + this.props.pFont + 'px"' + '    bold="' + this.props.pBold + '" timezone="' + this.props.pTimezoneOffset +
-    '" hour="' + this.props.pHour + '"  minutes= "' + this.props.pMinutes + '" timeFormat="' + this.props.pFormat + '"]';
+    '" hour="' + this.props.pHour + '"  minutes= "' + this.props.pMinutes + '" timeFormat="' + this.props.pFormat  + '"  yearsFormat=" ' + this.props.pYears + '"  monthsFormat="' + this.props.pMonths + '" weeksFormat="' + this.props.pWeeks + '" daysFormat="' + this.props.pDays +
+    '" hoursFormat="' + this.props.pHours + '" minutesFormat="' + this.props.pMinutes + '" secondsFormat="' + this.props.pSeconds + '"]';
 
     return (<div className="ectSortcode">
       <label>Shortcode</label>
