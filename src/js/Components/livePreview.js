@@ -19,10 +19,10 @@ liveCountDown(){
   var dataProps = {
     tThis: this,
     timeout:this.state.timeout,
-    pDate:this.props.pDate,
+    endDate:this.props.endDate,
     pTimezoneOffset:this.props.pTimezoneOffset,
-    pHourSelected:this.props.pHourSelected,
-    pMinutesSelected:this.props.pMinutesSelected,
+    endHour:this.props.endHour,
+    endMinute:this.props.endMinute,
     cTxtYears:this.props.pYears,
     cTxtMonths:this.props.pMonths,
     cTxtWeeks:this.props.pWeeks,
@@ -55,10 +55,10 @@ liveCountDown(){
     var propertiesObj = ectProperties[ectPIndex][theMainID];
     dataProps = {
       timeout: propertiesObj.timeout,
-      pDate: propertiesObj.pDate,
+      endDate: propertiesObj.endDate,
       pTimezoneOffset: propertiesObj.pTimezoneOffset,
-      pHourSelected: propertiesObj.pHourSelected,
-      pMinutesSelected: propertiesObj.pMinutesSelected,
+      endHour: propertiesObj.endHour,
+      endMinute: propertiesObj.endMinute,
       pFormat: propertiesObj.pFormat,
       fontSize:propertiesObj.fontSize,
       color:propertiesObj.color,
