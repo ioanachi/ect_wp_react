@@ -8,8 +8,8 @@ class PickColor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      color: '#000',
-      background: '',
+      color: this.props.pColor,
+      background: this.props.pColor,
       displayColorPicker: false
     };
     this.handleOnColorChange = this.handleOnColorChange.bind(this);

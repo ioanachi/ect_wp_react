@@ -20,19 +20,14 @@ export class CustomText extends React.Component {
     this.chooseMinutes = this.chooseMinutes.bind(this);
     this.chooseSeconds = this.chooseSeconds.bind(this);
     this.sendValuesToParent = this.sendValuesToParent.bind(this);
-    this.dateFormat = this.dateFormat.bind(this);
 
 
   };
-  dateFormat(){
-    return {
-      hoursFormat: this.props.pHoursFormat
-    }
-  };
+
 
   chooseYears(evt) {
     const FormatValue = evt.target.value;
-    this.state.hoursFormat = FormatValue;
+    this.state.yearsFormat = FormatValue;
     this.setState({yearsFormat: FormatValue});
     this.sendValuesToParent();
   };
@@ -67,7 +62,6 @@ export class CustomText extends React.Component {
     const FormatValue = evt.target.value;
     this.state.minutesFormat = FormatValue;
     this.setState({minutesFormat: FormatValue});
-    console.log(this.dateFormat());
     this.sendValuesToParent();
 
   };

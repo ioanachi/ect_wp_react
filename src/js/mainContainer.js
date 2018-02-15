@@ -25,14 +25,13 @@ class MainContainer extends React.Component {
       endDate: '',
       naMeP: '',
       fontSizeP: 42,
-      pColor: '',
-      ectIsBoldP: false,
+      pColor: '#000',
+      pIsBold: false,
       timezoneOffset: -(new Date().getTimezoneOffset() * 60000),
       endHour: 0,
       endMinute: 0,
       utcTz: 'Etc/GMT+12',
       timeFormat: 'Y2S',
-
       yearsFormat: 'Years',
       monthsFormat: 'Months',
       weeksFormat: 'Weeks',
@@ -54,7 +53,7 @@ class MainContainer extends React.Component {
   }
 
   isBold(isBoldC) {
-    this.setState({ectIsBoldP: isBoldC})
+    this.setState({pIsBold: isBoldC})
   };
   onFontSubmit(fontSize) {
     this.setState({fontSizeP: fontSize});
@@ -94,7 +93,7 @@ class MainContainer extends React.Component {
     var labelPreview = (<label key="labelLivePreview" htmlFor="tableStyles" className="containerLabels">
       Preview</label>)
     const livePreviewOnly = (<LivePreview key="LivePreview" pYears={this.state.yearsFormat} pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat} pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat}
-     parentID={this.props.parentID} pName={this.state.naMeP} pDate={this.state.endDate} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset} pHourSelected={this.state.endHour} pMinutesSelected={this.state.endMinute} pFormat={this.state.timeFormat}/>);
+     parentID={this.props.parentID} pName={this.state.naMeP} pDate={this.state.endDate} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.pIsBold} pTimezoneOffset={this.state.timezoneOffset} pHourSelected={this.state.endHour} pMinutesSelected={this.state.endMinute} pFormat={this.state.timeFormat}/>);
 
     // the rest of the data
     var configurationComponentsJSX = (<div key="configurationComponentsJSX">
@@ -161,7 +160,7 @@ class MainContainer extends React.Component {
                 <td className="componentContainer">
                   <label>Color</label>
                 </td>
-                <td><PickColor callbackChildPropColor={this.returnChildColor}/></td>
+                <td><PickColor callbackChildPropColor={this.returnChildColor} pColor={this.state.pColor}/></td>
               </tr>
               <tr>
                 <td className="componentContainer">
@@ -175,7 +174,7 @@ class MainContainer extends React.Component {
                   <label>Select to make text Bold</label>
                 </td>
                 <td className="componentContainer">
-                  <Bold callbackChildPropB={this.isBold}/></td>
+                  <Bold callbackChildPropB={this.isBold} pIsBold="this.state.pIsBold"/></td>
               </tr>
             </tbody>
           </table>
@@ -186,7 +185,7 @@ class MainContainer extends React.Component {
       </Tabs>
 
       <EctShortcode pYears={this.state.yearsFormat} pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat} pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat} pName={this.state.naMeP}
-       pTimeFormat={this.state.timeFormat} pDate={this.state.endDate} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pUtcTz={this.state.utcTz} pTimezoneOffset={this.state.timezoneOffset} pEndHour={this.state.endHour} pEndMinute={this.state.endMinute} pFormat={this.state.timeFormat}/>
+       pTimeFormat={this.state.timeFormat} pDate={this.state.endDate} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.pIsBold} pUtcTz={this.state.utcTz} pTimezoneOffset={this.state.timezoneOffset} pEndHour={this.state.endHour} pEndMinute={this.state.endMinute} pFormat={this.state.timeFormat}/>
     </div>);
     if (!isOnlyPreview) {
       returnAllData.push(labelPreview);
