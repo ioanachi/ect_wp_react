@@ -4,7 +4,7 @@ import DayPickerInput from 'react-day-picker/DayPickerInput';
 import {UserName} from './Components/nameInput';
 import {FontSize} from './Components/fontSize';
 import {EctShortcode} from './Components/ectShortcode';
-import {EndDate} from './Components/dayPicker.js';
+import {EndDate} from './Components/endDate.js';
 import {CustomText} from './Components/customText.js';
 
 import MomentLocaleUtils, {formatDate, parseDate} from 'react-day-picker/moment';
