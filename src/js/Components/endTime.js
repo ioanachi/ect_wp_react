@@ -3,6 +3,10 @@ import React from 'react';
 export class EndTime extends React.Component {
   constructor(props) {
     super(props);
+    this.state={
+      endHour:this.props.pEndHour,
+      endMinute:this.props.pEndMinute
+    }
 
     this.chooseHours = this.chooseHours.bind(this);
     this.chooseMinutes = this.chooseMinutes.bind(this);
@@ -32,19 +36,23 @@ setMinutes(){
 }
 
   chooseHours(evt) {
+    const InputValue = evt.target.value;
     const Submitx = this.props.TimeEnd;
-    Submitx(evt.target.value , this.refs.endMinute.value);
+    this.setState({endHour:InputValue});
+    Submitx(InputValue , this.state.endMinute);
   };
   chooseMinutes(evt) {
+    const InputValue = evt.target.value;
+    this.setState({endMinute:InputValue});
     const Submitx = this.props.TimeEnd;
-    Submitx(this.refs.endHour.value , evt.target.value);
+    Submitx(this.state.endHour , InputValue);
 
   };
 
   render() {
     return (<div>
-    Hours:  <select ref="endHour" onChange={this.chooseHours}>{this.setHour()}</select>
-    Minutes:  <select ref="endMinute" onChange={this.chooseMinutes}>{this.setMinutes()}</select>
+    Hours:  <select value={this.state.endHour} onChange={this.chooseHours}>{this.setHour()}</select>
+    Minutes:  <select value={this.state.endMinute} onChange={this.chooseMinutes}>{this.setMinutes()}</select>
 
     </div>);
   }

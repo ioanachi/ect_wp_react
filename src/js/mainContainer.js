@@ -122,7 +122,7 @@ class MainContainer extends React.Component {
                 <td className="componentContainer">
                   <label htmlFor="datePicker">End Time</label>
                 </td>
-                <td className="componentContainer"><EndTime TimeEnd={this.returnChildTime}/>
+                <td className="componentContainer"><EndTime TimeEnd={this.returnChildTime} pEndHour={this.state.endHour} pEndMinute={this.state.endMinute}/>
                 </td>
               </tr>
               <tr>
