@@ -90,7 +90,7 @@ export default class {
       }
       switch (obj.pFormat) {
         case 'D2S':
-          return daysToCount +'  '+ obj.pDaysFormat +'  '+  hoursToCount +'  '+  obj.pHoursFormat + '  '+ minutesToCount +'  '+  obj.pMinutesFormat + '  '+ secondsToCount + '  '+ obj.pSecondsFormat;
+          return daysToCount +'  '+ obj.pDaysFormat +'   '+  hoursToCount +' '+  obj.pHoursFormat + '  '+ minutesToCount +'  '+  obj.pMinutesFormat + '  '+ secondsToCount + '  '+ obj.pSecondsFormat;
           break;
         case 'days':
           return daysToCount+'  '+ obj.pDaysFormat;
@@ -130,7 +130,7 @@ export default class {
                   };
                   return HoursYMWDMS + '  '+obj.pHoursFormat +' ' + MinutesYMWDHS + ' ' + obj.pMinutesFormat+ ' ' + SecondsYMWDHM + '  '+  obj.pSecondsFormat;
                 };
-                return DaysYMWHMS + '  '+ obj.pDaysFormat + HoursYMWDMS + '  '+obj.pHoursFormat +' '+ MinutesYMWDHS + ' ' + obj.pMinutesFormat+ ' ' + SecondsYMWDHM + '  '+  obj.pSecondsFormat;
+                return DaysYMWHMS + ' '+ obj.pDaysFormat + HoursYMWDMS + '  '+obj.pHoursFormat +' '+ MinutesYMWDHS + ' ' + obj.pMinutesFormat+ ' ' + SecondsYMWDHM + '  '+  obj.pSecondsFormat;
 
               };
               return WeeksYMDHMS + '  '+obj.pWeeksFormat + DaysYMWHMS + '  '+ obj.pDaysFormat + HoursYMWDMS + '  '+obj.pHoursFormat +' ' + MinutesYMWDHS + ' ' + obj.pMinutesFormat+ ' ' + SecondsYMWDHM + '  '+  obj.pSecondsFormat;

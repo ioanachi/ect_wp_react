@@ -20,7 +20,7 @@ class MainContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedDay: '',
+      endDate: '',
       isDisabled: false,
       endDate: '',
       naMeP: '',
@@ -28,8 +28,8 @@ class MainContainer extends React.Component {
       pColor: '',
       ectIsBoldP: false,
       timezoneOffset: -(new Date().getTimezoneOffset() * 60000),
-      selectedH: 0,
-      selectedM: 0,
+      endHour: 0,
+      endMinute: 0,
       utcTz: 'Etc/GMT+12',
       timeFormat: 'Y2S',
 
@@ -62,8 +62,8 @@ class MainContainer extends React.Component {
   onNameSubmit(naMe) {
     this.setState({naMeP: naMe});
   }
-  returnChildDate(selectedDay) {
-    this.setState({selectedDay: selectedDay});
+  returnChildDate(endDate) {
+    this.setState({endDate: endDate});
   }
   returnChildColor(selectedColorChild) {
     this.setState({pColor: selectedColorChild})
@@ -71,9 +71,9 @@ class MainContainer extends React.Component {
   returnTimezone(timezoneChosen, utcTz) {
     this.setState({timezoneOffset: timezoneChosen, utcTz: utcTz});
   }
-  returnChildTime(selectedHour, selectedMinutes) {
-    this.setState({selectedH: selectedHour});
-    this.setState({selectedM: selectedMinutes});
+  returnChildTime(endHour, endMinute) {
+    this.setState({endHour: endHour});
+    this.setState({endMinute: endMinute});
   }
   returnFormat(formatType) {
     this.setState({timeFormat: formatType});
@@ -93,7 +93,8 @@ class MainContainer extends React.Component {
     var returnAllData = [];
     var labelPreview = (<label key="labelLivePreview" htmlFor="tableStyles" className="containerLabels">
       Preview</label>)
-    const livePreviewOnly = (<LivePreview key="LivePreview" pYears={this.state.yearsFormat} pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat} pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat} parentID={this.props.parentID} pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset} pHourSelected={this.state.selectedH} pMinutesSelected={this.state.selectedM} pFormat={this.state.timeFormat}/>);
+    const livePreviewOnly = (<LivePreview key="LivePreview" pYears={this.state.yearsFormat} pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat} pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat}
+     parentID={this.props.parentID} pName={this.state.naMeP} pDate={this.state.endDate} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset} pHourSelected={this.state.endHour} pMinutesSelected={this.state.endMinute} pFormat={this.state.timeFormat}/>);
 
     // the rest of the data
     var configurationComponentsJSX = (<div key="configurationComponentsJSX">
@@ -184,7 +185,8 @@ class MainContainer extends React.Component {
         </TabPanel>
       </Tabs>
 
-      <EctShortcode pYears={this.state.yearsFormat} pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat} pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat} pName={this.state.naMeP} pTimeFormat={this.state.timeFormat} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pUtcTz={this.state.utcTz} pTimezoneOffset={this.state.timezoneOffset} pHourSelected={this.state.selectedH} pMinutesSelected={this.state.selectedM} pFormat={this.state.timeFormat}/>
+      <EctShortcode pYears={this.state.yearsFormat} pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat} pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat} pName={this.state.naMeP}
+       pTimeFormat={this.state.timeFormat} pDate={this.state.endDate} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pUtcTz={this.state.utcTz} pTimezoneOffset={this.state.timezoneOffset} pEndHour={this.state.endHour} pEndMinute={this.state.endMinute} pFormat={this.state.timeFormat}/>
     </div>);
     if (!isOnlyPreview) {
       returnAllData.push(labelPreview);
@@ -196,7 +198,7 @@ class MainContainer extends React.Component {
     return returnAllData;
   }
   render() {
-    const {selectedDay, isDisabled} = this.state; //from the day picker
+    const {endDate, isDisabled} = this.state; //from the day picker
     //only the live preview section
 
     var renderReturn = (<div className="ContainerMain">

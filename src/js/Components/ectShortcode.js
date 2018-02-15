@@ -20,9 +20,12 @@ export class EctShortcode extends React.Component {
   };
 
   render() {
-    const shortValue = '[ectShortcode name="' + this.props.pName + '"   date="' + this.props.pDate + '"  color= "' + this.props.pColor + '"   fontSize="' + this.props.pFont + 'px"' + '    bold="' + this.props.pBold + '" timezone="' + this.props.pTimezoneOffset +
-    '" hour="' + this.props.pHour + '"  minutes= "' + this.props.pMinutes + '" timeFormat="' + this.props.pFormat  + '"  yearsFormat=" ' + this.props.pYears + '"  monthsFormat="' + this.props.pMonths + '" weeksFormat="' + this.props.pWeeks + '" daysFormat="' + this.props.pDays +
-    '" hoursFormat="' + this.props.pHoursFormat + '" minutesFormat="' + this.props.pMinutesFormat + '" secondsFormat="' + this.props.pSecondsFormat + '"]';
+    const shortValue = '[ectShortcode name="' + this.props.pName + '"   endDate="' + this.props.pDate + '"  color= "' + this.props.pColor +
+    '" fontSize="' + this.props.pFont + 'px"' + ' bold="' + this.props.pBold + '" timezone="' + this.props.pTimezoneOffset +
+    '" endhour="' + this.props.pEndHour + '"  endminute= "' + this.props.pEndMinute + '" timeFormat="' + this.props.pTimeFormat  +
+    '" yearsFormat=" ' + this.props.pYears + '"  monthsFormat="' + this.props.pMonths + '" weeksFormat="' + this.props.pWeeks +
+    '" daysFormat="' + this.props.pDays + '" hoursFormat="' + this.props.pHoursFormat + '" minutesFormat="' + this.props.pMinutesFormat +
+    '" secondsFormat="' + this.props.pSecondsFormat + '"]';
 
     return (<div className="ectSortcode">
       <label>Shortcode</label>

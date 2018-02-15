@@ -32,34 +32,40 @@ export class CustomText extends React.Component {
 
   chooseYears(evt) {
     const FormatValue = evt.target.value;
+    this.state.hoursFormat = FormatValue;
     this.setState({yearsFormat: FormatValue});
     this.sendValuesToParent();
   };
 
   chooseMonths(evt) {
     const FormatValue = evt.target.value;
+    this.state.monthsFormat = FormatValue;
     this.setState({monthsFormat: FormatValue});
     this.sendValuesToParent();
   };
   chooseWeeks(evt) {
     const FormatValue = evt.target.value;
+    this.state.weeksFormat = FormatValue;
     this.setState({weeksFormat: FormatValue});
     this.sendValuesToParent();
 
   };
   chooseDays(evt) {
     const FormatValue = evt.target.value;
+    this.state.daysFormat = FormatValue;
     this.setState({daysFormat: FormatValue});
     this.sendValuesToParent();
 
   };
   chooseHours(evt) {
     const FormatValue = evt.target.value;
+    this.state.hoursFormat = FormatValue;
     this.setState({hoursFormat: FormatValue});
     this.sendValuesToParent();
   };
   chooseMinutes(evt) {
     const FormatValue = evt.target.value;
+    this.state.minutesFormat = FormatValue;
     this.setState({minutesFormat: FormatValue});
     console.log(this.dateFormat());
     this.sendValuesToParent();
@@ -67,6 +73,7 @@ export class CustomText extends React.Component {
   };
   chooseSeconds(evt) {
     const FormatValue = evt.target.value;
+    this.state.secondsFormat = FormatValue;
     this.setState({secondsFormat: FormatValue});
     this.sendValuesToParent();
   };
