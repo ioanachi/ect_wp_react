@@ -36,7 +36,7 @@ liveCountDown(){
     fontSize: this.props.pFont + 'px',
     color: this.props.pColor,
     fontWeight: (
-      this.props.pBold == true
+      this.props.pIsBold == true
       ? 'bold'
       : 'normal')
   };
