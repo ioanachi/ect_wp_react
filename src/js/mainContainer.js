@@ -209,6 +209,6 @@ class MainContainer extends React.Component {
 ectProperties.forEach(function(eachTimer) {
   for (var key in eachTimer) {
     // ectProperties.forEach(function(item){
-    ReactDOM.render(<MainContainer parentID={key}/>, document.getElementById(key));
+    ReactDOM.render(<MainContainer id="ectInsertSC" parentID={key}/>, document.getElementById(key));
   };
 })
