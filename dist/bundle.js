@@ -94930,9 +94930,10 @@ var TimeFormat = exports.TimeFormat = function (_React$Component) {
   _createClass(TimeFormat, [{
     key: 'chooseFormat',
     value: function chooseFormat(evt) {
-      var formatType = evt.target.value;
+      var formatTypeValue = evt.target.value;
+      this.setState({ timeFormat: formatTypeValue });
       var SubmitFormat = this.props.callBackSelectFormat;
-      SubmitFormat(formatType);
+      SubmitFormat(formatTypeValue);
     }
   }, {
     key: 'optionsFormat',
@@ -94979,7 +94980,7 @@ var TimeFormat = exports.TimeFormat = function (_React$Component) {
     key: 'render',
     value: function render() {
       console.log(this.state.timeFormat);
-      return _react2.default.createElement('div', null, _react2.default.createElement('select', { onChange: this.chooseFormat }, '> value=', this.state.timeFormat, '> ', this.optionsFormat()));
+      return _react2.default.createElement('div', null, _react2.default.createElement('select', { onChange: this.chooseFormat, value: this.state.timeFormat }, ' ', this.optionsFormat()));
     }
   }]);
 
