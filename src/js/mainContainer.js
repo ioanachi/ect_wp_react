@@ -114,7 +114,7 @@ class MainContainer extends React.Component {
                 <td className="componentContainer">
                   <label htmlFor="datePicker">End Date</label>
                 </td>
-                <td className="componentContainer"><EndDate callbackChildProp={this.returnChildDate}/>
+                <td className="componentContainer"><EndDate callbackChildProp={this.returnChildDate} pEndDate={this.state.endDate}/>
                 </td>
               </tr>
               <tr>
