@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import {UserName} from './Components/nameInput';
-import {FontSize} from './Components/fontSize';
+import {NumbersFontSize} from './Components/fontSize';
 import {EctShortcode} from './Components/ectShortcode';
 import {EndDate} from './Components/endDate.js';
 import {CustomText} from './Components/customText.js';
@@ -164,10 +164,10 @@ class MainContainer extends React.Component {
               </tr>
               <tr>
                 <td className="componentContainer">
-                  <label htmlFor="fontInput">Font Size</label>
+                  <label htmlFor="fontInput">Numbers Font Size</label>
                 </td>
                 <td className="componentContainer">
-                  <FontSize pFont={this.state.fontSizeP} aaa={this.onFontSubmit}/></td>
+                  <NumbersFontSize pFont={this.state.fontSizeP} aaa={this.onFontSubmit}/></td>
               </tr>
               <tr>
                 <td className="componentContainer">
