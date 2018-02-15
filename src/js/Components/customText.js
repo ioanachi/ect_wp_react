@@ -87,16 +87,12 @@ export class CustomText extends React.Component {
           <td className="componentContainer">
             <input type="text" onChange={this.chooseYears} value={this.state.yearsFormat}/>
           </td>
-        </tr>
-        <tr>
           <td className="componentContainer">
             <label>Months</label>
           </td>
           <td className="componentContainer">
             <input type="text" onChange={this.chooseMonths} value={this.state.monthsFormat}/>
           </td>
-        </tr>
-        <tr>
           <td className="componentContainer">
             <label>Weeks</label>
           </td>
@@ -112,16 +108,12 @@ export class CustomText extends React.Component {
           <td className="componentContainer">
             <input type="text" onChange={this.chooseDays}  value={this.state.daysFormat}/>
           </td>
-        </tr>
-        <tr>
           <td className="componentContainer">
             <label>Hours</label>
           </td>
           <td className="componentContainer">
             <input type="text" onInput={this.chooseHours} value={this.state.hoursFormat}/>
           </td>
-        </tr>
-        <tr>
           <td className="componentContainer">
             <label>Minutes</label>
           </td>

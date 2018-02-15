@@ -184,9 +184,16 @@ class MainContainer extends React.Component {
         </TabPanel>
       </Tabs>
 
-      <EctShortcode pYears={this.state.yearsFormat} pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat} pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat} pName={this.state.naMeP}
-       pTimeFormat={this.state.timeFormat} pDate={this.state.endDate} pFont={this.state.fontSizeP} pColor={this.state.pColor} chooseBold={this.state.pIsBold} pUtcTz={this.state.utcTz} pTimezoneOffset={this.state.timezoneOffset} pEndHour={this.state.endHour} pEndMinute={this.state.endMinute} pFormat={this.state.timeFormat}/>
-    </div>);
+      <EctShortcode pYears={this.state.yearsFormat} pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat}
+      pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat} pName={this.state.naMeP}
+      pTimeFormat={this.state.timeFormat} pDate={this.state.endDate} pFont={this.state.fontSizeP} pColor={this.state.pColor} chooseBold={this.state.pIsBold}
+      pUtcTz={this.state.utcTz} pTimezoneOffset={this.state.timezoneOffset} pEndHour={this.state.endHour} pEndMinute={this.state.endMinute}
+      pFormat={this.state.timeFormat}/>
+
+       <button type="button" id="ectInsertSC" className="insertButton button button-primary">Insert Shortcode</button>
+<button type="button" className="ectClosePopupButton" name="button">X Close</button>
+    </div>
+  );
     if (!isOnlyPreview) {
       returnAllData.push(labelPreview);
     };
