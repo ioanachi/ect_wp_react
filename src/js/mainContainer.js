@@ -153,7 +153,7 @@ class MainContainer extends React.Component {
                   <label htmlFor="username">Name</label>
                 </td>
                 <td className="componentContainer">
-                  <UserName NameParent={this.onNameSubmit}/>
+                  <UserName NameParent={this.onNameSubmit} nameValue={this.state.naMeP}/>
                 </td>
               </tr>
               <tr>
