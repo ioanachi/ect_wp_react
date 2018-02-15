@@ -34985,7 +34985,7 @@ __webpack_require__(769);
 /* 377 */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n  </div>\r\n\r\n  <script type=\"text/javascript\">\r\n    var isOnlyPreview = false;\r\n    var idOfContainer = 'testID';\r\n    var ectProperties = [{\r\n        'ectPopupContent': {\r\n          timeout: [],\r\n          pDate: '2018/2/12',\r\n          pTimezoneOffset: '+7200000',\r\n          pHourSelected: '00',\r\n          pMinutesSelected: '00',\r\n          pFormat: 'D then H:M:S',\r\n          fontSize: '32px',\r\n          color: '#F00',\r\n          fontWeight: 'bold'\r\n        }\r\n      }\r\n    ];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>\r\n";
+module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n  </div>\r\n\r\n  <script type=\"text/javascript\">\r\n    var isOnlyPreview = false;\r\n    var idOfContainer = 'testID';\r\n\r\n    var ectProperties = [{\r\n        'ectPopupContent': {\r\n          timeout: [],\r\n          pDate: '2028/2/19',\r\n          pTimezoneOffset: '+7200000',\r\n          pHourSelected: '00',\r\n          pMinutesSelected: '00',\r\n          pFormat: 'D then H:M:S',\r\n          fontSize: '32px',\r\n          color: '#F00',\r\n          fontWeight: 'bold',\r\n          cTxtYears:'Years',\r\n          cTxtMonths:'Months',\r\n          cTxtWeeks:'Weeks',\r\n          cTxtDays:'Days',\r\n          cTxtHours:'Hours',\r\n          cTxtMinutes:'Minutes',\r\n          cTxtSeconds:'Seconds'\r\n        }\r\n      }\r\n    ];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>\r\n";
 
 /***/ }),
 /* 378 */
@@ -92643,7 +92643,6 @@ var MainContainer = function (_React$Component) {
 ;
 ectProperties.forEach(function (eachTimer) {
   for (var key in eachTimer) {
-    // ectProperties.forEach(function(item){
     _reactDom2.default.render(_react2.default.createElement(MainContainer, { id: 'ectInsertSC', parentID: key }), document.getElementById(key));
   };
 });
@@ -94514,13 +94513,13 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
         pTimezoneOffset: this.props.pTimezoneOffset,
         pHourSelected: this.props.pHourSelected,
         pMinutesSelected: this.props.pMinutesSelected,
-        pYearsFormat: this.props.pYears,
-        pMonthsFormat: this.props.pMonths,
-        pWeeksFormat: this.props.pWeeks,
-        pDaysFormat: this.props.pDays,
-        pHoursFormat: this.props.pHoursFormat,
-        pMinutesFormat: this.props.pMinutesFormat,
-        pSecondsFormat: this.props.pSecondsFormat,
+        cTxtYears: this.props.pYears,
+        cTxtMonths: this.props.pMonths,
+        cTxtWeeks: this.props.pWeeks,
+        cTxtDays: this.props.pDays,
+        cTxtHours: this.props.pHoursFormat,
+        cTxtMinutes: this.props.pMinutesFormat,
+        cTxtSeconds: this.props.pSecondsFormat,
         pFormat: this.props.pFormat
       };
       var divStyle = {
@@ -94541,7 +94540,6 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
           }
         });
         var propertiesObj = ectProperties[ectPIndex][theMainID];
-
         dataProps = {
           timeout: propertiesObj.timeout,
           pDate: propertiesObj.pDate,
@@ -94552,13 +94550,13 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
           fontSize: propertiesObj.fontSize,
           color: propertiesObj.color,
           fontWeight: propertiesObj.fontWeight,
-          pYearsFormat: propertiesObj.pYears,
-          pMonthsFormat: propertiesObj.pMonths,
-          pWeeksFormat: propertiesObj.pWeeks,
-          pDaysFormat: propertiesObj.pDays,
-          pHoursFormat: propertiesObj.pHoursFormat,
-          pMinutesFormat: propertiesObj.pMinutesFormat,
-          pSecondsFormat: propertiesObj.pSecondsFormat
+          cTxtYears: propertiesObj.cTxtYears,
+          cTxtMonths: propertiesObj.cTxtMonths,
+          cTxtWeeks: propertiesObj.cTxtWeeks,
+          cTxtDays: propertiesObj.cTxtDays,
+          cTxtHours: propertiesObj.cTxtHours,
+          cTxtMinutes: propertiesObj.cTxtMinutes,
+          cTxtSeconds: propertiesObj.cTxtSeconds
         };
         divStyle = {
           fontSize: propertiesObj.fontSize,
@@ -94692,31 +94690,31 @@ var _class = function () {
         }
         switch (obj.pFormat) {
           case 'D2S':
-            return daysToCount + '  ' + obj.pDaysFormat + '   ' + hoursToCount + ' ' + obj.pHoursFormat + '  ' + minutesToCount + '  ' + obj.pMinutesFormat + '  ' + secondsToCount + '  ' + obj.pSecondsFormat;
+            return daysToCount + ' ' + obj.cTxtDays + '   ' + hoursToCount + ' ' + obj.cTxtHours + ' ' + minutesToCount + ' ' + obj.cTxtMinutes + ' ' + secondsToCount + ' ' + obj.cTxtSeconds;
             break;
           case 'days':
-            return daysToCount + '  ' + obj.pDaysFormat;
+            return daysToCount + ' ' + obj.cTxtDays;
             break;
           case 'hours:minutes:seconds':
-            return onlyHMS_Hours + '  ' + obj.pHoursFormat + ' ' + onlyHMS_Minutes + '  ' + obj.pMinutesFormat + '  ' + onlyHMS_Seconds;
+            return onlyHMS_Hours + ' ' + obj.cTxtHours + ' ' + onlyHMS_Minutes + ' ' + obj.cTxtMinutes + ' ' + onlyHMS_Seconds;
             break;
           case 'hours:minutes':
-            return onlyHMS_Hours + '  ' + obj.pHoursFormat + ' ' + onlyHMS_Minutes + '  ' + obj.pMinutesFormat + '  ';
+            return onlyHMS_Hours + ' ' + obj.cTxtHours + ' ' + onlyHMS_Minutes + ' ' + obj.cTxtMinutes + ' ';
             break;
           case 'minutes:seconds':
-            return onlyMS_Min + '  ' + obj.pMinutesFormat + '  ' + onlyMS_Sec;
+            return onlyMS_Min + ' ' + obj.cTxtMinutes + ' ' + onlyMS_Sec;
             break;
           case 'seconds':
-            return onlySeconds + '  ' + obj.pSecondsFormat + '  ';
+            return onlySeconds + ' ' + obj.cTxtSeconds + ' ';
             break;
           case 'years':
-            return yearsOnly + '  ' + obj.pYearsFormat;
+            return yearsOnly + ' ' + obj.cTxtYears;
             break;
           case 'months':
-            return monthsOnly + '  ' + obj.pMonthsFormat;
+            return monthsOnly + ' ' + obj.cTxtMonths;
             break;
           case 'weeks':
-            return weeksOnly + '  ' + obj.pWeeksFormat;
+            return weeksOnly + ' ' + obj.cTxtWeeks;
             break;
           case 'Y2S':
             if (YearsMWDHMS == 0) {
@@ -94726,32 +94724,32 @@ var _class = function () {
                   if (DaysYMWHMS == 0) {
                     if (HoursYMWDMS == 0) {
                       if (MinutesYMWDHS == 0) {
-                        return SecondsYMWDHM + '  ' + obj.pSecondsFormat;
+                        return SecondsYMWDHM + ' ' + obj.cTxtSeconds;
                       };
-                      return MinutesYMWDHS + ' ' + obj.pMinutesFormat + ' ' + SecondsYMWDHM + '  ' + obj.pSecondsFormat;
+                      return MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
                     };
-                    return HoursYMWDMS + '  ' + obj.pHoursFormat + ' ' + MinutesYMWDHS + ' ' + obj.pMinutesFormat + ' ' + SecondsYMWDHM + '  ' + obj.pSecondsFormat;
+                    return HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
                   };
-                  return DaysYMWHMS + ' ' + obj.pDaysFormat + HoursYMWDMS + '  ' + obj.pHoursFormat + ' ' + MinutesYMWDHS + ' ' + obj.pMinutesFormat + ' ' + SecondsYMWDHM + '  ' + obj.pSecondsFormat;
+                  return DaysYMWHMS + ' ' + obj.cTxtDays + ' ' + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
                 };
-                return WeeksYMDHMS + '  ' + obj.pWeeksFormat + DaysYMWHMS + '  ' + obj.pDaysFormat + HoursYMWDMS + '  ' + obj.pHoursFormat + ' ' + MinutesYMWDHS + ' ' + obj.pMinutesFormat + ' ' + SecondsYMWDHM + '  ' + obj.pSecondsFormat;
+                return WeeksYMDHMS + ' ' + obj.cTxtWeeks + ' ' + DaysYMWHMS + ' ' + obj.cTxtDays + ' ' + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
               };
-              return MonthsYWDHMS + '  ' + obj.pMonthsFormat + WeeksYMDHMS + '  ' + obj.pWeeksFormat + DaysYMWHMS + '  ' + obj.pDaysFormat + HoursYMWDMS + '  ' + obj.pHoursFormat + ' ' + MinutesYMWDHS + ' ' + obj.pMinutesFormat + ' ' + SecondsYMWDHM + '  ' + obj.pSecondsFormat;
+              return MonthsYWDHMS + ' ' + obj.cTxtMonths + WeeksYMDHMS + ' ' + obj.cTxtWeeks + DaysYMWHMS + ' ' + obj.cTxtDays + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
             };
-            return YearsMWDHMS + '  ' + obj.pYearsFormat + MonthsYWDHMS + '  ' + obj.pMonthsFormat + WeeksYMDHMS + '  ' + obj.pWeeksFormat + DaysYMWHMS + '  ' + obj.pDaysFormat + HoursYMWDMS + '  ' + obj.pHoursFormat + ' ' + MinutesYMWDHS + ' ' + obj.pMinutesFormat + ' ' + SecondsYMWDHM + '  ' + obj.pSecondsFormat;
+            return YearsMWDHMS + ' ' + obj.cTxtYears + MonthsYWDHMS + ' ' + obj.cTxtMonths + WeeksYMDHMS + ' ' + obj.cTxtWeeks + DaysYMWHMS + ' ' + obj.cTxtDays + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
             break;
 
           case 'D then H2S':
             if (daysToCount == 0) {
               if (hoursToCount == 0) {
                 if (minutesToCount == 0) {
-                  return secondsToCount + '  ' + obj.pSecondsFormat;
+                  return secondsToCount + ' ' + obj.cTxtSeconds;
                 }
-                return minutesToCount + ' ' + obj.pMinutesFormat + ' ' + secondsToCount + '  ' + obj.pSecondsFormat;
+                return minutesToCount + ' ' + obj.cTxtMinutes + ' ' + secondsToCount + ' ' + obj.cTxtSeconds;
               }
-              return hoursToCount + '  ' + obj.pHoursFormat + minutesToCount + ' ' + obj.pMinutesFormat + ' ' + secondsToCount + '  ' + obj.pSecondsFormat;
+              return hoursToCount + ' ' + obj.cTxtHours + minutesToCount + ' ' + obj.cTxtMinutes + ' ' + secondsToCount + ' ' + obj.cTxtSeconds;
             }
-            return daysToCount + '  ' + obj.pDaysFormat + hoursToCount + '  ' + obj.pHoursFormat + ' ' + minutesToCount + ' ' + obj.pMinutesFormat + ' ' + secondsToCount + '  ' + obj.pSecondsFormat;
+            return daysToCount + ' ' + obj.cTxtDays + hoursToCount + ' ' + obj.cTxtHours + ' ' + minutesToCount + ' ' + obj.cTxtMinutes + ' ' + secondsToCount + ' ' + obj.cTxtSeconds;
             break;
 
           default:
@@ -94761,19 +94759,19 @@ var _class = function () {
                   if (DaysYMWHMS == 0) {
                     if (HoursYMWDMS == 0) {
                       if (MinutesYMWDHS == 0) {
-                        return SecondsYMWDHM + '  ' + obj.pSecondsFormat;
+                        return SecondsYMWDHM + ' ' + obj.cTxtSeconds;
                       };
-                      return MinutesYMWDHS + ' ' + obj.pMinutesFormat + ' ' + SecondsYMWDHM + '  ' + obj.pSecondsFormat;
+                      return MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
                     };
-                    return HoursYMWDMS + '  ' + obj.pHoursFormat + ' ' + MinutesYMWDHS + ' ' + obj.pMinutesFormat + ' ' + SecondsYMWDHM + '  ' + obj.pSecondsFormat;
+                    return HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
                   };
-                  return DaysYMWHMS + '  ' + obj.pDaysFormat + HoursYMWDMS + '  ' + obj.pHoursFormat + ' ' + MinutesYMWDHS + ' ' + obj.pMinutesFormat + ' ' + SecondsYMWDHM + '  ' + obj.pSecondsFormat;
+                  return DaysYMWHMS + ' ' + obj.cTxtDays + ' ' + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
                 };
-                return WeeksYMDHMS + '  ' + obj.pWeeksFormat + DaysYMWHMS + '  ' + obj.pDaysFormat + HoursYMWDMS + '  ' + obj.pHoursFormat + ' ' + MinutesYMWDHS + ' ' + obj.pMinutesFormat + ' ' + SecondsYMWDHM + '  ' + obj.pSecondsFormat;
+                return WeeksYMDHMS + ' ' + obj.cTxtWeeks + ' ' + DaysYMWHMS + ' ' + obj.cTxtDays + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
               };
-              return MonthsYWDHMS + '  ' + obj.pMonthsFormat + WeeksYMDHMS + '  ' + obj.pWeeksFormat + DaysYMWHMS + '  ' + obj.pDaysFormat + HoursYMWDMS + '  ' + obj.pHoursFormat + ' ' + MinutesYMWDHS + ' ' + obj.pMinutesFormat + ' ' + SecondsYMWDHM + '  ' + obj.pSecondsFormat;
+              return MonthsYWDHMS + ' ' + ' ' + obj.cTxtMonths + ' ' + WeeksYMDHMS + ' ' + obj.cTxtWeeks + ' ' + DaysYMWHMS + ' ' + obj.cTxtDays + ' ' + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
             };
-            return YearsMWDHMS + '  ' + obj.pYearsFormat + MonthsYWDHMS + '  ' + obj.pMonthsFormat + WeeksYMDHMS + '  ' + obj.pWeeksFormat + DaysYMWHMS + '  ' + obj.pDaysFormat + HoursYMWDMS + '  ' + obj.pHoursFormat + ' ' + MinutesYMWDHS + ' ' + obj.pMinutesFormat + ' ' + SecondsYMWDHM + '  ' + obj.pSecondsFormat;
+            return YearsMWDHMS + ' ' + ' ' + obj.cTxtYears + ' ' + MonthsYWDHMS + ' ' + obj.cTxtMonths + ' ' + WeeksYMDHMS + ' ' + obj.cTxtWeeks + ' ' + DaysYMWHMS + ' ' + obj.cTxtDays + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
             break;
         }
         // return Math.round(Math.abs((timezoneDateSeconds - endDate.getTime()) / (oneDay)) + 1);

@@ -23,13 +23,13 @@ liveCountDown(){
     pTimezoneOffset:this.props.pTimezoneOffset,
     pHourSelected:this.props.pHourSelected,
     pMinutesSelected:this.props.pMinutesSelected,
-    pYearsFormat:this.props.pYears,
-    pMonthsFormat:this.props.pMonths,
-    pWeeksFormat:this.props.pWeeks,
-    pDaysFormat:this.props.pDays,
-    pHoursFormat:this.props.pHoursFormat,
-    pMinutesFormat:this.props.pMinutesFormat,
-    pSecondsFormat:this.props.pSecondsFormat,
+    cTxtYears:this.props.pYears,
+    cTxtMonths:this.props.pMonths,
+    cTxtWeeks:this.props.pWeeks,
+    cTxtDays:this.props.pDays,
+    cTxtHours:this.props.pHoursFormat,
+    cTxtMinutes:this.props.pMinutesFormat,
+    cTxtSeconds:this.props.pSecondsFormat,
     pFormat:this.props.pFormat,
   };
   var divStyle = {
@@ -51,10 +51,8 @@ liveCountDown(){
           return;
         }
       }
-
     });
     var propertiesObj = ectProperties[ectPIndex][theMainID];
-
     dataProps = {
       timeout: propertiesObj.timeout,
       pDate: propertiesObj.pDate,
@@ -65,13 +63,13 @@ liveCountDown(){
       fontSize:propertiesObj.fontSize,
       color:propertiesObj.color,
       fontWeight:propertiesObj.fontWeight,
-      pYearsFormat:propertiesObj.pYears,
-      pMonthsFormat:propertiesObj.pMonths,
-      pWeeksFormat:propertiesObj.pWeeks,
-      pDaysFormat:propertiesObj.pDays,
-      pHoursFormat:propertiesObj.pHoursFormat,
-      pMinutesFormat:propertiesObj.pMinutesFormat,
-      pSecondsFormat:propertiesObj.pSecondsFormat,
+      cTxtYears:propertiesObj.cTxtYears,
+      cTxtMonths:propertiesObj.cTxtMonths,
+      cTxtWeeks:propertiesObj.cTxtWeeks,
+      cTxtDays:propertiesObj.cTxtDays,
+      cTxtHours:propertiesObj.cTxtHours,
+      cTxtMinutes:propertiesObj.cTxtMinutes,
+      cTxtSeconds:propertiesObj.cTxtSeconds,
     }
     divStyle = {
       fontSize: propertiesObj.fontSize,

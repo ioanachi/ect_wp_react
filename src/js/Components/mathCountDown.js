@@ -90,31 +90,32 @@ export default class {
       }
       switch (obj.pFormat) {
         case 'D2S':
-          return daysToCount +'  '+ obj.pDaysFormat +'   '+  hoursToCount +' '+  obj.pHoursFormat + '  '+ minutesToCount +'  '+  obj.pMinutesFormat + '  '+ secondsToCount + '  '+ obj.pSecondsFormat;
+          return daysToCount + ' ' + obj.cTxtDays + '   ' + hoursToCount + ' ' + obj.cTxtHours + ' ' + minutesToCount + ' ' + obj.cTxtMinutes + ' ' + secondsToCount +
+          ' ' + obj.cTxtSeconds;
           break;
         case 'days':
-          return daysToCount+'  '+ obj.pDaysFormat;
+          return daysToCount + ' ' + obj.cTxtDays;
           break;
         case 'hours:minutes:seconds':
-          return onlyHMS_Hours + '  '+obj.pHoursFormat +' ' + onlyHMS_Minutes +'  '+  obj.pMinutesFormat + '  '+ onlyHMS_Seconds;
+          return onlyHMS_Hours + ' ' + obj.cTxtHours + ' ' + onlyHMS_Minutes + ' ' + obj.cTxtMinutes + ' ' + onlyHMS_Seconds;
           break;
         case 'hours:minutes':
-          return onlyHMS_Hours + '  '+obj.pHoursFormat +' ' + onlyHMS_Minutes+'  '+  obj.pMinutesFormat + '  ';
+          return onlyHMS_Hours + ' ' + obj.cTxtHours + ' ' + onlyHMS_Minutes + ' ' + obj.cTxtMinutes + ' ';
           break;
         case 'minutes:seconds':
-          return onlyMS_Min + '  '+  obj.pMinutesFormat + '  ' + onlyMS_Sec;
+          return onlyMS_Min + ' ' + obj.cTxtMinutes + ' ' + onlyMS_Sec;
           break;
         case 'seconds':
-          return onlySeconds+'  '+  obj.pSecondsFormat + '  ';
+          return onlySeconds + ' ' + obj.cTxtSeconds + ' ';
           break;
         case 'years':
-          return yearsOnly+'  '+ obj.pYearsFormat;
+          return yearsOnly + ' ' + obj.cTxtYears;
           break;
         case 'months':
-          return monthsOnly+'  '+obj.pMonthsFormat;
+          return monthsOnly + ' ' + obj.cTxtMonths;
           break;
         case 'weeks':
-          return weeksOnly+  '  '+obj.pWeeksFormat;
+          return weeksOnly + ' ' + obj.cTxtWeeks;
           break;
         case 'Y2S':
           if (YearsMWDHMS == 0) {
@@ -124,36 +125,37 @@ export default class {
                 if (DaysYMWHMS == 0) {
                   if (HoursYMWDMS == 0) {
                     if (MinutesYMWDHS == 0) {
-                      return SecondsYMWDHM + '  '+  obj.pSecondsFormat;
+                      return SecondsYMWDHM + ' ' + obj.cTxtSeconds;
                     };
-                    return MinutesYMWDHS +' ' + obj.pMinutesFormat+ ' ' + SecondsYMWDHM + '  '+  obj.pSecondsFormat;
+                    return MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
                   };
-                  return HoursYMWDMS + '  '+obj.pHoursFormat +' ' + MinutesYMWDHS + ' ' + obj.pMinutesFormat+ ' ' + SecondsYMWDHM + '  '+  obj.pSecondsFormat;
+                  return HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
                 };
-                return DaysYMWHMS + ' '+ obj.pDaysFormat + HoursYMWDMS + '  '+obj.pHoursFormat +' '+ MinutesYMWDHS + ' ' + obj.pMinutesFormat+ ' ' + SecondsYMWDHM + '  '+  obj.pSecondsFormat;
+                return DaysYMWHMS + ' ' + obj.cTxtDays +' ' + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
 
               };
-              return WeeksYMDHMS + '  '+obj.pWeeksFormat + DaysYMWHMS + '  '+ obj.pDaysFormat + HoursYMWDMS + '  '+obj.pHoursFormat +' ' + MinutesYMWDHS + ' ' + obj.pMinutesFormat+ ' ' + SecondsYMWDHM + '  '+  obj.pSecondsFormat;
+              return WeeksYMDHMS + ' ' + obj.cTxtWeeks + ' ' + DaysYMWHMS + ' ' + obj.cTxtDays + ' '+ HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' +
+              obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
 
             };
-            return MonthsYWDHMS +'  '+obj.pMonthsFormat + WeeksYMDHMS + '  '+obj.pWeeksFormat + DaysYMWHMS + '  '+ obj.pDaysFormat + HoursYMWDMS + '  '+obj.pHoursFormat +' ' + MinutesYMWDHS + ' ' + obj.pMinutesFormat+ ' ' + SecondsYMWDHM + '  '+  obj.pSecondsFormat;
+            return MonthsYWDHMS + ' ' + obj.cTxtMonths + WeeksYMDHMS + ' ' + obj.cTxtWeeks + DaysYMWHMS + ' ' + obj.cTxtDays + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
 
           };
-          return YearsMWDHMS+'  '+ obj.pYearsFormat + MonthsYWDHMS +'  '+obj.pMonthsFormat + WeeksYMDHMS + '  '+obj.pWeeksFormat + DaysYMWHMS + '  '+ obj.pDaysFormat + HoursYMWDMS + '  '+obj.pHoursFormat +' ' + MinutesYMWDHS + ' ' + obj.pMinutesFormat+ ' ' + SecondsYMWDHM
-           + '  '+  obj.pSecondsFormat;
+          return YearsMWDHMS + ' ' + obj.cTxtYears + MonthsYWDHMS + ' ' + obj.cTxtMonths + WeeksYMDHMS + ' ' + obj.cTxtWeeks + DaysYMWHMS + ' ' + obj.cTxtDays + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM +
+            ' ' + obj.cTxtSeconds;
           break;
 
         case 'D then H2S':
           if (daysToCount == 0) {
             if (hoursToCount == 0) {
               if (minutesToCount == 0) {
-                return secondsToCount + '  '+  obj.pSecondsFormat;
+                return secondsToCount + ' ' + obj.cTxtSeconds;
               }
-              return minutesToCount +' ' + obj.pMinutesFormat+ ' '+ secondsToCount + '  '+  obj.pSecondsFormat;
+              return minutesToCount + ' ' + obj.cTxtMinutes + ' ' + secondsToCount + ' ' + obj.cTxtSeconds;
             }
-            return hoursToCount + '  '+obj.pHoursFormat + minutesToCount + ' ' + obj.pMinutesFormat+ ' ' + secondsToCount + '  '+  obj.pSecondsFormat;
+            return hoursToCount + ' ' + obj.cTxtHours + minutesToCount + ' ' + obj.cTxtMinutes + ' ' + secondsToCount + ' ' + obj.cTxtSeconds;
           }
-          return daysToCount + '  '+ obj.pDaysFormat + hoursToCount + '  '+obj.pHoursFormat +' '+ minutesToCount + ' ' + obj.pMinutesFormat+ ' ' + secondsToCount + '  '+  obj.pSecondsFormat;
+          return daysToCount + ' ' + obj.cTxtDays + hoursToCount + ' ' + obj.cTxtHours + ' ' + minutesToCount + ' ' + obj.cTxtMinutes + ' ' + secondsToCount + ' ' + obj.cTxtSeconds;
           break;
 
         default:
@@ -163,19 +165,21 @@ export default class {
                 if (DaysYMWHMS == 0) {
                   if (HoursYMWDMS == 0) {
                     if (MinutesYMWDHS == 0) {
-                      return SecondsYMWDHM + '  '+  obj.pSecondsFormat;
+                      return SecondsYMWDHM + ' ' + obj.cTxtSeconds;
                     };
-                    return MinutesYMWDHS +' ' + obj.pMinutesFormat+ ' ' + SecondsYMWDHM + '  '+  obj.pSecondsFormat;
+                    return MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
                   };
-                  return HoursYMWDMS +'  '+obj.pHoursFormat+ ' ' + MinutesYMWDHS + ' ' + obj.pMinutesFormat+ ' ' + SecondsYMWDHM + '  '+  obj.pSecondsFormat;
+                  return HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
                 };
-                return DaysYMWHMS +'  '+ obj.pDaysFormat + HoursYMWDMS +'  '+obj.pHoursFormat+ ' '+ MinutesYMWDHS + ' ' + obj.pMinutesFormat+ ' ' + SecondsYMWDHM + '  '+  obj.pSecondsFormat;
+                return DaysYMWHMS + ' ' + obj.cTxtDays + ' ' + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM +
+                ' ' + obj.cTxtSeconds;
               };
-              return WeeksYMDHMS + '  '+obj.pWeeksFormat + DaysYMWHMS + '  '+ obj.pDaysFormat + HoursYMWDMS + '  '+obj.pHoursFormat+ ' ' + MinutesYMWDHS + ' ' + obj.pMinutesFormat+ ' ' + SecondsYMWDHM + '  '+  obj.pSecondsFormat;
+              return WeeksYMDHMS + ' ' + obj.cTxtWeeks + ' ' + DaysYMWHMS + ' ' + obj.cTxtDays + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
             };
-            return MonthsYWDHMS + '  '+obj.pMonthsFormat + WeeksYMDHMS + '  '+obj.pWeeksFormat + DaysYMWHMS + '  '+ obj.pDaysFormat + HoursYMWDMS + '  '+obj.pHoursFormat+ ' ' + MinutesYMWDHS + ' ' + obj.pMinutesFormat+ ' ' + SecondsYMWDHM +'  '+  obj.pSecondsFormat;
+            return MonthsYWDHMS + ' ' + ' ' + obj.cTxtMonths + ' ' + WeeksYMDHMS + ' ' + obj.cTxtWeeks + ' ' + DaysYMWHMS + ' ' + obj.cTxtDays + ' ' + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
           };
-          return YearsMWDHMS +'  '+ obj.pYearsFormat + MonthsYWDHMS + '  '+obj.pMonthsFormat + WeeksYMDHMS + '  '+obj.pWeeksFormat + DaysYMWHMS + '  '+ obj.pDaysFormat + HoursYMWDMS + '  '+obj.pHoursFormat+ ' ' + MinutesYMWDHS + ' ' + obj.pMinutesFormat+ ' ' + SecondsYMWDHM + '  '+  obj.pSecondsFormat;
+          return YearsMWDHMS + ' ' + ' ' + obj.cTxtYears + ' ' + MonthsYWDHMS + ' ' + obj.cTxtMonths + ' ' + WeeksYMDHMS + ' ' + obj.cTxtWeeks + ' ' + DaysYMWHMS + ' ' +
+            obj.cTxtDays + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
           break;
       }
       // return Math.round(Math.abs((timezoneDateSeconds - endDate.getTime()) / (oneDay)) + 1);
