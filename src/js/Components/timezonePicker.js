@@ -6,7 +6,6 @@ export class Timezones extends React.Component {
 
     super(props);
     this.state = {
-      differenceUtc: '',
       selectedOption:this.props.pTimezoneOffset
     };
     this.chooseTimezone = this.chooseTimezone.bind(this);
@@ -19,8 +18,7 @@ export class Timezones extends React.Component {
     const selectedValue = evt.target.value;
     const utcTz = evt.target[evt.target.selectedIndex].getAttribute('utctz');
     const returnDataToParent = this.props.callbackChildPropT;
-
-
+    this.setState({selectedOption:selectedValue});
     returnDataToParent(selectedValue, utcTz);
   };
 
@@ -39,7 +37,7 @@ export class Timezones extends React.Component {
     });
   }
   render() {
-    return (<select value={this.state.selectedOption}  onChange={this.chooseTimezone}>
+    return (<select value={this.state.selectedOption} onChange={this.chooseTimezone}>
       {this.getOptions(timezoneArr)}
     </select>);
   }

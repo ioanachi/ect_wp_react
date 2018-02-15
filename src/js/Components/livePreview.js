@@ -21,15 +21,22 @@ liveCountDown(){
     timeout:this.state.timeout,
     pDate:this.props.pDate,
     pTimezoneOffset:this.props.pTimezoneOffset,
-    pHour:this.props.pHour,
-    pMinutes:this.props.pMinutes,
+    pHourSelected:this.props.pHourSelected,
+    pMinutesSelected:this.props.pMinutesSelected,
+    pYearsFormat:this.props.pYears,
+    pMonthsFormat:this.props.pMonths,
+    pWeeksFormat:this.props.pWeeks,
+    pDaysFormat:this.props.pDays,
+    pHoursFormat:this.props.pHoursFormat,
+    pMinutesFormat:this.props.pMinutesFormat,
+    pSecondsFormat:this.props.pSecondsFormat,
     pFormat:this.props.pFormat,
   };
   var divStyle = {
     fontSize: this.props.pFont + 'px',
     color: this.props.pColor,
     fontWeight: (
-      this.props.pBold == true
+      this.props.pIsBold == true
       ? 'bold'
       : 'normal')
   };
@@ -52,12 +59,19 @@ liveCountDown(){
       timeout: propertiesObj.timeout,
       pDate: propertiesObj.pDate,
       pTimezoneOffset: propertiesObj.pTimezoneOffset,
-      pHour: propertiesObj.pHour,
-      pMinutes: propertiesObj.pMinutes,
+      pHourSelected: propertiesObj.pHourSelected,
+      pMinutesSelected: propertiesObj.pMinutesSelected,
       pFormat: propertiesObj.pFormat,
       fontSize:propertiesObj.fontSize,
       color:propertiesObj.color,
-      fontWeight:propertiesObj.fontWeight
+      fontWeight:propertiesObj.fontWeight,
+      pYearsFormat:propertiesObj.pYears,
+      pMonthsFormat:propertiesObj.pMonths,
+      pWeeksFormat:propertiesObj.pWeeks,
+      pDaysFormat:propertiesObj.pDays,
+      pHoursFormat:propertiesObj.pHoursFormat,
+      pMinutesFormat:propertiesObj.pMinutesFormat,
+      pSecondsFormat:propertiesObj.pSecondsFormat,
     }
     divStyle = {
       fontSize: propertiesObj.fontSize,

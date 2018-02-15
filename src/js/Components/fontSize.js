@@ -3,7 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Slider from 'material-ui/Slider';
 import MyAwesomeReactComponent from './MyAwesomeReactComponent';
 
-export class FontSize extends React.Component {
+export class NumbersFontSize extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import {UserName} from './Components/nameInput';
-import {FontSize} from './Components/fontSize';
+import {NumbersFontSize} from './Components/fontSize';
 import {EctShortcode} from './Components/ectShortcode';
-import {EndDate} from './Components/dayPicker.js';
+import {EndDate} from './Components/endDate.js';
+import {CustomText} from './Components/customText.js';
+
 import MomentLocaleUtils, {formatDate, parseDate} from 'react-day-picker/moment';
 import PickColor from './Components/colorReactPicker.js';
 import {Bold} from './Components/bold.js';
@@ -18,18 +20,25 @@ class MainContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedDay: '',
+      endDate: '',
       isDisabled: false,
       endDate: '',
       naMeP: '',
       fontSizeP: 42,
-      pColor: '',
-      ectIsBoldP: false,
+      pColor: '#000',
+      pIsBold: false,
       timezoneOffset: -(new Date().getTimezoneOffset() * 60000),
-      selectedH: 0,
-      selectedM: 0,
+      endHour: 0,
+      endMinute: 0,
       utcTz: 'Etc/GMT+12',
-      timeFormat: 'Y2S'
+      timeFormat: 'Y2S',
+      yearsFormat: 'Years',
+      monthsFormat: 'Months',
+      weeksFormat: 'Weeks',
+      daysFormat: 'Days',
+      hoursFormat: 'Hours',
+      minutesFormat: 'Minutes',
+      secondsFormat: 'Seconds'
     };
     this.onFontSubmit = this.onFontSubmit.bind(this);
     this.returnChildDate = this.returnChildDate.bind(this);
@@ -39,38 +48,53 @@ class MainContainer extends React.Component {
     this.returnTimezone = this.returnTimezone.bind(this);
     this.returnChildTime = this.returnChildTime.bind(this);
     this.returnFormat = this.returnFormat.bind(this);
+    this.returnTextFormat = this.returnTextFormat.bind(this);
+
   }
 
-  isBold(isBoldC) {
-    this.setState({ectIsBoldP: isBoldC})
+  isBold(childVal) {
+    this.setState({pIsBold: childVal})
   };
-  onFontSubmit(fontSize) {
-    this.setState({fontSizeP: fontSize});
+  onFontSubmit(childVal) {
+    this.setState({fontSizeP: childVal});
   };
-  onNameSubmit(naMe) {
-    this.setState({naMeP: naMe});
+  onNameSubmit(childVal) {
+    this.setState({naMeP: childVal});
   }
-  returnChildDate(selectedDay) {
-    this.setState({selectedDay: selectedDay});
+  returnChildDate(childVal) {
+    this.setState({endDate: childVal});
   }
-  returnChildColor(selectedColorChild) {
-    this.setState({pColor: selectedColorChild})
+  returnChildColor(childVal) {
+    this.setState({pColor: childVal})
   }
   returnTimezone(timezoneChosen, utcTz) {
     this.setState({timezoneOffset: timezoneChosen, utcTz: utcTz});
   }
-  returnChildTime(selectedHour, selectedMinutes) {
-    this.setState({selectedH: selectedHour});
-    this.setState({selectedM: selectedMinutes});
+  returnChildTime(endHour, endMinute) {
+    this.setState({endHour: endHour});
+    this.setState({endMinute: endMinute});
   }
   returnFormat(formatType) {
     this.setState({timeFormat: formatType});
-  }
+  };
+  returnTextFormat(Y, M, W, D, H, Minute, S) {
+    this.setState({
+      yearsFormat: Y,
+      monthsFormat: M,
+      weeksFormat: W,
+      daysFormat: D,
+      hoursFormat: H,
+      minutesFormat: Minute,
+      secondsFormat: S
+    });
+  };
   showOnlyLivePreview() {
     var returnAllData = [];
     var labelPreview = (<label key="labelLivePreview" htmlFor="tableStyles" className="containerLabels">
       Preview</label>)
-    const livePreviewOnly = (<LivePreview key="LivePreview" parentID={this.props.parentID} pName={this.state.naMeP} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pTimezoneOffset={this.state.timezoneOffset} pHour={this.state.selectedH} pMinutes={this.state.selectedM} pFormat={this.state.timeFormat}/>);
+    const livePreviewOnly = (<LivePreview key="LivePreview" pYears={this.state.yearsFormat} pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat} pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat}
+     parentID={this.props.parentID} pName={this.state.naMeP} pDate={this.state.endDate} pFont={this.state.fontSizeP} pColor={this.state.pColor} pIsBold={this.state.pIsBold} pTimezoneOffset={this.state.timezoneOffset} pHourSelected={this.state.endHour} pMinutesSelected={this.state.endMinute} pFormat={this.state.timeFormat}/>);
+
     // the rest of the data
     var configurationComponentsJSX = (<div key="configurationComponentsJSX">
 
@@ -79,6 +103,7 @@ class MainContainer extends React.Component {
         <TabList>
           <Tab>General</Tab>
           <Tab>Styles</Tab>
+          <Tab>Custom Text</Tab>
         </TabList>
 
         <TabPanel>
@@ -88,7 +113,7 @@ class MainContainer extends React.Component {
                 <td className="componentContainer">
                   <label htmlFor="datePicker">End Date</label>
                 </td>
-                <td className="componentContainer"><EndDate callbackChildProp={this.returnChildDate}/>
+                <td className="componentContainer"><EndDate callbackChildProp={this.returnChildDate} pEndDate={this.state.endDate}/>
                 </td>
               </tr>
               <tr>
@@ -96,7 +121,7 @@ class MainContainer extends React.Component {
                 <td className="componentContainer">
                   <label htmlFor="datePicker">End Time</label>
                 </td>
-                <td className="componentContainer"><EndTime TimeEnd={this.returnChildTime}/>
+                <td className="componentContainer"><EndTime TimeEnd={this.returnChildTime} pEndHour={this.state.endHour} pEndMinute={this.state.endMinute}/>
                 </td>
               </tr>
               <tr>
@@ -127,7 +152,7 @@ class MainContainer extends React.Component {
                   <label htmlFor="username">Name</label>
                 </td>
                 <td className="componentContainer">
-                  <UserName NameParent={this.onNameSubmit}/>
+                  <UserName NameParent={this.onNameSubmit} nameValue={this.state.naMeP}/>
                 </td>
               </tr>
               <tr>
@@ -135,33 +160,32 @@ class MainContainer extends React.Component {
                 <td className="componentContainer">
                   <label>Color</label>
                 </td>
-                <td><PickColor callbackChildPropColor={this.returnChildColor}/></td>
+                <td><PickColor callbackChildPropColor={this.returnChildColor} pColor={this.state.pColor}/></td>
               </tr>
               <tr>
                 <td className="componentContainer">
-                  <label htmlFor="fontInput">Font Size</label>
+                  <label htmlFor="fontInput">Numbers Font Size</label>
                 </td>
                 <td className="componentContainer">
-                  <FontSize pFont={this.state.fontSizeP} aaa={this.onFontSubmit}/></td>
+                  <NumbersFontSize pFont={this.state.fontSizeP} aaa={this.onFontSubmit}/></td>
               </tr>
               <tr>
                 <td className="componentContainer">
                   <label>Select to make text Bold</label>
                 </td>
                 <td className="componentContainer">
-                  <Bold callbackChildPropB={this.isBold}/></td>
+                  <Bold callbackChildPropB={this.isBold} pIsBold={this.state.pIsBold} /></td>
               </tr>
-              <tr></tr>
             </tbody>
           </table>
         </TabPanel>
+        <TabPanel>
+          <CustomText pYears={this.state.yearsFormat} pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat} pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat} callbackChildPropFormatText={this.returnTextFormat}/>
+        </TabPanel>
       </Tabs>
 
-      <EctShortcode pName={this.state.naMeP} pTimeFormat={this.state.timeFormat} pDate={this.state.selectedDay} pFont={this.state.fontSizeP} pColor={this.state.pColor} pBold={this.state.ectIsBoldP} pUtcTz={this.state.utcTz} pTimezoneOffset={this.state.timezoneOffset} pHour={this.state.selectedH} pMinutes={this.state.selectedM} pFormat={this.state.timeFormat}/>
-      <button type="button" id="ectInsertSC" className="insertButton button button-primary">Insert Shortcode</button>
-      <button type="button" class="ectClosePopupButton" name="button">X Close</button>
-
-
+      <EctShortcode pYears={this.state.yearsFormat} pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat} pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat} pName={this.state.naMeP}
+       pTimeFormat={this.state.timeFormat} pDate={this.state.endDate} pFont={this.state.fontSizeP} pColor={this.state.pColor} chooseBold={this.state.pIsBold} pUtcTz={this.state.utcTz} pTimezoneOffset={this.state.timezoneOffset} pEndHour={this.state.endHour} pEndMinute={this.state.endMinute} pFormat={this.state.timeFormat}/>
     </div>);
     if (!isOnlyPreview) {
       returnAllData.push(labelPreview);
@@ -173,7 +197,7 @@ class MainContainer extends React.Component {
     return returnAllData;
   }
   render() {
-    const {selectedDay, isDisabled} = this.state; //from the day picker
+    const {endDate, isDisabled} = this.state; //from the day picker
     //only the live preview section
 
     var renderReturn = (<div className="ContainerMain">

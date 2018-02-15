@@ -10,9 +10,10 @@ export class TimeFormat extends React.Component {
     this.optionsFormat = this.optionsFormat.bind(this);
   };
   chooseFormat(evt) {
-    var formatType = evt.target.value;
+    const formatTypeValue = evt.target.value;
+    this.setState({timeFormat:formatTypeValue});
     const SubmitFormat = this.props.callBackSelectFormat;
-    SubmitFormat(formatType);
+    SubmitFormat(formatTypeValue);
   };
 
   optionsFormat() {
@@ -61,7 +62,7 @@ export class TimeFormat extends React.Component {
   render() {
     console.log(this.state.timeFormat);
     return (<div>
-      {}<select onChange={this.chooseFormat}>> value={this.state.timeFormat}> {this.optionsFormat()}
+      {}<select onChange={this.chooseFormat} value={this.state.timeFormat}> {this.optionsFormat()}
     </select>
   </div>);
   }
