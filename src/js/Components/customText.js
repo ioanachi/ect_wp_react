@@ -91,7 +91,7 @@ export class CustomText extends React.Component {
             <label>Years</label>
           </td>
           <td className="componentContainer">
-            <input type="text" onChange={this.chooseYears} ref="yearsFormat"/>
+            <input type="text" onChange={this.chooseYears}/>
           </td>
         </tr>
         <tr>
@@ -99,7 +99,7 @@ export class CustomText extends React.Component {
             <label>Months</label>
           </td>
           <td className="componentContainer">
-            <input type="text" onChange={this.chooseMonths} ref="monthsFormat"/>
+            <input type="text" onChange={this.chooseMonths}/>
           </td>
         </tr>
         <tr>
@@ -107,7 +107,7 @@ export class CustomText extends React.Component {
             <label>Weeks</label>
           </td>
           <td className="componentContainer">
-            <input type="text" onChange={this.chooseWeeks} ref="weeksFormat"/>
+            <input type="text" onChange={this.chooseWeeks}/>
 
           </td>
         </tr>
@@ -116,7 +116,7 @@ export class CustomText extends React.Component {
             <label>Days</label>
           </td>
           <td className="componentContainer">
-            <input type="text" onChange={this.chooseDays} ref="daysFormat"/>
+            <input type="text" onChange={this.chooseDays}/>
           </td>
         </tr>
         <tr>
@@ -124,7 +124,7 @@ export class CustomText extends React.Component {
             <label>Hours</label>
           </td>
           <td className="componentContainer">
-            <input type="text" onInput={this.chooseHours} ref="hoursFormat"/>
+            <input type="text" onInput={this.chooseHours}/>
           </td>
         </tr>
         <tr>
@@ -132,7 +132,7 @@ export class CustomText extends React.Component {
             <label>Minutes</label>
           </td>
           <td className="componentContainer">
-            <input type="text" onChange={this.chooseMinutes} ref="minutesFormat"/>
+            <input type="text" onChange={this.chooseMinutes}/>
           </td>
         </tr>
         <tr>
@@ -140,7 +140,7 @@ export class CustomText extends React.Component {
             <label>Seconds</label>
           </td>
           <td className="componentContainer">
-            <input type="text" onChange={this.chooseSeconds} ref="secondsFormat"/>
+            <input type="text" onChange={this.chooseSeconds}/>
           </td>
         </tr>
       </tbody>
