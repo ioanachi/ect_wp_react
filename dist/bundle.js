@@ -92647,11 +92647,13 @@ var MainContainer = function (_React$Component) {
                 pFormat: this.state.timeFormat }), _react2.default.createElement('button', { type: 'button', id: 'ectInsertSC', className: 'insertButton button button-primary' }, 'Insert Shortcode'), _react2.default.createElement('button', { type: 'button', className: 'ectClosePopupButton', name: 'button' }, 'X Close'));
             if (!isOnlyPreview) {
                 returnAllData.push(labelPreview);
-            }
-            ;
+            };
             returnAllData.push(livePreviewOnly);
             if (!isOnlyPreview) {
                 returnAllData.push(configurationComponentsJSX);
+            }
+            if (this.state.endDate == '') {
+                returnAllData = _react2.default.createElement('div', { className: 'endDateShow' }, _react2.default.createElement('div', { className: 'endDateShowSmallContainer' }, _react2.default.createElement('div', null, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'Select END Date'), _react2.default.createElement(_endDate.EndDate, { className: 'endDateDiv', callbackChildProp: this.returnChildDate, pEndDate: this.state.endDate }))));
             }
             return returnAllData;
         }
