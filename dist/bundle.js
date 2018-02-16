@@ -92449,7 +92449,7 @@ exports = module.exports = __webpack_require__(94)(undefined);
 
 
 // module
-exports.push([module.i, ".ContainerMain {\n  position: relative;\n  padding: 30px; }\n  .ContainerMain .componentContainer {\n    padding: 20px;\n    margin-bottom: 10px; }\n    .ContainerMain .componentContainer label {\n      font-size: 20px;\n      margin-right: 20px; }\n    .ContainerMain .componentContainer input.shortcode {\n      padding: 5px;\n      width: 60%; }\n  .ContainerMain .shortcode {\n    margin: 10px; }\n    .ContainerMain .shortcode input {\n      padding: 5px;\n      width: 1100px;\n      border: 1px solid #C3C49E; }\n  .ContainerMain .timezones select {\n    max-width: 250px; }\n  .ContainerMain .tableStyles {\n    height: 300px;\n    width: 300px; }\n    .ContainerMain .tableStyles label {\n      font-size: 20px;\n      font-weight: bold; }\n    .ContainerMain .tableStyles tr:nth-child(2n) {\n      background-color: #f1f1f1; }\n  .ContainerMain .containerPreview {\n    display: inline-block; }\n  .ContainerMain .containerLabels {\n    padding: 20px 0;\n    margin: 20px 0;\n    font-style: italic;\n    text-decoration: underline;\n    font-size: 20px;\n    font-weight: bold;\n    display: grid;\n    align-self: center; }\n  .ContainerMain .hourAndMinutes {\n    margin-left: 10px; }\n  .ContainerMain .ectSortcode {\n    padding: 5px;\n    width: 60%;\n    display: none; }\n  .ContainerMain button.insertButton {\n    margin: 20px 0; }\n  .ContainerMain button.ectClosePopupButton {\n    position: absolute;\n    top: 0px;\n    right: 0px;\n    padding: 5px;\n    font-size: 18px; }\n", ""]);
+exports.push([module.i, ".ContainerMain {\n  position: relative;\n  padding: 30px; }\n  .ContainerMain .componentContainer {\n    padding: 20px;\n    margin-bottom: 10px; }\n    .ContainerMain .componentContainer label {\n      font-size: 20px;\n      margin-right: 20px; }\n    .ContainerMain .componentContainer input.shortcode {\n      padding: 5px;\n      width: 60%; }\n  .ContainerMain .shortcode {\n    margin: 10px; }\n    .ContainerMain .shortcode input {\n      padding: 5px;\n      width: 1100px;\n      border: 1px solid #C3C49E; }\n  .ContainerMain .timezones select {\n    max-width: 250px; }\n  .ContainerMain .tableStyles {\n    height: 300px;\n    width: 300px; }\n    .ContainerMain .tableStyles label {\n      font-size: 20px;\n      font-weight: bold; }\n    .ContainerMain .tableStyles tr :nth-child(2n) {\n      background-color: #e4e4e4; }\n  .ContainerMain .containerPreview {\n    display: inline-block; }\n  .ContainerMain .containerLabels {\n    padding: 20px 0;\n    margin: 20px 0;\n    font-style: italic;\n    text-decoration: underline;\n    font-size: 20px;\n    font-weight: bold;\n    display: grid;\n    align-self: center; }\n  .ContainerMain .hourAndMinutes {\n    margin-left: 10px; }\n  .ContainerMain .ectSortcode {\n    padding: 5px;\n    width: 60%;\n    display: none; }\n  .ContainerMain button.insertButton {\n    margin: 20px 0; }\n  .ContainerMain button.ectClosePopupButton {\n    position: absolute;\n    top: 0px;\n    right: 0px;\n    padding: 5px;\n    font-size: 18px; }\n", ""]);
 
 // exports
 
@@ -92508,9 +92508,9 @@ var _timezonePicker = __webpack_require__(780);
 
 var _livePreview = __webpack_require__(782);
 
-var _endTime = __webpack_require__(784);
+var _endTime = __webpack_require__(786);
 
-var _timeFormat = __webpack_require__(785);
+var _timeFormat = __webpack_require__(787);
 
 var _reactTabs = __webpack_require__(370);
 
@@ -94681,7 +94681,7 @@ var _mathCountDown = __webpack_require__(783);
 
 var _mathCountDown2 = _interopRequireDefault(_mathCountDown);
 
-var _pack = __webpack_require__(786);
+var _pack = __webpack_require__(784);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -94784,9 +94784,78 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
     }, {
         key: 'dinamicComponent',
         value: function dinamicComponent() {
+            var _this3 = this;
+
+            var tempTimeout = this.state.timeout;
+            if (!tempTimeout[0]) {
+                tempTimeout.push(setTimeout(function () {
+                    _this3.setState({
+                        timeout: []
+                    });
+                }, 1000));
+            }
+            var dataProps = {
+                tThis: this,
+                timeout: this.state.timeout,
+                endDate: this.props.endDate,
+                pTimezoneOffset: this.props.pTimezoneOffset,
+                endHour: this.props.endHour,
+                endMinute: this.props.endMinute,
+                cTxtYears: this.props.pYears,
+                cTxtMonths: this.props.pMonths,
+                cTxtWeeks: this.props.pWeeks,
+                cTxtDays: this.props.pDays,
+                cTxtHours: this.props.pHoursFormat,
+                cTxtMinutes: this.props.pMinutesFormat,
+                cTxtSeconds: this.props.pSecondsFormat,
+                pFormat: this.props.pFormat
+            };
+            var divStyle = {
+                fontSize: this.props.pFont + 'px',
+                color: this.props.pColor,
+                fontWeight: this.props.pIsBold == true ? 'bold' : 'normal'
+            };
+            if (isOnlyPreview) {
+                var theMainID = this.props.parentID;
+                var ectPIndex;
+                ectProperties.forEach(function (item, index) {
+                    for (var key in item) {
+                        if (key == theMainID) {
+                            ectPIndex = index;
+                            return;
+                        }
+                    }
+                });
+                var propertiesObj = ectProperties[ectPIndex][theMainID];
+                dataProps = {
+                    timeout: propertiesObj.timeout,
+                    endDate: propertiesObj.endDate,
+                    pTimezoneOffset: propertiesObj.pTimezoneOffset,
+                    endHour: propertiesObj.endHour,
+                    endMinute: propertiesObj.endMinute,
+                    pFormat: propertiesObj.pFormat,
+                    fontSize: propertiesObj.fontSize,
+                    color: propertiesObj.color,
+                    fontWeight: propertiesObj.fontWeight,
+                    cTxtYears: propertiesObj.cTxtYears,
+                    cTxtMonths: propertiesObj.cTxtMonths,
+                    cTxtWeeks: propertiesObj.cTxtWeeks,
+                    cTxtDays: propertiesObj.cTxtDays,
+                    cTxtHours: propertiesObj.cTxtHours,
+                    cTxtMinutes: propertiesObj.cTxtMinutes,
+                    cTxtSeconds: propertiesObj.cTxtSeconds
+                };
+                divStyle = {
+                    fontSize: propertiesObj.fontSize,
+                    color: propertiesObj.color,
+                    fontWeight: propertiesObj.fontWeight
+                };
+            }
+
             var components = {
                 PlainString: _pack.PlainString
             };
+            // var timerNumbers = mathCountDown.mathFunc(dataProps);
             var timerNumbers = {
                 years: 10,
                 months: 10,
@@ -94802,13 +94871,13 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                 }
             };
             var timerCustomTxt = {
-                years: 'Years',
-                months: 'Months',
-                weeks: 'Weeks',
-                days: 'Days',
-                hours: 'Hours',
-                minutes: 'Minutes',
-                seconds: 'Seconds',
+                years: dataProps.cTxtYears,
+                months: dataProps.cTxtMonths,
+                weeks: dataProps.cTxtWeeks,
+                days: dataProps.cTxtDays,
+                hours: dataProps.cTxtHours,
+                minutes: dataProps.cTxtMinutes,
+                seconds: dataProps.cTxtSeconds,
                 styles: {
                     fontSize: this.props.pFont + 'px',
                     color: this.props.pColor,
@@ -95048,6 +95117,72 @@ exports.default = _class;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.PlainString = undefined;
+
+var _plainString = __webpack_require__(785);
+
+var _plainString2 = _interopRequireDefault(_plainString);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.PlainString = _plainString2.default;
+
+/***/ }),
+/* 785 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PlainString = function (_React$Component) {
+  _inherits(PlainString, _React$Component);
+
+  function PlainString(props) {
+    _classCallCheck(this, PlainString);
+
+    return _possibleConstructorReturn(this, (PlainString.__proto__ || Object.getPrototypeOf(PlainString)).call(this, props));
+  }
+
+  _createClass(PlainString, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement('div', null, _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.years), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.years), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.months), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.months), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.weeks), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.weeks), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.days), ' ', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.cTxt.days), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.hours), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.hours), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.minutes), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.minutes), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.seconds), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.seconds));
+    }
+  }]);
+
+  return PlainString;
+}(_react2.default.Component);
+
+exports.default = PlainString;
+
+/***/ }),
+/* 786 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.EndTime = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -95135,7 +95270,7 @@ var EndTime = exports.EndTime = function (_React$Component) {
 }(_react2.default.Component);
 
 /***/ }),
-/* 785 */
+/* 787 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -95234,72 +95369,6 @@ var TimeFormat = exports.TimeFormat = function (_React$Component) {
 
   return TimeFormat;
 }(_react2.default.Component);
-
-/***/ }),
-/* 786 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.PlainString = undefined;
-
-var _plainString = __webpack_require__(787);
-
-var _plainString2 = _interopRequireDefault(_plainString);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.PlainString = _plainString2.default;
-
-/***/ }),
-/* 787 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var PlainString = function (_React$Component) {
-  _inherits(PlainString, _React$Component);
-
-  function PlainString(props) {
-    _classCallCheck(this, PlainString);
-
-    return _possibleConstructorReturn(this, (PlainString.__proto__ || Object.getPrototypeOf(PlainString)).call(this, props));
-  }
-
-  _createClass(PlainString, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement('div', null, _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.years), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.years), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.months), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.months), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.weeks), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.weeks), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.days), ' ', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.cTxt.days), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.hours), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.hours), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.minutes), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.minutes), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.seconds), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.seconds));
-    }
-  }]);
-
-  return PlainString;
-}(_react2.default.Component);
-
-exports.default = PlainString;
 
 /***/ })
 ],[375]);
