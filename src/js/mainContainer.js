@@ -149,7 +149,7 @@ class MainContainer extends React.Component {
               <tr>
 
                 <td className="componentContainer">
-                  <label htmlFor="username">Name</label>
+                  <label htmlFor="username">Timer name</label>
                 </td>
                 <td className="componentContainer">
                   <UserName NameParent={this.onNameSubmit} nameValue={this.state.naMeP}/>
