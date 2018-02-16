@@ -95255,7 +95255,6 @@ var _class = function () {
                                     Minutes: MinutesYMWDHS,
                                     Seconds: SecondsYMWDHM
                               };
-                              return countDownAllValues;
                         };
                         return countDownAllValues;
                   };

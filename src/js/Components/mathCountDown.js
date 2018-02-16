@@ -97,7 +97,6 @@ export default class {
           Minutes: MinutesYMWDHS,
           Seconds: SecondsYMWDHM,
         };
-        return countDownAllValues;
       };
       return countDownAllValues;
     };
