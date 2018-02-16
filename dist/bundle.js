@@ -95127,9 +95127,17 @@ var PlainString = function (_React$Component) {
     key: 'render',
     value: function render() {
       var finalResult = [];
+      var isLast = true;
       for (var key in this.props.numbers) {
         if (key != 'Styles') {
-          var tempItem = _react2.default.createElement('div', { className: 'spanDiv' }, _react2.default.createElement('span', { style: this.props.numbers.Styles }, this.props.numbers[key]), ' ', _react2.default.createElement('span', { style: this.props.cTxt.Styles }, this.props.cTxt[key]), ' /\xA0');
+          if (isLast) {
+            if (this.props.numbers[key] != 0) {
+              isLast = false;
+            } else {
+              continue;
+            }
+          }
+          var tempItem = _react2.default.createElement('div', { className: 'spanDiv' }, _react2.default.createElement('span', { style: this.props.numbers.Styles }, this.props.numbers[key]), ' ', _react2.default.createElement('span', { style: this.props.cTxt.Styles }, this.props.cTxt[key]), '\xA0');
           finalResult.push(tempItem);
         }
       }
