@@ -89,25 +89,17 @@ export default class {
         return false;
       } else {
         countDownAllValues = {
-          Y2SYears: YearsMWDHMS,
-          Y2SMonths: MonthsYWDHMS,
-          Y2SWeeks: WeeksYMDHMS,
-          Y2SDays: DaysYMWHMS,
-          Y2SHours: HoursYMWDMS,
-          Y2SMinutes: MinutesYMWDHS,
-          Y2SSeconds: SecondsYMWDHM,
-          Years: yearsOnly,
-          Months: monthsOnly,
-          Weeks: weeksOnly,
-          Days: daysToCount,
-          Hours: onlyHMS_Hours,
-          Minutes: onlyMS_Min,
-          Seconds: onlySeconds,
-          endDate: endTimeMiliseconds,
-          currentDate: nowTimeMiliseconds
+          Years: YearsMWDHMS,
+          Months: MonthsYWDHMS,
+          Weeks: WeeksYMDHMS,
+          Days: DaysYMWHMS,
+          Hours: HoursYMWDMS,
+          Minutes: MinutesYMWDHS,
+          Seconds: SecondsYMWDHM,
         };
         return countDownAllValues;
       };
+      return countDownAllValues;
     };
   }
 }
