@@ -20,18 +20,18 @@ export class EctShortcode extends React.Component {
   };
 
   render() {
-    const shortValue = '[ectShortcode name="' + this.props.pName + '"   endDate="' + this.props.pDate + '"  color= "' + this.props.pColor +
-    '" fontSize="' + this.props.pFont + 'px"' + ' bold="' + this.props.chooseBold + '" timezone="' + this.props.pTimezoneOffset +
+    const shortValue = '[ectShortcode timername="' + this.props.pName + '"   enddate="' + this.props.endDate + '"  numbercolor= "' + this.props.pColor +
+    '" numberfontsize="' + this.props.pFont + 'px"' + ' numberbold="' + this.props.chooseBold + '" enddatetimezone="' + this.props.pTimezoneOffset +
     '" endhour="' + this.props.pEndHour + '"  endminute= "' + this.props.pEndMinute + '" timeFormat="' + this.props.pTimeFormat  +
-    '" yearsFormat=" ' + this.props.pYears + '"  monthsFormat="' + this.props.pMonths + '" weeksFormat="' + this.props.pWeeks +
-    '" daysFormat="' + this.props.pDays + '" hoursFormat="' + this.props.pHoursFormat + '" minutesFormat="' + this.props.pMinutesFormat +
-    '" secondsFormat="' + this.props.pSecondsFormat + '"]';
+    '" cTxtYears=" ' + this.props.pYears + '"  cTxtMonths="' + this.props.pMonths + '" cTxtWeeks="' + this.props.pWeeks +
+    '" cTxtDays="' + this.props.pDays + '" cTxtHours="' + this.props.pHoursFormat + '" cTxtMinutes="' + this.props.pMinutesFormat +
+    '" cTxtSeconds="' + this.props.pSecondsFormat + '"]';
 
     return (<div className="ectSortcode">
       <label>Shortcode</label>
       <span>(click to automatically select all, then copy)</span>
       <div className="shortcode">
-        <input id="ectSCInput" onClick={this.selectAllText} value={shortValue} />
+        <input id="ectSCInput" onClick={this.selectAllText} onChange={this.selectAllText} value={shortValue} />
         <h4>This interface helps you generate customly a shortcode for later use with a wordpress plugin, what you select in the fields will be given to the shortcode as attributes and used later.</h4>
       </div>
     </div>)

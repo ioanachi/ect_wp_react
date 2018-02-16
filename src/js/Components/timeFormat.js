@@ -60,7 +60,6 @@ export class TimeFormat extends React.Component {
   };
 
   render() {
-    console.log(this.state.timeFormat);
     return (<div>
       {}<select onChange={this.chooseFormat} value={this.state.timeFormat}> {this.optionsFormat()}
     </select>

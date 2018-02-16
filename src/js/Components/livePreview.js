@@ -19,17 +19,17 @@ liveCountDown(){
   var dataProps = {
     tThis: this,
     timeout:this.state.timeout,
-    pDate:this.props.pDate,
+    endDate:this.props.endDate,
     pTimezoneOffset:this.props.pTimezoneOffset,
-    pHourSelected:this.props.pHourSelected,
-    pMinutesSelected:this.props.pMinutesSelected,
-    pYearsFormat:this.props.pYears,
-    pMonthsFormat:this.props.pMonths,
-    pWeeksFormat:this.props.pWeeks,
-    pDaysFormat:this.props.pDays,
-    pHoursFormat:this.props.pHoursFormat,
-    pMinutesFormat:this.props.pMinutesFormat,
-    pSecondsFormat:this.props.pSecondsFormat,
+    endHour:this.props.endHour,
+    endMinute:this.props.endMinute,
+    cTxtYears:this.props.pYears,
+    cTxtMonths:this.props.pMonths,
+    cTxtWeeks:this.props.pWeeks,
+    cTxtDays:this.props.pDays,
+    cTxtHours:this.props.pHoursFormat,
+    cTxtMinutes:this.props.pMinutesFormat,
+    cTxtSeconds:this.props.pSecondsFormat,
     pFormat:this.props.pFormat,
   };
   var divStyle = {
@@ -51,27 +51,25 @@ liveCountDown(){
           return;
         }
       }
-
     });
     var propertiesObj = ectProperties[ectPIndex][theMainID];
-
     dataProps = {
       timeout: propertiesObj.timeout,
-      pDate: propertiesObj.pDate,
+      endDate: propertiesObj.endDate,
       pTimezoneOffset: propertiesObj.pTimezoneOffset,
-      pHourSelected: propertiesObj.pHourSelected,
-      pMinutesSelected: propertiesObj.pMinutesSelected,
+      endHour: propertiesObj.endHour,
+      endMinute: propertiesObj.endMinute,
       pFormat: propertiesObj.pFormat,
       fontSize:propertiesObj.fontSize,
       color:propertiesObj.color,
       fontWeight:propertiesObj.fontWeight,
-      pYearsFormat:propertiesObj.pYears,
-      pMonthsFormat:propertiesObj.pMonths,
-      pWeeksFormat:propertiesObj.pWeeks,
-      pDaysFormat:propertiesObj.pDays,
-      pHoursFormat:propertiesObj.pHoursFormat,
-      pMinutesFormat:propertiesObj.pMinutesFormat,
-      pSecondsFormat:propertiesObj.pSecondsFormat,
+      cTxtYears:propertiesObj.cTxtYears,
+      cTxtMonths:propertiesObj.cTxtMonths,
+      cTxtWeeks:propertiesObj.cTxtWeeks,
+      cTxtDays:propertiesObj.cTxtDays,
+      cTxtHours:propertiesObj.cTxtHours,
+      cTxtMinutes:propertiesObj.cTxtMinutes,
+      cTxtSeconds:propertiesObj.cTxtSeconds,
     }
     divStyle = {
       fontSize: propertiesObj.fontSize,
@@ -81,14 +79,10 @@ liveCountDown(){
   }
   return (<span style={divStyle}>{mathCountDown.mathFunc(dataProps)}</span>);
 }
-
   render() {
-
-
     return (<div>
       <div className="containerPreview">
-        <h3>{this.props.pName}
-        </h3>
+        <h3>{this.props.pName}</h3>
         {this.liveCountDown()}
       </div>
     </div>);
