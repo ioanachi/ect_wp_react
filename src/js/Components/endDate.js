@@ -4,7 +4,7 @@ import 'react-day-picker/lib/style.css';
 
 export class EndDate extends React.Component {
   constructor(props) {
-    super(props);
+    super(props); 
     this.state = {valDate:this.props.pEndDate};
     this.handleDayChange = this.handleDayChange.bind(this);
   }
