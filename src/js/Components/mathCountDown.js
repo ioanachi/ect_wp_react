@@ -86,7 +86,7 @@ export default class {
 
       if (endTimeMiliseconds < nowTimeMiliseconds) {
 
-        return false
+        return false;
       } else {
         countDownAllValues = {
           Years: YearsMWDHMS,

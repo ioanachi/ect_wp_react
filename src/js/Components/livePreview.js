@@ -99,6 +99,14 @@ export class LivePreview extends React.Component {
                 });
             }, 1000));
         }
+        var tempTimeout = this.state.timeout;
+        if (!tempTimeout[0]) {
+            tempTimeout.push(setTimeout(() => {
+                this.setState({
+                    timeout: []
+                });
+            }, 1000));
+        }
         var dataProps = {
             tThis: this,
             timeout: this.state.timeout,
@@ -154,24 +162,33 @@ export class LivePreview extends React.Component {
                 cTxtSeconds: propertiesObj.cTxtSeconds,
             }
             divStyle = {
-                fontSize: propertiesObj.fontSize,
-                color: propertiesObj.color,
-                fontWeight: propertiesObj.fontWeight
+                fontSize: dataProps.fontSize,
+                color: dataProps.color,
+                fontWeight: dataProps.fontWeight
             };
         }
-        
+
         const components = {
             PlainString: PlainString
         };
-        // var timerNumbers = mathCountDown.mathFunc(dataProps);
+        var tempDatesObj = {
+            endDate: dataProps.endDate,
+            pTimezoneOffset: dataProps.pTimezoneOffset,
+            endHour: dataProps.endHour,
+            endMinute: dataProps.endMinute
+        };
+        var numberValues = mathCountDown.mathFunc(tempDatesObj); 
+        if(numberValues==false || typeof numberValues == 'undefined'){
+            return;
+        }
         const timerNumbers = {
-            years: 10,
-            months: 10,
-            weeks: 10,
-            days: 10,
-            hours: 10,
-            minutes: 10,
-            seconds: 10,
+            Years: numberValues.Years,
+            Months: numberValues.Months,
+            Weeks: numberValues.Weeks,
+            Days: numberValues.Days,
+            Hours: numberValues.Hours,
+            Minutes: numberValues.Minutes,
+            Seconds: numberValues.Seconds,
             styles: {
                 fontSize: this.props.pFont + 'px',
                 color: this.props.pColor,
@@ -182,13 +199,13 @@ export class LivePreview extends React.Component {
             }
         }
         const timerCustomTxt = {
-            years: dataProps.cTxtYears,
-            months: dataProps.cTxtMonths,
-            weeks: dataProps.cTxtWeeks,
-            days: dataProps.cTxtDays,
-            hours: dataProps.cTxtHours,
-            minutes: dataProps.cTxtMinutes,
-            seconds: dataProps.cTxtSeconds,
+            Years: dataProps.cTxtYears,
+            Months: dataProps.cTxtMonths,
+            Weeks: dataProps.cTxtWeeks,
+            Days: dataProps.cTxtDays,
+            Hours: dataProps.cTxtHours,
+            Minutes: dataProps.cTxtMinutes,
+            Seconds: dataProps.cTxtSeconds,
             styles: {
                 fontSize: this.props.pFont + 'px',
                 color: this.props.pColor,
@@ -198,6 +215,7 @@ export class LivePreview extends React.Component {
                         'normal')
             }
         }
+        console.log(timerNumbers);
         const DynamicComponentName = components[this.state.timerStyle];
         return (<DynamicComponentName numbers={timerNumbers} cTxt={timerCustomTxt} />);
     }

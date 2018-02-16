@@ -4953,48 +4953,6 @@ exports.default = {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-function checkDCE() {
-  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
-  if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function') {
-    return;
-  }
-  if (process.env.NODE_ENV !== 'production') {
-    // This branch is unreachable because this function is only called
-    // in production, but the condition is true only in development.
-    // Therefore if the branch is still here, dead code elimination wasn't
-    // properly applied.
-    // Don't change the message. React DevTools relies on it. Also make sure
-    // this message doesn't occur elsewhere in this function, or it will cause
-    // a false positive.
-    throw new Error('^_^');
-  }
-  try {
-    // Verify that the code above has been dead code eliminated (DCE'd).
-    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
-  } catch (err) {
-    // DevTools shouldn't crash React, no matter what.
-    // We should still report in case we break this code.
-    console.error(err);
-  }
-}
-
-if (process.env.NODE_ENV === 'production') {
-  // DCE check should happen before ReactDOM bundle executes so that
-  // DevTools can report bad minification during injection.
-  checkDCE();
-  module.exports = __webpack_require__(381);
-} else {
-  module.exports = __webpack_require__(384);
-}
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
@@ -5076,6 +5034,48 @@ Object.defineProperty(exports, 'Swatch', {
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
 }
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+function checkDCE() {
+  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
+  if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function') {
+    return;
+  }
+  if (process.env.NODE_ENV !== 'production') {
+    // This branch is unreachable because this function is only called
+    // in production, but the condition is true only in development.
+    // Therefore if the branch is still here, dead code elimination wasn't
+    // properly applied.
+    // Don't change the message. React DevTools relies on it. Also make sure
+    // this message doesn't occur elsewhere in this function, or it will cause
+    // a false positive.
+    throw new Error('^_^');
+  }
+  try {
+    // Verify that the code above has been dead code eliminated (DCE'd).
+    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
+  } catch (err) {
+    // DevTools shouldn't crash React, no matter what.
+    // We should still report in case we break this code.
+    console.error(err);
+  }
+}
+
+if (process.env.NODE_ENV === 'production') {
+  // DCE check should happen before ReactDOM bundle executes so that
+  // DevTools can report bad minification during injection.
+  checkDCE();
+  module.exports = __webpack_require__(381);
+} else {
+  module.exports = __webpack_require__(384);
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 16 */
@@ -7292,7 +7292,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -9377,7 +9377,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -11333,7 +11333,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -11551,7 +11551,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -11837,7 +11837,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -12259,7 +12259,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -27485,7 +27485,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -28236,7 +28236,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _dom = __webpack_require__(294);
 
@@ -34984,7 +34984,7 @@ __webpack_require__(378);
 
 __webpack_require__(0);
 
-__webpack_require__(14);
+__webpack_require__(15);
 
 __webpack_require__(389);
 
@@ -57852,7 +57852,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -58159,7 +58159,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -59008,7 +59008,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -59705,7 +59705,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -65914,7 +65914,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -66509,7 +66509,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -66894,7 +66894,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -67617,7 +67617,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -68112,7 +68112,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -69565,7 +69565,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -77826,7 +77826,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -80806,7 +80806,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -81785,7 +81785,7 @@ var _reactcss = __webpack_require__(12);
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 var _AlphaPointer = __webpack_require__(727);
 
@@ -87865,7 +87865,7 @@ var _reactcss2 = _interopRequireDefault(_reactcss);
 
 var _interaction = __webpack_require__(726);
 
-var _ = __webpack_require__(15);
+var _ = __webpack_require__(14);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -88084,7 +88084,7 @@ var _color = __webpack_require__(29);
 
 var _color2 = _interopRequireDefault(_color);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 var _BlockSwatches = __webpack_require__(729);
 
@@ -88214,7 +88214,7 @@ var _map = __webpack_require__(35);
 
 var _map2 = _interopRequireDefault(_map);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -88292,7 +88292,7 @@ var _materialColors = __webpack_require__(370);
 
 var material = _interopRequireWildcard(_materialColors);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 var _CircleSwatch = __webpack_require__(731);
 
@@ -88389,7 +88389,7 @@ var _reactcss = __webpack_require__(12);
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -88473,7 +88473,7 @@ var _reactcss = __webpack_require__(12);
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 var _ChromeFields = __webpack_require__(733);
 
@@ -88654,7 +88654,7 @@ var _color = __webpack_require__(29);
 
 var _color2 = _interopRequireDefault(_color);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -89043,7 +89043,7 @@ var _color = __webpack_require__(29);
 
 var _color2 = _interopRequireDefault(_color);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 var _CompactColor = __webpack_require__(737);
 
@@ -89136,7 +89136,7 @@ var _reactcss = __webpack_require__(12);
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -89219,7 +89219,7 @@ var _reactcss = __webpack_require__(12);
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -89360,7 +89360,7 @@ var _map = __webpack_require__(35);
 
 var _map2 = _interopRequireDefault(_map);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 var _GithubSwatch = __webpack_require__(740);
 
@@ -89498,7 +89498,7 @@ var _reactcss = __webpack_require__(12);
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -89570,7 +89570,7 @@ var _reactcss = __webpack_require__(12);
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 var _HuePointer = __webpack_require__(742);
 
@@ -89699,7 +89699,7 @@ var _color = __webpack_require__(29);
 
 var _color2 = _interopRequireDefault(_color);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -89853,7 +89853,7 @@ var _reactcss = __webpack_require__(12);
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 var _PhotoshopFields = __webpack_require__(745);
 
@@ -90033,7 +90033,7 @@ var _color = __webpack_require__(29);
 
 var _color2 = _interopRequireDefault(_color);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -90439,7 +90439,7 @@ var _reactcss = __webpack_require__(12);
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 var _SketchFields = __webpack_require__(751);
 
@@ -90607,7 +90607,7 @@ var _color = __webpack_require__(29);
 
 var _color2 = _interopRequireDefault(_color);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -90767,7 +90767,7 @@ var _reactcss = __webpack_require__(12);
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -90857,7 +90857,7 @@ var _reactcss = __webpack_require__(12);
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 var _SliderSwatches = __webpack_require__(754);
 
@@ -91137,7 +91137,7 @@ var _materialColors = __webpack_require__(370);
 
 var material = _interopRequireWildcard(_materialColors);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 var _SwatchesGroup = __webpack_require__(758);
 
@@ -91304,7 +91304,7 @@ var _reactcss = __webpack_require__(12);
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -91415,7 +91415,7 @@ var _color = __webpack_require__(29);
 
 var _color2 = _interopRequireDefault(_color);
 
-var _common = __webpack_require__(15);
+var _common = __webpack_require__(14);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -92503,7 +92503,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -92535,9 +92535,9 @@ var _timezonePicker = __webpack_require__(780);
 
 var _livePreview = __webpack_require__(782);
 
-var _endTime = __webpack_require__(786);
+var _endTime = __webpack_require__(783);
 
-var _timeFormat = __webpack_require__(787);
+var _timeFormat = __webpack_require__(784);
 
 var _reactTabs = __webpack_require__(371);
 
@@ -93700,7 +93700,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _react = __webpack_require__(0);
 
@@ -94696,15 +94696,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(14);
+var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _mathCountDown = __webpack_require__(783);
+var _mathCountDown = __webpack_require__(785);
 
 var _mathCountDown2 = _interopRequireDefault(_mathCountDown);
 
-var _pack = __webpack_require__(784);
+var _pack = __webpack_require__(786);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -94817,6 +94817,14 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                     });
                 }, 1000));
             }
+            var tempTimeout = this.state.timeout;
+            if (!tempTimeout[0]) {
+                tempTimeout.push(setTimeout(function () {
+                    _this3.setState({
+                        timeout: []
+                    });
+                }, 1000));
+            }
             var dataProps = {
                 tThis: this,
                 timeout: this.state.timeout,
@@ -94869,24 +94877,33 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                     cTxtSeconds: propertiesObj.cTxtSeconds
                 };
                 divStyle = {
-                    fontSize: propertiesObj.fontSize,
-                    color: propertiesObj.color,
-                    fontWeight: propertiesObj.fontWeight
+                    fontSize: dataProps.fontSize,
+                    color: dataProps.color,
+                    fontWeight: dataProps.fontWeight
                 };
             }
 
             var components = {
                 PlainString: _pack.PlainString
             };
-            // var timerNumbers = mathCountDown.mathFunc(dataProps);
+            var tempDatesObj = {
+                endDate: dataProps.endDate,
+                pTimezoneOffset: dataProps.pTimezoneOffset,
+                endHour: dataProps.endHour,
+                endMinute: dataProps.endMinute
+            };
+            var numberValues = _mathCountDown2.default.mathFunc(tempDatesObj);
+            if (numberValues == false || typeof numberValues == 'undefined') {
+                return;
+            }
             var timerNumbers = {
-                years: 10,
-                months: 10,
-                weeks: 10,
-                days: 10,
-                hours: 10,
-                minutes: 10,
-                seconds: 10,
+                Years: numberValues.Years,
+                Months: numberValues.Months,
+                Weeks: numberValues.Weeks,
+                Days: numberValues.Days,
+                Hours: numberValues.Hours,
+                Minutes: numberValues.Minutes,
+                Seconds: numberValues.Seconds,
                 styles: {
                     fontSize: this.props.pFont + 'px',
                     color: this.props.pColor,
@@ -94894,19 +94911,20 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                 }
             };
             var timerCustomTxt = {
-                years: dataProps.cTxtYears,
-                months: dataProps.cTxtMonths,
-                weeks: dataProps.cTxtWeeks,
-                days: dataProps.cTxtDays,
-                hours: dataProps.cTxtHours,
-                minutes: dataProps.cTxtMinutes,
-                seconds: dataProps.cTxtSeconds,
+                Years: dataProps.cTxtYears,
+                Months: dataProps.cTxtMonths,
+                Weeks: dataProps.cTxtWeeks,
+                Days: dataProps.cTxtDays,
+                Hours: dataProps.cTxtHours,
+                Minutes: dataProps.cTxtMinutes,
+                Seconds: dataProps.cTxtSeconds,
                 styles: {
                     fontSize: this.props.pFont + 'px',
                     color: this.props.pColor,
                     fontWeight: this.props.pIsBold == true ? 'bold' : 'normal'
                 }
             };
+            console.log(timerNumbers);
             var DynamicComponentName = components[this.state.timerStyle];
             return _react2.default.createElement(DynamicComponentName, { numbers: timerNumbers, cTxt: timerCustomTxt });
         }
@@ -94922,6 +94940,203 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
 
 /***/ }),
 /* 783 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.EndTime = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var EndTime = exports.EndTime = function (_React$Component) {
+  _inherits(EndTime, _React$Component);
+
+  function EndTime(props) {
+    _classCallCheck(this, EndTime);
+
+    var _this = _possibleConstructorReturn(this, (EndTime.__proto__ || Object.getPrototypeOf(EndTime)).call(this, props));
+
+    _this.state = {
+      endHour: _this.props.pEndHour,
+      endMinute: _this.props.pEndMinute
+    };
+
+    _this.chooseHours = _this.chooseHours.bind(_this);
+    _this.chooseMinutes = _this.chooseMinutes.bind(_this);
+    return _this;
+  }
+
+  _createClass(EndTime, [{
+    key: 'setHour',
+    value: function setHour() {
+      var optionsJsx = [];
+      for (var i = 0; i <= 24; i++) {
+        if (i < 10) {
+          optionsJsx.push(_react2.default.createElement('option', { key: i, value: i }, '0' + i));
+        } else {
+          optionsJsx.push(_react2.default.createElement('option', { key: i, value: i }, i));
+        }
+      }
+      return optionsJsx;
+    }
+  }, {
+    key: 'setMinutes',
+    value: function setMinutes() {
+      var optionsSeconds = [];
+      for (var y = 0; y <= 60; y++) {
+        if (y < 10) {
+          optionsSeconds.push(_react2.default.createElement('option', { key: y, value: y }, '0' + y));
+        } else {
+          optionsSeconds.push(_react2.default.createElement('option', { key: y, value: y }, y));
+        }
+      }
+      return optionsSeconds;
+    }
+  }, {
+    key: 'chooseHours',
+    value: function chooseHours(evt) {
+      var InputValue = evt.target.value;
+      var Submitx = this.props.TimeEnd;
+      this.setState({ endHour: InputValue });
+      Submitx(InputValue, this.state.endMinute);
+    }
+  }, {
+    key: 'chooseMinutes',
+    value: function chooseMinutes(evt) {
+      var InputValue = evt.target.value;
+      this.setState({ endMinute: InputValue });
+      var Submitx = this.props.TimeEnd;
+      Submitx(this.state.endHour, InputValue);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement('div', null, 'Hours:  ', _react2.default.createElement('select', { value: this.state.endHour, onChange: this.chooseHours }, this.setHour()), 'Minutes:  ', _react2.default.createElement('select', { value: this.state.endMinute, onChange: this.chooseMinutes }, this.setMinutes()));
+    }
+  }]);
+
+  return EndTime;
+}(_react2.default.Component);
+
+/***/ }),
+/* 784 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.TimeFormat = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var TimeFormat = exports.TimeFormat = function (_React$Component) {
+  _inherits(TimeFormat, _React$Component);
+
+  function TimeFormat(props) {
+    _classCallCheck(this, TimeFormat);
+
+    var _this = _possibleConstructorReturn(this, (TimeFormat.__proto__ || Object.getPrototypeOf(TimeFormat)).call(this, props));
+
+    _this.state = {
+      timeFormat: _this.props.pTimeFormat
+    };
+    _this.chooseFormat = _this.chooseFormat.bind(_this);
+    _this.optionsFormat = _this.optionsFormat.bind(_this);
+    return _this;
+  }
+
+  _createClass(TimeFormat, [{
+    key: 'chooseFormat',
+    value: function chooseFormat(evt) {
+      var formatTypeValue = evt.target.value;
+      this.setState({ timeFormat: formatTypeValue });
+      var SubmitFormat = this.props.callBackSelectFormat;
+      SubmitFormat(formatTypeValue);
+    }
+  }, {
+    key: 'optionsFormat',
+    value: function optionsFormat() {
+      var Obj = [{
+        "value": 'Y2S',
+        "text": 'Years to Seconds'
+      }, {
+        "value": 'D2S',
+        "text": 'Days/Hours/Minutes/Seconds'
+      }, {
+        "value": 'D then H2S',
+        "text": 'Days then Hours/Minutes/Seconds'
+      }, {
+        "value": 'hours:minutes:seconds',
+        "text": 'Hours:Minutes:Seconds'
+      }, {
+        "value": 'hours:minutes',
+        "text": 'Hours:Minutes'
+      }, {
+        "value": 'minutes:seconds',
+        "text": 'Minutes:Seconds'
+      }, {
+        "value": 'seconds',
+        "text": 'Seconds'
+      }, {
+        "value": 'days',
+        "text": 'Days'
+      }, {
+        "value": 'weeks',
+        "text": 'Weeks'
+      }, {
+        "value": 'months',
+        "text": 'Months'
+      }, {
+        "value": 'years',
+        "text": 'Years'
+      }];
+      return Obj.map(function (item, i) {
+        return _react2.default.createElement('option', { key: i, value: item.value }, item.text);
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement('div', null, _react2.default.createElement('select', { onChange: this.chooseFormat, value: this.state.timeFormat }, ' ', this.optionsFormat()));
+    }
+  }]);
+
+  return TimeFormat;
+}(_react2.default.Component);
+
+/***/ }),
+/* 785 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -95052,7 +95267,7 @@ var _class = function () {
 exports.default = _class;
 
 /***/ }),
-/* 784 */
+/* 786 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -95063,7 +95278,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.PlainString = undefined;
 
-var _plainString = __webpack_require__(785);
+var _plainString = __webpack_require__(787);
 
 var _plainString2 = _interopRequireDefault(_plainString);
 
@@ -95072,7 +95287,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.PlainString = _plainString2.default;
 
 /***/ }),
-/* 785 */
+/* 787 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -95108,7 +95323,7 @@ var PlainString = function (_React$Component) {
   _createClass(PlainString, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', null, _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.years), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.years), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.months), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.months), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.weeks), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.weeks), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.days), ' ', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.cTxt.days), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.hours), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.hours), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.minutes), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.minutes), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.seconds), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.seconds));
+      return _react2.default.createElement('div', null, _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.Years), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.Years), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.Months), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.Months), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.Weeks), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.Weeks), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.Days), ' ', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.cTxt.Days), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.Hours), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.Hours), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.Minutes), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.Minutes), ' /\xA0', _react2.default.createElement('span', { style: this.props.numbers.styles }, this.props.numbers.Seconds), ' ', _react2.default.createElement('span', { style: this.props.cTxt.styles }, this.props.cTxt.Seconds));
     }
   }]);
 
@@ -95116,203 +95331,6 @@ var PlainString = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = PlainString;
-
-/***/ }),
-/* 786 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.EndTime = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var EndTime = exports.EndTime = function (_React$Component) {
-  _inherits(EndTime, _React$Component);
-
-  function EndTime(props) {
-    _classCallCheck(this, EndTime);
-
-    var _this = _possibleConstructorReturn(this, (EndTime.__proto__ || Object.getPrototypeOf(EndTime)).call(this, props));
-
-    _this.state = {
-      endHour: _this.props.pEndHour,
-      endMinute: _this.props.pEndMinute
-    };
-
-    _this.chooseHours = _this.chooseHours.bind(_this);
-    _this.chooseMinutes = _this.chooseMinutes.bind(_this);
-    return _this;
-  }
-
-  _createClass(EndTime, [{
-    key: 'setHour',
-    value: function setHour() {
-      var optionsJsx = [];
-      for (var i = 0; i <= 24; i++) {
-        if (i < 10) {
-          optionsJsx.push(_react2.default.createElement('option', { key: i, value: i }, '0' + i));
-        } else {
-          optionsJsx.push(_react2.default.createElement('option', { key: i, value: i }, i));
-        }
-      }
-      return optionsJsx;
-    }
-  }, {
-    key: 'setMinutes',
-    value: function setMinutes() {
-      var optionsSeconds = [];
-      for (var y = 0; y <= 60; y++) {
-        if (y < 10) {
-          optionsSeconds.push(_react2.default.createElement('option', { key: y, value: y }, '0' + y));
-        } else {
-          optionsSeconds.push(_react2.default.createElement('option', { key: y, value: y }, y));
-        }
-      }
-      return optionsSeconds;
-    }
-  }, {
-    key: 'chooseHours',
-    value: function chooseHours(evt) {
-      var InputValue = evt.target.value;
-      var Submitx = this.props.TimeEnd;
-      this.setState({ endHour: InputValue });
-      Submitx(InputValue, this.state.endMinute);
-    }
-  }, {
-    key: 'chooseMinutes',
-    value: function chooseMinutes(evt) {
-      var InputValue = evt.target.value;
-      this.setState({ endMinute: InputValue });
-      var Submitx = this.props.TimeEnd;
-      Submitx(this.state.endHour, InputValue);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement('div', null, 'Hours:  ', _react2.default.createElement('select', { value: this.state.endHour, onChange: this.chooseHours }, this.setHour()), 'Minutes:  ', _react2.default.createElement('select', { value: this.state.endMinute, onChange: this.chooseMinutes }, this.setMinutes()));
-    }
-  }]);
-
-  return EndTime;
-}(_react2.default.Component);
-
-/***/ }),
-/* 787 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.TimeFormat = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var TimeFormat = exports.TimeFormat = function (_React$Component) {
-  _inherits(TimeFormat, _React$Component);
-
-  function TimeFormat(props) {
-    _classCallCheck(this, TimeFormat);
-
-    var _this = _possibleConstructorReturn(this, (TimeFormat.__proto__ || Object.getPrototypeOf(TimeFormat)).call(this, props));
-
-    _this.state = {
-      timeFormat: _this.props.pTimeFormat
-    };
-    _this.chooseFormat = _this.chooseFormat.bind(_this);
-    _this.optionsFormat = _this.optionsFormat.bind(_this);
-    return _this;
-  }
-
-  _createClass(TimeFormat, [{
-    key: 'chooseFormat',
-    value: function chooseFormat(evt) {
-      var formatTypeValue = evt.target.value;
-      this.setState({ timeFormat: formatTypeValue });
-      var SubmitFormat = this.props.callBackSelectFormat;
-      SubmitFormat(formatTypeValue);
-    }
-  }, {
-    key: 'optionsFormat',
-    value: function optionsFormat() {
-      var Obj = [{
-        "value": 'Y2S',
-        "text": 'Years to Seconds'
-      }, {
-        "value": 'D2S',
-        "text": 'Days/Hours/Minutes/Seconds'
-      }, {
-        "value": 'D then H2S',
-        "text": 'Days then Hours/Minutes/Seconds'
-      }, {
-        "value": 'hours:minutes:seconds',
-        "text": 'Hours:Minutes:Seconds'
-      }, {
-        "value": 'hours:minutes',
-        "text": 'Hours:Minutes'
-      }, {
-        "value": 'minutes:seconds',
-        "text": 'Minutes:Seconds'
-      }, {
-        "value": 'seconds',
-        "text": 'Seconds'
-      }, {
-        "value": 'days',
-        "text": 'Days'
-      }, {
-        "value": 'weeks',
-        "text": 'Weeks'
-      }, {
-        "value": 'months',
-        "text": 'Months'
-      }, {
-        "value": 'years',
-        "text": 'Years'
-      }];
-      return Obj.map(function (item, i) {
-        return _react2.default.createElement('option', { key: i, value: item.value }, item.text);
-      });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement('div', null, _react2.default.createElement('select', { onChange: this.chooseFormat, value: this.state.timeFormat }, ' ', this.optionsFormat()));
-    }
-  }]);
-
-  return TimeFormat;
-}(_react2.default.Component);
 
 /***/ })
 ],[376]);
