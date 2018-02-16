@@ -96,7 +96,7 @@ class MainContainer extends React.Component {
      parentID={this.props.parentID} pName={this.state.naMeP} endDate={this.state.endDate} pFont={this.state.fontSizeP} pColor={this.state.pColor} pIsBold={this.state.pIsBold} pTimezoneOffset={this.state.timezoneOffset} endHour={this.state.endHour} endMinute={this.state.endMinute} pFormat={this.state.timeFormat}/>);
 
     // the rest of the data
-    var configurationComponentsJSX = (<div key="configurationComponentsJSX">
+    var configurationComponentsJSX = ( <div key="configurationComponentsJSX">
 
       <label htmlFor="tableStyles" className="containerLabels">Configuration</label>
       <Tabs>
@@ -174,7 +174,7 @@ class MainContainer extends React.Component {
                   <label>Select to make text Bold</label>
                 </td>
                 <td className="componentContainer">
-                  <Bold callbackChildPropB={this.isBold} pIsBold={this.state.pIsBold}/></td>
+                  <Bold callbackChildPropB={this.isBold} pIsBold={this.state.pIsBold} /></td>
               </tr>
             </tbody>
           </table>
@@ -188,7 +188,7 @@ class MainContainer extends React.Component {
       pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat} pName={this.state.naMeP}
       pTimeFormat={this.state.timeFormat} endDate={this.state.endDate} pFont={this.state.fontSizeP} pColor={this.state.pColor} chooseBold={this.state.pIsBold}
       pUtcTz={this.state.utcTz} pTimezoneOffset={this.state.timezoneOffset} pEndHour={this.state.endHour} pEndMinute={this.state.endMinute}
-      pFormat={this.state.timeFormat}/>
+      pFormat={this.state.timeFormat} />
 
        <button type="button" id="ectInsertSC" className="insertButton button button-primary">Insert Shortcode</button>
 <button type="button" className="ectClosePopupButton" name="button">X Close</button>
@@ -201,18 +201,6 @@ class MainContainer extends React.Component {
     if (!isOnlyPreview) {
       returnAllData.push(configurationComponentsJSX);
     }
-    if (this.state.endDate == '') {
-      returnAllData = (<div className="endDateShow">
-        <div className="endDateShowSmallContainer">
-        <div>
-          <label htmlFor="datePicker">Select END Date</label>
-
-          <EndDate className="endDateDiv" callbackChildProp={this.returnChildDate} pEndDate={this.state.endDate}/>
-            </div>
-        </div>
-      </div>);
-    }
-
     return returnAllData;
   }
   render() {
