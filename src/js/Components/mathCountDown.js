@@ -86,7 +86,7 @@ export default class {
 
       if (endTimeMiliseconds < nowTimeMiliseconds) {
 
-        return false
+        return false;
       } else {
         countDownAllValues = {
           Y2SYears: YearsMWDHMS,
@@ -106,6 +106,7 @@ export default class {
           endDate: endTimeMiliseconds,
           currentDate: nowTimeMiliseconds
         };
+        return countDownAllValues;
       };
     };
   }

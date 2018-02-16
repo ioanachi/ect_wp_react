@@ -7,13 +7,13 @@ export default class PlainString extends React.Component {
   render() {
     return (
       <div>
-        <span style={this.props.numbers.styles}>{this.props.numbers.years}</span> <span style={this.props.cTxt.styles}>{this.props.cTxt.years}</span> /&nbsp;
-        <span style={this.props.numbers.styles}>{this.props.numbers.months}</span> <span style={this.props.cTxt.styles}>{this.props.cTxt.months}</span> /&nbsp;
-        <span style={this.props.numbers.styles}>{this.props.numbers.weeks}</span> <span style={this.props.cTxt.styles}>{this.props.cTxt.weeks}</span> /&nbsp;
-        <span style={this.props.numbers.styles}>{this.props.numbers.days}</span> <span style={this.props.numbers.styles}>{this.props.cTxt.days}</span> /&nbsp;
-        <span style={this.props.numbers.styles}>{this.props.numbers.hours}</span> <span style={this.props.cTxt.styles}>{this.props.cTxt.hours}</span> /&nbsp;
-        <span style={this.props.numbers.styles}>{this.props.numbers.minutes}</span> <span style={this.props.cTxt.styles}>{this.props.cTxt.minutes}</span> /&nbsp;
-        <span style={this.props.numbers.styles}>{this.props.numbers.seconds}</span> <span style={this.props.cTxt.styles}>{this.props.cTxt.seconds}</span>
+        <span style={this.props.numbers.styles}>{this.props.numbers.Years}</span> <span style={this.props.cTxt.styles}>{this.props.cTxt.Years}</span> /&nbsp;
+        <span style={this.props.numbers.styles}>{this.props.numbers.Months}</span> <span style={this.props.cTxt.styles}>{this.props.cTxt.Months}</span> /&nbsp;
+        <span style={this.props.numbers.styles}>{this.props.numbers.Weeks}</span> <span style={this.props.cTxt.styles}>{this.props.cTxt.Weeks}</span> /&nbsp;
+        <span style={this.props.numbers.styles}>{this.props.numbers.Days}</span> <span style={this.props.numbers.styles}>{this.props.cTxt.Days}</span> /&nbsp;
+        <span style={this.props.numbers.styles}>{this.props.numbers.Hours}</span> <span style={this.props.cTxt.styles}>{this.props.cTxt.Hours}</span> /&nbsp;
+        <span style={this.props.numbers.styles}>{this.props.numbers.Minutes}</span> <span style={this.props.cTxt.styles}>{this.props.cTxt.Minutes}</span> /&nbsp;
+        <span style={this.props.numbers.styles}>{this.props.numbers.Seconds}</span> <span style={this.props.cTxt.styles}>{this.props.cTxt.Seconds}</span>
       </div>
     );
   }
