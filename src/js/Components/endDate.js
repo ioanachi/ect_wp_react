@@ -27,7 +27,7 @@ export class EndDate extends React.Component {
   };
   render() {
     return (
-      <div className="componentContainer">
+      <div>
         <DayPickerInput format="M/D/YYY" formatDate={this.ectFormatDate} onDayChange={this.handleDayChange} placeholder="YYYY/M/D" value={this.state.valDate} />
       </div>
     );
