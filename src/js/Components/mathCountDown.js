@@ -82,112 +82,31 @@ export default class {
       var weeksOnly = Math.floor(timeToCount / oneWeek);
       var yearsOnly = Math.floor(timeToCount / oneYear);
       var monthsOnly = Math.floor(timeToCount / oneMonth);
+      var countDownAllValues = {};
 
-      // Change the time value calculated in the previous step to a human-readable date/time string by
-      // initializing a new Date() object with it, and calling the object's toLocaleString() method.
       if (endTimeMiliseconds < nowTimeMiliseconds) {
-        return 0;
-      }
-      switch (obj.pFormat) {
-        case 'D2S':
-          return daysToCount + ' ' + obj.cTxtDays + '   ' + hoursToCount + ' ' + obj.cTxtHours + ' ' + minutesToCount + ' ' + obj.cTxtMinutes + ' ' + secondsToCount +
-            ' ' + obj.cTxtSeconds;
-          break;
-        case 'days':
-          return daysToCount + ' ' + obj.cTxtDays;
-          break;
-        case 'hours:minutes:seconds':
-          return onlyHMS_Hours + ' ' + obj.cTxtHours + ' ' + onlyHMS_Minutes + ' ' + obj.cTxtMinutes + ' ' + onlyHMS_Seconds;
-          break;
-        case 'hours:minutes':
-          return onlyHMS_Hours + ' ' + obj.cTxtHours + ' ' + onlyHMS_Minutes + ' ' + obj.cTxtMinutes + ' ';
-          break;
-        case 'minutes:seconds':
-          return onlyMS_Min + ' ' + obj.cTxtMinutes + ' ' + onlyMS_Sec;
-          break;
-        case 'seconds':
-          return onlySeconds + ' ' + obj.cTxtSeconds + ' ';
-          break;
-        case 'years':
-          return yearsOnly + ' ' + obj.cTxtYears;
-          break;
-        case 'months':
-          return monthsOnly + ' ' + obj.cTxtMonths;
-          break;
-        case 'weeks':
-          return weeksOnly + ' ' + obj.cTxtWeeks;
-          break;
-        case 'Y2S':
-          if (YearsMWDHMS == 0) {
-            if (MonthsYWDHMS == 0) {
-              if (WeeksYMDHMS == 0) {
 
-                if (DaysYMWHMS == 0) {
-                  if (HoursYMWDMS == 0) {
-                    if (MinutesYMWDHS == 0) {
-                      return SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-                    };
-                    return MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-                  };
-                  return HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-                };
-                return DaysYMWHMS + ' ' + obj.cTxtDays + ' ' + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-
-              };
-              return WeeksYMDHMS + ' ' + obj.cTxtWeeks + ' ' + DaysYMWHMS + ' ' + obj.cTxtDays + ' ' + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' +
-                obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-
-            };
-            return MonthsYWDHMS + ' ' + obj.cTxtMonths + ' ' + WeeksYMDHMS + ' ' + obj.cTxtWeeks + DaysYMWHMS + ' ' + obj.cTxtDays + ' ' + HoursYMWDMS + ' ' + obj.cTxtHours +
-            ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-
-          };
-          return YearsMWDHMS + ' ' + obj.cTxtYears + ' ' + MonthsYWDHMS + ' ' + obj.cTxtMonths + ' ' + WeeksYMDHMS + ' ' + obj.cTxtWeeks + DaysYMWHMS + ' ' + obj.cTxtDays + ' ' +
-            HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM +
-            ' ' + obj.cTxtSeconds;
-          break;
-
-        case 'D then H2S':
-          if (daysToCount == 0) {
-            if (hoursToCount == 0) {
-              if (minutesToCount == 0) {
-                return secondsToCount + ' ' + obj.cTxtSeconds;
-              }
-              return minutesToCount + ' ' + obj.cTxtMinutes + ' ' + secondsToCount + ' ' + obj.cTxtSeconds;
-            }
-            return hoursToCount + ' ' + obj.cTxtHours + ' ' +  minutesToCount + ' ' + obj.cTxtMinutes + ' ' + secondsToCount + ' ' + obj.cTxtSeconds;
-          }
-          return daysToCount + ' ' + obj.cTxtDays + ' ' +  hoursToCount + ' ' + obj.cTxtHours + ' ' + minutesToCount + ' ' + obj.cTxtMinutes + ' ' + secondsToCount + ' ' + obj.cTxtSeconds;
-          break;
-
-        default:
-          if (YearsMWDHMS == 0) {
-            if (MonthsYWDHMS == 0) {
-              if (WeeksYMDHMS == 0) {
-                if (DaysYMWHMS == 0) {
-                  if (HoursYMWDMS == 0) {
-                    if (MinutesYMWDHS == 0) {
-                      return SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-                    };
-                    return MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-                  };
-                  return HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-                };
-                return DaysYMWHMS + ' ' + obj.cTxtDays + ' ' + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM +
-                  ' ' + obj.cTxtSeconds;
-              };
-              return WeeksYMDHMS + ' ' + obj.cTxtWeeks + ' ' + DaysYMWHMS + ' ' + obj.cTxtDays + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-            };
-            return MonthsYWDHMS + ' ' + ' ' + obj.cTxtMonths + ' ' + WeeksYMDHMS + ' ' + obj.cTxtWeeks + ' ' + DaysYMWHMS + ' ' + obj.cTxtDays + ' ' + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-          };
-          return YearsMWDHMS + ' ' + ' ' + obj.cTxtYears + ' ' + MonthsYWDHMS + ' ' + obj.cTxtMonths + ' ' + WeeksYMDHMS + ' ' + obj.cTxtWeeks + ' ' + DaysYMWHMS + ' ' +
-            obj.cTxtDays + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-          break;
-      }
-      // return Math.round(Math.abs((timezoneDateSeconds - endDate.getTime()) / (oneDay)) + 1);
-      // diferenta dintre milisecundele din viitor (de la 1970) si milisecundele actuale
-      // (de la anul 1970) impartite la o zi(care este egala cu 24h* 60 min si 60 sec* 1000milisecunde)
-    }
-    return "Pick an End Date"
-  };
+        return false
+      } else {
+        countDownAllValues = {
+          Y2SYears: YearsMWDHMS,
+          Y2SMonths: MonthsYWDHMS,
+          Y2SWeeks: WeeksYMDHMS,
+          Y2SDays: DaysYMWHMS,
+          Y2SHours: HoursYMWDMS,
+          Y2SMinutes: MinutesYMWDHS,
+          Y2SSeconds: SecondsYMWDHM,
+          Years: yearsOnly,
+          Months: monthsOnly,
+          Weeks: weeksOnly,
+          Days: daysToCount,
+          Hours: onlyHMS_Hours,
+          Minutes: onlyMS_Min,
+          Seconds: onlySeconds,
+          endDate: endTimeMiliseconds,
+          currentDate: nowTimeMiliseconds
+        };
+      };
+    };
+  }
 }
