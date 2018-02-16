@@ -200,12 +200,22 @@ class MainContainer extends React.Component {
         );
         if (!isOnlyPreview) {
             returnAllData.push(labelPreview);
-        }
-        ;
+        };
         returnAllData.push(livePreviewOnly);
         if (!isOnlyPreview) {
             returnAllData.push(configurationComponentsJSX);
         }
+        if (this.state.endDate == '') {
+                 returnAllData = (<div className="endDateShow">
+                    <div className="endDateShowSmallContainer">
+                    <div>
+                      <label htmlFor="datePicker">Select END Date</label>
+            
+                      <EndDate className="endDateDiv" callbackChildProp={this.returnChildDate} pEndDate={this.state.endDate}/>
+                        </div>
+                   </div>
+                 </div>);
+           }
         return returnAllData;
     }
     render() {
