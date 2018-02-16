@@ -79,14 +79,10 @@ liveCountDown(){
   }
   return (<span style={divStyle}>{mathCountDown.mathFunc(dataProps)}</span>);
 }
-
   render() {
-
-
     return (<div>
       <div className="containerPreview">
-        <h3>{this.props.pName}
-        </h3>
+        <h3>{this.props.pName}</h3>
         {this.liveCountDown()}
       </div>
     </div>);
