@@ -92449,7 +92449,7 @@ exports = module.exports = __webpack_require__(94)(undefined);
 
 
 // module
-exports.push([module.i, ".ContainerMain {\n  position: relative;\n  padding: 30px; }\n  .ContainerMain .componentContainer {\n    padding: 20px;\n    margin-bottom: 10px; }\n    .ContainerMain .componentContainer label {\n      font-size: 20px;\n      margin-right: 20px; }\n    .ContainerMain .componentContainer input.shortcode {\n      padding: 5px;\n      width: 60%; }\n  .ContainerMain .shortcode {\n    margin: 10px; }\n    .ContainerMain .shortcode input {\n      padding: 5px;\n      width: 1100px;\n      border: 1px solid #C3C49E; }\n  .ContainerMain .timezones select {\n    max-width: 250px; }\n  .ContainerMain .tableStyles {\n    height: 300px;\n    width: 300px; }\n    .ContainerMain .tableStyles label {\n      font-size: 20px;\n      font-weight: bold; }\n    .ContainerMain .tableStyles tr :nth-child(2n) {\n      background-color: #e4e4e4; }\n  .ContainerMain .containerPreview {\n    display: inline-block; }\n  .ContainerMain .containerLabels {\n    padding: 20px 0;\n    margin: 20px 0;\n    font-style: italic;\n    text-decoration: underline;\n    font-size: 20px;\n    font-weight: bold;\n    display: grid;\n    align-self: center; }\n  .ContainerMain .hourAndMinutes {\n    margin-left: 10px; }\n  .ContainerMain .ectSortcode {\n    padding: 5px;\n    width: 60%;\n    display: none; }\n  .ContainerMain button.insertButton {\n    margin: 20px 0; }\n  .ContainerMain button.ectClosePopupButton {\n    position: absolute;\n    top: 0px;\n    right: 0px;\n    padding: 5px;\n    font-size: 18px; }\n", ""]);
+exports.push([module.i, ".ContainerMain {\n  position: relative;\n  padding: 30px; }\n  .ContainerMain .componentContainer {\n    padding: 20px;\n    margin-bottom: 10px; }\n    .ContainerMain .componentContainer label {\n      font-size: 20px;\n      margin-right: 20px; }\n    .ContainerMain .componentContainer input.shortcode {\n      padding: 5px;\n      width: 60%; }\n  .ContainerMain .shortcode {\n    margin: 10px; }\n    .ContainerMain .shortcode input {\n      padding: 5px;\n      width: 1100px;\n      border: 1px solid #C3C49E; }\n  .ContainerMain .timezones select {\n    max-width: 250px; }\n  .ContainerMain .tableStyles {\n    height: 300px;\n    width: 300px;\n    display: inline-grid; }\n    .ContainerMain .tableStyles label {\n      font-size: 20px;\n      font-weight: bold; }\n    .ContainerMain .tableStyles tr :nth-child(2n) {\n      background-color: #e4e4e4; }\n  .ContainerMain .containerPreview {\n    display: inline-block; }\n  .ContainerMain .containerLabels {\n    padding: 20px 0;\n    margin: 20px 0;\n    font-style: italic;\n    text-decoration: underline;\n    font-size: 20px;\n    font-weight: bold;\n    display: grid;\n    align-self: center; }\n  .ContainerMain .hourAndMinutes {\n    margin-left: 10px; }\n  .ContainerMain .ectSortcode {\n    padding: 5px;\n    width: 60%;\n    display: none; }\n  .ContainerMain button.insertButton {\n    margin: 20px 0; }\n  .ContainerMain button.ectClosePopupButton {\n    position: absolute;\n    top: 0;\n    right: 0;\n    padding: 5px;\n    font-size: 18px; }\n", ""]);
 
 // exports
 
@@ -93250,9 +93250,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(14);
+var _MuiThemeProvider = __webpack_require__(126);
 
-var _reactDom2 = _interopRequireDefault(_reactDom);
+var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
+
+var _MyAwesomeReactComponent = __webpack_require__(774);
+
+var _MyAwesomeReactComponent2 = _interopRequireDefault(_MyAwesomeReactComponent);
+
+var _TextField = __webpack_require__(63);
+
+var _TextField2 = _interopRequireDefault(_TextField);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -93288,7 +93296,8 @@ var UserName = exports.UserName = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('input', { className: 'username', type: 'text', onInput: this.inputName, value: this.state.nameValue });
+      return _react2.default.createElement(_MuiThemeProvider2.default, null, _react2.default.createElement(_TextField2.default, { onChange: this.inputName, value: this.state.nameValue, hintText: 'Timer Name' }));
+      // <input className="username" type="text" onInput={this.inputName} value={this.state.nameValue}/>;
     }
   }]);
 
@@ -93555,6 +93564,18 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _MuiThemeProvider = __webpack_require__(126);
+
+var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
+
+var _MyAwesomeReactComponent = __webpack_require__(774);
+
+var _MyAwesomeReactComponent2 = _interopRequireDefault(_MyAwesomeReactComponent);
+
+var _TextField = __webpack_require__(63);
+
+var _TextField2 = _interopRequireDefault(_TextField);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -93592,7 +93613,7 @@ var CustomText = exports.CustomText = function (_React$Component) {
   }
 
   _createClass(CustomText, [{
-    key: "chooseYears",
+    key: 'chooseYears',
     value: function chooseYears(evt) {
       var FormatValue = evt.target.value;
       this.state.yearsFormat = FormatValue;
@@ -93600,7 +93621,7 @@ var CustomText = exports.CustomText = function (_React$Component) {
       this.sendValuesToParent();
     }
   }, {
-    key: "chooseMonths",
+    key: 'chooseMonths',
     value: function chooseMonths(evt) {
       var FormatValue = evt.target.value;
       this.state.monthsFormat = FormatValue;
@@ -93608,7 +93629,7 @@ var CustomText = exports.CustomText = function (_React$Component) {
       this.sendValuesToParent();
     }
   }, {
-    key: "chooseWeeks",
+    key: 'chooseWeeks',
     value: function chooseWeeks(evt) {
       var FormatValue = evt.target.value;
       this.state.weeksFormat = FormatValue;
@@ -93616,7 +93637,7 @@ var CustomText = exports.CustomText = function (_React$Component) {
       this.sendValuesToParent();
     }
   }, {
-    key: "chooseDays",
+    key: 'chooseDays',
     value: function chooseDays(evt) {
       var FormatValue = evt.target.value;
       this.state.daysFormat = FormatValue;
@@ -93624,7 +93645,7 @@ var CustomText = exports.CustomText = function (_React$Component) {
       this.sendValuesToParent();
     }
   }, {
-    key: "chooseHours",
+    key: 'chooseHours',
     value: function chooseHours(evt) {
       var FormatValue = evt.target.value;
       this.state.hoursFormat = FormatValue;
@@ -93632,7 +93653,7 @@ var CustomText = exports.CustomText = function (_React$Component) {
       this.sendValuesToParent();
     }
   }, {
-    key: "chooseMinutes",
+    key: 'chooseMinutes',
     value: function chooseMinutes(evt) {
       var FormatValue = evt.target.value;
       this.state.minutesFormat = FormatValue;
@@ -93640,7 +93661,7 @@ var CustomText = exports.CustomText = function (_React$Component) {
       this.sendValuesToParent();
     }
   }, {
-    key: "chooseSeconds",
+    key: 'chooseSeconds',
     value: function chooseSeconds(evt) {
       var FormatValue = evt.target.value;
       this.state.secondsFormat = FormatValue;
@@ -93648,16 +93669,16 @@ var CustomText = exports.CustomText = function (_React$Component) {
       this.sendValuesToParent();
     }
   }, {
-    key: "sendValuesToParent",
+    key: 'sendValuesToParent',
     value: function sendValuesToParent() {
       var SubmitTF = this.props.callbackChildPropFormatText;
       SubmitTF(this.state.yearsFormat, this.state.monthsFormat, this.state.weeksFormat, this.state.daysFormat, this.state.hoursFormat, this.state.minutesFormat, this.state.secondsFormat);
     }
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       // textArr = ['Years', 'Months', 'Weeks', 'Days', 'Hours', 'Minutes', 'Seconds'];
-      return _react2.default.createElement("table", null, _react2.default.createElement("tbody", null, _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Years")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseYears, value: this.state.yearsFormat })), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Months")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseMonths, value: this.state.monthsFormat })), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Weeks")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseWeeks, value: this.state.weeksFormat }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Days")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseDays, value: this.state.daysFormat })), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Hours")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onInput: this.chooseHours, value: this.state.hoursFormat })), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Minutes")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseMinutes, value: this.state.minutesFormat }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Seconds")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("input", { type: "text", onChange: this.chooseSeconds, value: this.state.secondsFormat })))));
+      return _react2.default.createElement(_MuiThemeProvider2.default, null, _react2.default.createElement('table', null, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Years')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_TextField2.default, { hintText: 'Hint Text', onChange: this.chooseYears, value: this.state.yearsFormat })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Months')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_TextField2.default, { hintText: 'Hint Text', onChange: this.chooseMonths, value: this.state.monthsFormat })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Weeks')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_TextField2.default, { hintText: 'Hint Text', onChange: this.chooseWeeks, value: this.state.weeksFormat }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Days')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_TextField2.default, { hintText: 'Hint Text', onChange: this.chooseDays, value: this.state.daysFormat })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Hours')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_TextField2.default, { hintText: 'Hint Text', onChange: this.chooseHours, value: this.state.hoursFormat })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Minutes')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_TextField2.default, { hintText: 'Hint Text', onChange: this.chooseMinutes, value: this.state.minutesFormat }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Seconds')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_TextField2.default, { hintText: 'Hint Text', onChange: this.chooseSeconds, value: this.state.secondsFormat }))))));
     }
   }]);
 
@@ -94905,7 +94926,7 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+      value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -94913,196 +94934,125 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var _class = function () {
-  function _class() {
-    _classCallCheck(this, _class);
-  }
-
-  _createClass(_class, null, [{
-    key: 'mathFunc',
-    value: function mathFunc(obj) {
-      // var tempTimeout = obj.timeout;
-      // if (!tempTimeout[0]) {
-      //   tempTimeout.push(setTimeout(() => {
-      //      obj.tThis.setState({timeout: []});
-      //   }, 1000));
-      // }
-      if (obj.endDate !== '') {
-        var oneSecond = 1000;
-        var oneMinute = 60 * oneSecond;
-        var oneHour = 60 * oneMinute;
-        var oneDay = 24 * oneHour; // hours*minutes*seconds*milliseconds
-        var oneWeek = 7 * oneDay;
-        var oneMonth = 4 * oneWeek;
-        var oneYear = 12 * oneMonth;
-        var endDate = new Date(obj.endDate);
-        var localDate = new Date();
-        var localTimeMiliseconds = localDate.getTime();
-
-        //  localTimeSeconds secundele trecute din 1 jan 1970 pana la ora locala (asta face .getTime() de data locala
-        // obtinuta cu newDate() )
-        var localOffset = localDate.getTimezoneOffset() * oneMinute;
-        var utc = localTimeMiliseconds + localOffset;
-        var timezoneOffset = obj.pTimezoneOffset;
-        var hourToMiliseconds = obj.endHour * oneHour;
-        var minutesToMiliseconds = obj.endMinute * oneMinute;
-        var date = new Date(obj.endDate);
-        var endTimeMiliseconds = date.getTime() + hourToMiliseconds + minutesToMiliseconds;
-
-        // timezoneDateSeconds  timezone-ul ales in secunde (se inmulteste cu 3600000
-        // pentru ca 1000 millseconds = 1 second, and 1 hour = 3600  seconds)
-        // Therefore, converting hours to milliseconds involves multiplying by 3600 * 1000 = 3600000.
-        var nowTimeMiliseconds = utc + parseInt(timezoneOffset);
-
-        var timeToCount = endTimeMiliseconds - nowTimeMiliseconds;
-
-        var daysToCount = Math.floor(timeToCount / oneDay);
-
-        var milisecLeftWithoutDays = timeToCount - daysToCount * oneDay;
-
-        var hoursToCount = Math.floor(milisecLeftWithoutDays / oneHour);
-
-        var milisecLeftWithoutHours = milisecLeftWithoutDays - hoursToCount * oneHour;
-
-        var minutesToCount = Math.floor(milisecLeftWithoutHours / oneMinute);
-
-        var milisecLeftWithoutMinutes = milisecLeftWithoutHours - minutesToCount * oneMinute;
-        var secondsToCount = Math.floor(milisecLeftWithoutMinutes / 1000);
-
-        var onlyHMS_Hours = Math.floor(timeToCount / oneHour);
-        var onlyHMSNoHours = timeToCount - onlyHMS_Hours * oneHour;
-        var onlyHMS_Minutes = Math.floor(onlyHMSNoHours / oneMinute);
-        var onlyHMSNoHM = onlyHMSNoHours - onlyHMS_Minutes * oneMinute;
-        var onlyHMS_Seconds = Math.floor(onlyHMSNoHM / oneSecond);
-
-        var onlyMS_Min = Math.floor(timeToCount / oneMinute);
-        var onlyMSNoMin = timeToCount - onlyMS_Min * oneMinute;
-        var onlyMS_Sec = Math.floor(onlyMSNoMin / oneSecond);
-        var onlySeconds = Math.floor(timeToCount / oneSecond);
-
-        var YearsMWDHMS = Math.floor(timeToCount / oneYear);
-        var timeWithoutY = timeToCount - YearsMWDHMS * oneYear;
-
-        var MonthsYWDHMS = Math.floor(timeWithoutY / oneMonth);
-        var timeWithoutM = timeWithoutY - MonthsYWDHMS * oneMonth;
-
-        var WeeksYMDHMS = Math.floor(timeWithoutM / oneWeek);
-        var timeWithoutW = timeWithoutM - WeeksYMDHMS * oneWeek;
-
-        var DaysYMWHMS = Math.floor(timeWithoutW / oneDay);
-        var timeWithoutD = timeWithoutW - DaysYMWHMS * oneDay;
-
-        var HoursYMWDMS = Math.floor(timeWithoutD / oneHour);
-        var timeWithoutH = timeWithoutD - HoursYMWDMS * oneHour;
-
-        var MinutesYMWDHS = Math.floor(timeWithoutH / oneMinute);
-        var timeWithoutM = timeWithoutH - MinutesYMWDHS * oneMinute;
-
-        var SecondsYMWDHM = Math.floor(timeWithoutM / oneSecond);
-
-        var weeksOnly = Math.floor(timeToCount / oneWeek);
-        var yearsOnly = Math.floor(timeToCount / oneYear);
-        var monthsOnly = Math.floor(timeToCount / oneMonth);
-
-        // Change the time value calculated in the previous step to a human-readable date/time string by
-        // initializing a new Date() object with it, and calling the object's toLocaleString() method.
-        if (endTimeMiliseconds < nowTimeMiliseconds) {
-          return 0;
-        }
-        switch (obj.pFormat) {
-          case 'D2S':
-            return daysToCount + ' ' + obj.cTxtDays + '   ' + hoursToCount + ' ' + obj.cTxtHours + ' ' + minutesToCount + ' ' + obj.cTxtMinutes + ' ' + secondsToCount + ' ' + obj.cTxtSeconds;
-            break;
-          case 'days':
-            return daysToCount + ' ' + obj.cTxtDays;
-            break;
-          case 'hours:minutes:seconds':
-            return onlyHMS_Hours + ' ' + obj.cTxtHours + ' ' + onlyHMS_Minutes + ' ' + obj.cTxtMinutes + ' ' + onlyHMS_Seconds;
-            break;
-          case 'hours:minutes':
-            return onlyHMS_Hours + ' ' + obj.cTxtHours + ' ' + onlyHMS_Minutes + ' ' + obj.cTxtMinutes + ' ';
-            break;
-          case 'minutes:seconds':
-            return onlyMS_Min + ' ' + obj.cTxtMinutes + ' ' + onlyMS_Sec;
-            break;
-          case 'seconds':
-            return onlySeconds + ' ' + obj.cTxtSeconds + ' ';
-            break;
-          case 'years':
-            return yearsOnly + ' ' + obj.cTxtYears;
-            break;
-          case 'months':
-            return monthsOnly + ' ' + obj.cTxtMonths;
-            break;
-          case 'weeks':
-            return weeksOnly + ' ' + obj.cTxtWeeks;
-            break;
-          case 'Y2S':
-            if (YearsMWDHMS == 0) {
-              if (MonthsYWDHMS == 0) {
-                if (WeeksYMDHMS == 0) {
-
-                  if (DaysYMWHMS == 0) {
-                    if (HoursYMWDMS == 0) {
-                      if (MinutesYMWDHS == 0) {
-                        return SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-                      };
-                      return MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-                    };
-                    return HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-                  };
-                  return DaysYMWHMS + ' ' + obj.cTxtDays + ' ' + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-                };
-                return WeeksYMDHMS + ' ' + obj.cTxtWeeks + ' ' + DaysYMWHMS + ' ' + obj.cTxtDays + ' ' + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-              };
-              return MonthsYWDHMS + ' ' + obj.cTxtMonths + ' ' + WeeksYMDHMS + ' ' + obj.cTxtWeeks + DaysYMWHMS + ' ' + obj.cTxtDays + ' ' + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-            };
-            return YearsMWDHMS + ' ' + obj.cTxtYears + ' ' + MonthsYWDHMS + ' ' + obj.cTxtMonths + ' ' + WeeksYMDHMS + ' ' + obj.cTxtWeeks + DaysYMWHMS + ' ' + obj.cTxtDays + ' ' + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-            break;
-
-          case 'D then H2S':
-            if (daysToCount == 0) {
-              if (hoursToCount == 0) {
-                if (minutesToCount == 0) {
-                  return secondsToCount + ' ' + obj.cTxtSeconds;
-                }
-                return minutesToCount + ' ' + obj.cTxtMinutes + ' ' + secondsToCount + ' ' + obj.cTxtSeconds;
-              }
-              return hoursToCount + ' ' + obj.cTxtHours + ' ' + minutesToCount + ' ' + obj.cTxtMinutes + ' ' + secondsToCount + ' ' + obj.cTxtSeconds;
-            }
-            return daysToCount + ' ' + obj.cTxtDays + ' ' + hoursToCount + ' ' + obj.cTxtHours + ' ' + minutesToCount + ' ' + obj.cTxtMinutes + ' ' + secondsToCount + ' ' + obj.cTxtSeconds;
-            break;
-
-          default:
-            if (YearsMWDHMS == 0) {
-              if (MonthsYWDHMS == 0) {
-                if (WeeksYMDHMS == 0) {
-                  if (DaysYMWHMS == 0) {
-                    if (HoursYMWDMS == 0) {
-                      if (MinutesYMWDHS == 0) {
-                        return SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-                      };
-                      return MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-                    };
-                    return HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-                  };
-                  return DaysYMWHMS + ' ' + obj.cTxtDays + ' ' + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-                };
-                return WeeksYMDHMS + ' ' + obj.cTxtWeeks + ' ' + DaysYMWHMS + ' ' + obj.cTxtDays + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-              };
-              return MonthsYWDHMS + ' ' + ' ' + obj.cTxtMonths + ' ' + WeeksYMDHMS + ' ' + obj.cTxtWeeks + ' ' + DaysYMWHMS + ' ' + obj.cTxtDays + ' ' + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-            };
-            return YearsMWDHMS + ' ' + ' ' + obj.cTxtYears + ' ' + MonthsYWDHMS + ' ' + obj.cTxtMonths + ' ' + WeeksYMDHMS + ' ' + obj.cTxtWeeks + ' ' + DaysYMWHMS + ' ' + obj.cTxtDays + HoursYMWDMS + ' ' + obj.cTxtHours + ' ' + MinutesYMWDHS + ' ' + obj.cTxtMinutes + ' ' + SecondsYMWDHM + ' ' + obj.cTxtSeconds;
-            break;
-        }
-        // return Math.round(Math.abs((timezoneDateSeconds - endDate.getTime()) / (oneDay)) + 1);
-        // diferenta dintre milisecundele din viitor (de la 1970) si milisecundele actuale
-        // (de la anul 1970) impartite la o zi(care este egala cu 24h* 60 min si 60 sec* 1000milisecunde)
+      function _class() {
+            _classCallCheck(this, _class);
       }
-      return "Pick an End Date";
-    }
-  }]);
 
-  return _class;
+      _createClass(_class, null, [{
+            key: 'mathFunc',
+            value: function mathFunc(obj) {
+                  // var tempTimeout = obj.timeout;
+                  // if (!tempTimeout[0]) {
+                  //   tempTimeout.push(setTimeout(() => {
+                  //      obj.tThis.setState({timeout: []});
+                  //   }, 1000));
+                  // }
+                  if (obj.endDate !== '') {
+                        var oneSecond = 1000;
+                        var oneMinute = 60 * oneSecond;
+                        var oneHour = 60 * oneMinute;
+                        var oneDay = 24 * oneHour; // hours*minutes*seconds*milliseconds
+                        var oneWeek = 7 * oneDay;
+                        var oneMonth = 4 * oneWeek;
+                        var oneYear = 12 * oneMonth;
+                        var endDate = new Date(obj.endDate);
+                        var localDate = new Date();
+                        var localTimeMiliseconds = localDate.getTime();
+
+                        //  localTimeSeconds secundele trecute din 1 jan 1970 pana la ora locala (asta face .getTime() de data locala
+                        // obtinuta cu newDate() )
+                        var localOffset = localDate.getTimezoneOffset() * oneMinute;
+                        var utc = localTimeMiliseconds + localOffset;
+                        var timezoneOffset = obj.pTimezoneOffset;
+                        var hourToMiliseconds = obj.endHour * oneHour;
+                        var minutesToMiliseconds = obj.endMinute * oneMinute;
+                        var date = new Date(obj.endDate);
+                        var endTimeMiliseconds = date.getTime() + hourToMiliseconds + minutesToMiliseconds;
+
+                        // timezoneDateSeconds  timezone-ul ales in secunde (se inmulteste cu 3600000
+                        // pentru ca 1000 millseconds = 1 second, and 1 hour = 3600  seconds)
+                        // Therefore, converting hours to milliseconds involves multiplying by 3600 * 1000 = 3600000.
+                        var nowTimeMiliseconds = utc + parseInt(timezoneOffset);
+
+                        var timeToCount = endTimeMiliseconds - nowTimeMiliseconds;
+
+                        var daysToCount = Math.floor(timeToCount / oneDay);
+
+                        var milisecLeftWithoutDays = timeToCount - daysToCount * oneDay;
+
+                        var hoursToCount = Math.floor(milisecLeftWithoutDays / oneHour);
+
+                        var milisecLeftWithoutHours = milisecLeftWithoutDays - hoursToCount * oneHour;
+
+                        var minutesToCount = Math.floor(milisecLeftWithoutHours / oneMinute);
+
+                        var milisecLeftWithoutMinutes = milisecLeftWithoutHours - minutesToCount * oneMinute;
+                        var secondsToCount = Math.floor(milisecLeftWithoutMinutes / 1000);
+
+                        var onlyHMS_Hours = Math.floor(timeToCount / oneHour);
+                        var onlyHMSNoHours = timeToCount - onlyHMS_Hours * oneHour;
+                        var onlyHMS_Minutes = Math.floor(onlyHMSNoHours / oneMinute);
+                        var onlyHMSNoHM = onlyHMSNoHours - onlyHMS_Minutes * oneMinute;
+                        var onlyHMS_Seconds = Math.floor(onlyHMSNoHM / oneSecond);
+
+                        var onlyMS_Min = Math.floor(timeToCount / oneMinute);
+                        var onlyMSNoMin = timeToCount - onlyMS_Min * oneMinute;
+                        var onlyMS_Sec = Math.floor(onlyMSNoMin / oneSecond);
+                        var onlySeconds = Math.floor(timeToCount / oneSecond);
+
+                        var YearsMWDHMS = Math.floor(timeToCount / oneYear);
+                        var timeWithoutY = timeToCount - YearsMWDHMS * oneYear;
+
+                        var MonthsYWDHMS = Math.floor(timeWithoutY / oneMonth);
+                        var timeWithoutM = timeWithoutY - MonthsYWDHMS * oneMonth;
+
+                        var WeeksYMDHMS = Math.floor(timeWithoutM / oneWeek);
+                        var timeWithoutW = timeWithoutM - WeeksYMDHMS * oneWeek;
+
+                        var DaysYMWHMS = Math.floor(timeWithoutW / oneDay);
+                        var timeWithoutD = timeWithoutW - DaysYMWHMS * oneDay;
+
+                        var HoursYMWDMS = Math.floor(timeWithoutD / oneHour);
+                        var timeWithoutH = timeWithoutD - HoursYMWDMS * oneHour;
+
+                        var MinutesYMWDHS = Math.floor(timeWithoutH / oneMinute);
+                        var timeWithoutM = timeWithoutH - MinutesYMWDHS * oneMinute;
+
+                        var SecondsYMWDHM = Math.floor(timeWithoutM / oneSecond);
+
+                        var weeksOnly = Math.floor(timeToCount / oneWeek);
+                        var yearsOnly = Math.floor(timeToCount / oneYear);
+                        var monthsOnly = Math.floor(timeToCount / oneMonth);
+                        var countDownAllValues = {};
+
+                        if (endTimeMiliseconds < nowTimeMiliseconds) {
+
+                              return false;
+                        } else {
+                              countDownAllValues = {
+                                    Y2SYears: YearsMWDHMS,
+                                    Y2SMonths: MonthsYWDHMS,
+                                    Y2SWeeks: WeeksYMDHMS,
+                                    Y2SDays: DaysYMWHMS,
+                                    Y2SHours: HoursYMWDMS,
+                                    Y2SMinutes: MinutesYMWDHS,
+                                    Y2SSeconds: SecondsYMWDHM,
+                                    Years: yearsOnly,
+                                    Months: monthsOnly,
+                                    Weeks: weeksOnly,
+                                    Days: daysToCount,
+                                    Hours: onlyHMS_Hours,
+                                    Minutes: onlyMS_Min,
+                                    Seconds: onlySeconds,
+                                    endDate: endTimeMiliseconds,
+                                    currentDate: nowTimeMiliseconds
+                              };
+                        };
+                  };
+            }
+      }]);
+
+      return _class;
 }();
 
 exports.default = _class;
