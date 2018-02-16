@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import mathCountDown from './mathCountDown';
 import {
-PlainString
-        } from '../TimerStyles/pack1';
+    PlainString
+} from '../TimerStyles/pack1';
 export class LivePreview extends React.Component {
     constructor(props) {
         super(props);
@@ -16,7 +16,7 @@ export class LivePreview extends React.Component {
         this.liveCountDown = this.liveCountDown.bind(this);
     }
     ;
-            liveCountDown() {
+    liveCountDown() {
         var tempTimeout = this.state.timeout;
         if (!tempTimeout[0]) {
             tempTimeout.push(setTimeout(() => {
@@ -45,7 +45,7 @@ export class LivePreview extends React.Component {
             fontSize: this.props.pFont + 'px',
             color: this.props.pColor,
             fontWeight: (
-                    this.props.pIsBold == true ?
+                this.props.pIsBold == true ?
                     'bold' :
                     'normal')
         };
@@ -85,10 +85,10 @@ export class LivePreview extends React.Component {
                 fontWeight: propertiesObj.fontWeight
             };
         }
-        return (<span style = {divStyle} > {
-                        mathCountDown.mathFunc(dataProps)
-            } </span>
-                );
+        return (<span style={divStyle} > {
+            mathCountDown.mathFunc(dataProps)
+        } </span>
+        );
     }
     dinamicComponent() {
         const components = {
@@ -106,7 +106,7 @@ export class LivePreview extends React.Component {
                 fontSize: this.props.pFont + 'px',
                 color: this.props.pColor,
                 fontWeight: (
-                        this.props.pIsBold == true ?
+                    this.props.pIsBold == true ?
                         'bold' :
                         'normal')
             }
@@ -114,7 +114,7 @@ export class LivePreview extends React.Component {
         const timerCustomTxt = {
             years: 'Years',
             months: 'Months',
-            weeks: 'Weeks',
+                             weeks: 'Weeks',
             days: 'Days',
             hours: 'Hours',
             minutes: 'Minutes',
@@ -123,7 +123,7 @@ export class LivePreview extends React.Component {
                 fontSize: this.props.pFont + 'px',
                 color: this.props.pColor,
                 fontWeight: (
-                        this.props.pIsBold == true ?
+                    this.props.pIsBold == true ?
                         'bold' :
                         'normal')
             }
@@ -132,6 +132,6 @@ export class LivePreview extends React.Component {
         return (<DynamicComponentName numbers={timerNumbers} cTxt={timerCustomTxt} />);
     }
     render() {
-        return (<div className = "containerPreview" > {this.dinamicComponent()} </div>);
+        return (<div className="containerPreview" > {this.dinamicComponent()} </div>);
     }
 }
