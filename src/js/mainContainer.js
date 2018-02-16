@@ -194,8 +194,13 @@ class MainContainer extends React.Component {
     }
     if (this.state.endDate == '') {
       returnAllData = (<div className="endDateShow">
-        <label htmlFor="datePicker">End Date</label>
-        <EndDate callbackChildProp={this.returnChildDate} pEndDate={this.state.endDate}/>
+        <div className="endDateShowSmallContainer">
+        <div>
+          <label htmlFor="datePicker">Select END Date</label>
+
+          <EndDate className="endDateDiv" callbackChildProp={this.returnChildDate} pEndDate={this.state.endDate}/>
+            </div>
+        </div>
       </div>);
     }
 
