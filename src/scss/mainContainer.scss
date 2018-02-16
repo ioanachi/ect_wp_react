@@ -33,6 +33,7 @@ html {
               width: 60%;
             }
           }
+          
         }
 
         .shortcode {
@@ -77,6 +78,11 @@ html {
 
         .containerPreview {
           display: inline-block;
+          div{
+            &.spanDiv{
+              display: inline-block;
+            }
+          }
         }
 
         .containerLabels {
