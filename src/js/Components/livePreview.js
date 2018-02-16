@@ -189,7 +189,7 @@ export class LivePreview extends React.Component {
             Hours: numberValues.Hours,
             Minutes: numberValues.Minutes,
             Seconds: numberValues.Seconds,
-            styles: {
+            Styles: {
                 fontSize: this.props.pFont + 'px',
                 color: this.props.pColor,
                 fontWeight: (
@@ -206,7 +206,7 @@ export class LivePreview extends React.Component {
             Hours: dataProps.cTxtHours,
             Minutes: dataProps.cTxtMinutes,
             Seconds: dataProps.cTxtSeconds,
-            styles: {
+            Styles: {
                 fontSize: this.props.pFont + 'px',
                 color: this.props.pColor,
                 fontWeight: (
