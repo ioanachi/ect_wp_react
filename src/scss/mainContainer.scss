@@ -1,6 +1,7 @@
 .ContainerMain {
   position: relative;
-  padding:30px;
+  padding: 30px;
+
   .componentContainer {
     label {
       font-size: 20px;
@@ -19,6 +20,7 @@
 
   .shortcode {
     margin: 10px;
+
     input {
       padding: 5px;
       width: 1100px;
@@ -35,16 +37,19 @@
   .tableStyles {
     height: 300px;
     width: 300px;
-
+    display: inline-grid;
 
     label {
       font-size: 20px;
       font-weight: bold;
     }
 
-    tr:nth-child(2n){
-        background-color: rgb(241, 241, 241);
+    tr {
+      display: table;
 
+      &:nth-child(2n) {
+        background-color: rgb(241, 241, 241);
+      }
     }
   }
 
@@ -66,20 +71,23 @@
   .hourAndMinutes {
     margin-left: 10px;
   }
-  .ectSortcode{
+
+  .ectSortcode {
     padding: 5px;
     width: 60%;
     display: none;
   }
-  button{
-    &.insertButton{
-      margin:20px 0;
+
+  button {
+    &.insertButton {
+      margin: 20px 0;
     }
-    &.ectClosePopupButton{
+
+    &.ectClosePopupButton {
       position: absolute;
-      top:0px;
-      right: 0px;
-      padding:5px;
+      top: 0;
+      right: 0;
+      padding: 5px;
       font-size: 18px;
     }
   }
