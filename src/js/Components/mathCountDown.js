@@ -6,7 +6,7 @@ export default class {
     //      obj.tThis.setState({timeout: []});
     //   }, 1000));
     // }
-    if (obj.pDate !== '') {
+    if (obj.endDate !== '') {
       var oneSecond = 1000;
       var oneMinute = 60 * oneSecond;
       var oneHour = 60 * oneMinute;
@@ -14,7 +14,7 @@ export default class {
       var oneWeek = 7 * oneDay;
       var oneMonth = 4 * oneWeek;
       var oneYear = 12 * oneMonth;
-      var endDate = new Date(obj.pDate);
+      var endDate = new Date(obj.endDate);
       const localDate = new Date();
       const localTimeMiliseconds = localDate.getTime();
 
@@ -23,9 +23,9 @@ export default class {
       var localOffset = (localDate.getTimezoneOffset()) * oneMinute;
       var utc = localTimeMiliseconds + localOffset;
       var timezoneOffset = obj.pTimezoneOffset;
-      let hourToMiliseconds = obj.pHourSelected * oneHour;
-      let minutesToMiliseconds = obj.pMinutesSelected * oneMinute;
-      let date = new Date(obj.pDate);
+      let hourToMiliseconds = obj.endHour * oneHour;
+      let minutesToMiliseconds = obj.endMinute * oneMinute;
+      let date = new Date(obj.endDate);
       var endTimeMiliseconds = date.getTime() + hourToMiliseconds + minutesToMiliseconds;
 
       // timezoneDateSeconds  timezone-ul ales in secunde (se inmulteste cu 3600000
@@ -85,6 +85,7 @@ export default class {
       var countDownAllValues = {};
 
       if (endTimeMiliseconds < nowTimeMiliseconds) {
+
         return false
       } else {
         countDownAllValues = {
@@ -108,3 +109,4 @@ export default class {
       };
     };
   }
+}
