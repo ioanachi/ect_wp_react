@@ -95136,7 +95136,7 @@ var PlainString = function (_React$Component) {
               continue;
             }
           }
-          var tempItem = _react2.default.createElement('div', { className: 'spanDiv' }, _react2.default.createElement('span', { style: this.props.numbers.Styles }, this.props.numbers[key]), ' ', _react2.default.createElement('span', { style: this.props.cTxt.Styles }, this.props.cTxt[key]), '\xA0');
+          var tempItem = _react2.default.createElement('div', { className: 'spanDiv' }, _react2.default.createElement('span', { style: this.props.numbers.Styles }, this.props.numbers[key]), ' ', _react2.default.createElement('span', { style: this.props.customTxt.Styles }, this.props.customTxt[key]), '\xA0');
           finalResult.push(tempItem);
         }
       }
