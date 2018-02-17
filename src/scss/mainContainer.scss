@@ -127,24 +127,23 @@ html {
                         display: block;
                         text-align: center;
                     }
-                    .react-datepicker__time-box {
-                      ul {
-                          padding: 0px;
-                      }
                     .datePickerStyle {
                         align-self: flex-end;
                         padding: 0px;
                         margin: 10px 0;
-                        
-                        }
-                        input {
-                            width: 190px;
-                            height: 30px;
-                            &::-webkit-input-placeholder {
-                                text-align: center;
-                            }
+                    }
+                    input {
+                        width: 190px;
+                        height: 30px;
+                        &::-webkit-input-placeholder {
+                            text-align: center;
                         }
                     }
+                }
+            }
+            .react-datepicker__time-box {
+                ul {
+                    padding: 0px;
                 }
             }
         }

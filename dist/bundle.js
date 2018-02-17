@@ -98568,7 +98568,7 @@ exports = module.exports = __webpack_require__(60)(undefined);
 
 
 // module
-exports.push([module.i, "html {\n  height: 100%;\n  width: 100%; }\n  html body {\n    height: 100%;\n    width: 100%; }\n    html body #ectPopupContent {\n      height: 100%;\n      width: 100%; }\n      html body #ectPopupContent .ContainerMain {\n        position: relative;\n        padding: 30px;\n        height: 100%;\n        width: 100%; }\n        html body #ectPopupContent .ContainerMain .componentContainer {\n          padding: 20px;\n          margin-bottom: 10px; }\n          html body #ectPopupContent .ContainerMain .componentContainer label {\n            font-size: 20px;\n            margin-right: 20px; }\n          html body #ectPopupContent .ContainerMain .componentContainer input.shortcode {\n            padding: 5px;\n            width: 60%; }\n        html body #ectPopupContent .ContainerMain .shortcode {\n          margin: 10px; }\n          html body #ectPopupContent .ContainerMain .shortcode input {\n            padding: 5px;\n            width: 1100px;\n            border: 1px solid #C3C49E; }\n        html body #ectPopupContent .ContainerMain .timezones select {\n          max-width: 250px; }\n        html body #ectPopupContent .ContainerMain .tableStyles {\n          height: 300px;\n          width: 300px; }\n          html body #ectPopupContent .ContainerMain .tableStyles label {\n            font-size: 20px;\n            font-weight: bold; }\n          html body #ectPopupContent .ContainerMain .tableStyles tr:nth-child(2n) {\n            background-color: #f1f1f1; }\n            html body #ectPopupContent .ContainerMain .tableStyles tr:nth-child(2n) td {\n              padding: 15px;\n              margin: 0px; }\n              html body #ectPopupContent .ContainerMain .tableStyles tr:nth-child(2n) td:before, html body #ectPopupContent .ContainerMain .tableStyles tr:nth-child(2n) td:after {\n                background-color: red;\n                margin: 0px;\n                padding: 0px;\n                border: 0px solid red; }\n        html body #ectPopupContent .ContainerMain .containerPreview {\n          display: inline-block; }\n          html body #ectPopupContent .ContainerMain .containerPreview div.spanDiv {\n            display: inline-block; }\n        html body #ectPopupContent .ContainerMain .containerLabels {\n          padding: 20px 0;\n          margin: 20px 0;\n          font-style: italic;\n          text-decoration: underline;\n          font-size: 20px;\n          font-weight: bold;\n          display: grid;\n          align-self: center; }\n        html body #ectPopupContent .ContainerMain .hourAndMinutes {\n          margin-left: 10px; }\n        html body #ectPopupContent .ContainerMain .ectSortcode {\n          padding: 5px;\n          width: 60%;\n          display: none; }\n        html body #ectPopupContent .ContainerMain button.insertButton {\n          margin: 20px 0; }\n        html body #ectPopupContent .ContainerMain button.ectClosePopupButton {\n          position: absolute;\n          top: 0;\n          right: 0;\n          padding: 5px;\n          font-size: 18px; }\n      html body #ectPopupContent .endDateShow {\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        height: 100%;\n        width: 100%; }\n        html body #ectPopupContent .endDateShow .endDateShowSmallContainer {\n          width: 300px;\n          height: 300px;\n          display: flex;\n          align-items: center;\n          justify-content: center;\n          align-items: flex-center;\n          -webkit-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          -moz-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          background: #f0f0f0; }\n          html body #ectPopupContent .endDateShow .endDateShowSmallContainer label {\n            align-self: flex-start;\n            padding: 10px;\n            font-size: 20px;\n            font-weight: bold;\n            display: block;\n            text-align: center; }\n          html body #ectPopupContent .endDateShow .endDateShowSmallContainer .react-datepicker__time-box ul {\n            padding: 0px; }\n          html body #ectPopupContent .endDateShow .endDateShowSmallContainer .react-datepicker__time-box .datePickerStyle {\n            align-self: flex-end;\n            padding: 0px;\n            margin: 10px 0; }\n          html body #ectPopupContent .endDateShow .endDateShowSmallContainer .react-datepicker__time-box input {\n            width: 190px;\n            height: 30px; }\n            html body #ectPopupContent .endDateShow .endDateShowSmallContainer .react-datepicker__time-box input::-webkit-input-placeholder {\n              text-align: center; }\n", ""]);
+exports.push([module.i, "html {\n  height: 100%;\n  width: 100%; }\n  html body {\n    height: 100%;\n    width: 100%; }\n    html body #ectPopupContent {\n      height: 100%;\n      width: 100%; }\n      html body #ectPopupContent .ContainerMain {\n        position: relative;\n        padding: 30px;\n        height: 100%;\n        width: 100%; }\n        html body #ectPopupContent .ContainerMain .componentContainer {\n          padding: 20px;\n          margin-bottom: 10px; }\n          html body #ectPopupContent .ContainerMain .componentContainer label {\n            font-size: 20px;\n            margin-right: 20px; }\n          html body #ectPopupContent .ContainerMain .componentContainer input.shortcode {\n            padding: 5px;\n            width: 60%; }\n        html body #ectPopupContent .ContainerMain .shortcode {\n          margin: 10px; }\n          html body #ectPopupContent .ContainerMain .shortcode input {\n            padding: 5px;\n            width: 1100px;\n            border: 1px solid #C3C49E; }\n        html body #ectPopupContent .ContainerMain .timezones select {\n          max-width: 250px; }\n        html body #ectPopupContent .ContainerMain .tableStyles {\n          height: 300px;\n          width: 300px; }\n          html body #ectPopupContent .ContainerMain .tableStyles label {\n            font-size: 20px;\n            font-weight: bold; }\n          html body #ectPopupContent .ContainerMain .tableStyles tr:nth-child(2n) {\n            background-color: #f1f1f1; }\n            html body #ectPopupContent .ContainerMain .tableStyles tr:nth-child(2n) td {\n              padding: 15px;\n              margin: 0px; }\n              html body #ectPopupContent .ContainerMain .tableStyles tr:nth-child(2n) td:before, html body #ectPopupContent .ContainerMain .tableStyles tr:nth-child(2n) td:after {\n                background-color: red;\n                margin: 0px;\n                padding: 0px;\n                border: 0px solid red; }\n        html body #ectPopupContent .ContainerMain .containerPreview {\n          display: inline-block; }\n          html body #ectPopupContent .ContainerMain .containerPreview div.spanDiv {\n            display: inline-block; }\n        html body #ectPopupContent .ContainerMain .containerLabels {\n          padding: 20px 0;\n          margin: 20px 0;\n          font-style: italic;\n          text-decoration: underline;\n          font-size: 20px;\n          font-weight: bold;\n          display: grid;\n          align-self: center; }\n        html body #ectPopupContent .ContainerMain .hourAndMinutes {\n          margin-left: 10px; }\n        html body #ectPopupContent .ContainerMain .ectSortcode {\n          padding: 5px;\n          width: 60%;\n          display: none; }\n        html body #ectPopupContent .ContainerMain button.insertButton {\n          margin: 20px 0; }\n        html body #ectPopupContent .ContainerMain button.ectClosePopupButton {\n          position: absolute;\n          top: 0;\n          right: 0;\n          padding: 5px;\n          font-size: 18px; }\n      html body #ectPopupContent .endDateShow {\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        height: 100%;\n        width: 100%; }\n        html body #ectPopupContent .endDateShow .endDateShowSmallContainer {\n          width: 300px;\n          height: 300px;\n          display: flex;\n          align-items: center;\n          justify-content: center;\n          align-items: flex-center;\n          -webkit-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          -moz-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          background: #f0f0f0; }\n          html body #ectPopupContent .endDateShow .endDateShowSmallContainer label {\n            align-self: flex-start;\n            padding: 10px;\n            font-size: 20px;\n            font-weight: bold;\n            display: block;\n            text-align: center; }\n          html body #ectPopupContent .endDateShow .endDateShowSmallContainer .datePickerStyle {\n            align-self: flex-end;\n            padding: 0px;\n            margin: 10px 0; }\n          html body #ectPopupContent .endDateShow .endDateShowSmallContainer input {\n            width: 190px;\n            height: 30px; }\n            html body #ectPopupContent .endDateShow .endDateShowSmallContainer input::-webkit-input-placeholder {\n              text-align: center; }\n      html body #ectPopupContent .react-datepicker__time-box ul {\n        padding: 0px; }\n", ""]);
 
 // exports
 
@@ -98627,8 +98627,6 @@ var _timezonePicker = __webpack_require__(792);
 
 var _livePreview = __webpack_require__(794);
 
-var _endTime = __webpack_require__(798);
-
 var _timeFormat = __webpack_require__(799);
 
 var _reactTabs = __webpack_require__(373);
@@ -98642,6 +98640,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import { EndTime } from './Components/endTime.js';
+
 
 var MainContainer = function (_React$Component) {
     _inherits(MainContainer, _React$Component);
@@ -98663,7 +98663,7 @@ var MainContainer = function (_React$Component) {
         _this.returnChildColor = _this.returnChildColor.bind(_this);
         _this.isBold = _this.isBold.bind(_this);
         _this.returnTimezone = _this.returnTimezone.bind(_this);
-        _this.returnChildTime = _this.returnChildTime.bind(_this);
+        // this.returnChildTime = this.returnChildTime.bind(this);
         _this.returnFormat = _this.returnFormat.bind(_this);
         _this.returnTextFormat = _this.returnTextFormat.bind(_this);
         return _this;
@@ -98686,8 +98686,15 @@ var MainContainer = function (_React$Component) {
         }
     }, {
         key: 'returnChildDate',
-        value: function returnChildDate(childVal) {
-            this.setState({ endDate: childVal });
+        value: function returnChildDate(endDateChild, endHourChild, endMinuteChild) {
+
+            this.setState({
+                endDate: endDateChild,
+                endHour: endHourChild,
+                endMinute: endMinuteChild
+            });
+            this.state.monthsFormat = '';
+            console.log(this.state.endDate, this.state.endHour, this.state.endMinute, "undefined?");
         }
     }, {
         key: 'returnChildColor',
@@ -98699,12 +98706,11 @@ var MainContainer = function (_React$Component) {
         value: function returnTimezone(timezoneChosen, utcTz) {
             this.setState({ timezoneOffset: timezoneChosen, utcTz: utcTz });
         }
-    }, {
-        key: 'returnChildTime',
-        value: function returnChildTime(endHour, endMinute) {
-            this.setState({ endHour: endHour });
-            this.setState({ endMinute: endMinute });
-        }
+        // returnChildTime(endHour, endMinute) {
+        //     this.setState({ endHour: endHour });
+        //     this.setState({ endMinute: endMinute });
+        // }
+
     }, {
         key: 'returnFormat',
         value: function returnFormat(formatType) {
@@ -98732,7 +98738,7 @@ var MainContainer = function (_React$Component) {
                 parentID: this.props.parentID, pName: this.state.naMeP, endDate: this.state.endDate, pFont: this.state.fontSizeP, pColor: this.state.pColor, pIsBold: this.state.pIsBold, pTimezoneOffset: this.state.timezoneOffset, endHour: this.state.endHour, endMinute: this.state.endMinute, pFormat: this.state.timeFormat });
 
             // the rest of the data
-            var configurationComponentsJSX = _react2.default.createElement('div', { key: 'configurationComponentsJSX' }, _react2.default.createElement('label', { htmlFor: 'tableStyles', className: 'containerLabels' }, 'Configuration'), _react2.default.createElement(_reactTabs.Tabs, null, _react2.default.createElement(_reactTabs.TabList, null, _react2.default.createElement(_reactTabs.Tab, null, 'General'), _react2.default.createElement(_reactTabs.Tab, null, 'Styles'), _react2.default.createElement(_reactTabs.Tab, null, 'Custom Text')), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_endDate.EndDate, { callbackChildProp: this.returnChildDate, pEndDate: this.state.endDate }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Time')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_endTime.EndTime, { TimeEnd: this.returnChildTime, pEndHour: this.state.endHour, pEndMinute: this.state.endMinute }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { pTimezoneOffset: this.state.timezoneOffset, callbackChildPropT: this.returnTimezone }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Time Format')), _react2.default.createElement('td', null, _react2.default.createElement(_timeFormat.TimeFormat, { pTimeFormat: this.state.timeFormat, callBackSelectFormat: this.returnFormat })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit, nameValue: this.state.naMeP }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor, pColor: this.state.pColor }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Numbers Font Size')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_fontSize.NumbersFontSize, { pFont: this.state.fontSizeP, aaa: this.onFontSubmit }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Select to make text Bold')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold, pIsBold: this.state.pIsBold })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement(_customText.CustomText, { pYears: this.state.yearsFormat, pMonths: this.state.monthsFormat, pWeeks: this.state.weeksFormat, pDays: this.state.daysFormat, pHoursFormat: this.state.hoursFormat, pMinutesFormat: this.state.minutesFormat, pSecondsFormat: this.state.secondsFormat, callbackChildPropFormatText: this.returnTextFormat }))), _react2.default.createElement(_ectShortcode.EctShortcode, { pYears: this.state.yearsFormat, pMonths: this.state.monthsFormat, pWeeks: this.state.weeksFormat, pDays: this.state.daysFormat,
+            var configurationComponentsJSX = _react2.default.createElement('div', { key: 'configurationComponentsJSX' }, _react2.default.createElement('label', { htmlFor: 'tableStyles', className: 'containerLabels' }, 'Configuration'), _react2.default.createElement(_reactTabs.Tabs, null, _react2.default.createElement(_reactTabs.TabList, null, _react2.default.createElement(_reactTabs.Tab, null, 'General'), _react2.default.createElement(_reactTabs.Tab, null, 'Styles'), _react2.default.createElement(_reactTabs.Tab, null, 'Custom Text')), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_endDate.EndDate, { callbackChildProp: this.returnChildDate, pEndDate: this.state.endDate }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { pTimezoneOffset: this.state.timezoneOffset, callbackChildPropT: this.returnTimezone }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Time Format')), _react2.default.createElement('td', null, _react2.default.createElement(_timeFormat.TimeFormat, { pTimeFormat: this.state.timeFormat, callBackSelectFormat: this.returnFormat })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit, nameValue: this.state.naMeP }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor, pColor: this.state.pColor }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Numbers Font Size')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_fontSize.NumbersFontSize, { pFont: this.state.fontSizeP, aaa: this.onFontSubmit }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Select to make text Bold')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold, pIsBold: this.state.pIsBold })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement(_customText.CustomText, { pYears: this.state.yearsFormat, pMonths: this.state.monthsFormat, pWeeks: this.state.weeksFormat, pDays: this.state.daysFormat, pHoursFormat: this.state.hoursFormat, pMinutesFormat: this.state.minutesFormat, pSecondsFormat: this.state.secondsFormat, callbackChildPropFormatText: this.returnTextFormat }))), _react2.default.createElement(_ectShortcode.EctShortcode, { pYears: this.state.yearsFormat, pMonths: this.state.monthsFormat, pWeeks: this.state.weeksFormat, pDays: this.state.daysFormat,
                 pHoursFormat: this.state.hoursFormat, pMinutesFormat: this.state.minutesFormat, pSecondsFormat: this.state.secondsFormat, pName: this.state.naMeP,
                 pTimeFormat: this.state.timeFormat, endDate: this.state.endDate, pFont: this.state.fontSizeP, pColor: this.state.pColor, chooseBold: this.state.pIsBold,
                 pUtcTz: this.state.utcTz, pTimezoneOffset: this.state.timezoneOffset, pEndHour: this.state.endHour, pEndMinute: this.state.endMinute,
@@ -99627,9 +99633,15 @@ var EndDate = exports.EndDate = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (EndDate.__proto__ || Object.getPrototypeOf(EndDate)).call(this, props));
 
-    _this.state = { startDate: (0, _moment2.default)() };
+    _this.state = {
+      startDate: (0, _moment2.default)(),
+      endDate: (0, _moment2.default)().date(),
+      endHour: (0, _moment2.default)().hour(),
+      endMinutes: (0, _moment2.default)().minutes()
+    };
 
     _this.handleChange = _this.handleChange.bind(_this);
+    _this.selectMinTime = _this.selectMinTime.bind(_this);
     return _this;
   }
 
@@ -99637,8 +99649,22 @@ var EndDate = exports.EndDate = function (_React$Component) {
     key: 'handleChange',
     value: function handleChange(date) {
       this.setState({
-        startDate: date
+        startDate: date,
+        endDate: date.date(),
+        endHour: date.hour(),
+        endMinutes: date.minutes()
       });
+      // console.log(this.state.endDate, this.state.endHour, this.state.endMinutes, "yep")
+      var SubmitToParent = this.props.callbackChildProp;
+      SubmitToParent(this.state.endDate, this.state.endHour, this.state.endMinutes);
+    }
+  }, {
+    key: 'selectMinTime',
+    value: function selectMinTime(data) {
+      if (data == (0, _moment2.default)().date()) {
+        return (0, _moment2.default)().hours((0, _moment2.default)().hour()).minutes((0, _moment2.default)().minutes());
+      }
+      return (0, _moment2.default)().hours(0).minutes(0);
     }
   }, {
     key: 'render',
@@ -99650,7 +99676,7 @@ var EndDate = exports.EndDate = function (_React$Component) {
         selected: this.state.startDate,
         onChange: this.handleChange,
         showTimeSelect: true
-      }, _defineProperty(_React$createElement, 'dateFormat', 'LLL'), _defineProperty(_React$createElement, 'className', 'datePickerStyle'), _defineProperty(_React$createElement, 'timeCaption', 'time'), _defineProperty(_React$createElement, 'timeIntervals', 15), _defineProperty(_React$createElement, 'timeFormat', 'HH:mm'), _defineProperty(_React$createElement, 'minTime', (0, _moment2.default)().hours((0, _moment2.default)().hour()).minutes((0, _moment2.default)().minutes())), _defineProperty(_React$createElement, 'maxTime', (0, _moment2.default)().hours(23).minutes(59)), _defineProperty(_React$createElement, 'minDate', (0, _moment2.default)()), _defineProperty(_React$createElement, 'maxDate', (0, _moment2.default)().add(1000, "years")), _defineProperty(_React$createElement, 'readonly', true), _React$createElement)));
+      }, _defineProperty(_React$createElement, 'dateFormat', 'LLL'), _defineProperty(_React$createElement, 'className', 'datePickerStyle'), _defineProperty(_React$createElement, 'timeCaption', 'time'), _defineProperty(_React$createElement, 'timeIntervals', 15), _defineProperty(_React$createElement, 'timeFormat', 'HH:mm'), _defineProperty(_React$createElement, 'minTime', this.selectMinTime(this.state.endDate)), _defineProperty(_React$createElement, 'maxTime', (0, _moment2.default)().hours(23).minutes(59)), _defineProperty(_React$createElement, 'minDate', (0, _moment2.default)()), _defineProperty(_React$createElement, 'maxDate', (0, _moment2.default)().add(1000, "years")), _defineProperty(_React$createElement, 'readonly', true), _React$createElement)));
     }
   }]);
 
@@ -101326,102 +101352,7 @@ var PlainString = function (_React$Component) {
 exports.default = PlainString;
 
 /***/ }),
-/* 798 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.EndTime = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var EndTime = exports.EndTime = function (_React$Component) {
-  _inherits(EndTime, _React$Component);
-
-  function EndTime(props) {
-    _classCallCheck(this, EndTime);
-
-    var _this = _possibleConstructorReturn(this, (EndTime.__proto__ || Object.getPrototypeOf(EndTime)).call(this, props));
-
-    _this.state = {
-      endHour: _this.props.pEndHour,
-      endMinute: _this.props.pEndMinute
-    };
-
-    _this.chooseHours = _this.chooseHours.bind(_this);
-    _this.chooseMinutes = _this.chooseMinutes.bind(_this);
-    return _this;
-  }
-
-  _createClass(EndTime, [{
-    key: 'setHour',
-    value: function setHour() {
-      var optionsJsx = [];
-      for (var i = 0; i <= 24; i++) {
-        if (i < 10) {
-          optionsJsx.push(_react2.default.createElement('option', { key: i, value: i }, '0' + i));
-        } else {
-          optionsJsx.push(_react2.default.createElement('option', { key: i, value: i }, i));
-        }
-      }
-      return optionsJsx;
-    }
-  }, {
-    key: 'setMinutes',
-    value: function setMinutes() {
-      var optionsSeconds = [];
-      for (var y = 0; y <= 60; y++) {
-        if (y < 10) {
-          optionsSeconds.push(_react2.default.createElement('option', { key: y, value: y }, '0' + y));
-        } else {
-          optionsSeconds.push(_react2.default.createElement('option', { key: y, value: y }, y));
-        }
-      }
-      return optionsSeconds;
-    }
-  }, {
-    key: 'chooseHours',
-    value: function chooseHours(evt) {
-      var InputValue = evt.target.value;
-      var Submitx = this.props.TimeEnd;
-      this.setState({ endHour: InputValue });
-      Submitx(InputValue, this.state.endMinute);
-    }
-  }, {
-    key: 'chooseMinutes',
-    value: function chooseMinutes(evt) {
-      var InputValue = evt.target.value;
-      this.setState({ endMinute: InputValue });
-      var Submitx = this.props.TimeEnd;
-      Submitx(this.state.endHour, InputValue);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement('div', null, 'Hours:  ', _react2.default.createElement('select', { value: this.state.endHour, onChange: this.chooseHours }, this.setHour()), 'Minutes:  ', _react2.default.createElement('select', { value: this.state.endMinute, onChange: this.chooseMinutes }, this.setMinutes()));
-    }
-  }]);
-
-  return EndTime;
-}(_react2.default.Component);
-
-/***/ }),
+/* 798 */,
 /* 799 */
 /***/ (function(module, exports, __webpack_require__) {
 

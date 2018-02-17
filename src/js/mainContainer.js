@@ -12,7 +12,7 @@ import PickColor from './Components/colorReactPicker.js';
 import { Bold } from './Components/bold.js';
 import { Timezones } from './Components/timezonePicker.js';
 import { LivePreview } from './Components/livePreview.js';
-import { EndTime } from './Components/endTime.js';
+// import { EndTime } from './Components/endTime.js';
 import { TimeFormat } from './Components/timeFormat.js';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
@@ -46,7 +46,7 @@ class MainContainer extends React.Component {
         this.returnChildColor = this.returnChildColor.bind(this);
         this.isBold = this.isBold.bind(this);
         this.returnTimezone = this.returnTimezone.bind(this);
-        this.returnChildTime = this.returnChildTime.bind(this);
+        // this.returnChildTime = this.returnChildTime.bind(this);
         this.returnFormat = this.returnFormat.bind(this);
         this.returnTextFormat = this.returnTextFormat.bind(this);
 
@@ -63,8 +63,15 @@ class MainContainer extends React.Component {
     onNameSubmit(childVal) {
         this.setState({ naMeP: childVal });
     }
-    returnChildDate(childVal) {
-        this.setState({ endDate: childVal });
+    returnChildDate(endDateChild, endHourChild, endMinuteChild) {
+        
+        this.setState({ 
+            endDate: endDateChild,
+            endHour:endHourChild,
+            endMinute:endMinuteChild
+        });
+        this.state.monthsFormat='';
+        console.log(this.state.endDate, this.state.endHour, this.state.endMinute, "undefined?")
     }
     returnChildColor(childVal) {
         this.setState({ pColor: childVal })
@@ -72,10 +79,10 @@ class MainContainer extends React.Component {
     returnTimezone(timezoneChosen, utcTz) {
         this.setState({ timezoneOffset: timezoneChosen, utcTz: utcTz });
     }
-    returnChildTime(endHour, endMinute) {
-        this.setState({ endHour: endHour });
-        this.setState({ endMinute: endMinute });
-    }
+    // returnChildTime(endHour, endMinute) {
+    //     this.setState({ endHour: endHour });
+    //     this.setState({ endMinute: endMinute });
+    // }
     returnFormat(formatType) {
         this.setState({ timeFormat: formatType });
     }
@@ -120,14 +127,14 @@ class MainContainer extends React.Component {
                                 <td className="componentContainer"><EndDate callbackChildProp={this.returnChildDate} pEndDate={this.state.endDate} />
                                 </td>
                             </tr>
-                            <tr>
+                            {/* <tr>
 
                                 <td className="componentContainer">
                                     <label htmlFor="datePicker">End Time</label>
                                 </td>
                                 <td className="componentContainer"><EndTime TimeEnd={this.returnChildTime} pEndHour={this.state.endHour} pEndMinute={this.state.endMinute} />
                                 </td>
-                            </tr>
+                            </tr> */}
                             <tr>
                                 <td className="componentContainer">
                                     <label>Timezone</label>

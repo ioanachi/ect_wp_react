@@ -9,17 +9,37 @@ import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 export class EndDate extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { startDate: moment() };
+    this.state = {
+      startDate: moment(),
+      endDate: moment().date(),
+      endHour: moment().hour(),
+      endMinutes: moment().minutes()
+    };
 
     this.handleChange = this.handleChange.bind(this);
-
+    this.selectMinTime = this.selectMinTime.bind(this);
   }
   handleChange(date) {
     this.setState({
-      startDate: date
+      startDate: date,
+      endDate: date.date(),
+      endHour: date.hour(),
+      endMinutes: date.minutes()
     });
+// console.log(this.state.endDate, this.state.endHour, this.state.endMinutes, "yep")
+const SubmitToParent =  this.props.callbackChildProp;
+SubmitToParent(this.state.endDate, this.state.endHour, this.state.endMinutes)
   };
 
+
+  selectMinTime(data){
+if(data==moment().date()){
+  return moment().hours(moment().hour()).minutes(moment().minutes())
+}
+return moment().hours(0).minutes(0)
+   
+
+  }
   render() {
     return (
       <div>
@@ -28,16 +48,15 @@ export class EndDate extends React.Component {
           selected={this.state.startDate}
           onChange={this.handleChange}
           showTimeSelect
-          dateFormat="LLL" className="datePickerStyle"
+          dateFormat="LLL"
+          className="datePickerStyle"
           timeCaption="time"
           timeIntervals={15}
-          timeFormat="HH:mm" 
-          minTime={moment().hours(moment().hour()).minutes(moment().minutes())}
+          timeFormat="HH:mm"
+          minTime={this.selectMinTime(this.state.endDate)}
           maxTime={moment().hours(23).minutes(59)}
           minDate={moment()}
-          maxDate={moment().add(1000, "years")}readonly/>
-         
-
+          maxDate={moment().add(1000, "years")} readonly />
       </div>
     );
   }
