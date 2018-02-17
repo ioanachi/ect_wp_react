@@ -20,24 +20,33 @@ export class EndDate extends React.Component {
     this.selectMinTime = this.selectMinTime.bind(this);
   }
   handleChange(date) {
+    
+
+
+var newDate = date.year()+'/'+(date.month()+1)+'/'+date.date();
+console.log(newDate);
+var newHour = date.hour();
+var newMinute = date.minute();
+
+
     this.setState({
       startDate: date,
-      endDate: date.date(),
-      endHour: date.hour(),
-      endMinutes: date.minutes()
+      endDate: newDate,
+      endHour: newHour,
+      endMinutes: newMinute
     });
-// console.log(this.state.endDate, this.state.endHour, this.state.endMinutes, "yep")
-const SubmitToParent =  this.props.callbackChildProp;
-SubmitToParent(this.state.endDate, this.state.endHour, this.state.endMinutes)
+    
+    const SubmitToParent = this.props.callbackChildProp;
+    SubmitToParent(newDate, newHour, newMinute)
   };
 
 
-  selectMinTime(data){
-if(data==moment().date()){
-  return moment().hours(moment().hour()).minutes(moment().minutes())
-}
-return moment().hours(0).minutes(0)
-   
+  selectMinTime(data) {
+    if (data == moment().date()) {
+      return moment().hours(moment().hour()).minutes(moment().minutes())
+    }
+    return moment().hours(0).minutes(0)
+
 
   }
   render() {
