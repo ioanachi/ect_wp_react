@@ -1,8 +1,12 @@
 html {
   height: 100%;
   width: 100%;
+  margin:0px;
+  padding:0px;
 
   body {
+      margin:0px;
+  padding:0px;
     height: 100%;
     width: 100%;
 
@@ -12,12 +16,9 @@ html {
 
       .ContainerMain {
         position: relative;
-        padding: 30px;
-        // display: flex;
-        // justify-content: center;
-        // align-items: center;
-        height: 100%;
-        width: 100%;
+        margin: 0 2%;
+    height: 100%;
+    width: 98%;
 
         .componentContainer {
           label {
