@@ -94771,13 +94771,13 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                 pTimezoneOffset: this.props.pTimezoneOffset,
                 endHour: this.props.endHour,
                 endMinute: this.props.endMinute,
-                cTxtYears: this.props.pYears,
-                cTxtMonths: this.props.pMonths,
-                cTxtWeeks: this.props.pWeeks,
-                cTxtDays: this.props.pDays,
-                cTxtHours: this.props.pHoursFormat,
-                cTxtMinutes: this.props.pMinutesFormat,
-                cTxtSeconds: this.props.pSecondsFormat,
+                customTxtYears: this.props.pYears,
+                customTxtMonths: this.props.pMonths,
+                customTxtWeeks: this.props.pWeeks,
+                customTxtDays: this.props.pDays,
+                customTxtHours: this.props.pHoursFormat,
+                customTxtMinutes: this.props.pMinutesFormat,
+                customTxtSeconds: this.props.pSecondsFormat,
                 pFormat: this.props.pFormat
             };
             var divStyle = {
@@ -94807,13 +94807,13 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                     fontSize: propertiesObj.fontSize,
                     color: propertiesObj.color,
                     fontWeight: propertiesObj.fontWeight,
-                    cTxtYears: propertiesObj.cTxtYears,
-                    cTxtMonths: propertiesObj.cTxtMonths,
-                    cTxtWeeks: propertiesObj.cTxtWeeks,
-                    cTxtDays: propertiesObj.cTxtDays,
-                    cTxtHours: propertiesObj.cTxtHours,
-                    cTxtMinutes: propertiesObj.cTxtMinutes,
-                    cTxtSeconds: propertiesObj.cTxtSeconds
+                    customTxtYears: propertiesObj.customTxtYears,
+                    customTxtMonths: propertiesObj.customTxtMonths,
+                    customTxtWeeks: propertiesObj.customTxtWeeks,
+                    customTxtDays: propertiesObj.customTxtDays,
+                    customTxtHours: propertiesObj.customTxtHours,
+                    customTxtMinutes: propertiesObj.customTxtMinutes,
+                    customTxtSeconds: propertiesObj.customTxtSeconds
                 };
                 divStyle = {
                     fontSize: propertiesObj.fontSize,
@@ -94851,13 +94851,13 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                 pTimezoneOffset: this.props.pTimezoneOffset,
                 endHour: this.props.endHour,
                 endMinute: this.props.endMinute,
-                cTxtYears: this.props.pYears,
-                cTxtMonths: this.props.pMonths,
-                cTxtWeeks: this.props.pWeeks,
-                cTxtDays: this.props.pDays,
-                cTxtHours: this.props.pHoursFormat,
-                cTxtMinutes: this.props.pMinutesFormat,
-                cTxtSeconds: this.props.pSecondsFormat,
+                customTxtYears: this.props.pYears,
+                customTxtMonths: this.props.pMonths,
+                customTxtWeeks: this.props.pWeeks,
+                customTxtDays: this.props.pDays,
+                customTxtHours: this.props.pHoursFormat,
+                customTxtMinutes: this.props.pMinutesFormat,
+                customTxtSeconds: this.props.pSecondsFormat,
                 pFormat: this.props.pFormat
             };
             var divStyle = {
@@ -94887,13 +94887,13 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                     fontSize: propertiesObj.fontSize,
                     color: propertiesObj.color,
                     fontWeight: propertiesObj.fontWeight,
-                    cTxtYears: propertiesObj.cTxtYears,
-                    cTxtMonths: propertiesObj.cTxtMonths,
-                    cTxtWeeks: propertiesObj.cTxtWeeks,
-                    cTxtDays: propertiesObj.cTxtDays,
-                    cTxtHours: propertiesObj.cTxtHours,
-                    cTxtMinutes: propertiesObj.cTxtMinutes,
-                    cTxtSeconds: propertiesObj.cTxtSeconds
+                    customTxtYears: propertiesObj.customTxtYears,
+                    customTxtMonths: propertiesObj.customTxtMonths,
+                    customTxtWeeks: propertiesObj.customTxtWeeks,
+                    customTxtDays: propertiesObj.customTxtDays,
+                    customTxtHours: propertiesObj.customTxtHours,
+                    customTxtMinutes: propertiesObj.customTxtMinutes,
+                    customTxtSeconds: propertiesObj.customTxtSeconds
                 };
                 divStyle = {
                     fontSize: dataProps.fontSize,
@@ -94930,22 +94930,21 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                 }
             };
             var timerCustomTxt = {
-                Years: dataProps.cTxtYears,
-                Months: dataProps.cTxtMonths,
-                Weeks: dataProps.cTxtWeeks,
-                Days: dataProps.cTxtDays,
-                Hours: dataProps.cTxtHours,
-                Minutes: dataProps.cTxtMinutes,
-                Seconds: dataProps.cTxtSeconds,
+                Years: dataProps.customTxtYears,
+                Months: dataProps.customTxtMonths,
+                Weeks: dataProps.customTxtWeeks,
+                Days: dataProps.customTxtDays,
+                Hours: dataProps.customTxtHours,
+                Minutes: dataProps.customTxtMinutes,
+                Seconds: dataProps.customTxtSeconds,
                 Styles: {
                     fontSize: this.props.pFont + 'px',
                     color: this.props.pColor,
                     fontWeight: this.props.pIsBold == true ? 'bold' : 'normal'
                 }
             };
-            console.log(timerNumbers);
             var DynamicComponentName = components[this.state.timerStyle];
-            return _react2.default.createElement(DynamicComponentName, { numbers: timerNumbers, cTxt: timerCustomTxt });
+            return _react2.default.createElement(DynamicComponentName, { numbers: timerNumbers, customTxt: timerCustomTxt });
         }
     }, {
         key: 'render',
@@ -95156,7 +95155,7 @@ var PlainString = function (_React$Component) {
               continue;
             }
           }
-          var tempItem = _react2.default.createElement('div', { className: 'spanDiv' }, _react2.default.createElement('span', { style: this.props.numbers.Styles }, this.props.numbers[key]), ' ', _react2.default.createElement('span', { style: this.props.cTxt.Styles }, this.props.cTxt[key]), '\xA0');
+          var tempItem = _react2.default.createElement('div', { className: 'spanDiv' }, _react2.default.createElement('span', { style: this.props.numbers.Styles }, this.props.numbers[key]), ' ', _react2.default.createElement('span', { style: this.props.customTxt.Styles }, this.props.customTxt[key]), '\xA0');
           finalResult.push(tempItem);
         }
       }
