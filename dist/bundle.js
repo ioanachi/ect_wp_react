@@ -94924,7 +94924,6 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                     fontWeight: this.props.pIsBold == true ? 'bold' : 'normal'
                 }
             };
-            console.log(timerNumbers);
             var DynamicComponentName = components[this.state.timerStyle];
             return _react2.default.createElement(DynamicComponentName, { numbers: timerNumbers, cTxt: timerCustomTxt });
         }

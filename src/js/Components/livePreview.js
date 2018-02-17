@@ -215,7 +215,6 @@ export class LivePreview extends React.Component {
                         'normal')
             }
         }
-        console.log(timerNumbers);
         const DynamicComponentName = components[this.state.timerStyle];
         return (<DynamicComponentName numbers={timerNumbers} cTxt={timerCustomTxt} />);
     }
