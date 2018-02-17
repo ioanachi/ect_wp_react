@@ -14,14 +14,16 @@ import { Timezones } from './Components/timezonePicker.js';
 import { LivePreview } from './Components/livePreview.js';
 import { TimeFormat } from './Components/timeFormat.js';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import moment from 'moment';
+
 
 class MainContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            endDate: '',
+            endDate: moment(),
             isDisabled: false,
-            endDate: '',
+            endDate: moment(),
             naMeP: '',
             fontSizeP: 42,
             pColor: '#000',
@@ -38,7 +40,8 @@ class MainContainer extends React.Component {
             hoursFormat: 'Hours',
             minutesFormat: 'Minutes',
             secondsFormat: 'Seconds',
-            customTxtEndedTxt: 'Timer Ended'
+            customTxtEndedTxt: 'Timer Ended',
+            firstView: true
         };
         this.onFontSubmit = this.onFontSubmit.bind(this);
         this.returnChildDate = this.returnChildDate.bind(this);
@@ -46,7 +49,6 @@ class MainContainer extends React.Component {
         this.returnChildColor = this.returnChildColor.bind(this);
         this.isBold = this.isBold.bind(this);
         this.returnTimezone = this.returnTimezone.bind(this);
-        // this.returnChildTime = this.returnChildTime.bind(this);
         this.returnFormat = this.returnFormat.bind(this);
         this.returnTextFormat = this.returnTextFormat.bind(this);
 
@@ -63,15 +65,17 @@ class MainContainer extends React.Component {
     onNameSubmit(childVal) {
         this.setState({ naMeP: childVal });
     }
-    returnChildDate(endDateChild, endHourChild, endMinuteChild) {
+    returnChildDate(endDateChild, endHourChild, endMinuteChild,firstView) {
+        
+        console.log(endDateChild,endHourChild,endMinuteChild,firstView,'tre sa fie true');
         
         this.setState({ 
-            endDate: endDateChild,
+            endDate: moment(endDateChild),
             endHour:endHourChild,
-            endMinute:endMinuteChild
+            endMinute:endMinuteChild,
+            firstView:firstView
         });
-        this.state.monthsFormat='';
-        console.log(this.state.endDate, this.state.endHour, this.state.endMinute, "undefined?")
+        this.state.firstView = firstView;
     }
     returnChildColor(childVal) {
         this.setState({ pColor: childVal })
@@ -121,7 +125,8 @@ class MainContainer extends React.Component {
                                 <td className="componentContainer">
                                     <label htmlFor="datePicker">End Date</label>
                                 </td>
-                                <td className="componentContainer"><EndDate callbackChildProp={this.returnChildDate} pEndDate={this.state.endDate} />
+                                <td className="componentContainer">
+                                <EndDate callbackChildProp={this.returnChildDate} pEndDate={this.state.endDate} />
                                 </td>
                             </tr>
                            
@@ -202,12 +207,13 @@ class MainContainer extends React.Component {
         if (!isOnlyPreview) {
             returnAllData.push(configurationComponentsJSX);
         }
-        if (this.state.endDate == '' && !isOnlyPreview) {
-                 returnAllData = (<div className="endDateShow">
+        if (this.state.firstView) {
+            console.log('first view');
+            
+        returnAllData = (<div className="endDateShow">
                     <div className="endDateShowSmallContainer">
                     <div>
                       <label htmlFor="datePicker">Select END Date</label>
-            
                       <EndDate className="endDateDiv" callbackChildProp={this.returnChildDate} pEndDate={this.state.endDate}/>
                         </div>
                    </div>

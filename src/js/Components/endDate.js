@@ -10,7 +10,7 @@ export class EndDate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      startDate: moment(),
+      startDate: this.props.pEndDate,
       endDate: moment().date(),
       endHour: moment().hour(),
       endMinutes: moment().minutes()
@@ -24,7 +24,6 @@ export class EndDate extends React.Component {
 
 
 var newDate = date.year()+'/'+(date.month()+1)+'/'+date.date();
-console.log(newDate);
 var newHour = date.hour();
 var newMinute = date.minute();
 
