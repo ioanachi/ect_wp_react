@@ -1,37 +1,104 @@
 html {
-  height: 100%;
-  width: 100%;
-  margin:0px;
-  padding:0px;
-
-  body {
-      margin:0px;
-  padding:0px;
     height: 100%;
     width: 100%;
-
-    #ectPopupContent {
-      height: 100%;
-      width: 100%;
-
-      .ContainerMain {
-        position: relative;
-        margin: 0 2%;
-    height: 100%;
-    width: 98%;
-
-        .componentContainer {
-          label {
-            font-size: 20px;
-            margin-right: 20px;
-          }
-          padding: 20px;
-          margin-bottom: 10px;
-
-          input {
-            &.shortcode {
-              padding: 5px;
-              width: 60%;
+    margin:0px;
+    padding: 0px;
+    body {
+      margin:0px;
+    padding: 0px;
+        #ectPopupContent {
+            height: 100%;
+            width: 100%;
+            .ContainerMain {
+                position: relative;
+                height: 100%;
+                width: 100%;
+                .componentContainer {
+                    label {
+                        font-size: 20px;
+                        margin-right: 20px;
+                    }
+                    padding: 20px;
+                    margin-bottom: 10px;
+                    input {
+                        &.shortcode {
+                            padding: 5px;
+                            width: 60%;
+                        }
+                    }
+                }
+                .shortcode {
+                    margin: 10px;
+                    input {
+                        padding: 5px;
+                        width: 1100px;
+                        border: 1px solid #C3C49E;
+                    }
+                }
+                .timezones {
+                    select {
+                        max-width: 250px;
+                    }
+                }
+                .tableStyles {
+                    height: 300px;
+                    width: 300px;
+                    label {
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+                    tr:nth-child(2n) {
+                        background-color: rgb(241, 241, 241);
+                        td {
+                            padding: 15px;
+                            margin: 0px;
+                            &:before,
+                            &:after {
+                                background-color: red;
+                                margin: 0px;
+                                padding: 0px;
+                                border: 0px solid red;
+                            }
+                        }
+                    }
+                }
+                .containerPreview {
+                    display: inline-block;
+                    div {
+                        &.spanDiv {
+                            display: inline-block;
+                        }
+                    }
+                }
+                .containerLabels {
+                    padding: 20px 0;
+                    font-style: italic;
+                    text-decoration: underline;
+                    font-size: 20px;
+                    font-weight: bold;
+                    display: grid;
+                    align-self: center;
+                }
+                .hourAndMinutes {
+                    margin-left: 10px;
+                }
+                .ectSortcode {
+                    padding: 5px;
+                    width: 60%;
+                    display: none;
+                }
+                button {
+                    &.insertButton {
+                        margin: 20px 0;
+                    }
+                    &.ectClosePopupButton {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        padding: 5px;
+                        font-size: 18px;
+                    }
+                }
             }
             .endDateShow {
                 display: flex;
@@ -72,7 +139,6 @@ html {
                     }
                 }
             }
-<<<<<<< HEAD
           }
         }
 
@@ -163,12 +229,6 @@ html {
 
 
               }
-=======
-            .react-datepicker__time-box {
-                ul {
-                    padding: 0px;
-                }
->>>>>>> c40d0c953f0799e64ab5e57211e2b0e9ed72f132
             }
         }
     }
