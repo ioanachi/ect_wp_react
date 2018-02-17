@@ -27169,8 +27169,2682 @@ exports.default = {
 });
 
 /***/ }),
-/* 276 */,
-/* 277 */,
+/* 276 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_classnames__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_classnames___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_classnames__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_onclickoutside__ = __webpack_require__(402);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react_popper__ = __webpack_require__(403);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react_popper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react_popper__);
+
+
+
+
+
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+  return typeof obj;
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+};
+
+var classCallCheck = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
+
+var createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+}();
+
+var inherits = function (subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      enumerable: false,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+};
+
+var possibleConstructorReturn = function (self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return call && (typeof call === "object" || typeof call === "function") ? call : self;
+};
+
+function generateYears(year, noOfYear, minDate, maxDate) {
+  var list = [];
+  for (var i = 0; i < 2 * noOfYear + 1; i++) {
+    var newYear = year + noOfYear - i;
+    var isInRange = true;
+
+    if (minDate) {
+      isInRange = minDate.year() <= newYear;
+    }
+
+    if (maxDate && isInRange) {
+      isInRange = maxDate.year() >= newYear;
+    }
+
+    if (isInRange) {
+      list.push(newYear);
+    }
+  }
+
+  return list;
+}
+
+var YearDropdownOptions = function (_React$Component) {
+  inherits(YearDropdownOptions, _React$Component);
+
+  function YearDropdownOptions(props) {
+    classCallCheck(this, YearDropdownOptions);
+
+    var _this = possibleConstructorReturn(this, _React$Component.call(this, props));
+
+    _this.renderOptions = function () {
+      var selectedYear = _this.props.year;
+      var options = _this.state.yearsList.map(function (year) {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: selectedYear === year ? 'react-datepicker__year-option --selected_year' : 'react-datepicker__year-option',
+          key: year,
+          ref: year,
+          onClick: _this.onChange.bind(_this, year) }, selectedYear === year ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", { className: "react-datepicker__year-option--selected" }, "\u2713") : "", year);
+      });
+
+      var minYear = _this.props.minDate ? _this.props.minDate.year() : null;
+      var maxYear = _this.props.maxDate ? _this.props.maxDate.year() : null;
+
+      if (!maxYear || !_this.state.yearsList.find(function (year) {
+        return year === maxYear;
+      })) {
+        options.unshift(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+          className: "react-datepicker__year-option",
+          ref: "upcoming",
+          key: "upcoming",
+          onClick: _this.incrementYears }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", { className: "react-datepicker__navigation react-datepicker__navigation--years react-datepicker__navigation--years-upcoming" })));
+      }
+
+      if (!minYear || !_this.state.yearsList.find(function (year) {
+        return year === minYear;
+      })) {
+        options.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+          className: "react-datepicker__year-option",
+          ref: "previous",
+          key: "previous",
+          onClick: _this.decrementYears }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", { className: "react-datepicker__navigation react-datepicker__navigation--years react-datepicker__navigation--years-previous" })));
+      }
+
+      return options;
+    };
+
+    _this.onChange = function (year) {
+      _this.props.onChange(year);
+    };
+
+    _this.handleClickOutside = function () {
+      _this.props.onCancel();
+    };
+
+    _this.shiftYears = function (amount) {
+      var years = _this.state.yearsList.map(function (year) {
+        return year + amount;
+      });
+
+      _this.setState({
+        yearsList: years
+      });
+    };
+
+    _this.incrementYears = function () {
+      return _this.shiftYears(1);
+    };
+
+    _this.decrementYears = function () {
+      return _this.shiftYears(-1);
+    };
+
+    var yearDropdownItemNumber = props.yearDropdownItemNumber,
+        scrollableYearDropdown = props.scrollableYearDropdown;
+
+    var noOfYear = yearDropdownItemNumber || (scrollableYearDropdown ? 10 : 5);
+
+    _this.state = {
+      yearsList: generateYears(_this.props.year, noOfYear, _this.props.minDate, _this.props.maxDate)
+    };
+    return _this;
+  }
+
+  YearDropdownOptions.prototype.render = function render() {
+    var dropdownClass = __WEBPACK_IMPORTED_MODULE_2_classnames___default()({
+      "react-datepicker__year-dropdown": true,
+      "react-datepicker__year-dropdown--scrollable": this.props.scrollableYearDropdown
+    });
+
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: dropdownClass }, this.renderOptions());
+  };
+
+  return YearDropdownOptions;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+YearDropdownOptions.propTypes = {
+  minDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  maxDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  onCancel: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
+  onChange: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
+  scrollableYearDropdown: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  year: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number.isRequired,
+  yearDropdownItemNumber: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number
+};
+
+var dayOfWeekCodes = {
+  1: "mon",
+  2: "tue",
+  3: "wed",
+  4: "thu",
+  5: "fri",
+  6: "sat",
+  7: "sun"
+};
+
+// These functions are not exported so
+// that we avoid magic strings like 'days'
+function set$1(date, unit, to) {
+  return date.set(unit, to);
+}
+
+function add(date, amount, unit) {
+  return date.add(amount, unit);
+}
+
+function subtract(date, amount, unit) {
+  return date.subtract(amount, unit);
+}
+
+function get$1(date, unit) {
+  return date.get(unit);
+}
+
+function getStartOf(date, unit) {
+  return date.startOf(unit);
+}
+
+// ** Date Constructors **
+
+function newDate(point) {
+  return __WEBPACK_IMPORTED_MODULE_4_moment___default()(point);
+}
+
+function newDateWithOffset(utcOffset) {
+  return __WEBPACK_IMPORTED_MODULE_4_moment___default()().utc().utcOffset(utcOffset);
+}
+
+function now(maybeFixedUtcOffset) {
+  if (maybeFixedUtcOffset == null) {
+    return newDate();
+  }
+  return newDateWithOffset(maybeFixedUtcOffset);
+}
+
+function cloneDate(date) {
+  return date.clone();
+}
+
+function parseDate(value, _ref) {
+  var dateFormat = _ref.dateFormat,
+      locale = _ref.locale;
+
+  var m = __WEBPACK_IMPORTED_MODULE_4_moment___default()(value, dateFormat, locale || __WEBPACK_IMPORTED_MODULE_4_moment___default.a.locale(), true);
+  return m.isValid() ? m : null;
+}
+
+// ** Date "Reflection" **
+
+function isMoment(date) {
+  return __WEBPACK_IMPORTED_MODULE_4_moment___default.a.isMoment(date);
+}
+
+function isDate(date) {
+  return __WEBPACK_IMPORTED_MODULE_4_moment___default.a.isDate(date);
+}
+
+// ** Date Formatting **
+
+function formatDate(date, format) {
+  return date.format(format);
+}
+
+function safeDateFormat(date, _ref2) {
+  var dateFormat = _ref2.dateFormat,
+      locale = _ref2.locale;
+
+  return date && date.clone().locale(locale || __WEBPACK_IMPORTED_MODULE_4_moment___default.a.locale()).format(Array.isArray(dateFormat) ? dateFormat[0] : dateFormat) || "";
+}
+
+// ** Date Setters **
+
+function setTime(date, _ref3) {
+  var hour = _ref3.hour,
+      minute = _ref3.minute,
+      second = _ref3.second;
+
+  date.set({ hour: hour, minute: minute, second: second });
+  return date;
+}
+
+function setMonth(date, month) {
+  return set$1(date, "month", month);
+}
+
+function setYear(date, year) {
+  return set$1(date, "year", year);
+}
+
+// ** Date Getters **
+
+function getSecond(date) {
+  return get$1(date, "second");
+}
+
+function getMinute(date) {
+  return get$1(date, "minute");
+}
+
+function getHour(date) {
+  return get$1(date, "hour");
+}
+
+// Returns day of week
+function getDay(date) {
+  return get$1(date, "day");
+}
+
+function getWeek(date) {
+  return get$1(date, "week");
+}
+
+function getMonth(date) {
+  return get$1(date, "month");
+}
+
+function getYear(date) {
+  return get$1(date, "year");
+}
+
+// Returns day of month
+function getDate(date) {
+  return get$1(date, "date");
+}
+
+function getDayOfWeekCode(day) {
+  return dayOfWeekCodes[day.isoWeekday()];
+}
+
+// *** Start of ***
+
+function getStartOfDay(date) {
+  return getStartOf(date, "day");
+}
+
+function getStartOfWeek(date) {
+  return getStartOf(date, "week");
+}
+function getStartOfMonth(date) {
+  return getStartOf(date, "month");
+}
+
+function getStartOfDate(date) {
+  return getStartOf(date, "date");
+}
+
+// *** End of ***
+
+
+// ** Date Math **
+
+// *** Addition ***
+
+function addMinutes(date, amount) {
+  return add(date, amount, "minutes");
+}
+
+function addDays(date, amount) {
+  return add(date, amount, "days");
+}
+
+function addWeeks(date, amount) {
+  return add(date, amount, "weeks");
+}
+
+function addMonths(date, amount) {
+  return add(date, amount, "months");
+}
+
+function addYears(date, amount) {
+  return add(date, amount, "years");
+}
+
+// *** Subtraction ***
+function subtractDays(date, amount) {
+  return subtract(date, amount, "days");
+}
+
+function subtractWeeks(date, amount) {
+  return subtract(date, amount, "weeks");
+}
+
+function subtractMonths(date, amount) {
+  return subtract(date, amount, "months");
+}
+
+function subtractYears(date, amount) {
+  return subtract(date, amount, "years");
+}
+
+// ** Date Comparison **
+
+function isBefore(date1, date2) {
+  return date1.isBefore(date2);
+}
+
+function isAfter(date1, date2) {
+  return date1.isAfter(date2);
+}
+
+function isSameYear(date1, date2) {
+  if (date1 && date2) {
+    return date1.isSame(date2, "year");
+  } else {
+    return !date1 && !date2;
+  }
+}
+
+function isSameMonth(date1, date2) {
+  if (date1 && date2) {
+    return date1.isSame(date2, "month");
+  } else {
+    return !date1 && !date2;
+  }
+}
+
+function isSameDay(moment1, moment2) {
+  if (moment1 && moment2) {
+    return moment1.isSame(moment2, "day");
+  } else {
+    return !moment1 && !moment2;
+  }
+}
+
+function isDayInRange(day, startDate, endDate) {
+  var before = startDate.clone().startOf("day").subtract(1, "seconds");
+  var after = endDate.clone().startOf("day").add(1, "seconds");
+  return day.clone().startOf("day").isBetween(before, after);
+}
+
+// *** Diffing ***
+
+
+// ** Date Localization **
+
+function localizeDate(date, locale) {
+  return date.clone().locale(locale || __WEBPACK_IMPORTED_MODULE_4_moment___default.a.locale());
+}
+
+function getLocaleData(date) {
+  return date.localeData();
+}
+
+function getLocaleDataForLocale(locale) {
+  return __WEBPACK_IMPORTED_MODULE_4_moment___default.a.localeData(locale);
+}
+
+function getWeekdayMinInLocale(locale, date) {
+  return locale.weekdaysMin(date);
+}
+
+function getWeekdayShortInLocale(locale, date) {
+  return locale.weekdaysShort(date);
+}
+
+// TODO what is this format exactly?
+function getMonthInLocale(locale, date, format) {
+  return locale.months(date, format);
+}
+
+function getMonthShortInLocale(locale, date) {
+  return locale.monthsShort(date);
+}
+
+// ** Utils for some components **
+
+function isDayDisabled(day) {
+  var _ref4 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+      minDate = _ref4.minDate,
+      maxDate = _ref4.maxDate,
+      excludeDates = _ref4.excludeDates,
+      includeDates = _ref4.includeDates,
+      filterDate = _ref4.filterDate;
+
+  return minDate && day.isBefore(minDate, "day") || maxDate && day.isAfter(maxDate, "day") || excludeDates && excludeDates.some(function (excludeDate) {
+    return isSameDay(day, excludeDate);
+  }) || includeDates && !includeDates.some(function (includeDate) {
+    return isSameDay(day, includeDate);
+  }) || filterDate && !filterDate(day.clone()) || false;
+}
+
+function isTimeDisabled(time, disabledTimes) {
+  var l = disabledTimes.length;
+  for (var i = 0; i < l; i++) {
+    if (disabledTimes[i].get("hours") === time.get("hours") && disabledTimes[i].get("minutes") === time.get("minutes")) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function isTimeInDisabledRange(time, _ref5) {
+  var minTime = _ref5.minTime,
+      maxTime = _ref5.maxTime;
+
+  if (!minTime || !maxTime) {
+    throw new Error("Both minTime and maxTime props required");
+  }
+
+  var base = __WEBPACK_IMPORTED_MODULE_4_moment___default()().hours(0).minutes(0).seconds(0);
+  var baseTime = base.clone().hours(time.get("hours")).minutes(time.get("minutes"));
+  var min = base.clone().hours(minTime.get("hours")).minutes(minTime.get("minutes"));
+  var max = base.clone().hours(maxTime.get("hours")).minutes(maxTime.get("minutes"));
+
+  return !(baseTime.isSameOrAfter(min) && baseTime.isSameOrBefore(max));
+}
+
+function allDaysDisabledBefore(day, unit) {
+  var _ref6 = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {},
+      minDate = _ref6.minDate,
+      includeDates = _ref6.includeDates;
+
+  var dateBefore = day.clone().subtract(1, unit);
+  return minDate && dateBefore.isBefore(minDate, unit) || includeDates && includeDates.every(function (includeDate) {
+    return dateBefore.isBefore(includeDate, unit);
+  }) || false;
+}
+
+function allDaysDisabledAfter(day, unit) {
+  var _ref7 = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {},
+      maxDate = _ref7.maxDate,
+      includeDates = _ref7.includeDates;
+
+  var dateAfter = day.clone().add(1, unit);
+  return maxDate && dateAfter.isAfter(maxDate, unit) || includeDates && includeDates.every(function (includeDate) {
+    return dateAfter.isAfter(includeDate, unit);
+  }) || false;
+}
+
+function getEffectiveMinDate(_ref8) {
+  var minDate = _ref8.minDate,
+      includeDates = _ref8.includeDates;
+
+  if (includeDates && minDate) {
+    return __WEBPACK_IMPORTED_MODULE_4_moment___default.a.min(includeDates.filter(function (includeDate) {
+      return minDate.isSameOrBefore(includeDate, "day");
+    }));
+  } else if (includeDates) {
+    return __WEBPACK_IMPORTED_MODULE_4_moment___default.a.min(includeDates);
+  } else {
+    return minDate;
+  }
+}
+
+function getEffectiveMaxDate(_ref9) {
+  var maxDate = _ref9.maxDate,
+      includeDates = _ref9.includeDates;
+
+  if (includeDates && maxDate) {
+    return __WEBPACK_IMPORTED_MODULE_4_moment___default.a.max(includeDates.filter(function (includeDate) {
+      return maxDate.isSameOrAfter(includeDate, "day");
+    }));
+  } else if (includeDates) {
+    return __WEBPACK_IMPORTED_MODULE_4_moment___default.a.max(includeDates);
+  } else {
+    return maxDate;
+  }
+}
+
+function getHightLightDaysMap() {
+  var highlightDates = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var defaultClassName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "react-datepicker__day--highlighted";
+
+  var dateClasses = new Map();
+  for (var i = 0, len = highlightDates.length; i < len; i++) {
+    var obj = highlightDates[i];
+    if (isMoment(obj)) {
+      var key = obj.format("MM.DD.YYYY");
+      var classNamesArr = dateClasses.get(key) || [];
+      if (!classNamesArr.includes(defaultClassName)) {
+        classNamesArr.push(defaultClassName);
+        dateClasses.set(key, classNamesArr);
+      }
+    } else if ((typeof obj === "undefined" ? "undefined" : _typeof(obj)) === "object") {
+      var keys = Object.keys(obj);
+      var className = keys[0];
+      var arrOfMoments = obj[keys[0]];
+      if (typeof className === "string" && arrOfMoments.constructor === Array) {
+        for (var k = 0, _len = arrOfMoments.length; k < _len; k++) {
+          var _key = arrOfMoments[k].format("MM.DD.YYYY");
+          var _classNamesArr = dateClasses.get(_key) || [];
+          if (!_classNamesArr.includes(className)) {
+            _classNamesArr.push(className);
+            dateClasses.set(_key, _classNamesArr);
+          }
+        }
+      }
+    }
+  }
+
+  return dateClasses;
+}
+
+var WrappedYearDropdownOptions = Object(__WEBPACK_IMPORTED_MODULE_3_react_onclickoutside__["a" /* default */])(YearDropdownOptions);
+
+var YearDropdown = function (_React$Component) {
+  inherits(YearDropdown, _React$Component);
+
+  function YearDropdown() {
+    var _temp, _this, _ret;
+
+    classCallCheck(this, YearDropdown);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.state = {
+      dropdownVisible: false
+    }, _this.renderSelectOptions = function () {
+      var minYear = _this.props.minDate ? getYear(_this.props.minDate) : 1900;
+      var maxYear = _this.props.maxDate ? getYear(_this.props.maxDate) : 2100;
+
+      var options = [];
+      for (var i = minYear; i <= maxYear; i++) {
+        options.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", { key: i, value: i }, i));
+      }
+      return options;
+    }, _this.onSelectChange = function (e) {
+      _this.onChange(e.target.value);
+    }, _this.renderSelectMode = function () {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("select", {
+        value: _this.props.year,
+        className: "react-datepicker__year-select",
+        onChange: _this.onSelectChange }, _this.renderSelectOptions());
+    }, _this.renderReadView = function (visible) {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        key: "read",
+        style: { visibility: visible ? "visible" : "hidden" },
+        className: "react-datepicker__year-read-view",
+        onClick: function onClick(event) {
+          return _this.toggleDropdown(event);
+        } }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", { className: "react-datepicker__year-read-view--down-arrow" }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", { className: "react-datepicker__year-read-view--selected-year" }, _this.props.year));
+    }, _this.renderDropdown = function () {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(WrappedYearDropdownOptions, {
+        key: "dropdown",
+        ref: "options",
+        year: _this.props.year,
+        onChange: _this.onChange,
+        onCancel: _this.toggleDropdown,
+        minDate: _this.props.minDate,
+        maxDate: _this.props.maxDate,
+        scrollableYearDropdown: _this.props.scrollableYearDropdown,
+        yearDropdownItemNumber: _this.props.yearDropdownItemNumber });
+    }, _this.renderScrollMode = function () {
+      var dropdownVisible = _this.state.dropdownVisible;
+
+      var result = [_this.renderReadView(!dropdownVisible)];
+      if (dropdownVisible) {
+        result.unshift(_this.renderDropdown());
+      }
+      return result;
+    }, _this.onChange = function (year) {
+      _this.toggleDropdown();
+      if (year === _this.props.year) return;
+      _this.props.onChange(year);
+    }, _this.toggleDropdown = function (event) {
+      _this.setState({
+        dropdownVisible: !_this.state.dropdownVisible
+      }, function () {
+        if (_this.props.adjustDateOnChange) {
+          _this.handleYearChange(_this.props.date, event);
+        }
+      });
+    }, _this.handleYearChange = function (date, event) {
+      _this.onSelect(date, event);
+      _this.setOpen();
+    }, _this.onSelect = function (date, event) {
+      if (_this.props.onSelect) {
+        _this.props.onSelect(date, event);
+      }
+    }, _this.setOpen = function () {
+      if (_this.props.setOpen) {
+        _this.props.setOpen(true);
+      }
+    }, _temp), possibleConstructorReturn(_this, _ret);
+  }
+
+  YearDropdown.prototype.render = function render() {
+    var renderedDropdown = void 0;
+    switch (this.props.dropdownMode) {
+      case "scroll":
+        renderedDropdown = this.renderScrollMode();
+        break;
+      case "select":
+        renderedDropdown = this.renderSelectMode();
+        break;
+    }
+
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      className: "react-datepicker__year-dropdown-container react-datepicker__year-dropdown-container--" + this.props.dropdownMode }, renderedDropdown);
+  };
+
+  return YearDropdown;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+YearDropdown.propTypes = {
+  adjustDateOnChange: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  dropdownMode: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.oneOf(["scroll", "select"]).isRequired,
+  maxDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  minDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  onChange: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
+  scrollableYearDropdown: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  year: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number.isRequired,
+  yearDropdownItemNumber: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
+  date: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  onSelect: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  setOpen: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func
+};
+
+var MonthDropdownOptions = function (_React$Component) {
+  inherits(MonthDropdownOptions, _React$Component);
+
+  function MonthDropdownOptions() {
+    var _temp, _this, _ret;
+
+    classCallCheck(this, MonthDropdownOptions);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.renderOptions = function () {
+      return _this.props.monthNames.map(function (month, i) {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: _this.props.month === i ? 'react-datepicker__month-option --selected_month' : 'react-datepicker__month-option',
+          key: month,
+          ref: month,
+          onClick: _this.onChange.bind(_this, i) }, _this.props.month === i ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", { className: "react-datepicker__month-option--selected" }, "\u2713") : "", month);
+      });
+    }, _this.onChange = function (month) {
+      return _this.props.onChange(month);
+    }, _this.handleClickOutside = function () {
+      return _this.props.onCancel();
+    }, _temp), possibleConstructorReturn(_this, _ret);
+  }
+
+  MonthDropdownOptions.prototype.render = function render() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "react-datepicker__month-dropdown" }, this.renderOptions());
+  };
+
+  return MonthDropdownOptions;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+MonthDropdownOptions.propTypes = {
+  onCancel: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
+  onChange: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
+  month: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number.isRequired,
+  monthNames: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.arrayOf(__WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired).isRequired
+};
+
+var WrappedMonthDropdownOptions = Object(__WEBPACK_IMPORTED_MODULE_3_react_onclickoutside__["a" /* default */])(MonthDropdownOptions);
+
+var MonthDropdown = function (_React$Component) {
+  inherits(MonthDropdown, _React$Component);
+
+  function MonthDropdown() {
+    var _temp, _this, _ret;
+
+    classCallCheck(this, MonthDropdown);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.state = {
+      dropdownVisible: false
+    }, _this.renderSelectOptions = function (monthNames) {
+      return monthNames.map(function (M, i) {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", { key: i, value: i }, M);
+      });
+    }, _this.renderSelectMode = function (monthNames) {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("select", {
+        value: _this.props.month,
+        className: "react-datepicker__month-select",
+        onChange: function onChange(e) {
+          return _this.onChange(e.target.value);
+        } }, _this.renderSelectOptions(monthNames));
+    }, _this.renderReadView = function (visible, monthNames) {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        key: "read",
+        style: { visibility: visible ? "visible" : "hidden" },
+        className: "react-datepicker__month-read-view",
+        onClick: _this.toggleDropdown }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", { className: "react-datepicker__month-read-view--down-arrow" }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", { className: "react-datepicker__month-read-view--selected-month" }, monthNames[_this.props.month]));
+    }, _this.renderDropdown = function (monthNames) {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(WrappedMonthDropdownOptions, {
+        key: "dropdown",
+        ref: "options",
+        month: _this.props.month,
+        monthNames: monthNames,
+        onChange: _this.onChange,
+        onCancel: _this.toggleDropdown });
+    }, _this.renderScrollMode = function (monthNames) {
+      var dropdownVisible = _this.state.dropdownVisible;
+
+      var result = [_this.renderReadView(!dropdownVisible, monthNames)];
+      if (dropdownVisible) {
+        result.unshift(_this.renderDropdown(monthNames));
+      }
+      return result;
+    }, _this.onChange = function (month) {
+      _this.toggleDropdown();
+      if (month !== _this.props.month) {
+        _this.props.onChange(month);
+      }
+    }, _this.toggleDropdown = function () {
+      return _this.setState({
+        dropdownVisible: !_this.state.dropdownVisible
+      });
+    }, _temp), possibleConstructorReturn(_this, _ret);
+  }
+
+  MonthDropdown.prototype.render = function render() {
+    var _this2 = this;
+
+    var localeData = getLocaleDataForLocale(this.props.locale);
+    var monthNames = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(this.props.useShortMonthInDropdown ? function (M) {
+      return getMonthShortInLocale(localeData, newDate({ M: M }));
+    } : function (M) {
+      return getMonthInLocale(localeData, newDate({ M: M }), _this2.props.dateFormat);
+    });
+
+    var renderedDropdown = void 0;
+    switch (this.props.dropdownMode) {
+      case "scroll":
+        renderedDropdown = this.renderScrollMode(monthNames);
+        break;
+      case "select":
+        renderedDropdown = this.renderSelectMode(monthNames);
+        break;
+    }
+
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      className: "react-datepicker__month-dropdown-container react-datepicker__month-dropdown-container--" + this.props.dropdownMode }, renderedDropdown);
+  };
+
+  return MonthDropdown;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+MonthDropdown.propTypes = {
+  dropdownMode: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.oneOf(["scroll", "select"]).isRequired,
+  locale: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  dateFormat: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired,
+  month: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number.isRequired,
+  onChange: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
+  useShortMonthInDropdown: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool
+};
+
+function generateMonthYears(minDate, maxDate) {
+  var list = [];
+
+  var currDate = getStartOfMonth(cloneDate(minDate));
+  var lastDate = getStartOfMonth(cloneDate(maxDate));
+
+  while (!isAfter(currDate, lastDate)) {
+    list.push(cloneDate(currDate));
+
+    addMonths(currDate, 1);
+  }
+
+  return list;
+}
+
+var MonthYearDropdownOptions = function (_React$Component) {
+  inherits(MonthYearDropdownOptions, _React$Component);
+
+  function MonthYearDropdownOptions(props) {
+    classCallCheck(this, MonthYearDropdownOptions);
+
+    var _this = possibleConstructorReturn(this, _React$Component.call(this, props));
+
+    _this.renderOptions = function () {
+
+      return _this.state.monthYearsList.map(function (monthYear) {
+
+        var monthYearPoint = monthYear.valueOf();
+
+        var isSameMonthYear = isSameYear(_this.props.date, monthYear) && isSameMonth(_this.props.date, monthYear);
+
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: isSameMonthYear ? 'react-datepicker__month-year-option --selected_month-year' : 'react-datepicker__month-year-option',
+          key: monthYearPoint,
+          ref: monthYearPoint,
+          onClick: _this.onChange.bind(_this, monthYearPoint) }, isSameMonthYear ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'react-datepicker__month-year-option--selected' }, '\u2713') : "", formatDate(monthYear, _this.props.dateFormat));
+      });
+    };
+
+    _this.onChange = function (monthYear) {
+      return _this.props.onChange(monthYear);
+    };
+
+    _this.handleClickOutside = function () {
+      _this.props.onCancel();
+    };
+
+    _this.state = {
+      monthYearsList: generateMonthYears(_this.props.minDate, _this.props.maxDate)
+    };
+    return _this;
+  }
+
+  MonthYearDropdownOptions.prototype.render = function render() {
+    var dropdownClass = __WEBPACK_IMPORTED_MODULE_2_classnames___default()({
+      'react-datepicker__month-year-dropdown': true,
+      'react-datepicker__month-year-dropdown--scrollable': this.props.scrollableMonthYearDropdown
+    });
+
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: dropdownClass }, this.renderOptions());
+  };
+
+  return MonthYearDropdownOptions;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+MonthYearDropdownOptions.propTypes = {
+  minDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object.isRequired,
+  maxDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object.isRequired,
+  onCancel: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
+  onChange: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
+  scrollableMonthYearDropdown: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  date: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object.isRequired,
+  dateFormat: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired
+};
+
+var WrappedMonthYearDropdownOptions = Object(__WEBPACK_IMPORTED_MODULE_3_react_onclickoutside__["a" /* default */])(MonthYearDropdownOptions);
+
+var MonthYearDropdown = function (_React$Component) {
+  inherits(MonthYearDropdown, _React$Component);
+
+  function MonthYearDropdown() {
+    var _temp, _this, _ret;
+
+    classCallCheck(this, MonthYearDropdown);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.state = {
+      dropdownVisible: false
+    }, _this.renderSelectOptions = function () {
+      var currDate = getStartOfMonth(localizeDate(_this.props.minDate, _this.props.locale));
+      var lastDate = getStartOfMonth(localizeDate(_this.props.maxDate, _this.props.locale));
+
+      var options = [];
+
+      while (!isAfter(currDate, lastDate)) {
+
+        var timepoint = currDate.valueOf();
+        options.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('option', { key: timepoint, value: timepoint }, formatDate(currDate, _this.props.dateFormat)));
+
+        addMonths(currDate, 1);
+      }
+
+      return options;
+    }, _this.onSelectChange = function (e) {
+      _this.onChange(e.target.value);
+    }, _this.renderSelectMode = function () {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('select', {
+        value: getStartOfMonth(_this.props.date).valueOf(),
+        className: 'react-datepicker__month-year-select',
+        onChange: _this.onSelectChange }, _this.renderSelectOptions());
+    }, _this.renderReadView = function (visible) {
+
+      var yearMonth = formatDate(localizeDate(newDate(_this.props.date), _this.props.locale), _this.props.dateFormat);
+
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { key: 'read',
+        style: { visibility: visible ? 'visible' : 'hidden' },
+        className: 'react-datepicker__month-year-read-view',
+        onClick: function onClick(event) {
+          return _this.toggleDropdown(event);
+        } }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'react-datepicker__month-year-read-view--down-arrow' }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'react-datepicker__month-year-read-view--selected-month-year' }, yearMonth));
+    }, _this.renderDropdown = function () {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(WrappedMonthYearDropdownOptions, {
+        key: 'dropdown',
+        ref: 'options',
+        date: _this.props.date,
+        dateFormat: _this.props.dateFormat,
+        onChange: _this.onChange,
+        onCancel: _this.toggleDropdown,
+        minDate: localizeDate(_this.props.minDate, _this.props.locale),
+        maxDate: localizeDate(_this.props.maxDate, _this.props.locale),
+        scrollableMonthYearDropdown: _this.props.scrollableMonthYearDropdown });
+    }, _this.renderScrollMode = function () {
+      var dropdownVisible = _this.state.dropdownVisible;
+
+      var result = [_this.renderReadView(!dropdownVisible)];
+      if (dropdownVisible) {
+        result.unshift(_this.renderDropdown());
+      }
+      return result;
+    }, _this.onChange = function (monthYearPoint) {
+      _this.toggleDropdown();
+
+      var changedDate = newDate(parseInt(monthYearPoint));
+
+      if (isSameYear(_this.props.date, changedDate) && isSameMonth(_this.props.date, changedDate)) {
+        return;
+      }
+
+      _this.props.onChange(changedDate);
+    }, _this.toggleDropdown = function () {
+      return _this.setState({
+        dropdownVisible: !_this.state.dropdownVisible
+      });
+    }, _temp), possibleConstructorReturn(_this, _ret);
+  }
+
+  MonthYearDropdown.prototype.render = function render() {
+    var renderedDropdown = void 0;
+    switch (this.props.dropdownMode) {
+      case 'scroll':
+        renderedDropdown = this.renderScrollMode();
+        break;
+      case 'select':
+        renderedDropdown = this.renderSelectMode();
+        break;
+    }
+
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', {
+      className: 'react-datepicker__month-year-dropdown-container react-datepicker__month-year-dropdown-container--' + this.props.dropdownMode }, renderedDropdown);
+  };
+
+  return MonthYearDropdown;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+MonthYearDropdown.propTypes = {
+  dropdownMode: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.oneOf(['scroll', 'select']).isRequired,
+  dateFormat: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired,
+  locale: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  maxDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object.isRequired,
+  minDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object.isRequired,
+  date: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object.isRequired,
+  onChange: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
+  scrollableMonthYearDropdown: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool
+};
+
+var Day = function (_React$Component) {
+  inherits(Day, _React$Component);
+
+  function Day() {
+    var _temp, _this, _ret;
+
+    classCallCheck(this, Day);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.handleClick = function (event) {
+      if (!_this.isDisabled() && _this.props.onClick) {
+        _this.props.onClick(event);
+      }
+    }, _this.handleMouseEnter = function (event) {
+      if (!_this.isDisabled() && _this.props.onMouseEnter) {
+        _this.props.onMouseEnter(event);
+      }
+    }, _this.isSameDay = function (other) {
+      return isSameDay(_this.props.day, other);
+    }, _this.isKeyboardSelected = function () {
+      return !_this.props.inline && !_this.isSameDay(_this.props.selected) && _this.isSameDay(_this.props.preSelection);
+    }, _this.isDisabled = function () {
+      return isDayDisabled(_this.props.day, _this.props);
+    }, _this.getHighLightedClass = function (defaultClassName) {
+      var _this$props = _this.props,
+          day = _this$props.day,
+          highlightDates = _this$props.highlightDates;
+
+      if (!highlightDates) {
+        return false;
+      }
+
+      // Looking for className in the Map of {'day string, 'className'}
+      var dayStr = day.format("MM.DD.YYYY");
+      return highlightDates.get(dayStr);
+    }, _this.isInRange = function () {
+      var _this$props2 = _this.props,
+          day = _this$props2.day,
+          startDate = _this$props2.startDate,
+          endDate = _this$props2.endDate;
+
+      if (!startDate || !endDate) {
+        return false;
+      }
+      return isDayInRange(day, startDate, endDate);
+    }, _this.isInSelectingRange = function () {
+      var _this$props3 = _this.props,
+          day = _this$props3.day,
+          selectsStart = _this$props3.selectsStart,
+          selectsEnd = _this$props3.selectsEnd,
+          selectingDate = _this$props3.selectingDate,
+          startDate = _this$props3.startDate,
+          endDate = _this$props3.endDate;
+
+      if (!(selectsStart || selectsEnd) || !selectingDate || _this.isDisabled()) {
+        return false;
+      }
+
+      if (selectsStart && endDate && selectingDate.isSameOrBefore(endDate)) {
+        return isDayInRange(day, selectingDate, endDate);
+      }
+
+      if (selectsEnd && startDate && selectingDate.isSameOrAfter(startDate)) {
+        return isDayInRange(day, startDate, selectingDate);
+      }
+
+      return false;
+    }, _this.isSelectingRangeStart = function () {
+      if (!_this.isInSelectingRange()) {
+        return false;
+      }
+
+      var _this$props4 = _this.props,
+          day = _this$props4.day,
+          selectingDate = _this$props4.selectingDate,
+          startDate = _this$props4.startDate,
+          selectsStart = _this$props4.selectsStart;
+
+      if (selectsStart) {
+        return isSameDay(day, selectingDate);
+      } else {
+        return isSameDay(day, startDate);
+      }
+    }, _this.isSelectingRangeEnd = function () {
+      if (!_this.isInSelectingRange()) {
+        return false;
+      }
+
+      var _this$props5 = _this.props,
+          day = _this$props5.day,
+          selectingDate = _this$props5.selectingDate,
+          endDate = _this$props5.endDate,
+          selectsEnd = _this$props5.selectsEnd;
+
+      if (selectsEnd) {
+        return isSameDay(day, selectingDate);
+      } else {
+        return isSameDay(day, endDate);
+      }
+    }, _this.isRangeStart = function () {
+      var _this$props6 = _this.props,
+          day = _this$props6.day,
+          startDate = _this$props6.startDate,
+          endDate = _this$props6.endDate;
+
+      if (!startDate || !endDate) {
+        return false;
+      }
+      return isSameDay(startDate, day);
+    }, _this.isRangeEnd = function () {
+      var _this$props7 = _this.props,
+          day = _this$props7.day,
+          startDate = _this$props7.startDate,
+          endDate = _this$props7.endDate;
+
+      if (!startDate || !endDate) {
+        return false;
+      }
+      return isSameDay(endDate, day);
+    }, _this.isWeekend = function () {
+      var weekday = getDay(_this.props.day);
+      return weekday === 0 || weekday === 6;
+    }, _this.isOutsideMonth = function () {
+      return _this.props.month !== undefined && _this.props.month !== getMonth(_this.props.day);
+    }, _this.getClassNames = function (date) {
+      var dayClassName = _this.props.dayClassName ? _this.props.dayClassName(date) : undefined;
+      return __WEBPACK_IMPORTED_MODULE_2_classnames___default()("react-datepicker__day", dayClassName, "react-datepicker__day--" + getDayOfWeekCode(_this.props.day), {
+        "react-datepicker__day--disabled": _this.isDisabled(),
+        "react-datepicker__day--selected": _this.isSameDay(_this.props.selected),
+        "react-datepicker__day--keyboard-selected": _this.isKeyboardSelected(),
+        "react-datepicker__day--range-start": _this.isRangeStart(),
+        "react-datepicker__day--range-end": _this.isRangeEnd(),
+        "react-datepicker__day--in-range": _this.isInRange(),
+        "react-datepicker__day--in-selecting-range": _this.isInSelectingRange(),
+        "react-datepicker__day--selecting-range-start": _this.isSelectingRangeStart(),
+        "react-datepicker__day--selecting-range-end": _this.isSelectingRangeEnd(),
+        "react-datepicker__day--today": _this.isSameDay(now(_this.props.utcOffset)),
+        "react-datepicker__day--weekend": _this.isWeekend(),
+        "react-datepicker__day--outside-month": _this.isOutsideMonth()
+      }, _this.getHighLightedClass("react-datepicker__day--highlighted"));
+    }, _temp), possibleConstructorReturn(_this, _ret);
+  }
+
+  Day.prototype.render = function render() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      className: this.getClassNames(this.props.day),
+      onClick: this.handleClick,
+      onMouseEnter: this.handleMouseEnter,
+      "aria-label": "day-" + getDate(this.props.day),
+      role: "option" }, getDate(this.props.day));
+  };
+
+  return Day;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+Day.propTypes = {
+  day: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object.isRequired,
+  dayClassName: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  endDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  highlightDates: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.instanceOf(Map),
+  inline: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  month: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
+  onClick: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  onMouseEnter: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  preSelection: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  selected: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  selectingDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  selectsEnd: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  selectsStart: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  startDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  utcOffset: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number
+};
+
+var WeekNumber = function (_React$Component) {
+  inherits(WeekNumber, _React$Component);
+
+  function WeekNumber() {
+    var _temp, _this, _ret;
+
+    classCallCheck(this, WeekNumber);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.handleClick = function (event) {
+      if (_this.props.onClick) {
+        _this.props.onClick(event);
+      }
+    }, _temp), possibleConstructorReturn(_this, _ret);
+  }
+
+  WeekNumber.prototype.render = function render() {
+    var weekNumberClasses = {
+      "react-datepicker__week-number": true,
+      "react-datepicker__week-number--clickable": !!this.props.onClick
+    };
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      className: __WEBPACK_IMPORTED_MODULE_2_classnames___default()(weekNumberClasses),
+      "aria-label": "week-" + this.props.weekNumber,
+      onClick: this.handleClick }, this.props.weekNumber);
+  };
+
+  return WeekNumber;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+WeekNumber.propTypes = {
+  weekNumber: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number.isRequired,
+  onClick: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func
+};
+
+var Week = function (_React$Component) {
+  inherits(Week, _React$Component);
+
+  function Week() {
+    var _temp, _this, _ret;
+
+    classCallCheck(this, Week);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.handleDayClick = function (day, event) {
+      if (_this.props.onDayClick) {
+        _this.props.onDayClick(day, event);
+      }
+    }, _this.handleDayMouseEnter = function (day) {
+      if (_this.props.onDayMouseEnter) {
+        _this.props.onDayMouseEnter(day);
+      }
+    }, _this.handleWeekClick = function (day, weekNumber, event) {
+      if (typeof _this.props.onWeekSelect === "function") {
+        _this.props.onWeekSelect(day, weekNumber, event);
+      }
+    }, _this.formatWeekNumber = function (startOfWeek) {
+      if (_this.props.formatWeekNumber) {
+        return _this.props.formatWeekNumber(startOfWeek);
+      }
+      return getWeek(startOfWeek);
+    }, _this.renderDays = function () {
+      var startOfWeek = getStartOfWeek(cloneDate(_this.props.day));
+      var days = [];
+      var weekNumber = _this.formatWeekNumber(startOfWeek);
+      if (_this.props.showWeekNumber) {
+        var onClickAction = _this.props.onWeekSelect ? _this.handleWeekClick.bind(_this, startOfWeek, weekNumber) : undefined;
+        days.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(WeekNumber, { key: "W", weekNumber: weekNumber, onClick: onClickAction }));
+      }
+      return days.concat([0, 1, 2, 3, 4, 5, 6].map(function (offset) {
+        var day = addDays(cloneDate(startOfWeek), offset);
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Day, {
+          key: offset,
+          day: day,
+          month: _this.props.month,
+          onClick: _this.handleDayClick.bind(_this, day),
+          onMouseEnter: _this.handleDayMouseEnter.bind(_this, day),
+          minDate: _this.props.minDate,
+          maxDate: _this.props.maxDate,
+          excludeDates: _this.props.excludeDates,
+          includeDates: _this.props.includeDates,
+          inline: _this.props.inline,
+          highlightDates: _this.props.highlightDates,
+          selectingDate: _this.props.selectingDate,
+          filterDate: _this.props.filterDate,
+          preSelection: _this.props.preSelection,
+          selected: _this.props.selected,
+          selectsStart: _this.props.selectsStart,
+          selectsEnd: _this.props.selectsEnd,
+          startDate: _this.props.startDate,
+          endDate: _this.props.endDate,
+          dayClassName: _this.props.dayClassName,
+          utcOffset: _this.props.utcOffset });
+      }));
+    }, _temp), possibleConstructorReturn(_this, _ret);
+  }
+
+  Week.prototype.render = function render() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "react-datepicker__week" }, this.renderDays());
+  };
+
+  return Week;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+Week.propTypes = {
+  day: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object.isRequired,
+  dayClassName: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  endDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  excludeDates: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.array,
+  filterDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  formatWeekNumber: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  highlightDates: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.instanceOf(Map),
+  includeDates: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.array,
+  inline: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  maxDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  minDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  month: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
+  onDayClick: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  onDayMouseEnter: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  onWeekSelect: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  preSelection: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  selected: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  selectingDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  selectsEnd: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  selectsStart: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  showWeekNumber: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  startDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  utcOffset: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number
+};
+
+var FIXED_HEIGHT_STANDARD_WEEK_COUNT = 6;
+
+var Month = function (_React$Component) {
+  inherits(Month, _React$Component);
+
+  function Month() {
+    var _temp, _this, _ret;
+
+    classCallCheck(this, Month);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.handleDayClick = function (day, event) {
+      if (_this.props.onDayClick) {
+        _this.props.onDayClick(day, event);
+      }
+    }, _this.handleDayMouseEnter = function (day) {
+      if (_this.props.onDayMouseEnter) {
+        _this.props.onDayMouseEnter(day);
+      }
+    }, _this.handleMouseLeave = function () {
+      if (_this.props.onMouseLeave) {
+        _this.props.onMouseLeave();
+      }
+    }, _this.isWeekInMonth = function (startOfWeek) {
+      var day = _this.props.day;
+      var endOfWeek = addDays(cloneDate(startOfWeek), 6);
+      return isSameMonth(startOfWeek, day) || isSameMonth(endOfWeek, day);
+    }, _this.renderWeeks = function () {
+      var weeks = [];
+      var isFixedHeight = _this.props.fixedHeight;
+      var currentWeekStart = getStartOfWeek(getStartOfMonth(cloneDate(_this.props.day)));
+      var i = 0;
+      var breakAfterNextPush = false;
+
+      while (true) {
+        weeks.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Week, {
+          key: i,
+          day: currentWeekStart,
+          month: getMonth(_this.props.day),
+          onDayClick: _this.handleDayClick,
+          onDayMouseEnter: _this.handleDayMouseEnter,
+          onWeekSelect: _this.props.onWeekSelect,
+          formatWeekNumber: _this.props.formatWeekNumber,
+          minDate: _this.props.minDate,
+          maxDate: _this.props.maxDate,
+          excludeDates: _this.props.excludeDates,
+          includeDates: _this.props.includeDates,
+          inline: _this.props.inline,
+          highlightDates: _this.props.highlightDates,
+          selectingDate: _this.props.selectingDate,
+          filterDate: _this.props.filterDate,
+          preSelection: _this.props.preSelection,
+          selected: _this.props.selected,
+          selectsStart: _this.props.selectsStart,
+          selectsEnd: _this.props.selectsEnd,
+          showWeekNumber: _this.props.showWeekNumbers,
+          startDate: _this.props.startDate,
+          endDate: _this.props.endDate,
+          dayClassName: _this.props.dayClassName,
+          utcOffset: _this.props.utcOffset }));
+
+        if (breakAfterNextPush) break;
+
+        i++;
+        currentWeekStart = addWeeks(cloneDate(currentWeekStart), 1);
+
+        // If one of these conditions is true, we will either break on this week
+        // or break on the next week
+        var isFixedAndFinalWeek = isFixedHeight && i >= FIXED_HEIGHT_STANDARD_WEEK_COUNT;
+        var isNonFixedAndOutOfMonth = !isFixedHeight && !_this.isWeekInMonth(currentWeekStart);
+
+        if (isFixedAndFinalWeek || isNonFixedAndOutOfMonth) {
+          if (_this.props.peekNextMonth) {
+            breakAfterNextPush = true;
+          } else {
+            break;
+          }
+        }
+      }
+
+      return weeks;
+    }, _this.getClassNames = function () {
+      var _this$props = _this.props,
+          selectingDate = _this$props.selectingDate,
+          selectsStart = _this$props.selectsStart,
+          selectsEnd = _this$props.selectsEnd;
+
+      return __WEBPACK_IMPORTED_MODULE_2_classnames___default()("react-datepicker__month", {
+        "react-datepicker__month--selecting-range": selectingDate && (selectsStart || selectsEnd)
+      });
+    }, _temp), possibleConstructorReturn(_this, _ret);
+  }
+
+  Month.prototype.render = function render() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      className: this.getClassNames(),
+      onMouseLeave: this.handleMouseLeave,
+      role: "listbox" }, this.renderWeeks());
+  };
+
+  return Month;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+Month.propTypes = {
+  day: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object.isRequired,
+  dayClassName: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  endDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  excludeDates: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.array,
+  filterDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  fixedHeight: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  formatWeekNumber: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  highlightDates: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.instanceOf(Map),
+  includeDates: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.array,
+  inline: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  maxDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  minDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  onDayClick: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  onDayMouseEnter: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  onMouseLeave: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  onWeekSelect: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  peekNextMonth: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  preSelection: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  selected: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  selectingDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  selectsEnd: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  selectsStart: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  showWeekNumbers: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  startDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  utcOffset: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number
+};
+
+var Time = function (_React$Component) {
+  inherits(Time, _React$Component);
+
+  function Time() {
+    var _temp, _this, _ret;
+
+    classCallCheck(this, Time);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.handleClick = function (time) {
+      if ((_this.props.minTime || _this.props.maxTime) && isTimeInDisabledRange(time, _this.props) || _this.props.excludeTimes && isTimeDisabled(time, _this.props.excludeTimes) || _this.props.includeTimes && !isTimeDisabled(time, _this.props.includeTimes)) {
+        return;
+      }
+
+      _this.props.onChange(time);
+    }, _this.liClasses = function (time, currH, currM) {
+      var classes = ["react-datepicker__time-list-item"];
+
+      if (currH === getHour(time) && currM === getMinute(time)) {
+        classes.push("react-datepicker__time-list-item--selected");
+      }
+      if ((_this.props.minTime || _this.props.maxTime) && isTimeInDisabledRange(time, _this.props) || _this.props.excludeTimes && isTimeDisabled(time, _this.props.excludeTimes) || _this.props.includeTimes && !isTimeDisabled(time, _this.props.includeTimes)) {
+        classes.push("react-datepicker__time-list-item--disabled");
+      }
+
+      return classes.join(" ");
+    }, _this.renderTimes = function () {
+      var times = [];
+      var format = _this.props.format ? _this.props.format : "hh:mm A";
+      var intervals = _this.props.intervals;
+      var activeTime = _this.props.selected ? _this.props.selected : newDate();
+      var currH = getHour(activeTime);
+      var currM = getMinute(activeTime);
+      var base = getStartOfDay(newDate());
+      var multiplier = 1440 / intervals;
+      for (var i = 0; i < multiplier; i++) {
+        times.push(addMinutes(cloneDate(base), i * intervals));
+      }
+
+      return times.map(function (time, i) {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("li", {
+          key: i,
+          onClick: _this.handleClick.bind(_this, time),
+          className: _this.liClasses(time, currH, currM) }, formatDate(time, format));
+      });
+    }, _temp), possibleConstructorReturn(_this, _ret);
+  }
+
+  Time.prototype.componentDidMount = function componentDidMount() {
+    // code to ensure selected time will always be in focus within time window when it first appears
+    var multiplier = 60 / this.props.intervals;
+    var currH = this.props.selected ? getHour(this.props.selected) : getHour(newDate());
+    this.list.scrollTop = 30 * (multiplier * currH);
+  };
+
+  Time.prototype.render = function render() {
+    var _this2 = this;
+
+    var height = null;
+    if (this.props.monthRef) {
+      height = this.props.monthRef.clientHeight - 39;
+    }
+
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      className: "react-datepicker__time-container " + (this.props.todayButton ? "react-datepicker__time-container--with-today-button" : "") }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "react-datepicker__header react-datepicker__header--time" }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "react-datepicker-time__header" }, this.props.timeCaption)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "react-datepicker__time" }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "react-datepicker__time-box" }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("ul", {
+      className: "react-datepicker__time-list",
+      ref: function ref(list) {
+        _this2.list = list;
+      },
+      style: height ? { height: height } : {} }, this.renderTimes.bind(this)()))));
+  };
+
+  createClass(Time, null, [{
+    key: "defaultProps",
+    get: function get$$1() {
+      return {
+        intervals: 30,
+        onTimeChange: function onTimeChange() {},
+        todayButton: null,
+        timeCaption: "Time"
+      };
+    }
+  }]);
+  return Time;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+Time.propTypes = {
+  format: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  includeTimes: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.array,
+  intervals: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
+  selected: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  onChange: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  todayButton: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  minTime: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  maxTime: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  excludeTimes: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.array,
+  monthRef: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  timeCaption: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string
+};
+
+var DROPDOWN_FOCUS_CLASSNAMES = ["react-datepicker__year-select", "react-datepicker__month-select", "react-datepicker__month-year-select"];
+
+var isDropdownSelect = function isDropdownSelect() {
+  var element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+  var classNames = (element.className || "").split(/\s+/);
+  return DROPDOWN_FOCUS_CLASSNAMES.some(function (testClassname) {
+    return classNames.indexOf(testClassname) >= 0;
+  });
+};
+
+var Calendar = function (_React$Component) {
+  inherits(Calendar, _React$Component);
+  createClass(Calendar, null, [{
+    key: "defaultProps",
+    get: function get$$1() {
+      return {
+        onDropdownFocus: function onDropdownFocus() {},
+        monthsShown: 1,
+        forceShowMonthNavigation: false,
+        timeCaption: "Time"
+      };
+    }
+  }]);
+
+  function Calendar(props) {
+    classCallCheck(this, Calendar);
+
+    var _this = possibleConstructorReturn(this, _React$Component.call(this, props));
+
+    _this.handleClickOutside = function (event) {
+      _this.props.onClickOutside(event);
+    };
+
+    _this.handleDropdownFocus = function (event) {
+      if (isDropdownSelect(event.target)) {
+        _this.props.onDropdownFocus();
+      }
+    };
+
+    _this.getDateInView = function () {
+      var _this$props = _this.props,
+          preSelection = _this$props.preSelection,
+          selected = _this$props.selected,
+          openToDate = _this$props.openToDate,
+          utcOffset = _this$props.utcOffset;
+
+      var minDate = getEffectiveMinDate(_this.props);
+      var maxDate = getEffectiveMaxDate(_this.props);
+      var current = now(utcOffset);
+      var initialDate = openToDate || selected || preSelection;
+      if (initialDate) {
+        return initialDate;
+      } else {
+        if (minDate && isBefore(current, minDate)) {
+          return minDate;
+        } else if (maxDate && isAfter(current, maxDate)) {
+          return maxDate;
+        }
+      }
+      return current;
+    };
+
+    _this.localizeDate = function (date) {
+      return localizeDate(date, _this.props.locale);
+    };
+
+    _this.increaseMonth = function () {
+      _this.setState({
+        date: addMonths(cloneDate(_this.state.date), 1)
+      }, function () {
+        return _this.handleMonthChange(_this.state.date);
+      });
+    };
+
+    _this.decreaseMonth = function () {
+      _this.setState({
+        date: subtractMonths(cloneDate(_this.state.date), 1)
+      }, function () {
+        return _this.handleMonthChange(_this.state.date);
+      });
+    };
+
+    _this.handleDayClick = function (day, event) {
+      return _this.props.onSelect(day, event);
+    };
+
+    _this.handleDayMouseEnter = function (day) {
+      return _this.setState({ selectingDate: day });
+    };
+
+    _this.handleMonthMouseLeave = function () {
+      return _this.setState({ selectingDate: null });
+    };
+
+    _this.handleYearChange = function (date) {
+      if (_this.props.onYearChange) {
+        _this.props.onYearChange(date);
+      }
+    };
+
+    _this.handleMonthChange = function (date) {
+      if (_this.props.onMonthChange) {
+        _this.props.onMonthChange(date);
+      }
+      if (_this.props.adjustDateOnChange) {
+        if (_this.props.onSelect) {
+          _this.props.onSelect(date);
+        }
+        if (_this.props.setOpen) {
+          _this.props.setOpen(true);
+        }
+      }
+    };
+
+    _this.handleMonthYearChange = function (date) {
+      _this.handleYearChange(date);
+      _this.handleMonthChange(date);
+    };
+
+    _this.changeYear = function (year) {
+      _this.setState({
+        date: setYear(cloneDate(_this.state.date), year)
+      }, function () {
+        return _this.handleYearChange(_this.state.date);
+      });
+    };
+
+    _this.changeMonth = function (month) {
+      _this.setState({
+        date: setMonth(cloneDate(_this.state.date), month)
+      }, function () {
+        return _this.handleMonthChange(_this.state.date);
+      });
+    };
+
+    _this.changeMonthYear = function (monthYear) {
+      _this.setState({
+        date: setYear(setMonth(cloneDate(_this.state.date), getMonth(monthYear)), getYear(monthYear))
+      }, function () {
+        return _this.handleMonthYearChange(_this.state.date);
+      });
+    };
+
+    _this.header = function () {
+      var date = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _this.state.date;
+
+      var startOfWeek = getStartOfWeek(cloneDate(date));
+      var dayNames = [];
+      if (_this.props.showWeekNumbers) {
+        dayNames.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { key: "W", className: "react-datepicker__day-name" }, _this.props.weekLabel || "#"));
+      }
+      return dayNames.concat([0, 1, 2, 3, 4, 5, 6].map(function (offset) {
+        var day = addDays(cloneDate(startOfWeek), offset);
+        var localeData = getLocaleData(day);
+        var weekDayName = _this.props.useWeekdaysShort ? getWeekdayShortInLocale(localeData, day) : getWeekdayMinInLocale(localeData, day);
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { key: offset, className: "react-datepicker__day-name" }, weekDayName);
+      }));
+    };
+
+    _this.renderPreviousMonthButton = function () {
+
+      var allPrevDaysDisabled = allDaysDisabledBefore(_this.state.date, "month", _this.props);
+
+      if (!_this.props.forceShowMonthNavigation && !_this.props.showDisabledMonthNavigation && allPrevDaysDisabled) {
+        return;
+      }
+
+      var classes = ["react-datepicker__navigation", "react-datepicker__navigation--previous"];
+
+      var clickHandler = _this.decreaseMonth;
+
+      if (allPrevDaysDisabled && _this.props.showDisabledMonthNavigation) {
+        classes.push("react-datepicker__navigation--previous--disabled");
+        clickHandler = null;
+      }
+
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", { type: "button",
+        className: classes.join(" "),
+        onClick: clickHandler });
+    };
+
+    _this.renderNextMonthButton = function () {
+
+      var allNextDaysDisabled = allDaysDisabledAfter(_this.state.date, "month", _this.props);
+
+      if (!_this.props.forceShowMonthNavigation && !_this.props.showDisabledMonthNavigation && allNextDaysDisabled) {
+        return;
+      }
+
+      var classes = ["react-datepicker__navigation", "react-datepicker__navigation--next"];
+      if (_this.props.showTimeSelect) {
+        classes.push("react-datepicker__navigation--next--with-time");
+      }
+      if (_this.props.todayButton) {
+        classes.push("react-datepicker__navigation--next--with-today-button");
+      }
+
+      var clickHandler = _this.increaseMonth;
+
+      if (allNextDaysDisabled && _this.props.showDisabledMonthNavigation) {
+        classes.push("react-datepicker__navigation--next--disabled");
+        clickHandler = null;
+      }
+
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", { type: "button", className: classes.join(" "), onClick: clickHandler });
+    };
+
+    _this.renderCurrentMonth = function () {
+      var date = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _this.state.date;
+
+      var classes = ["react-datepicker__current-month"];
+
+      if (_this.props.showYearDropdown) {
+        classes.push("react-datepicker__current-month--hasYearDropdown");
+      }
+      if (_this.props.showMonthDropdown) {
+        classes.push("react-datepicker__current-month--hasMonthDropdown");
+      }
+      if (_this.props.showMonthYearDropdown) {
+        classes.push("react-datepicker__current-month--hasMonthYearDropdown");
+      }
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: classes.join(" ") }, formatDate(date, _this.props.dateFormat));
+    };
+
+    _this.renderYearDropdown = function () {
+      var overrideHide = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+      if (!_this.props.showYearDropdown || overrideHide) {
+        return;
+      }
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(YearDropdown, {
+        adjustDateOnChange: _this.props.adjustDateOnChange,
+        date: _this.state.date,
+        onSelect: _this.props.onSelect,
+        setOpen: _this.props.setOpen,
+        dropdownMode: _this.props.dropdownMode,
+        onChange: _this.changeYear,
+        minDate: _this.props.minDate,
+        maxDate: _this.props.maxDate,
+        year: getYear(_this.state.date),
+        scrollableYearDropdown: _this.props.scrollableYearDropdown,
+        yearDropdownItemNumber: _this.props.yearDropdownItemNumber });
+    };
+
+    _this.renderMonthDropdown = function () {
+      var overrideHide = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+      if (!_this.props.showMonthDropdown || overrideHide) {
+        return;
+      }
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(MonthDropdown, {
+        dropdownMode: _this.props.dropdownMode,
+        locale: _this.props.locale,
+        dateFormat: _this.props.dateFormat,
+        onChange: _this.changeMonth,
+        month: getMonth(_this.state.date),
+        useShortMonthInDropdown: _this.props.useShortMonthInDropdown });
+    };
+
+    _this.renderMonthYearDropdown = function () {
+      var overrideHide = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+      if (!_this.props.showMonthYearDropdown || overrideHide) {
+        return;
+      }
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(MonthYearDropdown, {
+        dropdownMode: _this.props.dropdownMode,
+        locale: _this.props.locale,
+        dateFormat: _this.props.dateFormat,
+        onChange: _this.changeMonthYear,
+        minDate: _this.props.minDate,
+        maxDate: _this.props.maxDate,
+        date: _this.state.date,
+        scrollableMonthYearDropdown: _this.props.scrollableMonthYearDropdown
+      });
+    };
+
+    _this.renderTodayButton = function () {
+      if (!_this.props.todayButton) {
+        return;
+      }
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "react-datepicker__today-button",
+        onClick: function onClick(e) {
+          return _this.props.onSelect(getStartOfDate(now(_this.props.utcOffset)), e);
+        } }, _this.props.todayButton);
+    };
+
+    _this.renderMonths = function () {
+      var monthList = [];
+      for (var i = 0; i < _this.props.monthsShown; ++i) {
+        var monthDate = addMonths(cloneDate(_this.state.date), i);
+        var monthKey = "month-" + i;
+        monthList.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+          key: monthKey,
+          ref: function ref(div) {
+            _this.monthContainer = div;
+          },
+          className: "react-datepicker__month-container" }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "react-datepicker__header" }, _this.renderCurrentMonth(monthDate), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+          className: "react-datepicker__header__dropdown react-datepicker__header__dropdown--" + _this.props.dropdownMode,
+          onFocus: _this.handleDropdownFocus }, _this.renderMonthDropdown(i !== 0), _this.renderMonthYearDropdown(i !== 0), _this.renderYearDropdown(i !== 0)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "react-datepicker__day-names" }, _this.header(monthDate))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Month, {
+          day: monthDate,
+          dayClassName: _this.props.dayClassName,
+          onDayClick: _this.handleDayClick,
+          onDayMouseEnter: _this.handleDayMouseEnter,
+          onMouseLeave: _this.handleMonthMouseLeave,
+          onWeekSelect: _this.props.onWeekSelect,
+          formatWeekNumber: _this.props.formatWeekNumber,
+          minDate: _this.props.minDate,
+          maxDate: _this.props.maxDate,
+          excludeDates: _this.props.excludeDates,
+          highlightDates: _this.props.highlightDates,
+          selectingDate: _this.state.selectingDate,
+          includeDates: _this.props.includeDates,
+          inline: _this.props.inline,
+          fixedHeight: _this.props.fixedHeight,
+          filterDate: _this.props.filterDate,
+          preSelection: _this.props.preSelection,
+          selected: _this.props.selected,
+          selectsStart: _this.props.selectsStart,
+          selectsEnd: _this.props.selectsEnd,
+          showWeekNumbers: _this.props.showWeekNumbers,
+          startDate: _this.props.startDate,
+          endDate: _this.props.endDate,
+          peekNextMonth: _this.props.peekNextMonth,
+          utcOffset: _this.props.utcOffset })));
+      }
+      return monthList;
+    };
+
+    _this.renderTimeSection = function () {
+      if (_this.props.showTimeSelect) {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Time, {
+          selected: _this.props.selected,
+          onChange: _this.props.onTimeChange,
+          format: _this.props.timeFormat,
+          includeTimes: _this.props.includeTimes,
+          intervals: _this.props.timeIntervals,
+          minTime: _this.props.minTime,
+          maxTime: _this.props.maxTime,
+          excludeTimes: _this.props.excludeTimes,
+          timeCaption: _this.props.timeCaption,
+          todayButton: _this.props.todayButton,
+          showMonthDropdown: _this.props.showMonthDropdown,
+          showMonthYearDropdown: _this.props.showMonthYearDropdown,
+          showYearDropdown: _this.props.showYearDropdown,
+          withPortal: _this.props.withPortal,
+          monthRef: _this.state.monthContainer });
+      }
+    };
+
+    _this.state = {
+      date: _this.localizeDate(_this.getDateInView()),
+      selectingDate: null,
+      monthContainer: _this.monthContainer
+    };
+    return _this;
+  }
+
+  Calendar.prototype.componentDidMount = function componentDidMount() {
+    var _this2 = this;
+
+    // monthContainer height is needed in time component
+    // to determine the height for the ul in the time component
+    // setState here so height is given after final component
+    // layout is rendered
+    if (this.props.showTimeSelect) {
+      this.assignMonthContainer = function () {
+        _this2.setState({ monthContainer: _this2.monthContainer });
+      }();
+    }
+  };
+
+  Calendar.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+    if (nextProps.preSelection && !isSameDay(nextProps.preSelection, this.props.preSelection)) {
+      this.setState({
+        date: this.localizeDate(nextProps.preSelection)
+      });
+    } else if (nextProps.openToDate && !isSameDay(nextProps.openToDate, this.props.openToDate)) {
+      this.setState({
+        date: this.localizeDate(nextProps.openToDate)
+      });
+    }
+  };
+
+  Calendar.prototype.render = function render() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: __WEBPACK_IMPORTED_MODULE_2_classnames___default()("react-datepicker", this.props.className) }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "react-datepicker__triangle" }), this.renderPreviousMonthButton(), this.renderNextMonthButton(), this.renderMonths(), this.renderTodayButton(), this.renderTimeSection(), this.props.children);
+  };
+
+  return Calendar;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+Calendar.propTypes = {
+  adjustDateOnChange: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  className: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  children: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.node,
+  dateFormat: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.oneOfType([__WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string, __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.array]).isRequired,
+  dayClassName: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  dropdownMode: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.oneOf(["scroll", "select"]),
+  endDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  excludeDates: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.array,
+  filterDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  fixedHeight: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  formatWeekNumber: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  highlightDates: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.instanceOf(Map),
+  includeDates: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.array,
+  includeTimes: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.array,
+  inline: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  locale: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  maxDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  minDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  monthsShown: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
+  onClickOutside: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
+  onMonthChange: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  onYearChange: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  forceShowMonthNavigation: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  onDropdownFocus: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  onSelect: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
+  onWeekSelect: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  showTimeSelect: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  timeFormat: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  timeIntervals: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
+  onTimeChange: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  minTime: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  maxTime: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  excludeTimes: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.array,
+  timeCaption: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  openToDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  peekNextMonth: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  scrollableYearDropdown: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  scrollableMonthYearDropdown: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  preSelection: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  selected: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  selectsEnd: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  selectsStart: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  showMonthDropdown: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  showMonthYearDropdown: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  showWeekNumbers: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  showYearDropdown: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  startDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  todayButton: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  useWeekdaysShort: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  withPortal: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  utcOffset: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
+  weekLabel: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  yearDropdownItemNumber: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
+  setOpen: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  useShortMonthInDropdown: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  showDisabledMonthNavigation: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool
+};
+
+var popperPlacementPositions = ["auto", "auto-left", "auto-right", "bottom", "bottom-end", "bottom-start", "left", "left-end", "left-start", "right", "right-end", "right-start", "top", "top-end", "top-start"];
+
+var PopperComponent = function (_React$Component) {
+  inherits(PopperComponent, _React$Component);
+
+  function PopperComponent() {
+    classCallCheck(this, PopperComponent);
+    return possibleConstructorReturn(this, _React$Component.apply(this, arguments));
+  }
+
+  PopperComponent.prototype.render = function render() {
+    var _props = this.props,
+        className = _props.className,
+        hidePopper = _props.hidePopper,
+        popperComponent = _props.popperComponent,
+        popperModifiers = _props.popperModifiers,
+        popperPlacement = _props.popperPlacement,
+        targetComponent = _props.targetComponent;
+
+    var popper = void 0;
+
+    if (!hidePopper) {
+      var classes = __WEBPACK_IMPORTED_MODULE_2_classnames___default()("react-datepicker-popper", className);
+      popper = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_react_popper__["Popper"], {
+        className: classes,
+        modifiers: popperModifiers,
+        placement: popperPlacement }, popperComponent);
+    }
+
+    if (this.props.popperContainer) {
+      popper = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(this.props.popperContainer, {}, popper);
+    }
+
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_react_popper__["Manager"], null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_react_popper__["Target"], { className: "react-datepicker-wrapper" }, targetComponent), popper);
+  };
+
+  createClass(PopperComponent, null, [{
+    key: "defaultProps",
+    get: function get$$1() {
+      return {
+        hidePopper: true,
+        popperModifiers: {
+          preventOverflow: {
+            enabled: true,
+            escapeWithReference: true,
+            boundariesElement: "viewport"
+          }
+        },
+        popperPlacement: "bottom-start"
+      };
+    }
+  }]);
+  return PopperComponent;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+PopperComponent.propTypes = {
+  className: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  hidePopper: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  popperComponent: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.element,
+  popperModifiers: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object, // <datepicker/> props
+  popperPlacement: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.oneOf(popperPlacementPositions), // <datepicker/> props
+  popperContainer: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  targetComponent: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.element
+};
+
+var outsideClickIgnoreClass = "react-datepicker-ignore-onclickoutside";
+var WrappedCalendar = Object(__WEBPACK_IMPORTED_MODULE_3_react_onclickoutside__["a" /* default */])(Calendar);
+
+/**
+ * General datepicker component.
+ */
+
+var DatePicker = function (_React$Component) {
+  inherits(DatePicker, _React$Component);
+  createClass(DatePicker, null, [{
+    key: "defaultProps",
+    get: function get$$1() {
+      return {
+        allowSameDay: false,
+        dateFormat: "L",
+        dateFormatCalendar: "MMMM YYYY",
+        onChange: function onChange() {},
+
+        disabled: false,
+        disabledKeyboardNavigation: false,
+        dropdownMode: "scroll",
+        onFocus: function onFocus() {},
+        onBlur: function onBlur() {},
+        onKeyDown: function onKeyDown() {},
+        onSelect: function onSelect() {},
+        onClickOutside: function onClickOutside$$1() {},
+        onMonthChange: function onMonthChange() {},
+
+        preventOpenOnFocus: false,
+        onYearChange: function onYearChange() {},
+
+        monthsShown: 1,
+        withPortal: false,
+        shouldCloseOnSelect: true,
+        showTimeSelect: false,
+        timeIntervals: 30,
+        timeCaption: "Time"
+      };
+    }
+  }]);
+
+  function DatePicker(props) {
+    classCallCheck(this, DatePicker);
+
+    var _this = possibleConstructorReturn(this, _React$Component.call(this, props));
+
+    _this.getPreSelection = function () {
+      return _this.props.openToDate ? newDate(_this.props.openToDate) : _this.props.selectsEnd && _this.props.startDate ? newDate(_this.props.startDate) : _this.props.selectsStart && _this.props.endDate ? newDate(_this.props.endDate) : now(_this.props.utcOffset);
+    };
+
+    _this.calcInitialState = function () {
+      var defaultPreSelection = _this.getPreSelection();
+      var minDate = getEffectiveMinDate(_this.props);
+      var maxDate = getEffectiveMaxDate(_this.props);
+      var boundedPreSelection = minDate && isBefore(defaultPreSelection, minDate) ? minDate : maxDate && isAfter(defaultPreSelection, maxDate) ? maxDate : defaultPreSelection;
+      return {
+        open: _this.props.startOpen || false,
+        preventFocus: false,
+        preSelection: _this.props.selected ? newDate(_this.props.selected) : boundedPreSelection,
+        // transforming highlighted days (perhaps nested array)
+        // to flat Map for faster access in day.jsx
+        highlightDates: getHightLightDaysMap(_this.props.highlightDates)
+      };
+    };
+
+    _this.clearPreventFocusTimeout = function () {
+      if (_this.preventFocusTimeout) {
+        clearTimeout(_this.preventFocusTimeout);
+      }
+    };
+
+    _this.setFocus = function () {
+      if (_this.input.focus) {
+        _this.input.focus();
+      }
+    };
+
+    _this.setOpen = function (open) {
+      _this.setState({
+        open: open,
+        preSelection: open && _this.state.open ? _this.state.preSelection : _this.calcInitialState().preSelection
+      });
+    };
+
+    _this.handleFocus = function (event) {
+      if (!_this.state.preventFocus) {
+        _this.props.onFocus(event);
+        if (!_this.props.preventOpenOnFocus) {
+          _this.setOpen(true);
+        }
+      }
+    };
+
+    _this.cancelFocusInput = function () {
+      clearTimeout(_this.inputFocusTimeout);
+      _this.inputFocusTimeout = null;
+    };
+
+    _this.deferFocusInput = function () {
+      _this.cancelFocusInput();
+      _this.inputFocusTimeout = setTimeout(function () {
+        return _this.setFocus();
+      }, 1);
+    };
+
+    _this.handleDropdownFocus = function () {
+      _this.cancelFocusInput();
+    };
+
+    _this.handleBlur = function (event) {
+      if (_this.state.open) {
+        _this.deferFocusInput();
+      } else {
+        _this.props.onBlur(event);
+      }
+    };
+
+    _this.handleCalendarClickOutside = function (event) {
+      if (!_this.props.inline) {
+        _this.setOpen(false);
+      }
+      _this.props.onClickOutside(event);
+      if (_this.props.withPortal) {
+        event.preventDefault();
+      }
+    };
+
+    _this.handleChange = function () {
+      for (var _len = arguments.length, allArgs = Array(_len), _key = 0; _key < _len; _key++) {
+        allArgs[_key] = arguments[_key];
+      }
+
+      var event = allArgs[0];
+      if (_this.props.onChangeRaw) {
+        _this.props.onChangeRaw.apply(_this, allArgs);
+        if (typeof event.isDefaultPrevented !== "function" || event.isDefaultPrevented()) {
+          return;
+        }
+      }
+      _this.setState({ inputValue: event.target.value });
+      var date = parseDate(event.target.value, _this.props);
+      if (date || !event.target.value) {
+        _this.setSelected(date, event, true);
+      }
+    };
+
+    _this.handleSelect = function (date, event) {
+      // Preventing onFocus event to fix issue
+      // https://github.com/Hacker0x01/react-datepicker/issues/628
+      _this.setState({ preventFocus: true }, function () {
+        _this.preventFocusTimeout = setTimeout(function () {
+          return _this.setState({ preventFocus: false });
+        }, 50);
+        return _this.preventFocusTimeout;
+      });
+      _this.setSelected(date, event);
+      if (!_this.props.shouldCloseOnSelect || _this.props.showTimeSelect) {
+        _this.setPreSelection(date);
+      } else if (!_this.props.inline) {
+        _this.setOpen(false);
+      }
+    };
+
+    _this.setSelected = function (date, event, keepInput) {
+      var changedDate = date;
+
+      if (changedDate !== null && isDayDisabled(changedDate, _this.props)) {
+        return;
+      }
+
+      if (!isSameDay(_this.props.selected, changedDate) || _this.props.allowSameDay) {
+        if (changedDate !== null) {
+          if (_this.props.selected) {
+            changedDate = setTime(newDate(changedDate), {
+              hour: getHour(_this.props.selected),
+              minute: getMinute(_this.props.selected),
+              second: getSecond(_this.props.selected)
+            });
+          }
+          _this.setState({
+            preSelection: changedDate
+          });
+        }
+        _this.props.onChange(changedDate, event);
+      }
+
+      _this.props.onSelect(changedDate, event);
+
+      if (!keepInput) {
+        _this.setState({ inputValue: null });
+      }
+    };
+
+    _this.setPreSelection = function (date) {
+      var isDateRangePresent = typeof _this.props.minDate !== "undefined" && typeof _this.props.maxDate !== "undefined";
+      var isValidDateSelection = isDateRangePresent && date ? isDayInRange(date, _this.props.minDate, _this.props.maxDate) : true;
+      if (isValidDateSelection) {
+        _this.setState({
+          preSelection: date
+        });
+      }
+    };
+
+    _this.handleTimeChange = function (time) {
+      var selected = _this.props.selected ? _this.props.selected : _this.getPreSelection();
+      var changedDate = setTime(cloneDate(selected), {
+        hour: getHour(time),
+        minute: getMinute(time)
+      });
+
+      _this.setState({
+        preSelection: changedDate
+      });
+
+      _this.props.onChange(changedDate);
+      _this.setOpen(false);
+    };
+
+    _this.onInputClick = function () {
+      if (!_this.props.disabled) {
+        _this.setOpen(true);
+      }
+    };
+
+    _this.onInputKeyDown = function (event) {
+      _this.props.onKeyDown(event);
+      var eventKey = event.key;
+      if (!_this.state.open && !_this.props.inline && !_this.props.preventOpenOnFocus) {
+        if (eventKey !== "Enter" && eventKey !== "Escape" && eventKey !== "Tab") {
+          _this.onInputClick();
+        }
+        return;
+      }
+      var copy = newDate(_this.state.preSelection);
+      if (eventKey === "Enter") {
+        event.preventDefault();
+        if (isMoment(_this.state.preSelection) || isDate(_this.state.preSelection)) {
+          _this.handleSelect(copy, event);
+          !_this.props.shouldCloseOnSelect && _this.setPreSelection(copy);
+        } else {
+          _this.setOpen(false);
+        }
+      } else if (eventKey === "Escape") {
+        event.preventDefault();
+        _this.setOpen(false);
+      } else if (eventKey === "Tab") {
+        _this.setOpen(false);
+      } else if (!_this.props.disabledKeyboardNavigation) {
+        var newSelection = void 0;
+        switch (eventKey) {
+          case "ArrowLeft":
+            event.preventDefault();
+            newSelection = subtractDays(copy, 1);
+            break;
+          case "ArrowRight":
+            event.preventDefault();
+            newSelection = addDays(copy, 1);
+            break;
+          case "ArrowUp":
+            event.preventDefault();
+            newSelection = subtractWeeks(copy, 1);
+            break;
+          case "ArrowDown":
+            event.preventDefault();
+            newSelection = addWeeks(copy, 1);
+            break;
+          case "PageUp":
+            event.preventDefault();
+            newSelection = subtractMonths(copy, 1);
+            break;
+          case "PageDown":
+            event.preventDefault();
+            newSelection = addMonths(copy, 1);
+            break;
+          case "Home":
+            event.preventDefault();
+            newSelection = subtractYears(copy, 1);
+            break;
+          case "End":
+            event.preventDefault();
+            newSelection = addYears(copy, 1);
+            break;
+        }
+        if (_this.props.adjustDateOnChange) {
+          _this.setSelected(newSelection);
+        }
+        _this.setPreSelection(newSelection);
+      }
+    };
+
+    _this.onClearClick = function (event) {
+      if (event) {
+        if (event.preventDefault) {
+          event.preventDefault();
+        }
+      }
+      _this.props.onChange(null, event);
+      _this.setState({ inputValue: null });
+    };
+
+    _this.clear = function () {
+      _this.onClearClick();
+    };
+
+    _this.renderCalendar = function () {
+      if (!_this.props.inline && (!_this.state.open || _this.props.disabled)) {
+        return null;
+      }
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(WrappedCalendar, {
+        ref: function ref(elem) {
+          _this.calendar = elem;
+        },
+        locale: _this.props.locale,
+        adjustDateOnChange: _this.props.adjustDateOnChange,
+        setOpen: _this.setOpen,
+        dateFormat: _this.props.dateFormatCalendar,
+        useWeekdaysShort: _this.props.useWeekdaysShort,
+        dropdownMode: _this.props.dropdownMode,
+        selected: _this.props.selected,
+        preSelection: _this.state.preSelection,
+        onSelect: _this.handleSelect,
+        onWeekSelect: _this.props.onWeekSelect,
+        openToDate: _this.props.openToDate,
+        minDate: _this.props.minDate,
+        maxDate: _this.props.maxDate,
+        selectsStart: _this.props.selectsStart,
+        selectsEnd: _this.props.selectsEnd,
+        startDate: _this.props.startDate,
+        endDate: _this.props.endDate,
+        excludeDates: _this.props.excludeDates,
+        filterDate: _this.props.filterDate,
+        onClickOutside: _this.handleCalendarClickOutside,
+        formatWeekNumber: _this.props.formatWeekNumber,
+        highlightDates: _this.state.highlightDates,
+        includeDates: _this.props.includeDates,
+        includeTimes: _this.props.includeTimes,
+        inline: _this.props.inline,
+        peekNextMonth: _this.props.peekNextMonth,
+        showMonthDropdown: _this.props.showMonthDropdown,
+        useShortMonthInDropdown: _this.props.useShortMonthInDropdown,
+        showMonthYearDropdown: _this.props.showMonthYearDropdown,
+        showWeekNumbers: _this.props.showWeekNumbers,
+        showYearDropdown: _this.props.showYearDropdown,
+        withPortal: _this.props.withPortal,
+        forceShowMonthNavigation: _this.props.forceShowMonthNavigation,
+        showDisabledMonthNavigation: _this.props.showDisabledMonthNavigation,
+        scrollableYearDropdown: _this.props.scrollableYearDropdown,
+        scrollableMonthYearDropdown: _this.props.scrollableMonthYearDropdown,
+        todayButton: _this.props.todayButton,
+        weekLabel: _this.props.weekLabel,
+        utcOffset: _this.props.utcOffset,
+        outsideClickIgnoreClass: outsideClickIgnoreClass,
+        fixedHeight: _this.props.fixedHeight,
+        monthsShown: _this.props.monthsShown,
+        onDropdownFocus: _this.handleDropdownFocus,
+        onMonthChange: _this.props.onMonthChange,
+        onYearChange: _this.props.onYearChange,
+        dayClassName: _this.props.dayClassName,
+        showTimeSelect: _this.props.showTimeSelect,
+        onTimeChange: _this.handleTimeChange,
+        timeFormat: _this.props.timeFormat,
+        timeIntervals: _this.props.timeIntervals,
+        minTime: _this.props.minTime,
+        maxTime: _this.props.maxTime,
+        excludeTimes: _this.props.excludeTimes,
+        timeCaption: _this.props.timeCaption,
+        className: _this.props.calendarClassName,
+        yearDropdownItemNumber: _this.props.yearDropdownItemNumber }, _this.props.children);
+    };
+
+    _this.renderDateInput = function () {
+      var _classnames, _React$cloneElement;
+
+      var className = __WEBPACK_IMPORTED_MODULE_2_classnames___default()(_this.props.className, (_classnames = {}, _classnames[outsideClickIgnoreClass] = _this.state.open, _classnames));
+
+      var customInput = _this.props.customInput || __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "text" });
+      var customInputRef = _this.props.customInputRef || "ref";
+      var inputValue = typeof _this.props.value === "string" ? _this.props.value : typeof _this.state.inputValue === "string" ? _this.state.inputValue : safeDateFormat(_this.props.selected, _this.props);
+
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.cloneElement(customInput, (_React$cloneElement = {}, _React$cloneElement[customInputRef] = function (input) {
+        _this.input = input;
+      }, _React$cloneElement.value = inputValue, _React$cloneElement.onBlur = _this.handleBlur, _React$cloneElement.onChange = _this.handleChange, _React$cloneElement.onClick = _this.onInputClick, _React$cloneElement.onFocus = _this.handleFocus, _React$cloneElement.onKeyDown = _this.onInputKeyDown, _React$cloneElement.id = _this.props.id, _React$cloneElement.name = _this.props.name, _React$cloneElement.autoFocus = _this.props.autoFocus, _React$cloneElement.placeholder = _this.props.placeholderText, _React$cloneElement.disabled = _this.props.disabled, _React$cloneElement.autoComplete = _this.props.autoComplete, _React$cloneElement.className = className, _React$cloneElement.title = _this.props.title, _React$cloneElement.readOnly = _this.props.readOnly, _React$cloneElement.required = _this.props.required, _React$cloneElement.tabIndex = _this.props.tabIndex, _React$cloneElement));
+    };
+
+    _this.renderClearButton = function () {
+      if (_this.props.isClearable && _this.props.selected != null) {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
+          className: "react-datepicker__close-icon",
+          href: "javascript:void(0)",
+          onClick: _this.onClearClick });
+      } else {
+        return null;
+      }
+    };
+
+    _this.state = _this.calcInitialState();
+    return _this;
+  }
+
+  DatePicker.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+    var currentMonth = this.props.selected && getMonth(this.props.selected);
+    var nextMonth = nextProps.selected && getMonth(nextProps.selected);
+    if (this.props.inline && currentMonth !== nextMonth) {
+      this.setPreSelection(nextProps.selected);
+    }
+    if (this.props.highlightDates !== nextProps.highlightDates) {
+      this.setState({
+        highlightDates: getHightLightDaysMap(nextProps.highlightDates)
+      });
+    }
+  };
+
+  DatePicker.prototype.componentWillUnmount = function componentWillUnmount() {
+    this.clearPreventFocusTimeout();
+  };
+
+  DatePicker.prototype.render = function render() {
+    var calendar = this.renderCalendar();
+
+    if (this.props.inline && !this.props.withPortal) {
+      return calendar;
+    }
+
+    if (this.props.withPortal) {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, !this.props.inline ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "react-datepicker__input-container" }, this.renderDateInput(), this.renderClearButton()) : null, this.state.open || this.props.inline ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "react-datepicker__portal" }, calendar) : null);
+    }
+
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(PopperComponent, {
+      className: this.props.popperClassName,
+      hidePopper: !this.state.open || this.props.disabled,
+      popperModifiers: this.props.popperModifiers,
+      targetComponent: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "react-datepicker__input-container" }, this.renderDateInput(), this.renderClearButton()),
+      popperContainer: this.props.popperContainer,
+      popperComponent: calendar,
+      popperPlacement: this.props.popperPlacement });
+  };
+
+  return DatePicker;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+DatePicker.propTypes = {
+  adjustDateOnChange: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  allowSameDay: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  autoComplete: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  autoFocus: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  calendarClassName: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  children: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.node,
+  className: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  customInput: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.element,
+  customInputRef: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  dateFormat: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.oneOfType([// eslint-disable-line react/no-unused-prop-types
+  __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string, __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.array]),
+  dateFormatCalendar: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  dayClassName: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  disabled: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  disabledKeyboardNavigation: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  dropdownMode: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.oneOf(["scroll", "select"]).isRequired,
+  endDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  excludeDates: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.array,
+  filterDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  fixedHeight: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  formatWeekNumber: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  highlightDates: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.array,
+  id: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  includeDates: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.array,
+  includeTimes: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.array,
+  inline: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  isClearable: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  locale: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  maxDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  minDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  monthsShown: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
+  name: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  onBlur: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  onChange: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
+  onSelect: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  onWeekSelect: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  onClickOutside: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  onChangeRaw: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  onFocus: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  onKeyDown: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  onMonthChange: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  onYearChange: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  openToDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  peekNextMonth: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  placeholderText: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  popperContainer: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  popperClassName: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string, // <PopperComponent/> props
+  popperModifiers: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object, // <PopperComponent/> props
+  popperPlacement: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.oneOf(popperPlacementPositions), // <PopperComponent/> props
+  preventOpenOnFocus: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  readOnly: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  required: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  scrollableYearDropdown: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  scrollableMonthYearDropdown: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  selected: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  selectsEnd: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  selectsStart: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  showMonthDropdown: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  showMonthYearDropdown: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  showWeekNumbers: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  showYearDropdown: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  forceShowMonthNavigation: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  showDisabledMonthNavigation: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  startDate: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  startOpen: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  tabIndex: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
+  timeCaption: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  title: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  todayButton: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  useWeekdaysShort: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  utcOffset: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
+  value: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  weekLabel: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  withPortal: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  yearDropdownItemNumber: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
+  shouldCloseOnSelect: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  showTimeSelect: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  timeFormat: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+  timeIntervals: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
+  minTime: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  maxTime: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  excludeTimes: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.array,
+  useShortMonthInDropdown: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (DatePicker);
+
+/***/ }),
+/* 277 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(409);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(61)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../css-loader/index.js!./react-datepicker.css", function() {
+			var newContent = require("!!../../css-loader/index.js!./react-datepicker.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
 /* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -34964,11 +37638,11 @@ __webpack_require__(0);
 
 __webpack_require__(14);
 
-__webpack_require__(390);
+__webpack_require__(276);
 
-__webpack_require__(155);
+__webpack_require__(277);
 
-__webpack_require__(399);
+__webpack_require__(3);
 
 __webpack_require__(410);
 
@@ -34990,7 +37664,7 @@ __webpack_require__(779);
 /* 379 */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n  </div>\r\n\r\n  <script type=\"text/javascript\">\r\n  var devMode = true;\r\n    var isOnlyPreview = false;\r\n\r\n    var ectProperties = [{\r\n      'ectPopupContent': {\r\n        timeout: [],\r\n        endDate: '2028/2/19',\r\n        pTimezoneOffset: '+7200000',\r\n        endHour: '00',\r\n        endMinute: '00',\r\n        pFormat: 'D then H:M:S',\r\n        fontSize: '32px',\r\n        color: '#F00',\r\n        fontWeight: 'bold',\r\n        cTxtYears: 'Years',\r\n        cTxtMonths: 'Months',\r\n        cTxtWeeks: 'Weeks',\r\n        cTxtDays: 'Days',\r\n        cTxtHours: 'Hours',\r\n        cTxtMinutes: 'Minutes',\r\n        cTxtSeconds: 'Seconds'\r\n      }\r\n    }\r\n    ];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>";
+module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n  </div>\r\n  <script type=\"text/javascript\">\r\n  var devMode = true;\r\n    var isOnlyPreview = false;\r\n    var ectProperties = [{\r\n      'ectPopupContent': {\r\n        timeout: [],\r\n        endDate: '2029/2/16',\r\n        pTimezoneOffset: '+7200000',\r\n        endHour: '00',\r\n        endMinute: '00',\r\n        pFormat: 'D then H:M:S',\r\n        fontSize: '32px',\r\n        color: '#F00',\r\n        fontWeight: 'bold',\r\n        customTxtYears: 'Years',\r\n        customTxtMonths: 'Months',\r\n        customTxtWeeks: 'Weeks',\r\n        customTxtDays: 'Days',\r\n        customTxtHours: 'Hours',\r\n        customTxtMinutes: 'Minutes',\r\n        customTxtSeconds: 'Seconds',\r\n        customTxtEndedTxt: 'Timer Ended'\r\n      }\r\n    }\r\n    ];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>";
 
 /***/ }),
 /* 380 */
@@ -53906,33 +56580,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 390 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-  Used as main file in package.json
-*/
-
-/* eslint-disable no-var */
-/* eslint-env node */
-
-var DayPicker = __webpack_require__(152);
-var DateUtils = __webpack_require__(46);
-var LocaleUtils = __webpack_require__(75);
-var ModifiersUtils = __webpack_require__(78);
-var Weekday = __webpack_require__(154);
-var Navbar = __webpack_require__(153);
-var PropTypes = __webpack_require__(397);
-
-module.exports = DayPicker;
-module.exports.DateUtils = DateUtils;
-module.exports.LocaleUtils = LocaleUtils;
-module.exports.ModifiersUtils = ModifiersUtils;
-module.exports.WeekdayPropTypes = Weekday.propTypes;
-module.exports.NavbarPropTypes = Navbar.propTypes;
-module.exports.PropTypes = PropTypes;
-
-/***/ }),
+/* 390 */,
 /* 391 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -55235,50 +57883,7 @@ Day.propTypes = process.env.NODE_ENV !== "production" ? {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 397 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.ModifierPropType = undefined;
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj };
-}
-
-var PrimitiveTypes = {
-  localeUtils: _propTypes2.default.shape({
-    formatMonthTitle: _propTypes2.default.func,
-    formatWeekdayShort: _propTypes2.default.func,
-    formatWeekdayLong: _propTypes2.default.func,
-    getFirstDayOfWeek: _propTypes2.default.func
-  }),
-  range: _propTypes2.default.shape({
-    from: _propTypes2.default.instanceOf(Date),
-    to: _propTypes2.default.instanceOf(Date)
-  }),
-  after: _propTypes2.default.shape({
-    after: _propTypes2.default.instanceOf(Date)
-  }),
-  before: _propTypes2.default.shape({
-    before: _propTypes2.default.instanceOf(Date)
-  })
-};
-
-var ModifierPropType = exports.ModifierPropType = _propTypes2.default.oneOfType([PrimitiveTypes.after, PrimitiveTypes.before, PrimitiveTypes.range, _propTypes2.default.func, _propTypes2.default.array]);
-
-exports.default = PrimitiveTypes;
-//# sourceMappingURL=PropTypes.js.map
-
-/***/ }),
+/* 397 */,
 /* 398 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -55539,51 +58144,8 @@ module.exports = webpackContext;
 webpackContext.id = 398;
 
 /***/ }),
-/* 399 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(400);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(61)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../css-loader/index.js!./style.css", function() {
-			var newContent = require("!!../../css-loader/index.js!./style.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 400 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(60)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, "/* DayPicker styles */\n\n.DayPicker {\n  display: inline-block;\n}\n\n.DayPicker-wrapper {\n  position: relative;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  padding-bottom: 1rem;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n}\n\n.DayPicker-Months {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.DayPicker-Month {\n  display: table;\n  border-collapse: collapse;\n  border-spacing: 0;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  margin: 0 1rem;\n  margin-top: 1rem;\n}\n\n.DayPicker-NavBar {\n}\n\n.DayPicker-NavButton {\n  position: absolute;\n  cursor: pointer;\n  top: 1rem;\n  right: 1.5rem;\n  margin-top: 2px;\n  color: #8b9898;\n  width: 1.25rem;\n  height: 1.25rem;\n  display: inline-block;\n  background-size: 50%;\n  background-repeat: no-repeat;\n  background-position: center;\n}\n\n.DayPicker-NavButton:hover {\n  opacity: 0.8;\n}\n\n.DayPicker-NavButton--prev {\n  margin-right: 1.5rem;\n  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAABGdBTUEAALGPC/xhBQAAAVVJREFUWAnN2G0KgjAYwPHpGfRkaZeqvgQaK+hY3SUHrk1YzNLay/OiEFp92I+/Mp2F2Mh2lLISWnflFjzH263RQjzMZ19wgs73ez0o1WmtW+dgA01VxrE3p6l2GLsnBy1VYQOtVSEH/atCCgqpQgKKqYIOiq2CBkqtggLKqQIKgqgCBjpJ2Y5CdJ+zrT9A7HHSTA1dxUdHgzCqJIEwq0SDsKsEg6iqBIEoq/wEcVRZBXFV+QJxV5mBtlDFB5VjYTaGZ2sf4R9PM7U9ZU+lLuaetPP/5Die3ToO1+u+MKtHs06qODB2zBnI/jBd4MPQm1VkY79Tb18gB+C62FdBFsZR6yeIo1YQiLJWMIiqVjQIu1YSCLNWFgijVjYIuhYYCKoWKAiiFgoopxYaKLUWOii2FgkophYp6F3r42W5A9s9OcgNvva8xQaysKXlFytoqdYmQH6tF3toSUo0INq9AAAAAElFTkSuQmCC');\n}\n\n.DayPicker-NavButton--next {\n  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAABGdBTUEAALGPC/xhBQAAAXRJREFUWAnN119ugjAcwPHWzJ1gnmxzB/BBE0n24m4xfNkTaOL7wOtsl3AXMMb+Vjaa1BG00N8fSEibPpAP3xAKKs2yjzTPH9RAjhEo9WzPr/Vm8zgE0+gXATAxxuxtqeJ9t5tIwv5AtQAApsfT6TPdbp+kUBcgVwvO51KqVhMkXKsVJFXrOkigVhCIs1Y4iKlWZxB1rX4gwlpRIIpa8SDkWmggrFq4IIRaJKCYWnSgnrXIQV1r8YD+1Vrn+bReagysIFfLABRt31v8oBu1xEBttfRbltmfjgEcWh9snUS2kNdBK6WN1vrOWxObWsz+fjxevsxmB1GQDfINWiev83nhaoiB/CoOU438oPrhXS0WpQ9xc1ZQWxWHqUYe0I0qrKCQKjygDlXIQV2r0IF6ViEBxVTBBSFUQQNhVYkHIVeJAtkNsbQ7c1LtzP6FsObhb2rCKv7NBIGoq4SDmKoEgTirXAcJVGkFSVVpgoSrXICGUMUH/QBZNSUy5XWUhwAAAABJRU5ErkJggg==');\n}\n\n.DayPicker-NavButton--interactionDisabled {\n  display: none;\n}\n\n.DayPicker-Caption {\n  padding: 0 0.5rem;\n  display: table-caption;\n  text-align: left;\n  margin-bottom: 0.5rem;\n}\n\n.DayPicker-Caption > div {\n  font-size: 1.15rem;\n  font-weight: 500;\n}\n\n.DayPicker-Weekdays {\n  margin-top: 1rem;\n  display: table-header-group;\n}\n\n.DayPicker-WeekdaysRow {\n  display: table-row;\n}\n\n.DayPicker-Weekday {\n  display: table-cell;\n  padding: 0.5rem;\n  font-size: 0.875em;\n  text-align: center;\n  color: #8b9898;\n}\n\n.DayPicker-Weekday abbr[title] {\n  border-bottom: none;\n  text-decoration: none;\n}\n\n.DayPicker-Body {\n  display: table-row-group;\n}\n\n.DayPicker-Week {\n  display: table-row;\n}\n\n.DayPicker-Day {\n  display: table-cell;\n  padding: 0.5rem;\n  text-align: center;\n  cursor: pointer;\n  vertical-align: middle;\n  outline: none;\n}\n\n.DayPicker-WeekNumber {\n  display: table-cell;\n  padding: 0.5rem;\n  text-align: right;\n  vertical-align: middle;\n  min-width: 1rem;\n  font-size: 0.75em;\n  cursor: pointer;\n  color: #8b9898;\n  border-right: 1px solid #eaecec;\n}\n\n.DayPicker--interactionDisabled .DayPicker-Day {\n  cursor: default;\n}\n\n.DayPicker-Footer {\n  padding-top: 0.5rem;\n}\n\n.DayPicker-TodayButton {\n  border: none;\n  background-image: none;\n  background-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  cursor: pointer;\n  color: #4a90e2;\n  font-size: 0.875em;\n}\n\n/* Default modifiers */\n\n.DayPicker-Day--today {\n  color: #d0021b;\n  font-weight: 700;\n}\n\n.DayPicker-Day--outside {\n  cursor: default;\n  color: #8b9898;\n}\n\n.DayPicker-Day--disabled {\n  color: #dce0e0;\n  cursor: default;\n  /* background-color: #eff1f1; */\n}\n\n/* Example modifiers */\n\n.DayPicker-Day--sunday {\n  background-color: #f7f8f8;\n}\n\n.DayPicker-Day--sunday:not(.DayPicker-Day--today) {\n  color: #dce0e0;\n}\n\n.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {\n  position: relative;\n  color: #f0f8ff;\n  background-color: #4a90e2;\n  border-radius: 100%;\n}\n\n.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {\n  background-color: #51a0fa;\n}\n\n.DayPicker:not(.DayPicker--interactionDisabled)\n  .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {\n  background-color: #f0f8ff;\n  border-radius: 50%;\n}\n\n/* DayPickerInput */\n\n.DayPickerInput {\n  display: inline-block;\n}\n\n.DayPickerInput-OverlayWrapper {\n  position: relative;\n}\n\n.DayPickerInput-Overlay {\n  left: 0;\n  z-index: 1;\n  position: absolute;\n  background: white;\n  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);\n          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
+/* 399 */,
+/* 400 */,
 /* 401 */
 /***/ (function(module, exports) {
 
@@ -55677,14 +58239,3431 @@ module.exports = function (css) {
 };
 
 /***/ }),
-/* 402 */,
-/* 403 */,
-/* 404 */,
-/* 405 */,
-/* 406 */,
-/* 407 */,
-/* 408 */,
-/* 409 */,
+/* 402 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export IGNORE_CLASS_NAME */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+
+
+
+function _inheritsLoose(subClass, superClass) {
+  subClass.prototype = Object.create(superClass.prototype);
+  subClass.prototype.constructor = subClass;
+  subClass.__proto__ = superClass;
+}
+
+function _objectWithoutProperties(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
+
+/**
+ * Check whether some DOM node is our Component's node.
+ */
+function isNodeFound(current, componentNode, ignoreClass) {
+  if (current === componentNode) {
+    return true;
+  } // SVG <use/> elements do not technically reside in the rendered DOM, so
+  // they do not have classList directly, but they offer a link to their
+  // corresponding element, which can have classList. This extra check is for
+  // that case.
+  // See: http://www.w3.org/TR/SVG11/struct.html#InterfaceSVGUseElement
+  // Discussion: https://github.com/Pomax/react-onclickoutside/pull/17
+
+
+  if (current.correspondingElement) {
+    return current.correspondingElement.classList.contains(ignoreClass);
+  }
+
+  return current.classList.contains(ignoreClass);
+}
+/**
+ * Try to find our node in a hierarchy of nodes, returning the document
+ * node as highest node if our node is not found in the path up.
+ */
+
+function findHighest(current, componentNode, ignoreClass) {
+  if (current === componentNode) {
+    return true;
+  } // If source=local then this event came from 'somewhere'
+  // inside and should be ignored. We could handle this with
+  // a layered approach, too, but that requires going back to
+  // thinking in terms of Dom node nesting, running counter
+  // to React's 'you shouldn't care about the DOM' philosophy.
+
+
+  while (current.parentNode) {
+    if (isNodeFound(current, componentNode, ignoreClass)) {
+      return true;
+    }
+
+    current = current.parentNode;
+  }
+
+  return current;
+}
+/**
+ * Check if the browser scrollbar was clicked
+ */
+
+function clickedScrollbar(evt) {
+  return document.documentElement.clientWidth <= evt.clientX || document.documentElement.clientHeight <= evt.clientY;
+}
+
+// ideally will get replaced with external dep
+// when rafrex/detect-passive-events#4 and rafrex/detect-passive-events#5 get merged in
+var testPassiveEventSupport = function testPassiveEventSupport() {
+  if (typeof window === 'undefined' || typeof window.addEventListener !== 'function') {
+    return;
+  }
+
+  var passive = false;
+  var options = Object.defineProperty({}, 'passive', {
+    get: function get() {
+      passive = true;
+    }
+  });
+
+  var noop = function noop() {};
+
+  window.addEventListener('testPassiveEventSupport', noop, options);
+  window.removeEventListener('testPassiveEventSupport', noop, options);
+  return passive;
+};
+
+function autoInc(seed) {
+  if (seed === void 0) {
+    seed = 0;
+  }
+
+  return function () {
+    return ++seed;
+  };
+}
+
+var uid = autoInc();
+
+var passiveEventSupport;
+var handlersMap = {};
+var enabledInstances = {};
+var touchEvents = ['touchstart', 'touchmove'];
+var IGNORE_CLASS_NAME = 'ignore-react-onclickoutside';
+/**
+ * Options for addEventHandler and removeEventHandler
+ */
+
+function getEventHandlerOptions(instance, eventName) {
+  var handlerOptions = null;
+  var isTouchEvent = touchEvents.indexOf(eventName) !== -1;
+
+  if (isTouchEvent && passiveEventSupport) {
+    handlerOptions = {
+      passive: !instance.props.preventDefault
+    };
+  }
+
+  return handlerOptions;
+}
+/**
+ * This function generates the HOC function that you'll use
+ * in order to impart onOutsideClick listening to an
+ * arbitrary component. It gets called at the end of the
+ * bootstrapping code to yield an instance of the
+ * onClickOutsideHOC function defined inside setupHOC().
+ */
+
+function onClickOutsideHOC(WrappedComponent, config) {
+  var _class, _temp;
+
+  return _temp = _class =
+  /*#__PURE__*/
+  function (_Component) {
+    _inheritsLoose(onClickOutside, _Component);
+
+    function onClickOutside(props) {
+      var _this;
+
+      _this = _Component.call(this, props) || this;
+
+      _this.__outsideClickHandler = function (event) {
+        if (typeof _this.__clickOutsideHandlerProp === 'function') {
+          _this.__clickOutsideHandlerProp(event);
+
+          return;
+        }
+
+        var instance = _this.getInstance();
+
+        if (typeof instance.props.handleClickOutside === 'function') {
+          instance.props.handleClickOutside(event);
+          return;
+        }
+
+        if (typeof instance.handleClickOutside === 'function') {
+          instance.handleClickOutside(event);
+          return;
+        }
+
+        throw new Error('WrappedComponent lacks a handleClickOutside(event) function for processing outside click events.');
+      };
+
+      _this.enableOnClickOutside = function () {
+        if (typeof document === 'undefined' || enabledInstances[_this._uid]) {
+          return;
+        }
+
+        if (typeof passiveEventSupport === 'undefined') {
+          passiveEventSupport = testPassiveEventSupport();
+        }
+
+        enabledInstances[_this._uid] = true;
+        var events = _this.props.eventTypes;
+
+        if (!events.forEach) {
+          events = [events];
+        }
+
+        handlersMap[_this._uid] = function (event) {
+          if (_this.props.disableOnClickOutside) return;
+          if (_this.componentNode === null) return;
+
+          if (_this.props.preventDefault) {
+            event.preventDefault();
+          }
+
+          if (_this.props.stopPropagation) {
+            event.stopPropagation();
+          }
+
+          if (_this.props.excludeScrollbar && clickedScrollbar(event)) return;
+          var current = event.target;
+
+          if (findHighest(current, _this.componentNode, _this.props.outsideClickIgnoreClass) !== document) {
+            return;
+          }
+
+          _this.__outsideClickHandler(event);
+        };
+
+        events.forEach(function (eventName) {
+          document.addEventListener(eventName, handlersMap[_this._uid], getEventHandlerOptions(_this, eventName));
+        });
+      };
+
+      _this.disableOnClickOutside = function () {
+        delete enabledInstances[_this._uid];
+        var fn = handlersMap[_this._uid];
+
+        if (fn && typeof document !== 'undefined') {
+          var events = _this.props.eventTypes;
+
+          if (!events.forEach) {
+            events = [events];
+          }
+
+          events.forEach(function (eventName) {
+            return document.removeEventListener(eventName, fn, getEventHandlerOptions(_this, eventName));
+          });
+          delete handlersMap[_this._uid];
+        }
+      };
+
+      _this.getRef = function (ref) {
+        return _this.instanceRef = ref;
+      };
+
+      _this._uid = uid();
+      return _this;
+    }
+    /**
+     * Access the WrappedComponent's instance.
+     */
+
+    var _proto = onClickOutside.prototype;
+
+    _proto.getInstance = function getInstance() {
+      if (!WrappedComponent.prototype.isReactComponent) {
+        return this;
+      }
+
+      var ref = this.instanceRef;
+      return ref.getInstance ? ref.getInstance() : ref;
+    };
+
+    /**
+     * Add click listeners to the current document,
+     * linked to this component's state.
+     */
+    _proto.componentDidMount = function componentDidMount() {
+      // If we are in an environment without a DOM such
+      // as shallow rendering or snapshots then we exit
+      // early to prevent any unhandled errors being thrown.
+      if (typeof document === 'undefined' || !document.createElement) {
+        return;
+      }
+
+      var instance = this.getInstance();
+
+      if (config && typeof config.handleClickOutside === 'function') {
+        this.__clickOutsideHandlerProp = config.handleClickOutside(instance);
+
+        if (typeof this.__clickOutsideHandlerProp !== 'function') {
+          throw new Error('WrappedComponent lacks a function for processing outside click events specified by the handleClickOutside config option.');
+        }
+      }
+
+      this.componentNode = Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["findDOMNode"])(this.getInstance());
+      this.enableOnClickOutside();
+    };
+
+    _proto.componentDidUpdate = function componentDidUpdate() {
+      this.componentNode = Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["findDOMNode"])(this.getInstance());
+    };
+    /**
+     * Remove all document's event listeners for this component
+     */
+
+    _proto.componentWillUnmount = function componentWillUnmount() {
+      this.disableOnClickOutside();
+    };
+    /**
+     * Can be called to explicitly enable event listening
+     * for clicks and touches outside of this element.
+     */
+
+    /**
+     * Pass-through render
+     */
+    _proto.render = function render() {
+      // eslint-disable-next-line no-unused-vars
+      var _props = this.props,
+          excludeScrollbar = _props.excludeScrollbar,
+          props = _objectWithoutProperties(_props, ["excludeScrollbar"]);
+
+      if (WrappedComponent.prototype.isReactComponent) {
+        props.ref = this.getRef;
+      } else {
+        props.wrappedRef = this.getRef;
+      }
+
+      props.disableOnClickOutside = this.disableOnClickOutside;
+      props.enableOnClickOutside = this.enableOnClickOutside;
+      return Object(__WEBPACK_IMPORTED_MODULE_0_react__["createElement"])(WrappedComponent, props);
+    };
+
+    return onClickOutside;
+  }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]), _class.displayName = "OnClickOutside(" + (WrappedComponent.displayName || WrappedComponent.name || 'Component') + ")", _class.defaultProps = {
+    eventTypes: ['mousedown', 'touchstart'],
+    excludeScrollbar: config && config.excludeScrollbar || false,
+    outsideClickIgnoreClass: IGNORE_CLASS_NAME,
+    preventDefault: false,
+    stopPropagation: false
+  }, _class.getClass = function () {
+    return WrappedComponent.getClass ? WrappedComponent.getClass() : WrappedComponent;
+  }, _temp;
+}
+
+
+/* harmony default export */ __webpack_exports__["a"] = (onClickOutsideHOC);
+
+/***/ }),
+/* 403 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _Manager = __webpack_require__(404);
+
+Object.defineProperty(exports, 'Manager', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Manager).default;
+  }
+});
+
+var _Target = __webpack_require__(405);
+
+Object.defineProperty(exports, 'Target', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Target).default;
+  }
+});
+
+var _Popper = __webpack_require__(406);
+
+Object.defineProperty(exports, 'Popper', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Popper).default;
+  }
+});
+
+var _Arrow = __webpack_require__(408);
+
+Object.defineProperty(exports, 'Arrow', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Arrow).default;
+  }
+});
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+/***/ }),
+/* 404 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+  };
+}();
+
+var _react = __webpack_require__(0);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _objectWithoutProperties(obj, keys) {
+  var target = {};for (var i in obj) {
+    if (keys.indexOf(i) >= 0) continue;if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;target[i] = obj[i];
+  }return target;
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }return call && (typeof call === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var Manager = function (_Component) {
+  _inherits(Manager, _Component);
+
+  function Manager() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, Manager);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Manager.__proto__ || Object.getPrototypeOf(Manager)).call.apply(_ref, [this].concat(args))), _this), _this._setTargetNode = function (node) {
+      _this._targetNode = node;
+    }, _this._getTargetNode = function () {
+      return _this._targetNode;
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(Manager, [{
+    key: 'getChildContext',
+    value: function getChildContext() {
+      return {
+        popperManager: {
+          setTargetNode: this._setTargetNode,
+          getTargetNode: this._getTargetNode
+        }
+      };
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          tag = _props.tag,
+          children = _props.children,
+          restProps = _objectWithoutProperties(_props, ['tag', 'children']);
+
+      if (tag !== false) {
+        return (0, _react.createElement)(tag, restProps, children);
+      } else {
+        return children;
+      }
+    }
+  }]);
+
+  return Manager;
+}(_react.Component);
+
+Manager.childContextTypes = {
+  popperManager: _propTypes2.default.object.isRequired
+};
+Manager.propTypes = {
+  tag: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.bool]),
+  children: _propTypes2.default.oneOfType([_propTypes2.default.node, _propTypes2.default.func])
+};
+Manager.defaultProps = {
+  tag: 'div'
+};
+exports.default = Manager;
+
+/***/ }),
+/* 405 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
+
+var _react = __webpack_require__(0);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _objectWithoutProperties(obj, keys) {
+  var target = {};for (var i in obj) {
+    if (keys.indexOf(i) >= 0) continue;if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;target[i] = obj[i];
+  }return target;
+}
+
+var Target = function Target(props, context) {
+  var _props$component = props.component,
+      component = _props$component === undefined ? 'div' : _props$component,
+      innerRef = props.innerRef,
+      children = props.children,
+      restProps = _objectWithoutProperties(props, ['component', 'innerRef', 'children']);
+
+  var popperManager = context.popperManager;
+
+  var targetRef = function targetRef(node) {
+    popperManager.setTargetNode(node);
+    if (typeof innerRef === 'function') {
+      innerRef(node);
+    }
+  };
+
+  if (typeof children === 'function') {
+    var targetProps = { ref: targetRef };
+    return children({ targetProps: targetProps, restProps: restProps });
+  }
+
+  var componentProps = _extends({}, restProps);
+
+  if (typeof component === 'string') {
+    componentProps.ref = targetRef;
+  } else {
+    componentProps.innerRef = targetRef;
+  }
+
+  return (0, _react.createElement)(component, componentProps, children);
+};
+
+Target.contextTypes = {
+  popperManager: _propTypes2.default.object.isRequired
+};
+
+Target.propTypes = {
+  component: _propTypes2.default.oneOfType([_propTypes2.default.node, _propTypes2.default.func]),
+  innerRef: _propTypes2.default.func,
+  children: _propTypes2.default.oneOfType([_propTypes2.default.node, _propTypes2.default.func])
+};
+
+exports.default = Target;
+
+/***/ }),
+/* 406 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
+
+var _createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+  };
+}();
+
+var _react = __webpack_require__(0);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _popper = __webpack_require__(407);
+
+var _popper2 = _interopRequireDefault(_popper);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _objectWithoutProperties(obj, keys) {
+  var target = {};for (var i in obj) {
+    if (keys.indexOf(i) >= 0) continue;if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;target[i] = obj[i];
+  }return target;
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }return call && (typeof call === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var Popper = function (_Component) {
+  _inherits(Popper, _Component);
+
+  function Popper() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, Popper);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Popper.__proto__ || Object.getPrototypeOf(Popper)).call.apply(_ref, [this].concat(args))), _this), _this.state = {}, _this._setArrowNode = function (node) {
+      _this._arrowNode = node;
+    }, _this._getTargetNode = function () {
+      return _this.context.popperManager.getTargetNode();
+    }, _this._getOffsets = function (data) {
+      return Object.keys(data.offsets).map(function (key) {
+        return data.offsets[key];
+      });
+    }, _this._isDataDirty = function (data) {
+      if (_this.state.data) {
+        return JSON.stringify(_this._getOffsets(_this.state.data)) !== JSON.stringify(_this._getOffsets(data));
+      } else {
+        return true;
+      }
+    }, _this._updateStateModifier = {
+      enabled: true,
+      order: 900,
+      fn: function fn(data) {
+        if (_this._isDataDirty(data)) {
+          _this.setState({ data: data });
+        }
+        return data;
+      }
+    }, _this._getPopperStyle = function () {
+      var data = _this.state.data;
+
+      if (!_this._popper || !data) {
+        return {
+          position: 'absolute',
+          pointerEvents: 'none',
+          opacity: 0
+        };
+      }
+
+      return _extends({
+        position: data.offsets.popper.position
+      }, data.styles);
+    }, _this._getPopperPlacement = function () {
+      return _this.state.data ? _this.state.data.placement : undefined;
+    }, _this._getPopperHide = function () {
+      return !!_this.state.data && _this.state.data.hide ? '' : undefined;
+    }, _this._getArrowStyle = function () {
+      if (!_this.state.data || !_this.state.data.offsets.arrow) {
+        return {};
+      } else {
+        var _this$state$data$offs = _this.state.data.offsets.arrow,
+            top = _this$state$data$offs.top,
+            left = _this$state$data$offs.left;
+
+        return { top: top, left: left };
+      }
+    }, _this._handlePopperRef = function (node) {
+      _this._popperNode = node;
+      if (node) {
+        _this._createPopper();
+      } else {
+        _this._destroyPopper();
+      }
+      if (_this.props.innerRef) {
+        _this.props.innerRef(node);
+      }
+    }, _this._scheduleUpdate = function () {
+      _this._popper && _this._popper.scheduleUpdate();
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(Popper, [{
+    key: 'getChildContext',
+    value: function getChildContext() {
+      return {
+        popper: {
+          setArrowNode: this._setArrowNode,
+          getArrowStyle: this._getArrowStyle
+        }
+      };
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate(lastProps) {
+      if (lastProps.placement !== this.props.placement || lastProps.eventsEnabled !== this.props.eventsEnabled) {
+        this._destroyPopper();
+        this._createPopper();
+      }
+      if (lastProps.children !== this.props.children) {
+        this._scheduleUpdate();
+      }
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this._destroyPopper();
+    }
+  }, {
+    key: '_createPopper',
+    value: function _createPopper() {
+      var _this2 = this;
+
+      var _props = this.props,
+          placement = _props.placement,
+          eventsEnabled = _props.eventsEnabled;
+
+      var modifiers = _extends({}, this.props.modifiers, {
+        applyStyle: { enabled: false },
+        updateState: this._updateStateModifier
+      });
+      if (this._arrowNode) {
+        modifiers.arrow = {
+          element: this._arrowNode
+        };
+      }
+      this._popper = new _popper2.default(this._getTargetNode(), this._popperNode, {
+        placement: placement,
+        eventsEnabled: eventsEnabled,
+        modifiers: modifiers
+      });
+
+      // TODO: look into setTimeout scheduleUpdate call, without it, the popper will not position properly on creation
+      setTimeout(function () {
+        return _this2._scheduleUpdate();
+      });
+    }
+  }, {
+    key: '_destroyPopper',
+    value: function _destroyPopper() {
+      if (this._popper) {
+        this._popper.destroy();
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props2 = this.props,
+          component = _props2.component,
+          innerRef = _props2.innerRef,
+          placement = _props2.placement,
+          eventsEnabled = _props2.eventsEnabled,
+          modifiers = _props2.modifiers,
+          children = _props2.children,
+          restProps = _objectWithoutProperties(_props2, ['component', 'innerRef', 'placement', 'eventsEnabled', 'modifiers', 'children']);
+
+      var popperStyle = this._getPopperStyle();
+      var popperPlacement = this._getPopperPlacement();
+      var popperHide = this._getPopperHide();
+
+      if (typeof children === 'function') {
+        var popperProps = {
+          ref: this._handlePopperRef,
+          style: popperStyle,
+          'data-placement': popperPlacement,
+          'data-x-out-of-boundaries': popperHide
+        };
+        return children({
+          popperProps: popperProps,
+          restProps: restProps,
+          scheduleUpdate: this._scheduleUpdate
+        });
+      }
+
+      var componentProps = _extends({}, restProps, {
+        style: _extends({}, restProps.style, popperStyle),
+        'data-placement': popperPlacement,
+        'data-x-out-of-boundaries': popperHide
+      });
+
+      if (typeof component === 'string') {
+        componentProps.ref = this._handlePopperRef;
+      } else {
+        componentProps.innerRef = this._handlePopperRef;
+      }
+
+      return (0, _react.createElement)(component, componentProps, children);
+    }
+  }]);
+
+  return Popper;
+}(_react.Component);
+
+Popper.contextTypes = {
+  popperManager: _propTypes2.default.object.isRequired
+};
+Popper.childContextTypes = {
+  popper: _propTypes2.default.object.isRequired
+};
+Popper.propTypes = {
+  component: _propTypes2.default.oneOfType([_propTypes2.default.node, _propTypes2.default.func]),
+  innerRef: _propTypes2.default.func,
+  placement: _propTypes2.default.oneOf(_popper2.default.placements),
+  eventsEnabled: _propTypes2.default.bool,
+  modifiers: _propTypes2.default.object,
+  children: _propTypes2.default.oneOfType([_propTypes2.default.node, _propTypes2.default.func])
+};
+Popper.defaultProps = {
+  component: 'div',
+  placement: 'bottom',
+  eventsEnabled: true,
+  modifiers: {}
+};
+exports.default = Popper;
+
+/***/ }),
+/* 407 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* WEBPACK VAR INJECTION */(function(global) {/**!
+ * @fileOverview Kickass library to create and place poppers near their reference elements.
+ * @version 1.12.9
+ * @license
+ * Copyright (c) 2016 Federico Zivolo and contributors
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
+var longerTimeoutBrowsers = ['Edge', 'Trident', 'Firefox'];
+var timeoutDuration = 0;
+for (var i = 0; i < longerTimeoutBrowsers.length; i += 1) {
+  if (isBrowser && navigator.userAgent.indexOf(longerTimeoutBrowsers[i]) >= 0) {
+    timeoutDuration = 1;
+    break;
+  }
+}
+
+function microtaskDebounce(fn) {
+  var called = false;
+  return function () {
+    if (called) {
+      return;
+    }
+    called = true;
+    window.Promise.resolve().then(function () {
+      called = false;
+      fn();
+    });
+  };
+}
+
+function taskDebounce(fn) {
+  var scheduled = false;
+  return function () {
+    if (!scheduled) {
+      scheduled = true;
+      setTimeout(function () {
+        scheduled = false;
+        fn();
+      }, timeoutDuration);
+    }
+  };
+}
+
+var supportsMicroTasks = isBrowser && window.Promise;
+
+/**
+* Create a debounced version of a method, that's asynchronously deferred
+* but called in the minimum time possible.
+*
+* @method
+* @memberof Popper.Utils
+* @argument {Function} fn
+* @returns {Function}
+*/
+var debounce = supportsMicroTasks ? microtaskDebounce : taskDebounce;
+
+/**
+ * Check if the given variable is a function
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Any} functionToCheck - variable to check
+ * @returns {Boolean} answer to: is a function?
+ */
+function isFunction(functionToCheck) {
+  var getType = {};
+  return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
+}
+
+/**
+ * Get CSS computed property of the given element
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Eement} element
+ * @argument {String} property
+ */
+function getStyleComputedProperty(element, property) {
+  if (element.nodeType !== 1) {
+    return [];
+  }
+  // NOTE: 1 DOM access here
+  var css = getComputedStyle(element, null);
+  return property ? css[property] : css;
+}
+
+/**
+ * Returns the parentNode or the host of the element
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element
+ * @returns {Element} parent
+ */
+function getParentNode(element) {
+  if (element.nodeName === 'HTML') {
+    return element;
+  }
+  return element.parentNode || element.host;
+}
+
+/**
+ * Returns the scrolling parent of the given element
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element
+ * @returns {Element} scroll parent
+ */
+function getScrollParent(element) {
+  // Return body, `getScroll` will take care to get the correct `scrollTop` from it
+  if (!element) {
+    return document.body;
+  }
+
+  switch (element.nodeName) {
+    case 'HTML':
+    case 'BODY':
+      return element.ownerDocument.body;
+    case '#document':
+      return element.body;
+  }
+
+  // Firefox want us to check `-x` and `-y` variations as well
+
+  var _getStyleComputedProp = getStyleComputedProperty(element),
+      overflow = _getStyleComputedProp.overflow,
+      overflowX = _getStyleComputedProp.overflowX,
+      overflowY = _getStyleComputedProp.overflowY;
+
+  if (/(auto|scroll)/.test(overflow + overflowY + overflowX)) {
+    return element;
+  }
+
+  return getScrollParent(getParentNode(element));
+}
+
+/**
+ * Returns the offset parent of the given element
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element
+ * @returns {Element} offset parent
+ */
+function getOffsetParent(element) {
+  // NOTE: 1 DOM access here
+  var offsetParent = element && element.offsetParent;
+  var nodeName = offsetParent && offsetParent.nodeName;
+
+  if (!nodeName || nodeName === 'BODY' || nodeName === 'HTML') {
+    if (element) {
+      return element.ownerDocument.documentElement;
+    }
+
+    return document.documentElement;
+  }
+
+  // .offsetParent will return the closest TD or TABLE in case
+  // no offsetParent is present, I hate this job...
+  if (['TD', 'TABLE'].indexOf(offsetParent.nodeName) !== -1 && getStyleComputedProperty(offsetParent, 'position') === 'static') {
+    return getOffsetParent(offsetParent);
+  }
+
+  return offsetParent;
+}
+
+function isOffsetContainer(element) {
+  var nodeName = element.nodeName;
+
+  if (nodeName === 'BODY') {
+    return false;
+  }
+  return nodeName === 'HTML' || getOffsetParent(element.firstElementChild) === element;
+}
+
+/**
+ * Finds the root node (document, shadowDOM root) of the given element
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} node
+ * @returns {Element} root node
+ */
+function getRoot(node) {
+  if (node.parentNode !== null) {
+    return getRoot(node.parentNode);
+  }
+
+  return node;
+}
+
+/**
+ * Finds the offset parent common to the two provided nodes
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element1
+ * @argument {Element} element2
+ * @returns {Element} common offset parent
+ */
+function findCommonOffsetParent(element1, element2) {
+  // This check is needed to avoid errors in case one of the elements isn't defined for any reason
+  if (!element1 || !element1.nodeType || !element2 || !element2.nodeType) {
+    return document.documentElement;
+  }
+
+  // Here we make sure to give as "start" the element that comes first in the DOM
+  var order = element1.compareDocumentPosition(element2) & Node.DOCUMENT_POSITION_FOLLOWING;
+  var start = order ? element1 : element2;
+  var end = order ? element2 : element1;
+
+  // Get common ancestor container
+  var range = document.createRange();
+  range.setStart(start, 0);
+  range.setEnd(end, 0);
+  var commonAncestorContainer = range.commonAncestorContainer;
+
+  // Both nodes are inside #document
+
+  if (element1 !== commonAncestorContainer && element2 !== commonAncestorContainer || start.contains(end)) {
+    if (isOffsetContainer(commonAncestorContainer)) {
+      return commonAncestorContainer;
+    }
+
+    return getOffsetParent(commonAncestorContainer);
+  }
+
+  // one of the nodes is inside shadowDOM, find which one
+  var element1root = getRoot(element1);
+  if (element1root.host) {
+    return findCommonOffsetParent(element1root.host, element2);
+  } else {
+    return findCommonOffsetParent(element1, getRoot(element2).host);
+  }
+}
+
+/**
+ * Gets the scroll value of the given element in the given side (top and left)
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element
+ * @argument {String} side `top` or `left`
+ * @returns {number} amount of scrolled pixels
+ */
+function getScroll(element) {
+  var side = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'top';
+
+  var upperSide = side === 'top' ? 'scrollTop' : 'scrollLeft';
+  var nodeName = element.nodeName;
+
+  if (nodeName === 'BODY' || nodeName === 'HTML') {
+    var html = element.ownerDocument.documentElement;
+    var scrollingElement = element.ownerDocument.scrollingElement || html;
+    return scrollingElement[upperSide];
+  }
+
+  return element[upperSide];
+}
+
+/*
+ * Sum or subtract the element scroll values (left and top) from a given rect object
+ * @method
+ * @memberof Popper.Utils
+ * @param {Object} rect - Rect object you want to change
+ * @param {HTMLElement} element - The element from the function reads the scroll values
+ * @param {Boolean} subtract - set to true if you want to subtract the scroll values
+ * @return {Object} rect - The modifier rect object
+ */
+function includeScroll(rect, element) {
+  var subtract = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+  var scrollTop = getScroll(element, 'top');
+  var scrollLeft = getScroll(element, 'left');
+  var modifier = subtract ? -1 : 1;
+  rect.top += scrollTop * modifier;
+  rect.bottom += scrollTop * modifier;
+  rect.left += scrollLeft * modifier;
+  rect.right += scrollLeft * modifier;
+  return rect;
+}
+
+/*
+ * Helper to detect borders of a given element
+ * @method
+ * @memberof Popper.Utils
+ * @param {CSSStyleDeclaration} styles
+ * Result of `getStyleComputedProperty` on the given element
+ * @param {String} axis - `x` or `y`
+ * @return {number} borders - The borders size of the given axis
+ */
+
+function getBordersSize(styles, axis) {
+  var sideA = axis === 'x' ? 'Left' : 'Top';
+  var sideB = sideA === 'Left' ? 'Right' : 'Bottom';
+
+  return parseFloat(styles['border' + sideA + 'Width'], 10) + parseFloat(styles['border' + sideB + 'Width'], 10);
+}
+
+/**
+ * Tells if you are running Internet Explorer 10
+ * @method
+ * @memberof Popper.Utils
+ * @returns {Boolean} isIE10
+ */
+var isIE10 = undefined;
+
+var isIE10$1 = function () {
+  if (isIE10 === undefined) {
+    isIE10 = navigator.appVersion.indexOf('MSIE 10') !== -1;
+  }
+  return isIE10;
+};
+
+function getSize(axis, body, html, computedStyle) {
+  return Math.max(body['offset' + axis], body['scroll' + axis], html['client' + axis], html['offset' + axis], html['scroll' + axis], isIE10$1() ? html['offset' + axis] + computedStyle['margin' + (axis === 'Height' ? 'Top' : 'Left')] + computedStyle['margin' + (axis === 'Height' ? 'Bottom' : 'Right')] : 0);
+}
+
+function getWindowSizes() {
+  var body = document.body;
+  var html = document.documentElement;
+  var computedStyle = isIE10$1() && getComputedStyle(html);
+
+  return {
+    height: getSize('Height', body, html, computedStyle),
+    width: getSize('Width', body, html, computedStyle)
+  };
+}
+
+var classCallCheck = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
+
+var createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+}();
+
+var defineProperty = function (obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+};
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];
+
+    for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }
+
+  return target;
+};
+
+/**
+ * Given element offsets, generate an output similar to getBoundingClientRect
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Object} offsets
+ * @returns {Object} ClientRect like output
+ */
+function getClientRect(offsets) {
+  return _extends({}, offsets, {
+    right: offsets.left + offsets.width,
+    bottom: offsets.top + offsets.height
+  });
+}
+
+/**
+ * Get bounding client rect of given element
+ * @method
+ * @memberof Popper.Utils
+ * @param {HTMLElement} element
+ * @return {Object} client rect
+ */
+function getBoundingClientRect(element) {
+  var rect = {};
+
+  // IE10 10 FIX: Please, don't ask, the element isn't
+  // considered in DOM in some circumstances...
+  // This isn't reproducible in IE10 compatibility mode of IE11
+  if (isIE10$1()) {
+    try {
+      rect = element.getBoundingClientRect();
+      var scrollTop = getScroll(element, 'top');
+      var scrollLeft = getScroll(element, 'left');
+      rect.top += scrollTop;
+      rect.left += scrollLeft;
+      rect.bottom += scrollTop;
+      rect.right += scrollLeft;
+    } catch (err) {}
+  } else {
+    rect = element.getBoundingClientRect();
+  }
+
+  var result = {
+    left: rect.left,
+    top: rect.top,
+    width: rect.right - rect.left,
+    height: rect.bottom - rect.top
+  };
+
+  // subtract scrollbar size from sizes
+  var sizes = element.nodeName === 'HTML' ? getWindowSizes() : {};
+  var width = sizes.width || element.clientWidth || result.right - result.left;
+  var height = sizes.height || element.clientHeight || result.bottom - result.top;
+
+  var horizScrollbar = element.offsetWidth - width;
+  var vertScrollbar = element.offsetHeight - height;
+
+  // if an hypothetical scrollbar is detected, we must be sure it's not a `border`
+  // we make this check conditional for performance reasons
+  if (horizScrollbar || vertScrollbar) {
+    var styles = getStyleComputedProperty(element);
+    horizScrollbar -= getBordersSize(styles, 'x');
+    vertScrollbar -= getBordersSize(styles, 'y');
+
+    result.width -= horizScrollbar;
+    result.height -= vertScrollbar;
+  }
+
+  return getClientRect(result);
+}
+
+function getOffsetRectRelativeToArbitraryNode(children, parent) {
+  var isIE10 = isIE10$1();
+  var isHTML = parent.nodeName === 'HTML';
+  var childrenRect = getBoundingClientRect(children);
+  var parentRect = getBoundingClientRect(parent);
+  var scrollParent = getScrollParent(children);
+
+  var styles = getStyleComputedProperty(parent);
+  var borderTopWidth = parseFloat(styles.borderTopWidth, 10);
+  var borderLeftWidth = parseFloat(styles.borderLeftWidth, 10);
+
+  var offsets = getClientRect({
+    top: childrenRect.top - parentRect.top - borderTopWidth,
+    left: childrenRect.left - parentRect.left - borderLeftWidth,
+    width: childrenRect.width,
+    height: childrenRect.height
+  });
+  offsets.marginTop = 0;
+  offsets.marginLeft = 0;
+
+  // Subtract margins of documentElement in case it's being used as parent
+  // we do this only on HTML because it's the only element that behaves
+  // differently when margins are applied to it. The margins are included in
+  // the box of the documentElement, in the other cases not.
+  if (!isIE10 && isHTML) {
+    var marginTop = parseFloat(styles.marginTop, 10);
+    var marginLeft = parseFloat(styles.marginLeft, 10);
+
+    offsets.top -= borderTopWidth - marginTop;
+    offsets.bottom -= borderTopWidth - marginTop;
+    offsets.left -= borderLeftWidth - marginLeft;
+    offsets.right -= borderLeftWidth - marginLeft;
+
+    // Attach marginTop and marginLeft because in some circumstances we may need them
+    offsets.marginTop = marginTop;
+    offsets.marginLeft = marginLeft;
+  }
+
+  if (isIE10 ? parent.contains(scrollParent) : parent === scrollParent && scrollParent.nodeName !== 'BODY') {
+    offsets = includeScroll(offsets, parent);
+  }
+
+  return offsets;
+}
+
+function getViewportOffsetRectRelativeToArtbitraryNode(element) {
+  var html = element.ownerDocument.documentElement;
+  var relativeOffset = getOffsetRectRelativeToArbitraryNode(element, html);
+  var width = Math.max(html.clientWidth, window.innerWidth || 0);
+  var height = Math.max(html.clientHeight, window.innerHeight || 0);
+
+  var scrollTop = getScroll(html);
+  var scrollLeft = getScroll(html, 'left');
+
+  var offset = {
+    top: scrollTop - relativeOffset.top + relativeOffset.marginTop,
+    left: scrollLeft - relativeOffset.left + relativeOffset.marginLeft,
+    width: width,
+    height: height
+  };
+
+  return getClientRect(offset);
+}
+
+/**
+ * Check if the given element is fixed or is inside a fixed parent
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element
+ * @argument {Element} customContainer
+ * @returns {Boolean} answer to "isFixed?"
+ */
+function isFixed(element) {
+  var nodeName = element.nodeName;
+  if (nodeName === 'BODY' || nodeName === 'HTML') {
+    return false;
+  }
+  if (getStyleComputedProperty(element, 'position') === 'fixed') {
+    return true;
+  }
+  return isFixed(getParentNode(element));
+}
+
+/**
+ * Computed the boundaries limits and return them
+ * @method
+ * @memberof Popper.Utils
+ * @param {HTMLElement} popper
+ * @param {HTMLElement} reference
+ * @param {number} padding
+ * @param {HTMLElement} boundariesElement - Element used to define the boundaries
+ * @returns {Object} Coordinates of the boundaries
+ */
+function getBoundaries(popper, reference, padding, boundariesElement) {
+  // NOTE: 1 DOM access here
+  var boundaries = { top: 0, left: 0 };
+  var offsetParent = findCommonOffsetParent(popper, reference);
+
+  // Handle viewport case
+  if (boundariesElement === 'viewport') {
+    boundaries = getViewportOffsetRectRelativeToArtbitraryNode(offsetParent);
+  } else {
+    // Handle other cases based on DOM element used as boundaries
+    var boundariesNode = void 0;
+    if (boundariesElement === 'scrollParent') {
+      boundariesNode = getScrollParent(getParentNode(reference));
+      if (boundariesNode.nodeName === 'BODY') {
+        boundariesNode = popper.ownerDocument.documentElement;
+      }
+    } else if (boundariesElement === 'window') {
+      boundariesNode = popper.ownerDocument.documentElement;
+    } else {
+      boundariesNode = boundariesElement;
+    }
+
+    var offsets = getOffsetRectRelativeToArbitraryNode(boundariesNode, offsetParent);
+
+    // In case of HTML, we need a different computation
+    if (boundariesNode.nodeName === 'HTML' && !isFixed(offsetParent)) {
+      var _getWindowSizes = getWindowSizes(),
+          height = _getWindowSizes.height,
+          width = _getWindowSizes.width;
+
+      boundaries.top += offsets.top - offsets.marginTop;
+      boundaries.bottom = height + offsets.top;
+      boundaries.left += offsets.left - offsets.marginLeft;
+      boundaries.right = width + offsets.left;
+    } else {
+      // for all the other DOM elements, this one is good
+      boundaries = offsets;
+    }
+  }
+
+  // Add paddings
+  boundaries.left += padding;
+  boundaries.top += padding;
+  boundaries.right -= padding;
+  boundaries.bottom -= padding;
+
+  return boundaries;
+}
+
+function getArea(_ref) {
+  var width = _ref.width,
+      height = _ref.height;
+
+  return width * height;
+}
+
+/**
+ * Utility used to transform the `auto` placement to the placement with more
+ * available space.
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Object} data - The data object generated by update method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function computeAutoPlacement(placement, refRect, popper, reference, boundariesElement) {
+  var padding = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 0;
+
+  if (placement.indexOf('auto') === -1) {
+    return placement;
+  }
+
+  var boundaries = getBoundaries(popper, reference, padding, boundariesElement);
+
+  var rects = {
+    top: {
+      width: boundaries.width,
+      height: refRect.top - boundaries.top
+    },
+    right: {
+      width: boundaries.right - refRect.right,
+      height: boundaries.height
+    },
+    bottom: {
+      width: boundaries.width,
+      height: boundaries.bottom - refRect.bottom
+    },
+    left: {
+      width: refRect.left - boundaries.left,
+      height: boundaries.height
+    }
+  };
+
+  var sortedAreas = Object.keys(rects).map(function (key) {
+    return _extends({
+      key: key
+    }, rects[key], {
+      area: getArea(rects[key])
+    });
+  }).sort(function (a, b) {
+    return b.area - a.area;
+  });
+
+  var filteredAreas = sortedAreas.filter(function (_ref2) {
+    var width = _ref2.width,
+        height = _ref2.height;
+    return width >= popper.clientWidth && height >= popper.clientHeight;
+  });
+
+  var computedPlacement = filteredAreas.length > 0 ? filteredAreas[0].key : sortedAreas[0].key;
+
+  var variation = placement.split('-')[1];
+
+  return computedPlacement + (variation ? '-' + variation : '');
+}
+
+/**
+ * Get offsets to the reference element
+ * @method
+ * @memberof Popper.Utils
+ * @param {Object} state
+ * @param {Element} popper - the popper element
+ * @param {Element} reference - the reference element (the popper will be relative to this)
+ * @returns {Object} An object containing the offsets which will be applied to the popper
+ */
+function getReferenceOffsets(state, popper, reference) {
+  var commonOffsetParent = findCommonOffsetParent(popper, reference);
+  return getOffsetRectRelativeToArbitraryNode(reference, commonOffsetParent);
+}
+
+/**
+ * Get the outer sizes of the given element (offset size + margins)
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element
+ * @returns {Object} object containing width and height properties
+ */
+function getOuterSizes(element) {
+  var styles = getComputedStyle(element);
+  var x = parseFloat(styles.marginTop) + parseFloat(styles.marginBottom);
+  var y = parseFloat(styles.marginLeft) + parseFloat(styles.marginRight);
+  var result = {
+    width: element.offsetWidth + y,
+    height: element.offsetHeight + x
+  };
+  return result;
+}
+
+/**
+ * Get the opposite placement of the given one
+ * @method
+ * @memberof Popper.Utils
+ * @argument {String} placement
+ * @returns {String} flipped placement
+ */
+function getOppositePlacement(placement) {
+  var hash = { left: 'right', right: 'left', bottom: 'top', top: 'bottom' };
+  return placement.replace(/left|right|bottom|top/g, function (matched) {
+    return hash[matched];
+  });
+}
+
+/**
+ * Get offsets to the popper
+ * @method
+ * @memberof Popper.Utils
+ * @param {Object} position - CSS position the Popper will get applied
+ * @param {HTMLElement} popper - the popper element
+ * @param {Object} referenceOffsets - the reference offsets (the popper will be relative to this)
+ * @param {String} placement - one of the valid placement options
+ * @returns {Object} popperOffsets - An object containing the offsets which will be applied to the popper
+ */
+function getPopperOffsets(popper, referenceOffsets, placement) {
+  placement = placement.split('-')[0];
+
+  // Get popper node sizes
+  var popperRect = getOuterSizes(popper);
+
+  // Add position, width and height to our offsets object
+  var popperOffsets = {
+    width: popperRect.width,
+    height: popperRect.height
+  };
+
+  // depending by the popper placement we have to compute its offsets slightly differently
+  var isHoriz = ['right', 'left'].indexOf(placement) !== -1;
+  var mainSide = isHoriz ? 'top' : 'left';
+  var secondarySide = isHoriz ? 'left' : 'top';
+  var measurement = isHoriz ? 'height' : 'width';
+  var secondaryMeasurement = !isHoriz ? 'height' : 'width';
+
+  popperOffsets[mainSide] = referenceOffsets[mainSide] + referenceOffsets[measurement] / 2 - popperRect[measurement] / 2;
+  if (placement === secondarySide) {
+    popperOffsets[secondarySide] = referenceOffsets[secondarySide] - popperRect[secondaryMeasurement];
+  } else {
+    popperOffsets[secondarySide] = referenceOffsets[getOppositePlacement(secondarySide)];
+  }
+
+  return popperOffsets;
+}
+
+/**
+ * Mimics the `find` method of Array
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Array} arr
+ * @argument prop
+ * @argument value
+ * @returns index or -1
+ */
+function find(arr, check) {
+  // use native find if supported
+  if (Array.prototype.find) {
+    return arr.find(check);
+  }
+
+  // use `filter` to obtain the same behavior of `find`
+  return arr.filter(check)[0];
+}
+
+/**
+ * Return the index of the matching object
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Array} arr
+ * @argument prop
+ * @argument value
+ * @returns index or -1
+ */
+function findIndex(arr, prop, value) {
+  // use native findIndex if supported
+  if (Array.prototype.findIndex) {
+    return arr.findIndex(function (cur) {
+      return cur[prop] === value;
+    });
+  }
+
+  // use `find` + `indexOf` if `findIndex` isn't supported
+  var match = find(arr, function (obj) {
+    return obj[prop] === value;
+  });
+  return arr.indexOf(match);
+}
+
+/**
+ * Loop trough the list of modifiers and run them in order,
+ * each of them will then edit the data object.
+ * @method
+ * @memberof Popper.Utils
+ * @param {dataObject} data
+ * @param {Array} modifiers
+ * @param {String} ends - Optional modifier name used as stopper
+ * @returns {dataObject}
+ */
+function runModifiers(modifiers, data, ends) {
+  var modifiersToRun = ends === undefined ? modifiers : modifiers.slice(0, findIndex(modifiers, 'name', ends));
+
+  modifiersToRun.forEach(function (modifier) {
+    if (modifier['function']) {
+      // eslint-disable-line dot-notation
+      console.warn('`modifier.function` is deprecated, use `modifier.fn`!');
+    }
+    var fn = modifier['function'] || modifier.fn; // eslint-disable-line dot-notation
+    if (modifier.enabled && isFunction(fn)) {
+      // Add properties to offsets to make them a complete clientRect object
+      // we do this before each modifier to make sure the previous one doesn't
+      // mess with these values
+      data.offsets.popper = getClientRect(data.offsets.popper);
+      data.offsets.reference = getClientRect(data.offsets.reference);
+
+      data = fn(data, modifier);
+    }
+  });
+
+  return data;
+}
+
+/**
+ * Updates the position of the popper, computing the new offsets and applying
+ * the new style.<br />
+ * Prefer `scheduleUpdate` over `update` because of performance reasons.
+ * @method
+ * @memberof Popper
+ */
+function update() {
+  // if popper is destroyed, don't perform any further update
+  if (this.state.isDestroyed) {
+    return;
+  }
+
+  var data = {
+    instance: this,
+    styles: {},
+    arrowStyles: {},
+    attributes: {},
+    flipped: false,
+    offsets: {}
+  };
+
+  // compute reference element offsets
+  data.offsets.reference = getReferenceOffsets(this.state, this.popper, this.reference);
+
+  // compute auto placement, store placement inside the data object,
+  // modifiers will be able to edit `placement` if needed
+  // and refer to originalPlacement to know the original value
+  data.placement = computeAutoPlacement(this.options.placement, data.offsets.reference, this.popper, this.reference, this.options.modifiers.flip.boundariesElement, this.options.modifiers.flip.padding);
+
+  // store the computed placement inside `originalPlacement`
+  data.originalPlacement = data.placement;
+
+  // compute the popper offsets
+  data.offsets.popper = getPopperOffsets(this.popper, data.offsets.reference, data.placement);
+  data.offsets.popper.position = 'absolute';
+
+  // run the modifiers
+  data = runModifiers(this.modifiers, data);
+
+  // the first `update` will call `onCreate` callback
+  // the other ones will call `onUpdate` callback
+  if (!this.state.isCreated) {
+    this.state.isCreated = true;
+    this.options.onCreate(data);
+  } else {
+    this.options.onUpdate(data);
+  }
+}
+
+/**
+ * Helper used to know if the given modifier is enabled.
+ * @method
+ * @memberof Popper.Utils
+ * @returns {Boolean}
+ */
+function isModifierEnabled(modifiers, modifierName) {
+  return modifiers.some(function (_ref) {
+    var name = _ref.name,
+        enabled = _ref.enabled;
+    return enabled && name === modifierName;
+  });
+}
+
+/**
+ * Get the prefixed supported property name
+ * @method
+ * @memberof Popper.Utils
+ * @argument {String} property (camelCase)
+ * @returns {String} prefixed property (camelCase or PascalCase, depending on the vendor prefix)
+ */
+function getSupportedPropertyName(property) {
+  var prefixes = [false, 'ms', 'Webkit', 'Moz', 'O'];
+  var upperProp = property.charAt(0).toUpperCase() + property.slice(1);
+
+  for (var i = 0; i < prefixes.length - 1; i++) {
+    var prefix = prefixes[i];
+    var toCheck = prefix ? '' + prefix + upperProp : property;
+    if (typeof document.body.style[toCheck] !== 'undefined') {
+      return toCheck;
+    }
+  }
+  return null;
+}
+
+/**
+ * Destroy the popper
+ * @method
+ * @memberof Popper
+ */
+function destroy() {
+  this.state.isDestroyed = true;
+
+  // touch DOM only if `applyStyle` modifier is enabled
+  if (isModifierEnabled(this.modifiers, 'applyStyle')) {
+    this.popper.removeAttribute('x-placement');
+    this.popper.style.left = '';
+    this.popper.style.position = '';
+    this.popper.style.top = '';
+    this.popper.style[getSupportedPropertyName('transform')] = '';
+  }
+
+  this.disableEventListeners();
+
+  // remove the popper if user explicity asked for the deletion on destroy
+  // do not use `remove` because IE11 doesn't support it
+  if (this.options.removeOnDestroy) {
+    this.popper.parentNode.removeChild(this.popper);
+  }
+  return this;
+}
+
+/**
+ * Get the window associated with the element
+ * @argument {Element} element
+ * @returns {Window}
+ */
+function getWindow(element) {
+  var ownerDocument = element.ownerDocument;
+  return ownerDocument ? ownerDocument.defaultView : window;
+}
+
+function attachToScrollParents(scrollParent, event, callback, scrollParents) {
+  var isBody = scrollParent.nodeName === 'BODY';
+  var target = isBody ? scrollParent.ownerDocument.defaultView : scrollParent;
+  target.addEventListener(event, callback, { passive: true });
+
+  if (!isBody) {
+    attachToScrollParents(getScrollParent(target.parentNode), event, callback, scrollParents);
+  }
+  scrollParents.push(target);
+}
+
+/**
+ * Setup needed event listeners used to update the popper position
+ * @method
+ * @memberof Popper.Utils
+ * @private
+ */
+function setupEventListeners(reference, options, state, updateBound) {
+  // Resize event listener on window
+  state.updateBound = updateBound;
+  getWindow(reference).addEventListener('resize', state.updateBound, { passive: true });
+
+  // Scroll event listener on scroll parents
+  var scrollElement = getScrollParent(reference);
+  attachToScrollParents(scrollElement, 'scroll', state.updateBound, state.scrollParents);
+  state.scrollElement = scrollElement;
+  state.eventsEnabled = true;
+
+  return state;
+}
+
+/**
+ * It will add resize/scroll events and start recalculating
+ * position of the popper element when they are triggered.
+ * @method
+ * @memberof Popper
+ */
+function enableEventListeners() {
+  if (!this.state.eventsEnabled) {
+    this.state = setupEventListeners(this.reference, this.options, this.state, this.scheduleUpdate);
+  }
+}
+
+/**
+ * Remove event listeners used to update the popper position
+ * @method
+ * @memberof Popper.Utils
+ * @private
+ */
+function removeEventListeners(reference, state) {
+  // Remove resize event listener on window
+  getWindow(reference).removeEventListener('resize', state.updateBound);
+
+  // Remove scroll event listener on scroll parents
+  state.scrollParents.forEach(function (target) {
+    target.removeEventListener('scroll', state.updateBound);
+  });
+
+  // Reset state
+  state.updateBound = null;
+  state.scrollParents = [];
+  state.scrollElement = null;
+  state.eventsEnabled = false;
+  return state;
+}
+
+/**
+ * It will remove resize/scroll events and won't recalculate popper position
+ * when they are triggered. It also won't trigger onUpdate callback anymore,
+ * unless you call `update` method manually.
+ * @method
+ * @memberof Popper
+ */
+function disableEventListeners() {
+  if (this.state.eventsEnabled) {
+    cancelAnimationFrame(this.scheduleUpdate);
+    this.state = removeEventListeners(this.reference, this.state);
+  }
+}
+
+/**
+ * Tells if a given input is a number
+ * @method
+ * @memberof Popper.Utils
+ * @param {*} input to check
+ * @return {Boolean}
+ */
+function isNumeric(n) {
+  return n !== '' && !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+/**
+ * Set the style to the given popper
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element - Element to apply the style to
+ * @argument {Object} styles
+ * Object with a list of properties and values which will be applied to the element
+ */
+function setStyles(element, styles) {
+  Object.keys(styles).forEach(function (prop) {
+    var unit = '';
+    // add unit if the value is numeric and is one of the following
+    if (['width', 'height', 'top', 'right', 'bottom', 'left'].indexOf(prop) !== -1 && isNumeric(styles[prop])) {
+      unit = 'px';
+    }
+    element.style[prop] = styles[prop] + unit;
+  });
+}
+
+/**
+ * Set the attributes to the given popper
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element - Element to apply the attributes to
+ * @argument {Object} styles
+ * Object with a list of properties and values which will be applied to the element
+ */
+function setAttributes(element, attributes) {
+  Object.keys(attributes).forEach(function (prop) {
+    var value = attributes[prop];
+    if (value !== false) {
+      element.setAttribute(prop, attributes[prop]);
+    } else {
+      element.removeAttribute(prop);
+    }
+  });
+}
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by `update` method
+ * @argument {Object} data.styles - List of style properties - values to apply to popper element
+ * @argument {Object} data.attributes - List of attribute properties - values to apply to popper element
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The same data object
+ */
+function applyStyle(data) {
+  // any property present in `data.styles` will be applied to the popper,
+  // in this way we can make the 3rd party modifiers add custom styles to it
+  // Be aware, modifiers could override the properties defined in the previous
+  // lines of this modifier!
+  setStyles(data.instance.popper, data.styles);
+
+  // any property present in `data.attributes` will be applied to the popper,
+  // they will be set as HTML attributes of the element
+  setAttributes(data.instance.popper, data.attributes);
+
+  // if arrowElement is defined and arrowStyles has some properties
+  if (data.arrowElement && Object.keys(data.arrowStyles).length) {
+    setStyles(data.arrowElement, data.arrowStyles);
+  }
+
+  return data;
+}
+
+/**
+ * Set the x-placement attribute before everything else because it could be used
+ * to add margins to the popper margins needs to be calculated to get the
+ * correct popper offsets.
+ * @method
+ * @memberof Popper.modifiers
+ * @param {HTMLElement} reference - The reference element used to position the popper
+ * @param {HTMLElement} popper - The HTML element used as popper.
+ * @param {Object} options - Popper.js options
+ */
+function applyStyleOnLoad(reference, popper, options, modifierOptions, state) {
+  // compute reference element offsets
+  var referenceOffsets = getReferenceOffsets(state, popper, reference);
+
+  // compute auto placement, store placement inside the data object,
+  // modifiers will be able to edit `placement` if needed
+  // and refer to originalPlacement to know the original value
+  var placement = computeAutoPlacement(options.placement, referenceOffsets, popper, reference, options.modifiers.flip.boundariesElement, options.modifiers.flip.padding);
+
+  popper.setAttribute('x-placement', placement);
+
+  // Apply `position` to popper before anything else because
+  // without the position applied we can't guarantee correct computations
+  setStyles(popper, { position: 'absolute' });
+
+  return options;
+}
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by `update` method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function computeStyle(data, options) {
+  var x = options.x,
+      y = options.y;
+  var popper = data.offsets.popper;
+
+  // Remove this legacy support in Popper.js v2
+
+  var legacyGpuAccelerationOption = find(data.instance.modifiers, function (modifier) {
+    return modifier.name === 'applyStyle';
+  }).gpuAcceleration;
+  if (legacyGpuAccelerationOption !== undefined) {
+    console.warn('WARNING: `gpuAcceleration` option moved to `computeStyle` modifier and will not be supported in future versions of Popper.js!');
+  }
+  var gpuAcceleration = legacyGpuAccelerationOption !== undefined ? legacyGpuAccelerationOption : options.gpuAcceleration;
+
+  var offsetParent = getOffsetParent(data.instance.popper);
+  var offsetParentRect = getBoundingClientRect(offsetParent);
+
+  // Styles
+  var styles = {
+    position: popper.position
+  };
+
+  // floor sides to avoid blurry text
+  var offsets = {
+    left: Math.floor(popper.left),
+    top: Math.floor(popper.top),
+    bottom: Math.floor(popper.bottom),
+    right: Math.floor(popper.right)
+  };
+
+  var sideA = x === 'bottom' ? 'top' : 'bottom';
+  var sideB = y === 'right' ? 'left' : 'right';
+
+  // if gpuAcceleration is set to `true` and transform is supported,
+  //  we use `translate3d` to apply the position to the popper we
+  // automatically use the supported prefixed version if needed
+  var prefixedProperty = getSupportedPropertyName('transform');
+
+  // now, let's make a step back and look at this code closely (wtf?)
+  // If the content of the popper grows once it's been positioned, it
+  // may happen that the popper gets misplaced because of the new content
+  // overflowing its reference element
+  // To avoid this problem, we provide two options (x and y), which allow
+  // the consumer to define the offset origin.
+  // If we position a popper on top of a reference element, we can set
+  // `x` to `top` to make the popper grow towards its top instead of
+  // its bottom.
+  var left = void 0,
+      top = void 0;
+  if (sideA === 'bottom') {
+    top = -offsetParentRect.height + offsets.bottom;
+  } else {
+    top = offsets.top;
+  }
+  if (sideB === 'right') {
+    left = -offsetParentRect.width + offsets.right;
+  } else {
+    left = offsets.left;
+  }
+  if (gpuAcceleration && prefixedProperty) {
+    styles[prefixedProperty] = 'translate3d(' + left + 'px, ' + top + 'px, 0)';
+    styles[sideA] = 0;
+    styles[sideB] = 0;
+    styles.willChange = 'transform';
+  } else {
+    // othwerise, we use the standard `top`, `left`, `bottom` and `right` properties
+    var invertTop = sideA === 'bottom' ? -1 : 1;
+    var invertLeft = sideB === 'right' ? -1 : 1;
+    styles[sideA] = top * invertTop;
+    styles[sideB] = left * invertLeft;
+    styles.willChange = sideA + ', ' + sideB;
+  }
+
+  // Attributes
+  var attributes = {
+    'x-placement': data.placement
+  };
+
+  // Update `data` attributes, styles and arrowStyles
+  data.attributes = _extends({}, attributes, data.attributes);
+  data.styles = _extends({}, styles, data.styles);
+  data.arrowStyles = _extends({}, data.offsets.arrow, data.arrowStyles);
+
+  return data;
+}
+
+/**
+ * Helper used to know if the given modifier depends from another one.<br />
+ * It checks if the needed modifier is listed and enabled.
+ * @method
+ * @memberof Popper.Utils
+ * @param {Array} modifiers - list of modifiers
+ * @param {String} requestingName - name of requesting modifier
+ * @param {String} requestedName - name of requested modifier
+ * @returns {Boolean}
+ */
+function isModifierRequired(modifiers, requestingName, requestedName) {
+  var requesting = find(modifiers, function (_ref) {
+    var name = _ref.name;
+    return name === requestingName;
+  });
+
+  var isRequired = !!requesting && modifiers.some(function (modifier) {
+    return modifier.name === requestedName && modifier.enabled && modifier.order < requesting.order;
+  });
+
+  if (!isRequired) {
+    var _requesting = '`' + requestingName + '`';
+    var requested = '`' + requestedName + '`';
+    console.warn(requested + ' modifier is required by ' + _requesting + ' modifier in order to work, be sure to include it before ' + _requesting + '!');
+  }
+  return isRequired;
+}
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by update method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function arrow(data, options) {
+  var _data$offsets$arrow;
+
+  // arrow depends on keepTogether in order to work
+  if (!isModifierRequired(data.instance.modifiers, 'arrow', 'keepTogether')) {
+    return data;
+  }
+
+  var arrowElement = options.element;
+
+  // if arrowElement is a string, suppose it's a CSS selector
+  if (typeof arrowElement === 'string') {
+    arrowElement = data.instance.popper.querySelector(arrowElement);
+
+    // if arrowElement is not found, don't run the modifier
+    if (!arrowElement) {
+      return data;
+    }
+  } else {
+    // if the arrowElement isn't a query selector we must check that the
+    // provided DOM node is child of its popper node
+    if (!data.instance.popper.contains(arrowElement)) {
+      console.warn('WARNING: `arrow.element` must be child of its popper element!');
+      return data;
+    }
+  }
+
+  var placement = data.placement.split('-')[0];
+  var _data$offsets = data.offsets,
+      popper = _data$offsets.popper,
+      reference = _data$offsets.reference;
+
+  var isVertical = ['left', 'right'].indexOf(placement) !== -1;
+
+  var len = isVertical ? 'height' : 'width';
+  var sideCapitalized = isVertical ? 'Top' : 'Left';
+  var side = sideCapitalized.toLowerCase();
+  var altSide = isVertical ? 'left' : 'top';
+  var opSide = isVertical ? 'bottom' : 'right';
+  var arrowElementSize = getOuterSizes(arrowElement)[len];
+
+  //
+  // extends keepTogether behavior making sure the popper and its
+  // reference have enough pixels in conjuction
+  //
+
+  // top/left side
+  if (reference[opSide] - arrowElementSize < popper[side]) {
+    data.offsets.popper[side] -= popper[side] - (reference[opSide] - arrowElementSize);
+  }
+  // bottom/right side
+  if (reference[side] + arrowElementSize > popper[opSide]) {
+    data.offsets.popper[side] += reference[side] + arrowElementSize - popper[opSide];
+  }
+  data.offsets.popper = getClientRect(data.offsets.popper);
+
+  // compute center of the popper
+  var center = reference[side] + reference[len] / 2 - arrowElementSize / 2;
+
+  // Compute the sideValue using the updated popper offsets
+  // take popper margin in account because we don't have this info available
+  var css = getStyleComputedProperty(data.instance.popper);
+  var popperMarginSide = parseFloat(css['margin' + sideCapitalized], 10);
+  var popperBorderSide = parseFloat(css['border' + sideCapitalized + 'Width'], 10);
+  var sideValue = center - data.offsets.popper[side] - popperMarginSide - popperBorderSide;
+
+  // prevent arrowElement from being placed not contiguously to its popper
+  sideValue = Math.max(Math.min(popper[len] - arrowElementSize, sideValue), 0);
+
+  data.arrowElement = arrowElement;
+  data.offsets.arrow = (_data$offsets$arrow = {}, defineProperty(_data$offsets$arrow, side, Math.round(sideValue)), defineProperty(_data$offsets$arrow, altSide, ''), _data$offsets$arrow);
+
+  return data;
+}
+
+/**
+ * Get the opposite placement variation of the given one
+ * @method
+ * @memberof Popper.Utils
+ * @argument {String} placement variation
+ * @returns {String} flipped placement variation
+ */
+function getOppositeVariation(variation) {
+  if (variation === 'end') {
+    return 'start';
+  } else if (variation === 'start') {
+    return 'end';
+  }
+  return variation;
+}
+
+/**
+ * List of accepted placements to use as values of the `placement` option.<br />
+ * Valid placements are:
+ * - `auto`
+ * - `top`
+ * - `right`
+ * - `bottom`
+ * - `left`
+ *
+ * Each placement can have a variation from this list:
+ * - `-start`
+ * - `-end`
+ *
+ * Variations are interpreted easily if you think of them as the left to right
+ * written languages. Horizontally (`top` and `bottom`), `start` is left and `end`
+ * is right.<br />
+ * Vertically (`left` and `right`), `start` is top and `end` is bottom.
+ *
+ * Some valid examples are:
+ * - `top-end` (on top of reference, right aligned)
+ * - `right-start` (on right of reference, top aligned)
+ * - `bottom` (on bottom, centered)
+ * - `auto-right` (on the side with more space available, alignment depends by placement)
+ *
+ * @static
+ * @type {Array}
+ * @enum {String}
+ * @readonly
+ * @method placements
+ * @memberof Popper
+ */
+var placements = ['auto-start', 'auto', 'auto-end', 'top-start', 'top', 'top-end', 'right-start', 'right', 'right-end', 'bottom-end', 'bottom', 'bottom-start', 'left-end', 'left', 'left-start'];
+
+// Get rid of `auto` `auto-start` and `auto-end`
+var validPlacements = placements.slice(3);
+
+/**
+ * Given an initial placement, returns all the subsequent placements
+ * clockwise (or counter-clockwise).
+ *
+ * @method
+ * @memberof Popper.Utils
+ * @argument {String} placement - A valid placement (it accepts variations)
+ * @argument {Boolean} counter - Set to true to walk the placements counterclockwise
+ * @returns {Array} placements including their variations
+ */
+function clockwise(placement) {
+  var counter = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+  var index = validPlacements.indexOf(placement);
+  var arr = validPlacements.slice(index + 1).concat(validPlacements.slice(0, index));
+  return counter ? arr.reverse() : arr;
+}
+
+var BEHAVIORS = {
+  FLIP: 'flip',
+  CLOCKWISE: 'clockwise',
+  COUNTERCLOCKWISE: 'counterclockwise'
+};
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by update method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function flip(data, options) {
+  // if `inner` modifier is enabled, we can't use the `flip` modifier
+  if (isModifierEnabled(data.instance.modifiers, 'inner')) {
+    return data;
+  }
+
+  if (data.flipped && data.placement === data.originalPlacement) {
+    // seems like flip is trying to loop, probably there's not enough space on any of the flippable sides
+    return data;
+  }
+
+  var boundaries = getBoundaries(data.instance.popper, data.instance.reference, options.padding, options.boundariesElement);
+
+  var placement = data.placement.split('-')[0];
+  var placementOpposite = getOppositePlacement(placement);
+  var variation = data.placement.split('-')[1] || '';
+
+  var flipOrder = [];
+
+  switch (options.behavior) {
+    case BEHAVIORS.FLIP:
+      flipOrder = [placement, placementOpposite];
+      break;
+    case BEHAVIORS.CLOCKWISE:
+      flipOrder = clockwise(placement);
+      break;
+    case BEHAVIORS.COUNTERCLOCKWISE:
+      flipOrder = clockwise(placement, true);
+      break;
+    default:
+      flipOrder = options.behavior;
+  }
+
+  flipOrder.forEach(function (step, index) {
+    if (placement !== step || flipOrder.length === index + 1) {
+      return data;
+    }
+
+    placement = data.placement.split('-')[0];
+    placementOpposite = getOppositePlacement(placement);
+
+    var popperOffsets = data.offsets.popper;
+    var refOffsets = data.offsets.reference;
+
+    // using floor because the reference offsets may contain decimals we are not going to consider here
+    var floor = Math.floor;
+    var overlapsRef = placement === 'left' && floor(popperOffsets.right) > floor(refOffsets.left) || placement === 'right' && floor(popperOffsets.left) < floor(refOffsets.right) || placement === 'top' && floor(popperOffsets.bottom) > floor(refOffsets.top) || placement === 'bottom' && floor(popperOffsets.top) < floor(refOffsets.bottom);
+
+    var overflowsLeft = floor(popperOffsets.left) < floor(boundaries.left);
+    var overflowsRight = floor(popperOffsets.right) > floor(boundaries.right);
+    var overflowsTop = floor(popperOffsets.top) < floor(boundaries.top);
+    var overflowsBottom = floor(popperOffsets.bottom) > floor(boundaries.bottom);
+
+    var overflowsBoundaries = placement === 'left' && overflowsLeft || placement === 'right' && overflowsRight || placement === 'top' && overflowsTop || placement === 'bottom' && overflowsBottom;
+
+    // flip the variation if required
+    var isVertical = ['top', 'bottom'].indexOf(placement) !== -1;
+    var flippedVariation = !!options.flipVariations && (isVertical && variation === 'start' && overflowsLeft || isVertical && variation === 'end' && overflowsRight || !isVertical && variation === 'start' && overflowsTop || !isVertical && variation === 'end' && overflowsBottom);
+
+    if (overlapsRef || overflowsBoundaries || flippedVariation) {
+      // this boolean to detect any flip loop
+      data.flipped = true;
+
+      if (overlapsRef || overflowsBoundaries) {
+        placement = flipOrder[index + 1];
+      }
+
+      if (flippedVariation) {
+        variation = getOppositeVariation(variation);
+      }
+
+      data.placement = placement + (variation ? '-' + variation : '');
+
+      // this object contains `position`, we want to preserve it along with
+      // any additional property we may add in the future
+      data.offsets.popper = _extends({}, data.offsets.popper, getPopperOffsets(data.instance.popper, data.offsets.reference, data.placement));
+
+      data = runModifiers(data.instance.modifiers, data, 'flip');
+    }
+  });
+  return data;
+}
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by update method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function keepTogether(data) {
+  var _data$offsets = data.offsets,
+      popper = _data$offsets.popper,
+      reference = _data$offsets.reference;
+
+  var placement = data.placement.split('-')[0];
+  var floor = Math.floor;
+  var isVertical = ['top', 'bottom'].indexOf(placement) !== -1;
+  var side = isVertical ? 'right' : 'bottom';
+  var opSide = isVertical ? 'left' : 'top';
+  var measurement = isVertical ? 'width' : 'height';
+
+  if (popper[side] < floor(reference[opSide])) {
+    data.offsets.popper[opSide] = floor(reference[opSide]) - popper[measurement];
+  }
+  if (popper[opSide] > floor(reference[side])) {
+    data.offsets.popper[opSide] = floor(reference[side]);
+  }
+
+  return data;
+}
+
+/**
+ * Converts a string containing value + unit into a px value number
+ * @function
+ * @memberof {modifiers~offset}
+ * @private
+ * @argument {String} str - Value + unit string
+ * @argument {String} measurement - `height` or `width`
+ * @argument {Object} popperOffsets
+ * @argument {Object} referenceOffsets
+ * @returns {Number|String}
+ * Value in pixels, or original string if no values were extracted
+ */
+function toValue(str, measurement, popperOffsets, referenceOffsets) {
+  // separate value from unit
+  var split = str.match(/((?:\-|\+)?\d*\.?\d*)(.*)/);
+  var value = +split[1];
+  var unit = split[2];
+
+  // If it's not a number it's an operator, I guess
+  if (!value) {
+    return str;
+  }
+
+  if (unit.indexOf('%') === 0) {
+    var element = void 0;
+    switch (unit) {
+      case '%p':
+        element = popperOffsets;
+        break;
+      case '%':
+      case '%r':
+      default:
+        element = referenceOffsets;
+    }
+
+    var rect = getClientRect(element);
+    return rect[measurement] / 100 * value;
+  } else if (unit === 'vh' || unit === 'vw') {
+    // if is a vh or vw, we calculate the size based on the viewport
+    var size = void 0;
+    if (unit === 'vh') {
+      size = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    } else {
+      size = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    }
+    return size / 100 * value;
+  } else {
+    // if is an explicit pixel unit, we get rid of the unit and keep the value
+    // if is an implicit unit, it's px, and we return just the value
+    return value;
+  }
+}
+
+/**
+ * Parse an `offset` string to extrapolate `x` and `y` numeric offsets.
+ * @function
+ * @memberof {modifiers~offset}
+ * @private
+ * @argument {String} offset
+ * @argument {Object} popperOffsets
+ * @argument {Object} referenceOffsets
+ * @argument {String} basePlacement
+ * @returns {Array} a two cells array with x and y offsets in numbers
+ */
+function parseOffset(offset, popperOffsets, referenceOffsets, basePlacement) {
+  var offsets = [0, 0];
+
+  // Use height if placement is left or right and index is 0 otherwise use width
+  // in this way the first offset will use an axis and the second one
+  // will use the other one
+  var useHeight = ['right', 'left'].indexOf(basePlacement) !== -1;
+
+  // Split the offset string to obtain a list of values and operands
+  // The regex addresses values with the plus or minus sign in front (+10, -20, etc)
+  var fragments = offset.split(/(\+|\-)/).map(function (frag) {
+    return frag.trim();
+  });
+
+  // Detect if the offset string contains a pair of values or a single one
+  // they could be separated by comma or space
+  var divider = fragments.indexOf(find(fragments, function (frag) {
+    return frag.search(/,|\s/) !== -1;
+  }));
+
+  if (fragments[divider] && fragments[divider].indexOf(',') === -1) {
+    console.warn('Offsets separated by white space(s) are deprecated, use a comma (,) instead.');
+  }
+
+  // If divider is found, we divide the list of values and operands to divide
+  // them by ofset X and Y.
+  var splitRegex = /\s*,\s*|\s+/;
+  var ops = divider !== -1 ? [fragments.slice(0, divider).concat([fragments[divider].split(splitRegex)[0]]), [fragments[divider].split(splitRegex)[1]].concat(fragments.slice(divider + 1))] : [fragments];
+
+  // Convert the values with units to absolute pixels to allow our computations
+  ops = ops.map(function (op, index) {
+    // Most of the units rely on the orientation of the popper
+    var measurement = (index === 1 ? !useHeight : useHeight) ? 'height' : 'width';
+    var mergeWithPrevious = false;
+    return op
+    // This aggregates any `+` or `-` sign that aren't considered operators
+    // e.g.: 10 + +5 => [10, +, +5]
+    .reduce(function (a, b) {
+      if (a[a.length - 1] === '' && ['+', '-'].indexOf(b) !== -1) {
+        a[a.length - 1] = b;
+        mergeWithPrevious = true;
+        return a;
+      } else if (mergeWithPrevious) {
+        a[a.length - 1] += b;
+        mergeWithPrevious = false;
+        return a;
+      } else {
+        return a.concat(b);
+      }
+    }, [])
+    // Here we convert the string values into number values (in px)
+    .map(function (str) {
+      return toValue(str, measurement, popperOffsets, referenceOffsets);
+    });
+  });
+
+  // Loop trough the offsets arrays and execute the operations
+  ops.forEach(function (op, index) {
+    op.forEach(function (frag, index2) {
+      if (isNumeric(frag)) {
+        offsets[index] += frag * (op[index2 - 1] === '-' ? -1 : 1);
+      }
+    });
+  });
+  return offsets;
+}
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by update method
+ * @argument {Object} options - Modifiers configuration and options
+ * @argument {Number|String} options.offset=0
+ * The offset value as described in the modifier description
+ * @returns {Object} The data object, properly modified
+ */
+function offset(data, _ref) {
+  var offset = _ref.offset;
+  var placement = data.placement,
+      _data$offsets = data.offsets,
+      popper = _data$offsets.popper,
+      reference = _data$offsets.reference;
+
+  var basePlacement = placement.split('-')[0];
+
+  var offsets = void 0;
+  if (isNumeric(+offset)) {
+    offsets = [+offset, 0];
+  } else {
+    offsets = parseOffset(offset, popper, reference, basePlacement);
+  }
+
+  if (basePlacement === 'left') {
+    popper.top += offsets[0];
+    popper.left -= offsets[1];
+  } else if (basePlacement === 'right') {
+    popper.top += offsets[0];
+    popper.left += offsets[1];
+  } else if (basePlacement === 'top') {
+    popper.left += offsets[0];
+    popper.top -= offsets[1];
+  } else if (basePlacement === 'bottom') {
+    popper.left += offsets[0];
+    popper.top += offsets[1];
+  }
+
+  data.popper = popper;
+  return data;
+}
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by `update` method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function preventOverflow(data, options) {
+  var boundariesElement = options.boundariesElement || getOffsetParent(data.instance.popper);
+
+  // If offsetParent is the reference element, we really want to
+  // go one step up and use the next offsetParent as reference to
+  // avoid to make this modifier completely useless and look like broken
+  if (data.instance.reference === boundariesElement) {
+    boundariesElement = getOffsetParent(boundariesElement);
+  }
+
+  var boundaries = getBoundaries(data.instance.popper, data.instance.reference, options.padding, boundariesElement);
+  options.boundaries = boundaries;
+
+  var order = options.priority;
+  var popper = data.offsets.popper;
+
+  var check = {
+    primary: function primary(placement) {
+      var value = popper[placement];
+      if (popper[placement] < boundaries[placement] && !options.escapeWithReference) {
+        value = Math.max(popper[placement], boundaries[placement]);
+      }
+      return defineProperty({}, placement, value);
+    },
+    secondary: function secondary(placement) {
+      var mainSide = placement === 'right' ? 'left' : 'top';
+      var value = popper[mainSide];
+      if (popper[placement] > boundaries[placement] && !options.escapeWithReference) {
+        value = Math.min(popper[mainSide], boundaries[placement] - (placement === 'right' ? popper.width : popper.height));
+      }
+      return defineProperty({}, mainSide, value);
+    }
+  };
+
+  order.forEach(function (placement) {
+    var side = ['left', 'top'].indexOf(placement) !== -1 ? 'primary' : 'secondary';
+    popper = _extends({}, popper, check[side](placement));
+  });
+
+  data.offsets.popper = popper;
+
+  return data;
+}
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by `update` method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function shift(data) {
+  var placement = data.placement;
+  var basePlacement = placement.split('-')[0];
+  var shiftvariation = placement.split('-')[1];
+
+  // if shift shiftvariation is specified, run the modifier
+  if (shiftvariation) {
+    var _data$offsets = data.offsets,
+        reference = _data$offsets.reference,
+        popper = _data$offsets.popper;
+
+    var isVertical = ['bottom', 'top'].indexOf(basePlacement) !== -1;
+    var side = isVertical ? 'left' : 'top';
+    var measurement = isVertical ? 'width' : 'height';
+
+    var shiftOffsets = {
+      start: defineProperty({}, side, reference[side]),
+      end: defineProperty({}, side, reference[side] + reference[measurement] - popper[measurement])
+    };
+
+    data.offsets.popper = _extends({}, popper, shiftOffsets[shiftvariation]);
+  }
+
+  return data;
+}
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by update method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function hide(data) {
+  if (!isModifierRequired(data.instance.modifiers, 'hide', 'preventOverflow')) {
+    return data;
+  }
+
+  var refRect = data.offsets.reference;
+  var bound = find(data.instance.modifiers, function (modifier) {
+    return modifier.name === 'preventOverflow';
+  }).boundaries;
+
+  if (refRect.bottom < bound.top || refRect.left > bound.right || refRect.top > bound.bottom || refRect.right < bound.left) {
+    // Avoid unnecessary DOM access if visibility hasn't changed
+    if (data.hide === true) {
+      return data;
+    }
+
+    data.hide = true;
+    data.attributes['x-out-of-boundaries'] = '';
+  } else {
+    // Avoid unnecessary DOM access if visibility hasn't changed
+    if (data.hide === false) {
+      return data;
+    }
+
+    data.hide = false;
+    data.attributes['x-out-of-boundaries'] = false;
+  }
+
+  return data;
+}
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by `update` method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function inner(data) {
+  var placement = data.placement;
+  var basePlacement = placement.split('-')[0];
+  var _data$offsets = data.offsets,
+      popper = _data$offsets.popper,
+      reference = _data$offsets.reference;
+
+  var isHoriz = ['left', 'right'].indexOf(basePlacement) !== -1;
+
+  var subtractLength = ['top', 'left'].indexOf(basePlacement) === -1;
+
+  popper[isHoriz ? 'left' : 'top'] = reference[basePlacement] - (subtractLength ? popper[isHoriz ? 'width' : 'height'] : 0);
+
+  data.placement = getOppositePlacement(placement);
+  data.offsets.popper = getClientRect(popper);
+
+  return data;
+}
+
+/**
+ * Modifier function, each modifier can have a function of this type assigned
+ * to its `fn` property.<br />
+ * These functions will be called on each update, this means that you must
+ * make sure they are performant enough to avoid performance bottlenecks.
+ *
+ * @function ModifierFn
+ * @argument {dataObject} data - The data object generated by `update` method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {dataObject} The data object, properly modified
+ */
+
+/**
+ * Modifiers are plugins used to alter the behavior of your poppers.<br />
+ * Popper.js uses a set of 9 modifiers to provide all the basic functionalities
+ * needed by the library.
+ *
+ * Usually you don't want to override the `order`, `fn` and `onLoad` props.
+ * All the other properties are configurations that could be tweaked.
+ * @namespace modifiers
+ */
+var modifiers = {
+  /**
+   * Modifier used to shift the popper on the start or end of its reference
+   * element.<br />
+   * It will read the variation of the `placement` property.<br />
+   * It can be one either `-end` or `-start`.
+   * @memberof modifiers
+   * @inner
+   */
+  shift: {
+    /** @prop {number} order=100 - Index used to define the order of execution */
+    order: 100,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: shift
+  },
+
+  /**
+   * The `offset` modifier can shift your popper on both its axis.
+   *
+   * It accepts the following units:
+   * - `px` or unitless, interpreted as pixels
+   * - `%` or `%r`, percentage relative to the length of the reference element
+   * - `%p`, percentage relative to the length of the popper element
+   * - `vw`, CSS viewport width unit
+   * - `vh`, CSS viewport height unit
+   *
+   * For length is intended the main axis relative to the placement of the popper.<br />
+   * This means that if the placement is `top` or `bottom`, the length will be the
+   * `width`. In case of `left` or `right`, it will be the height.
+   *
+   * You can provide a single value (as `Number` or `String`), or a pair of values
+   * as `String` divided by a comma or one (or more) white spaces.<br />
+   * The latter is a deprecated method because it leads to confusion and will be
+   * removed in v2.<br />
+   * Additionally, it accepts additions and subtractions between different units.
+   * Note that multiplications and divisions aren't supported.
+   *
+   * Valid examples are:
+   * ```
+   * 10
+   * '10%'
+   * '10, 10'
+   * '10%, 10'
+   * '10 + 10%'
+   * '10 - 5vh + 3%'
+   * '-10px + 5vh, 5px - 6%'
+   * ```
+   * > **NB**: If you desire to apply offsets to your poppers in a way that may make them overlap
+   * > with their reference element, unfortunately, you will have to disable the `flip` modifier.
+   * > More on this [reading this issue](https://github.com/FezVrasta/popper.js/issues/373)
+   *
+   * @memberof modifiers
+   * @inner
+   */
+  offset: {
+    /** @prop {number} order=200 - Index used to define the order of execution */
+    order: 200,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: offset,
+    /** @prop {Number|String} offset=0
+     * The offset value as described in the modifier description
+     */
+    offset: 0
+  },
+
+  /**
+   * Modifier used to prevent the popper from being positioned outside the boundary.
+   *
+   * An scenario exists where the reference itself is not within the boundaries.<br />
+   * We can say it has "escaped the boundaries" — or just "escaped".<br />
+   * In this case we need to decide whether the popper should either:
+   *
+   * - detach from the reference and remain "trapped" in the boundaries, or
+   * - if it should ignore the boundary and "escape with its reference"
+   *
+   * When `escapeWithReference` is set to`true` and reference is completely
+   * outside its boundaries, the popper will overflow (or completely leave)
+   * the boundaries in order to remain attached to the edge of the reference.
+   *
+   * @memberof modifiers
+   * @inner
+   */
+  preventOverflow: {
+    /** @prop {number} order=300 - Index used to define the order of execution */
+    order: 300,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: preventOverflow,
+    /**
+     * @prop {Array} [priority=['left','right','top','bottom']]
+     * Popper will try to prevent overflow following these priorities by default,
+     * then, it could overflow on the left and on top of the `boundariesElement`
+     */
+    priority: ['left', 'right', 'top', 'bottom'],
+    /**
+     * @prop {number} padding=5
+     * Amount of pixel used to define a minimum distance between the boundaries
+     * and the popper this makes sure the popper has always a little padding
+     * between the edges of its container
+     */
+    padding: 5,
+    /**
+     * @prop {String|HTMLElement} boundariesElement='scrollParent'
+     * Boundaries used by the modifier, can be `scrollParent`, `window`,
+     * `viewport` or any DOM element.
+     */
+    boundariesElement: 'scrollParent'
+  },
+
+  /**
+   * Modifier used to make sure the reference and its popper stay near eachothers
+   * without leaving any gap between the two. Expecially useful when the arrow is
+   * enabled and you want to assure it to point to its reference element.
+   * It cares only about the first axis, you can still have poppers with margin
+   * between the popper and its reference element.
+   * @memberof modifiers
+   * @inner
+   */
+  keepTogether: {
+    /** @prop {number} order=400 - Index used to define the order of execution */
+    order: 400,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: keepTogether
+  },
+
+  /**
+   * This modifier is used to move the `arrowElement` of the popper to make
+   * sure it is positioned between the reference element and its popper element.
+   * It will read the outer size of the `arrowElement` node to detect how many
+   * pixels of conjuction are needed.
+   *
+   * It has no effect if no `arrowElement` is provided.
+   * @memberof modifiers
+   * @inner
+   */
+  arrow: {
+    /** @prop {number} order=500 - Index used to define the order of execution */
+    order: 500,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: arrow,
+    /** @prop {String|HTMLElement} element='[x-arrow]' - Selector or node used as arrow */
+    element: '[x-arrow]'
+  },
+
+  /**
+   * Modifier used to flip the popper's placement when it starts to overlap its
+   * reference element.
+   *
+   * Requires the `preventOverflow` modifier before it in order to work.
+   *
+   * **NOTE:** this modifier will interrupt the current update cycle and will
+   * restart it if it detects the need to flip the placement.
+   * @memberof modifiers
+   * @inner
+   */
+  flip: {
+    /** @prop {number} order=600 - Index used to define the order of execution */
+    order: 600,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: flip,
+    /**
+     * @prop {String|Array} behavior='flip'
+     * The behavior used to change the popper's placement. It can be one of
+     * `flip`, `clockwise`, `counterclockwise` or an array with a list of valid
+     * placements (with optional variations).
+     */
+    behavior: 'flip',
+    /**
+     * @prop {number} padding=5
+     * The popper will flip if it hits the edges of the `boundariesElement`
+     */
+    padding: 5,
+    /**
+     * @prop {String|HTMLElement} boundariesElement='viewport'
+     * The element which will define the boundaries of the popper position,
+     * the popper will never be placed outside of the defined boundaries
+     * (except if keepTogether is enabled)
+     */
+    boundariesElement: 'viewport'
+  },
+
+  /**
+   * Modifier used to make the popper flow toward the inner of the reference element.
+   * By default, when this modifier is disabled, the popper will be placed outside
+   * the reference element.
+   * @memberof modifiers
+   * @inner
+   */
+  inner: {
+    /** @prop {number} order=700 - Index used to define the order of execution */
+    order: 700,
+    /** @prop {Boolean} enabled=false - Whether the modifier is enabled or not */
+    enabled: false,
+    /** @prop {ModifierFn} */
+    fn: inner
+  },
+
+  /**
+   * Modifier used to hide the popper when its reference element is outside of the
+   * popper boundaries. It will set a `x-out-of-boundaries` attribute which can
+   * be used to hide with a CSS selector the popper when its reference is
+   * out of boundaries.
+   *
+   * Requires the `preventOverflow` modifier before it in order to work.
+   * @memberof modifiers
+   * @inner
+   */
+  hide: {
+    /** @prop {number} order=800 - Index used to define the order of execution */
+    order: 800,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: hide
+  },
+
+  /**
+   * Computes the style that will be applied to the popper element to gets
+   * properly positioned.
+   *
+   * Note that this modifier will not touch the DOM, it just prepares the styles
+   * so that `applyStyle` modifier can apply it. This separation is useful
+   * in case you need to replace `applyStyle` with a custom implementation.
+   *
+   * This modifier has `850` as `order` value to maintain backward compatibility
+   * with previous versions of Popper.js. Expect the modifiers ordering method
+   * to change in future major versions of the library.
+   *
+   * @memberof modifiers
+   * @inner
+   */
+  computeStyle: {
+    /** @prop {number} order=850 - Index used to define the order of execution */
+    order: 850,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: computeStyle,
+    /**
+     * @prop {Boolean} gpuAcceleration=true
+     * If true, it uses the CSS 3d transformation to position the popper.
+     * Otherwise, it will use the `top` and `left` properties.
+     */
+    gpuAcceleration: true,
+    /**
+     * @prop {string} [x='bottom']
+     * Where to anchor the X axis (`bottom` or `top`). AKA X offset origin.
+     * Change this if your popper should grow in a direction different from `bottom`
+     */
+    x: 'bottom',
+    /**
+     * @prop {string} [x='left']
+     * Where to anchor the Y axis (`left` or `right`). AKA Y offset origin.
+     * Change this if your popper should grow in a direction different from `right`
+     */
+    y: 'right'
+  },
+
+  /**
+   * Applies the computed styles to the popper element.
+   *
+   * All the DOM manipulations are limited to this modifier. This is useful in case
+   * you want to integrate Popper.js inside a framework or view library and you
+   * want to delegate all the DOM manipulations to it.
+   *
+   * Note that if you disable this modifier, you must make sure the popper element
+   * has its position set to `absolute` before Popper.js can do its work!
+   *
+   * Just disable this modifier and define you own to achieve the desired effect.
+   *
+   * @memberof modifiers
+   * @inner
+   */
+  applyStyle: {
+    /** @prop {number} order=900 - Index used to define the order of execution */
+    order: 900,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: applyStyle,
+    /** @prop {Function} */
+    onLoad: applyStyleOnLoad,
+    /**
+     * @deprecated since version 1.10.0, the property moved to `computeStyle` modifier
+     * @prop {Boolean} gpuAcceleration=true
+     * If true, it uses the CSS 3d transformation to position the popper.
+     * Otherwise, it will use the `top` and `left` properties.
+     */
+    gpuAcceleration: undefined
+  }
+};
+
+/**
+ * The `dataObject` is an object containing all the informations used by Popper.js
+ * this object get passed to modifiers and to the `onCreate` and `onUpdate` callbacks.
+ * @name dataObject
+ * @property {Object} data.instance The Popper.js instance
+ * @property {String} data.placement Placement applied to popper
+ * @property {String} data.originalPlacement Placement originally defined on init
+ * @property {Boolean} data.flipped True if popper has been flipped by flip modifier
+ * @property {Boolean} data.hide True if the reference element is out of boundaries, useful to know when to hide the popper.
+ * @property {HTMLElement} data.arrowElement Node used as arrow by arrow modifier
+ * @property {Object} data.styles Any CSS property defined here will be applied to the popper, it expects the JavaScript nomenclature (eg. `marginBottom`)
+ * @property {Object} data.arrowStyles Any CSS property defined here will be applied to the popper arrow, it expects the JavaScript nomenclature (eg. `marginBottom`)
+ * @property {Object} data.boundaries Offsets of the popper boundaries
+ * @property {Object} data.offsets The measurements of popper, reference and arrow elements.
+ * @property {Object} data.offsets.popper `top`, `left`, `width`, `height` values
+ * @property {Object} data.offsets.reference `top`, `left`, `width`, `height` values
+ * @property {Object} data.offsets.arrow] `top` and `left` offsets, only one of them will be different from 0
+ */
+
+/**
+ * Default options provided to Popper.js constructor.<br />
+ * These can be overriden using the `options` argument of Popper.js.<br />
+ * To override an option, simply pass as 3rd argument an object with the same
+ * structure of this object, example:
+ * ```
+ * new Popper(ref, pop, {
+ *   modifiers: {
+ *     preventOverflow: { enabled: false }
+ *   }
+ * })
+ * ```
+ * @type {Object}
+ * @static
+ * @memberof Popper
+ */
+var Defaults = {
+  /**
+   * Popper's placement
+   * @prop {Popper.placements} placement='bottom'
+   */
+  placement: 'bottom',
+
+  /**
+   * Whether events (resize, scroll) are initially enabled
+   * @prop {Boolean} eventsEnabled=true
+   */
+  eventsEnabled: true,
+
+  /**
+   * Set to true if you want to automatically remove the popper when
+   * you call the `destroy` method.
+   * @prop {Boolean} removeOnDestroy=false
+   */
+  removeOnDestroy: false,
+
+  /**
+   * Callback called when the popper is created.<br />
+   * By default, is set to no-op.<br />
+   * Access Popper.js instance with `data.instance`.
+   * @prop {onCreate}
+   */
+  onCreate: function onCreate() {},
+
+  /**
+   * Callback called when the popper is updated, this callback is not called
+   * on the initialization/creation of the popper, but only on subsequent
+   * updates.<br />
+   * By default, is set to no-op.<br />
+   * Access Popper.js instance with `data.instance`.
+   * @prop {onUpdate}
+   */
+  onUpdate: function onUpdate() {},
+
+  /**
+   * List of modifiers used to modify the offsets before they are applied to the popper.
+   * They provide most of the functionalities of Popper.js
+   * @prop {modifiers}
+   */
+  modifiers: modifiers
+};
+
+/**
+ * @callback onCreate
+ * @param {dataObject} data
+ */
+
+/**
+ * @callback onUpdate
+ * @param {dataObject} data
+ */
+
+// Utils
+// Methods
+var Popper = function () {
+  /**
+   * Create a new Popper.js instance
+   * @class Popper
+   * @param {HTMLElement|referenceObject} reference - The reference element used to position the popper
+   * @param {HTMLElement} popper - The HTML element used as popper.
+   * @param {Object} options - Your custom options to override the ones defined in [Defaults](#defaults)
+   * @return {Object} instance - The generated Popper.js instance
+   */
+  function Popper(reference, popper) {
+    var _this = this;
+
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    classCallCheck(this, Popper);
+
+    this.scheduleUpdate = function () {
+      return requestAnimationFrame(_this.update);
+    };
+
+    // make update() debounced, so that it only runs at most once-per-tick
+    this.update = debounce(this.update.bind(this));
+
+    // with {} we create a new object with the options inside it
+    this.options = _extends({}, Popper.Defaults, options);
+
+    // init state
+    this.state = {
+      isDestroyed: false,
+      isCreated: false,
+      scrollParents: []
+    };
+
+    // get reference and popper elements (allow jQuery wrappers)
+    this.reference = reference && reference.jquery ? reference[0] : reference;
+    this.popper = popper && popper.jquery ? popper[0] : popper;
+
+    // Deep merge modifiers options
+    this.options.modifiers = {};
+    Object.keys(_extends({}, Popper.Defaults.modifiers, options.modifiers)).forEach(function (name) {
+      _this.options.modifiers[name] = _extends({}, Popper.Defaults.modifiers[name] || {}, options.modifiers ? options.modifiers[name] : {});
+    });
+
+    // Refactoring modifiers' list (Object => Array)
+    this.modifiers = Object.keys(this.options.modifiers).map(function (name) {
+      return _extends({
+        name: name
+      }, _this.options.modifiers[name]);
+    })
+    // sort the modifiers by order
+    .sort(function (a, b) {
+      return a.order - b.order;
+    });
+
+    // modifiers have the ability to execute arbitrary code when Popper.js get inited
+    // such code is executed in the same order of its modifier
+    // they could add new properties to their options configuration
+    // BE AWARE: don't add options to `options.modifiers.name` but to `modifierOptions`!
+    this.modifiers.forEach(function (modifierOptions) {
+      if (modifierOptions.enabled && isFunction(modifierOptions.onLoad)) {
+        modifierOptions.onLoad(_this.reference, _this.popper, _this.options, modifierOptions, _this.state);
+      }
+    });
+
+    // fire the first update to position the popper in the right place
+    this.update();
+
+    var eventsEnabled = this.options.eventsEnabled;
+    if (eventsEnabled) {
+      // setup event listeners, they will take care of update the position in specific situations
+      this.enableEventListeners();
+    }
+
+    this.state.eventsEnabled = eventsEnabled;
+  }
+
+  // We can't use class properties because they don't get listed in the
+  // class prototype and break stuff like Sinon stubs
+
+
+  createClass(Popper, [{
+    key: 'update',
+    value: function update$$1() {
+      return update.call(this);
+    }
+  }, {
+    key: 'destroy',
+    value: function destroy$$1() {
+      return destroy.call(this);
+    }
+  }, {
+    key: 'enableEventListeners',
+    value: function enableEventListeners$$1() {
+      return enableEventListeners.call(this);
+    }
+  }, {
+    key: 'disableEventListeners',
+    value: function disableEventListeners$$1() {
+      return disableEventListeners.call(this);
+    }
+
+    /**
+     * Schedule an update, it will run on the next UI update available
+     * @method scheduleUpdate
+     * @memberof Popper
+     */
+
+    /**
+     * Collection of utilities useful when writing custom modifiers.
+     * Starting from version 1.7, this method is available only if you
+     * include `popper-utils.js` before `popper.js`.
+     *
+     * **DEPRECATION**: This way to access PopperUtils is deprecated
+     * and will be removed in v2! Use the PopperUtils module directly instead.
+     * Due to the high instability of the methods contained in Utils, we can't
+     * guarantee them to follow semver. Use them at your own risk!
+     * @static
+     * @private
+     * @type {Object}
+     * @deprecated since version 1.8
+     * @member Utils
+     * @memberof Popper
+     */
+
+  }]);
+  return Popper;
+}();
+
+/**
+ * The `referenceObject` is an object that provides an interface compatible with Popper.js
+ * and lets you use it as replacement of a real DOM node.<br />
+ * You can use this method to position a popper relatively to a set of coordinates
+ * in case you don't have a DOM node to use as reference.
+ *
+ * ```
+ * new Popper(referenceObject, popperNode);
+ * ```
+ *
+ * NB: This feature isn't supported in Internet Explorer 10
+ * @name referenceObject
+ * @property {Function} data.getBoundingClientRect
+ * A function that returns a set of coordinates compatible with the native `getBoundingClientRect` method.
+ * @property {number} data.clientWidth
+ * An ES6 getter that will return the width of the virtual reference element.
+ * @property {number} data.clientHeight
+ * An ES6 getter that will return the height of the virtual reference element.
+ */
+
+Popper.Utils = (typeof window !== 'undefined' ? window : global).PopperUtils;
+Popper.placements = placements;
+Popper.Defaults = Defaults;
+
+/* harmony default export */ __webpack_exports__["default"] = (Popper);
+//# sourceMappingURL=popper.js.map
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(79)))
+
+/***/ }),
+/* 408 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
+
+var _react = __webpack_require__(0);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _objectWithoutProperties(obj, keys) {
+  var target = {};for (var i in obj) {
+    if (keys.indexOf(i) >= 0) continue;if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;target[i] = obj[i];
+  }return target;
+}
+
+var Arrow = function Arrow(props, context) {
+  var _props$component = props.component,
+      component = _props$component === undefined ? 'span' : _props$component,
+      innerRef = props.innerRef,
+      children = props.children,
+      restProps = _objectWithoutProperties(props, ['component', 'innerRef', 'children']);
+
+  var popper = context.popper;
+
+  var arrowRef = function arrowRef(node) {
+    popper.setArrowNode(node);
+    if (typeof innerRef === 'function') {
+      innerRef(node);
+    }
+  };
+  var arrowStyle = popper.getArrowStyle();
+
+  if (typeof children === 'function') {
+    var arrowProps = {
+      ref: arrowRef,
+      style: arrowStyle
+    };
+    return children({ arrowProps: arrowProps, restProps: restProps });
+  }
+
+  var componentProps = _extends({}, restProps, {
+    style: _extends({}, arrowStyle, restProps.style)
+  });
+
+  if (typeof component === 'string') {
+    componentProps.ref = arrowRef;
+  } else {
+    componentProps.innerRef = arrowRef;
+  }
+
+  return (0, _react.createElement)(component, componentProps, children);
+};
+
+Arrow.contextTypes = {
+  popper: _propTypes2.default.object.isRequired
+};
+
+Arrow.propTypes = {
+  component: _propTypes2.default.oneOfType([_propTypes2.default.node, _propTypes2.default.func]),
+  innerRef: _propTypes2.default.func,
+  children: _propTypes2.default.oneOfType([_propTypes2.default.node, _propTypes2.default.func])
+};
+
+exports.default = Arrow;
+
+/***/ }),
+/* 409 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(60)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle, .react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle, .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view--down-arrow,\n.react-datepicker__month-year-read-view--down-arrow {\n  margin-left: -8px;\n  position: absolute;\n}\n\n.react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle, .react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle, .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view--down-arrow,\n.react-datepicker__month-year-read-view--down-arrow, .react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle::before, .react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle::before, .react-datepicker__year-read-view--down-arrow::before,\n.react-datepicker__month-read-view--down-arrow::before,\n.react-datepicker__month-year-read-view--down-arrow::before {\n  box-sizing: content-box;\n  position: absolute;\n  border: 8px solid transparent;\n  height: 0;\n  width: 1px;\n}\n\n.react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle::before, .react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle::before, .react-datepicker__year-read-view--down-arrow::before,\n.react-datepicker__month-read-view--down-arrow::before,\n.react-datepicker__month-year-read-view--down-arrow::before {\n  content: \"\";\n  z-index: -1;\n  border-width: 8px;\n  left: -8px;\n  border-bottom-color: #aeaeae;\n}\n\n.react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle {\n  top: 0;\n  margin-top: -8px;\n}\n\n.react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle, .react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle::before {\n  border-top: none;\n  border-bottom-color: #f0f0f0;\n}\n\n.react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle::before {\n  top: -1px;\n  border-bottom-color: #aeaeae;\n}\n\n.react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle, .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view--down-arrow,\n.react-datepicker__month-year-read-view--down-arrow {\n  bottom: 0;\n  margin-bottom: -8px;\n}\n\n.react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle, .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view--down-arrow,\n.react-datepicker__month-year-read-view--down-arrow, .react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle::before, .react-datepicker__year-read-view--down-arrow::before,\n.react-datepicker__month-read-view--down-arrow::before,\n.react-datepicker__month-year-read-view--down-arrow::before {\n  border-bottom: none;\n  border-top-color: #fff;\n}\n\n.react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle::before, .react-datepicker__year-read-view--down-arrow::before,\n.react-datepicker__month-read-view--down-arrow::before,\n.react-datepicker__month-year-read-view--down-arrow::before {\n  bottom: -1px;\n  border-top-color: #aeaeae;\n}\n\n.react-datepicker-wrapper {\n  display: inline-block;\n}\n\n.react-datepicker {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  font-size: 0.8rem;\n  background-color: #fff;\n  color: #000;\n  border: 1px solid #aeaeae;\n  border-radius: 0.3rem;\n  display: inline-block;\n  position: relative;\n}\n\n.react-datepicker__triangle {\n  position: absolute;\n  left: 50px;\n}\n\n.react-datepicker-popper {\n  z-index: 1;\n}\n\n.react-datepicker-popper[data-placement^=\"bottom\"] {\n  margin-top: 10px;\n}\n\n.react-datepicker-popper[data-placement^=\"top\"] {\n  margin-bottom: 10px;\n}\n\n.react-datepicker-popper[data-placement^=\"right\"] {\n  margin-left: 8px;\n}\n\n.react-datepicker-popper[data-placement^=\"right\"] .react-datepicker__triangle {\n  left: auto;\n  right: 42px;\n}\n\n.react-datepicker-popper[data-placement^=\"left\"] {\n  margin-right: 8px;\n}\n\n.react-datepicker-popper[data-placement^=\"left\"] .react-datepicker__triangle {\n  left: 42px;\n  right: auto;\n}\n\n.react-datepicker__header {\n  text-align: center;\n  background-color: #f0f0f0;\n  border-bottom: 1px solid #aeaeae;\n  border-top-left-radius: 0.3rem;\n  border-top-right-radius: 0.3rem;\n  padding-top: 8px;\n  position: relative;\n}\n\n.react-datepicker__header--time {\n  padding-bottom: 8px;\n  padding-left: 5px;\n  padding-right: 5px;\n}\n\n.react-datepicker__year-dropdown-container--select,\n.react-datepicker__month-dropdown-container--select,\n.react-datepicker__month-year-dropdown-container--select,\n.react-datepicker__year-dropdown-container--scroll,\n.react-datepicker__month-dropdown-container--scroll,\n.react-datepicker__month-year-dropdown-container--scroll {\n  display: inline-block;\n  margin: 0 2px;\n}\n\n.react-datepicker__current-month,\n.react-datepicker-time__header {\n  margin-top: 0;\n  color: #000;\n  font-weight: bold;\n  font-size: 0.944rem;\n}\n\n.react-datepicker-time__header {\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n}\n\n.react-datepicker__navigation {\n  background: none;\n  line-height: 1.7rem;\n  text-align: center;\n  cursor: pointer;\n  position: absolute;\n  top: 10px;\n  width: 0;\n  padding: 0;\n  border: 0.45rem solid transparent;\n  z-index: 1;\n}\n\n.react-datepicker__navigation--previous {\n  left: 10px;\n  border-right-color: #ccc;\n}\n\n.react-datepicker__navigation--previous:hover {\n  border-right-color: #b3b3b3;\n}\n\n.react-datepicker__navigation--previous--disabled, .react-datepicker__navigation--previous--disabled:hover {\n  border-right-color: #e6e6e6;\n  cursor: default;\n}\n\n.react-datepicker__navigation--next {\n  right: 10px;\n  border-left-color: #ccc;\n}\n\n.react-datepicker__navigation--next--with-time:not(.react-datepicker__navigation--next--with-today-button) {\n  right: 80px;\n}\n\n.react-datepicker__navigation--next:hover {\n  border-left-color: #b3b3b3;\n}\n\n.react-datepicker__navigation--next--disabled, .react-datepicker__navigation--next--disabled:hover {\n  border-left-color: #e6e6e6;\n  cursor: default;\n}\n\n.react-datepicker__navigation--years {\n  position: relative;\n  top: 0;\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.react-datepicker__navigation--years-previous {\n  top: 4px;\n  border-top-color: #ccc;\n}\n\n.react-datepicker__navigation--years-previous:hover {\n  border-top-color: #b3b3b3;\n}\n\n.react-datepicker__navigation--years-upcoming {\n  top: -4px;\n  border-bottom-color: #ccc;\n}\n\n.react-datepicker__navigation--years-upcoming:hover {\n  border-bottom-color: #b3b3b3;\n}\n\n.react-datepicker__month-container {\n  float: left;\n}\n\n.react-datepicker__month {\n  margin: 0.4rem;\n  text-align: center;\n}\n\n.react-datepicker__time-container {\n  float: right;\n  border-left: 1px solid #aeaeae;\n  width: 70px;\n}\n\n.react-datepicker__time-container--with-today-button {\n  display: inline;\n  border: 1px solid #aeaeae;\n  border-radius: 0.3rem;\n  position: absolute;\n  right: -72px;\n  top: 0;\n}\n\n.react-datepicker__time-container .react-datepicker__time {\n  position: relative;\n  background: white;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box {\n  width: 70px;\n  overflow-x: hidden;\n  margin: 0 auto;\n  text-align: center;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list {\n  list-style: none;\n  margin: 0;\n  height: calc(195px + (1.7rem / 2));\n  overflow-y: scroll;\n  padding-right: 30px;\n  width: 100%;\n  box-sizing: content-box;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item {\n  padding: 5px 10px;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item:hover {\n  cursor: pointer;\n  background-color: #f0f0f0;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected {\n  background-color: #216ba5;\n  color: white;\n  font-weight: bold;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected:hover {\n  background-color: #216ba5;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--disabled {\n  color: #ccc;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--disabled:hover {\n  cursor: default;\n  background-color: transparent;\n}\n\n.react-datepicker__week-number {\n  color: #ccc;\n  display: inline-block;\n  width: 1.7rem;\n  line-height: 1.7rem;\n  text-align: center;\n  margin: 0.166rem;\n}\n\n.react-datepicker__week-number.react-datepicker__week-number--clickable {\n  cursor: pointer;\n}\n\n.react-datepicker__week-number.react-datepicker__week-number--clickable:hover {\n  border-radius: 0.3rem;\n  background-color: #f0f0f0;\n}\n\n.react-datepicker__day-names,\n.react-datepicker__week {\n  white-space: nowrap;\n}\n\n.react-datepicker__day-name,\n.react-datepicker__day,\n.react-datepicker__time-name {\n  color: #000;\n  display: inline-block;\n  width: 1.7rem;\n  line-height: 1.7rem;\n  text-align: center;\n  margin: 0.166rem;\n}\n\n.react-datepicker__day {\n  cursor: pointer;\n}\n\n.react-datepicker__day:hover {\n  border-radius: 0.3rem;\n  background-color: #f0f0f0;\n}\n\n.react-datepicker__day--today {\n  font-weight: bold;\n}\n\n.react-datepicker__day--highlighted {\n  border-radius: 0.3rem;\n  background-color: #3dcc4a;\n  color: #fff;\n}\n\n.react-datepicker__day--highlighted:hover {\n  background-color: #32be3f;\n}\n\n.react-datepicker__day--highlighted-custom-1 {\n  color: magenta;\n}\n\n.react-datepicker__day--highlighted-custom-2 {\n  color: green;\n}\n\n.react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range {\n  border-radius: 0.3rem;\n  background-color: #216ba5;\n  color: #fff;\n}\n\n.react-datepicker__day--selected:hover, .react-datepicker__day--in-selecting-range:hover, .react-datepicker__day--in-range:hover {\n  background-color: #1d5d90;\n}\n\n.react-datepicker__day--keyboard-selected {\n  border-radius: 0.3rem;\n  background-color: #2a87d0;\n  color: #fff;\n}\n\n.react-datepicker__day--keyboard-selected:hover {\n  background-color: #1d5d90;\n}\n\n.react-datepicker__day--in-selecting-range:not(.react-datepicker__day--in-range) {\n  background-color: rgba(33, 107, 165, 0.5);\n}\n\n.react-datepicker__month--selecting-range .react-datepicker__day--in-range:not(.react-datepicker__day--in-selecting-range) {\n  background-color: #f0f0f0;\n  color: #000;\n}\n\n.react-datepicker__day--disabled {\n  cursor: default;\n  color: #ccc;\n}\n\n.react-datepicker__day--disabled:hover {\n  background-color: transparent;\n}\n\n.react-datepicker__input-container {\n  position: relative;\n  display: inline-block;\n}\n\n.react-datepicker__year-read-view,\n.react-datepicker__month-read-view,\n.react-datepicker__month-year-read-view {\n  border: 1px solid transparent;\n  border-radius: 0.3rem;\n}\n\n.react-datepicker__year-read-view:hover,\n.react-datepicker__month-read-view:hover,\n.react-datepicker__month-year-read-view:hover {\n  cursor: pointer;\n}\n\n.react-datepicker__year-read-view:hover .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__year-read-view:hover .react-datepicker__month-read-view--down-arrow,\n.react-datepicker__month-read-view:hover .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view:hover .react-datepicker__month-read-view--down-arrow,\n.react-datepicker__month-year-read-view:hover .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-year-read-view:hover .react-datepicker__month-read-view--down-arrow {\n  border-top-color: #b3b3b3;\n}\n\n.react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view--down-arrow,\n.react-datepicker__month-year-read-view--down-arrow {\n  border-top-color: #ccc;\n  float: right;\n  margin-left: 20px;\n  top: 8px;\n  position: relative;\n  border-width: 0.45rem;\n}\n\n.react-datepicker__year-dropdown,\n.react-datepicker__month-dropdown,\n.react-datepicker__month-year-dropdown {\n  background-color: #f0f0f0;\n  position: absolute;\n  width: 50%;\n  left: 25%;\n  top: 30px;\n  z-index: 1;\n  text-align: center;\n  border-radius: 0.3rem;\n  border: 1px solid #aeaeae;\n}\n\n.react-datepicker__year-dropdown:hover,\n.react-datepicker__month-dropdown:hover,\n.react-datepicker__month-year-dropdown:hover {\n  cursor: pointer;\n}\n\n.react-datepicker__year-dropdown--scrollable,\n.react-datepicker__month-dropdown--scrollable,\n.react-datepicker__month-year-dropdown--scrollable {\n  height: 150px;\n  overflow-y: scroll;\n}\n\n.react-datepicker__year-option,\n.react-datepicker__month-option,\n.react-datepicker__month-year-option {\n  line-height: 20px;\n  width: 100%;\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.react-datepicker__year-option:first-of-type,\n.react-datepicker__month-option:first-of-type,\n.react-datepicker__month-year-option:first-of-type {\n  border-top-left-radius: 0.3rem;\n  border-top-right-radius: 0.3rem;\n}\n\n.react-datepicker__year-option:last-of-type,\n.react-datepicker__month-option:last-of-type,\n.react-datepicker__month-year-option:last-of-type {\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  border-bottom-left-radius: 0.3rem;\n  border-bottom-right-radius: 0.3rem;\n}\n\n.react-datepicker__year-option:hover,\n.react-datepicker__month-option:hover,\n.react-datepicker__month-year-option:hover {\n  background-color: #ccc;\n}\n\n.react-datepicker__year-option:hover .react-datepicker__navigation--years-upcoming,\n.react-datepicker__month-option:hover .react-datepicker__navigation--years-upcoming,\n.react-datepicker__month-year-option:hover .react-datepicker__navigation--years-upcoming {\n  border-bottom-color: #b3b3b3;\n}\n\n.react-datepicker__year-option:hover .react-datepicker__navigation--years-previous,\n.react-datepicker__month-option:hover .react-datepicker__navigation--years-previous,\n.react-datepicker__month-year-option:hover .react-datepicker__navigation--years-previous {\n  border-top-color: #b3b3b3;\n}\n\n.react-datepicker__year-option--selected,\n.react-datepicker__month-option--selected,\n.react-datepicker__month-year-option--selected {\n  position: absolute;\n  left: 15px;\n}\n\n.react-datepicker__close-icon {\n  background-color: transparent;\n  border: 0;\n  cursor: pointer;\n  display: inline-block;\n  height: 0;\n  outline: 0;\n  padding: 0;\n  vertical-align: middle;\n}\n\n.react-datepicker__close-icon::after {\n  background-color: #216ba5;\n  border-radius: 50%;\n  bottom: 0;\n  box-sizing: border-box;\n  color: #fff;\n  content: \"\\D7\";\n  cursor: pointer;\n  font-size: 12px;\n  height: 16px;\n  width: 16px;\n  line-height: 1;\n  margin: -8px auto 0;\n  padding: 2px;\n  position: absolute;\n  right: 7px;\n  text-align: center;\n  top: 50%;\n}\n\n.react-datepicker__today-button {\n  background: #f0f0f0;\n  border-top: 1px solid #aeaeae;\n  cursor: pointer;\n  text-align: center;\n  font-weight: bold;\n  padding: 5px 0;\n  clear: left;\n}\n\n.react-datepicker__portal {\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(0, 0, 0, 0.8);\n  left: 0;\n  top: 0;\n  justify-content: center;\n  align-items: center;\n  display: flex;\n  z-index: 2147483647;\n}\n\n.react-datepicker__portal .react-datepicker__day-name,\n.react-datepicker__portal .react-datepicker__day,\n.react-datepicker__portal .react-datepicker__time-name {\n  width: 3rem;\n  line-height: 3rem;\n}\n\n@media (max-width: 400px), (max-height: 550px) {\n  .react-datepicker__portal .react-datepicker__day-name,\n  .react-datepicker__portal .react-datepicker__day,\n  .react-datepicker__portal .react-datepicker__time-name {\n    width: 2rem;\n    line-height: 2rem;\n  }\n}\n\n.react-datepicker__portal .react-datepicker__current-month,\n.react-datepicker__portal .react-datepicker-time__header {\n  font-size: 1.44rem;\n}\n\n.react-datepicker__portal .react-datepicker__navigation {\n  border: 0.81rem solid transparent;\n}\n\n.react-datepicker__portal .react-datepicker__navigation--previous {\n  border-right-color: #ccc;\n}\n\n.react-datepicker__portal .react-datepicker__navigation--previous:hover {\n  border-right-color: #b3b3b3;\n}\n\n.react-datepicker__portal .react-datepicker__navigation--previous--disabled, .react-datepicker__portal .react-datepicker__navigation--previous--disabled:hover {\n  border-right-color: #e6e6e6;\n  cursor: default;\n}\n\n.react-datepicker__portal .react-datepicker__navigation--next {\n  border-left-color: #ccc;\n}\n\n.react-datepicker__portal .react-datepicker__navigation--next:hover {\n  border-left-color: #b3b3b3;\n}\n\n.react-datepicker__portal .react-datepicker__navigation--next--disabled, .react-datepicker__portal .react-datepicker__navigation--next--disabled:hover {\n  border-left-color: #e6e6e6;\n  cursor: default;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
 /* 410 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -92464,17 +98443,9 @@ if(false) {
 
 /***/ }),
 /* 778 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-exports = module.exports = __webpack_require__(60)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, "html {\n  height: 100%;\n  width: 100%;\n  margin: 0px;\n  padding: 0px; }\n  html body {\n    margin: 0px;\n    padding: 0px;\n    height: 100%;\n    width: 100%; }\n    html body #ectPopupContent {\n      height: 100%;\n      width: 100%; }\n      html body #ectPopupContent .ContainerMain {\n        position: relative;\n        margin: 0 2%;\n        height: 100%;\n        width: 98%; }\n        html body #ectPopupContent .ContainerMain .componentContainer {\n          padding: 20px;\n          margin-bottom: 10px; }\n          html body #ectPopupContent .ContainerMain .componentContainer label {\n            font-size: 20px;\n            margin-right: 20px; }\n          html body #ectPopupContent .ContainerMain .componentContainer input.shortcode {\n            padding: 5px;\n            width: 60%; }\n        html body #ectPopupContent .ContainerMain .shortcode {\n          margin: 10px; }\n          html body #ectPopupContent .ContainerMain .shortcode input {\n            padding: 5px;\n            width: 1100px;\n            border: 1px solid #C3C49E; }\n        html body #ectPopupContent .ContainerMain .timezones select {\n          max-width: 250px; }\n        html body #ectPopupContent .ContainerMain .tableStyles {\n          height: 300px;\n          width: 300px; }\n          html body #ectPopupContent .ContainerMain .tableStyles label {\n            font-size: 20px;\n            font-weight: bold; }\n          html body #ectPopupContent .ContainerMain .tableStyles tr:nth-child(2n) {\n            background-color: #f1f1f1; }\n            html body #ectPopupContent .ContainerMain .tableStyles tr:nth-child(2n) td {\n              padding: 15px;\n              margin: 0px; }\n              html body #ectPopupContent .ContainerMain .tableStyles tr:nth-child(2n) td:before, html body #ectPopupContent .ContainerMain .tableStyles tr:nth-child(2n) td:after {\n                background-color: red;\n                margin: 0px;\n                padding: 0px;\n                border: 0px solid red; }\n        html body #ectPopupContent .ContainerMain .containerPreview {\n          display: inline-block; }\n          html body #ectPopupContent .ContainerMain .containerPreview div.spanDiv {\n            display: inline-block; }\n        html body #ectPopupContent .ContainerMain .containerLabels {\n          padding: 20px 0;\n          font-style: italic;\n          text-decoration: underline;\n          font-size: 20px;\n          font-weight: bold;\n          display: grid;\n          align-self: center; }\n        html body #ectPopupContent .ContainerMain .hourAndMinutes {\n          margin-left: 10px; }\n        html body #ectPopupContent .ContainerMain .ectSortcode {\n          padding: 5px;\n          width: 60%;\n          display: none; }\n        html body #ectPopupContent .ContainerMain button.insertButton {\n          margin: 20px 0; }\n        html body #ectPopupContent .ContainerMain button.ectClosePopupButton {\n          position: absolute;\n          top: 0;\n          right: 0;\n          padding: 5px;\n          font-size: 18px; }\n      html body #ectPopupContent .endDateShow {\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        height: 100%;\n        width: 100%; }\n        html body #ectPopupContent .endDateShow .endDateShowSmallContainer {\n          width: 300px;\n          height: 300px;\n          display: flex;\n          align-items: center;\n          justify-content: center;\n          align-items: flex-center;\n          -webkit-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          -moz-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          background: #f0f0f0; }\n          html body #ectPopupContent .endDateShow .endDateShowSmallContainer label {\n            align-self: flex-start;\n            padding: 10px;\n            font-size: 20px;\n            font-weight: bold;\n            display: block;\n            text-align: center; }\n          html body #ectPopupContent .endDateShow .endDateShowSmallContainer .DayPickerInput {\n            align-self: flex-end;\n            padding: 10px;\n            margin: 10px 0; }\n            html body #ectPopupContent .endDateShow .endDateShowSmallContainer .DayPickerInput input {\n              width: 190px;\n              height: 30px; }\n              html body #ectPopupContent .endDateShow .endDateShowSmallContainer .DayPickerInput input::-webkit-input-placeholder {\n                text-align: center; }\n", ""]);
-
-// exports
-
+throw new Error("Module build failed: \r\n            }\r\n            ^\r\n      Invalid CSS after \"            }\": expected \"}\", was \"<<<<<<< HEAD\"\r\n      in C:\\Users\\cipri\\Documents\\work\\ect_wp_react\\src\\scss\\mainContainer.scss (line 74, column 14)");
 
 /***/ }),
 /* 779 */
@@ -92530,15 +98501,15 @@ var _timezonePicker = __webpack_require__(792);
 
 var _livePreview = __webpack_require__(794);
 
-var _endTime = __webpack_require__(799);
-
 var _timeFormat = __webpack_require__(798);
 
 var _reactTabs = __webpack_require__(373);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _moment3 = __webpack_require__(3);
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+var _moment4 = _interopRequireDefault(_moment3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -92550,23 +98521,38 @@ var MainContainer = function (_React$Component) {
     _inherits(MainContainer, _React$Component);
 
     function MainContainer(props) {
-        var _this$state;
-
         _classCallCheck(this, MainContainer);
 
         var _this = _possibleConstructorReturn(this, (MainContainer.__proto__ || Object.getPrototypeOf(MainContainer)).call(this, props));
 
-        _this.state = (_this$state = {
-            endDate: '',
-            isDisabled: false
-        }, _defineProperty(_this$state, 'endDate', ''), _defineProperty(_this$state, 'naMeP', ''), _defineProperty(_this$state, 'fontSizeP', 42), _defineProperty(_this$state, 'pColor', '#000'), _defineProperty(_this$state, 'pIsBold', false), _defineProperty(_this$state, 'timezoneOffset', -(new Date().getTimezoneOffset() * 60000)), _defineProperty(_this$state, 'endHour', 0), _defineProperty(_this$state, 'endMinute', 0), _defineProperty(_this$state, 'utcTz', 'Etc/GMT+12'), _defineProperty(_this$state, 'timeFormat', 'Y2S'), _defineProperty(_this$state, 'yearsFormat', 'Years'), _defineProperty(_this$state, 'monthsFormat', 'Months'), _defineProperty(_this$state, 'weeksFormat', 'Weeks'), _defineProperty(_this$state, 'daysFormat', 'Days'), _defineProperty(_this$state, 'hoursFormat', 'Hours'), _defineProperty(_this$state, 'minutesFormat', 'Minutes'), _defineProperty(_this$state, 'secondsFormat', 'Seconds'), _this$state);
+        _this.state = {
+            endDate: (0, _moment4.default)(),
+            isDisabled: false,
+            naMeP: '',
+            fontSizeP: 42,
+            pColor: '#000',
+            pIsBold: false,
+            timezoneOffset: -(new Date().getTimezoneOffset() * 60000),
+            endHour: 0,
+            endMinute: 0,
+            utcTz: 'Etc/GMT+12',
+            timeFormat: 'Y2S',
+            yearsFormat: 'Years',
+            monthsFormat: 'Months',
+            weeksFormat: 'Weeks',
+            daysFormat: 'Days',
+            hoursFormat: 'Hours',
+            minutesFormat: 'Minutes',
+            secondsFormat: 'Seconds',
+            customTxtEndedTxt: 'Timer Ended',
+            firstView: true
+        };
         _this.onFontSubmit = _this.onFontSubmit.bind(_this);
         _this.returnChildDate = _this.returnChildDate.bind(_this);
         _this.onNameSubmit = _this.onNameSubmit.bind(_this);
         _this.returnChildColor = _this.returnChildColor.bind(_this);
         _this.isBold = _this.isBold.bind(_this);
         _this.returnTimezone = _this.returnTimezone.bind(_this);
-        _this.returnChildTime = _this.returnChildTime.bind(_this);
         _this.returnFormat = _this.returnFormat.bind(_this);
         _this.returnTextFormat = _this.returnTextFormat.bind(_this);
         return _this;
@@ -92589,8 +98575,15 @@ var MainContainer = function (_React$Component) {
         }
     }, {
         key: 'returnChildDate',
-        value: function returnChildDate(childVal) {
-            this.setState({ endDate: childVal });
+        value: function returnChildDate(endDateChild, endHourChild, endMinuteChild, firstView) {
+
+            this.setState({
+                endDate: (0, _moment4.default)(endDateChild),
+                endHour: endHourChild,
+                endMinute: endMinuteChild,
+                firstView: firstView
+            });
+            this.state.firstView = firstView;
         }
     }, {
         key: 'returnChildColor',
@@ -92601,12 +98594,6 @@ var MainContainer = function (_React$Component) {
         key: 'returnTimezone',
         value: function returnTimezone(timezoneChosen, utcTz) {
             this.setState({ timezoneOffset: timezoneChosen, utcTz: utcTz });
-        }
-    }, {
-        key: 'returnChildTime',
-        value: function returnChildTime(endHour, endMinute) {
-            this.setState({ endHour: endHour });
-            this.setState({ endMinute: endMinute });
         }
     }, {
         key: 'returnFormat',
@@ -92632,10 +98619,10 @@ var MainContainer = function (_React$Component) {
             var returnAllData = [];
             var labelPreview = _react2.default.createElement('label', { key: 'labelLivePreview', htmlFor: 'tableStyles', className: 'containerLabels' }, 'Preview');
             var livePreviewOnly = _react2.default.createElement(_livePreview.LivePreview, { key: 'LivePreview', pYears: this.state.yearsFormat, pMonths: this.state.monthsFormat, pWeeks: this.state.weeksFormat, pDays: this.state.daysFormat, pHoursFormat: this.state.hoursFormat, pMinutesFormat: this.state.minutesFormat, pSecondsFormat: this.state.secondsFormat,
-                parentID: this.props.parentID, pName: this.state.naMeP, endDate: this.state.endDate, pFont: this.state.fontSizeP, pColor: this.state.pColor, pIsBold: this.state.pIsBold, pTimezoneOffset: this.state.timezoneOffset, endHour: this.state.endHour, endMinute: this.state.endMinute, pFormat: this.state.timeFormat });
+                parentID: this.props.parentID, pName: this.state.naMeP, endDate: this.state.endDate, pFont: this.state.fontSizeP, pColor: this.state.pColor, pIsBold: this.state.pIsBold, pTimezoneOffset: this.state.timezoneOffset, endHour: this.state.endHour, endMinute: this.state.endMinute, pFormat: this.state.timeFormat, pCustomTxtEndedTxt: this.state.customTxtEndedTxt });
 
             // the rest of the data
-            var configurationComponentsJSX = _react2.default.createElement('div', { key: 'configurationComponentsJSX' }, _react2.default.createElement('label', { htmlFor: 'tableStyles', className: 'containerLabels' }, 'Configuration'), _react2.default.createElement(_reactTabs.Tabs, null, _react2.default.createElement(_reactTabs.TabList, null, _react2.default.createElement(_reactTabs.Tab, null, 'General'), _react2.default.createElement(_reactTabs.Tab, null, 'Styles'), _react2.default.createElement(_reactTabs.Tab, null, 'Custom Text')), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_endDate.EndDate, { callbackChildProp: this.returnChildDate, pEndDate: this.state.endDate }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Time')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_endTime.EndTime, { TimeEnd: this.returnChildTime, pEndHour: this.state.endHour, pEndMinute: this.state.endMinute }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { pTimezoneOffset: this.state.timezoneOffset, callbackChildPropT: this.returnTimezone }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Time Format')), _react2.default.createElement('td', null, _react2.default.createElement(_timeFormat.TimeFormat, { pTimeFormat: this.state.timeFormat, callBackSelectFormat: this.returnFormat })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit, nameValue: this.state.naMeP }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor, pColor: this.state.pColor }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Numbers Font Size')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_fontSize.NumbersFontSize, { pFont: this.state.fontSizeP, aaa: this.onFontSubmit }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Select to make text Bold')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold, pIsBold: this.state.pIsBold })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement(_customText.CustomText, { pYears: this.state.yearsFormat, pMonths: this.state.monthsFormat, pWeeks: this.state.weeksFormat, pDays: this.state.daysFormat, pHoursFormat: this.state.hoursFormat, pMinutesFormat: this.state.minutesFormat, pSecondsFormat: this.state.secondsFormat, callbackChildPropFormatText: this.returnTextFormat }))), _react2.default.createElement(_ectShortcode.EctShortcode, { pYears: this.state.yearsFormat, pMonths: this.state.monthsFormat, pWeeks: this.state.weeksFormat, pDays: this.state.daysFormat,
+            var configurationComponentsJSX = _react2.default.createElement('div', { key: 'configurationComponentsJSX' }, _react2.default.createElement('label', { htmlFor: 'tableStyles', className: 'containerLabels' }, 'Configuration'), _react2.default.createElement(_reactTabs.Tabs, null, _react2.default.createElement(_reactTabs.TabList, null, _react2.default.createElement(_reactTabs.Tab, null, 'General'), _react2.default.createElement(_reactTabs.Tab, null, 'Styles'), _react2.default.createElement(_reactTabs.Tab, null, 'Custom Text')), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_endDate.EndDate, { callbackChildProp: this.returnChildDate, pEndDate: this.state.endDate }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { pTimezoneOffset: this.state.timezoneOffset, callbackChildPropT: this.returnTimezone }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Time Format')), _react2.default.createElement('td', null, _react2.default.createElement(_timeFormat.TimeFormat, { pTimeFormat: this.state.timeFormat, callBackSelectFormat: this.returnFormat })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit, nameValue: this.state.naMeP }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor, pColor: this.state.pColor }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Numbers Font Size')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_fontSize.NumbersFontSize, { pFont: this.state.fontSizeP, aaa: this.onFontSubmit }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Select to make text Bold')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold, pIsBold: this.state.pIsBold })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement(_customText.CustomText, { pYears: this.state.yearsFormat, pMonths: this.state.monthsFormat, pWeeks: this.state.weeksFormat, pDays: this.state.daysFormat, pHoursFormat: this.state.hoursFormat, pMinutesFormat: this.state.minutesFormat, pSecondsFormat: this.state.secondsFormat, callbackChildPropFormatText: this.returnTextFormat }))), _react2.default.createElement(_ectShortcode.EctShortcode, { pYears: this.state.yearsFormat, pMonths: this.state.monthsFormat, pWeeks: this.state.weeksFormat, pDays: this.state.daysFormat,
                 pHoursFormat: this.state.hoursFormat, pMinutesFormat: this.state.minutesFormat, pSecondsFormat: this.state.secondsFormat, pName: this.state.naMeP,
                 pTimeFormat: this.state.timeFormat, endDate: this.state.endDate, pFont: this.state.fontSizeP, pColor: this.state.pColor, chooseBold: this.state.pIsBold,
                 pUtcTz: this.state.utcTz, pTimezoneOffset: this.state.timezoneOffset, pEndHour: this.state.endHour, pEndMinute: this.state.endMinute,
@@ -93336,7 +99323,6 @@ var UserName = exports.UserName = function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(_MuiThemeProvider2.default, null, _react2.default.createElement(_TextField2.default, { onChange: this.inputName, value: this.state.nameValue, hintText: 'Timer Name' }));
-      // <input className="username" type="text" onInput={this.inputName} value={this.state.nameValue}/>;
     }
   }]);
 
@@ -93407,14 +99393,22 @@ var NumbersFontSize = exports.NumbersFontSize = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(_MuiThemeProvider2.default, null, _react2.default.createElement('span', null, this.state.fontSize, 'px '), _react2.default.createElement(_Slider2.default, { min: 8, max: 100, step: 1, value: this.state.fontSize, onChange: this.inputfontSize, sliderStyle: { 'height': '5px', marginTop: '5px' }, defaultValue: this.props.pFont }));
+      return _react2.default.createElement(_MuiThemeProvider2.default, null, _react2.default.createElement('div', null, _react2.default.createElement('span', null, this.state.fontSize, ' px'), _react2.default.createElement(_Slider2.default, {
+        min: 8,
+        max: 100,
+        step: 1,
+        value: this.state.fontSize,
+        onChange: this.inputfontSize,
+        sliderStyle: {
+          'height': '5px',
+          marginTop: '5px'
+        },
+        defaultValue: this.props.pFont })));
     }
   }]);
 
   return NumbersFontSize;
 }(_react2.default.Component);
-// <input type="number" className="fontInput" value={this.state.fontSize} onChange={this.inputfontSize}/>
-//
 
 /***/ }),
 /* 785 */
@@ -93473,7 +99467,7 @@ var EctShortcode = exports.EctShortcode = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var shortValue = '[ectShortcode timername="' + this.props.pName + '"   enddate="' + this.props.endDate + '"  numbercolor= "' + this.props.pColor + '" numberfontsize="' + this.props.pFont + 'px"' + ' numberbold="' + this.props.chooseBold + '" enddatetimezone="' + this.props.pTimezoneOffset + '" endhour="' + this.props.pEndHour + '"  endminute= "' + this.props.pEndMinute + '" timeFormat="' + this.props.pTimeFormat + '" cTxtYears=" ' + this.props.pYears + '"  cTxtMonths="' + this.props.pMonths + '" cTxtWeeks="' + this.props.pWeeks + '" cTxtDays="' + this.props.pDays + '" cTxtHours="' + this.props.pHoursFormat + '" cTxtMinutes="' + this.props.pMinutesFormat + '" cTxtSeconds="' + this.props.pSecondsFormat + '"]';
+      var shortValue = '[ectShortcode timername="' + this.props.pName + '"   enddate="' + this.props.endDate + '"  numbercolor= "' + this.props.pColor + '" numberfontsize="' + this.props.pFont + 'px"' + ' numberbold="' + this.props.chooseBold + '" enddatetimezone="' + this.props.pTimezoneOffset + '" endhour="' + this.props.pEndHour + '"  endminute= "' + this.props.pEndMinute + '" timeFormat="' + this.props.pTimeFormat + '" customTxtYears=" ' + this.props.pYears + '"  customTxtMonths="' + this.props.pMonths + '" customTxtWeeks="' + this.props.pWeeks + '" customTxtDays="' + this.props.pDays + '" customTxtHours="' + this.props.pHoursFormat + '" customTxtMinutes="' + this.props.pMinutesFormat + '" customTxtSeconds="' + this.props.pSecondsFormat + '"]';
 
       return _react2.default.createElement('div', { className: 'ectSortcode' }, _react2.default.createElement('label', null, 'Shortcode'), _react2.default.createElement('span', null, '(click to automatically select all, then copy)'), _react2.default.createElement('div', { className: 'shortcode' }, _react2.default.createElement('input', { id: 'ectSCInput', onClick: this.selectAllText, onChange: this.selectAllText, value: shortValue }), _react2.default.createElement('h4', null, 'This interface helps you generate customly a shortcode for later use with a wordpress plugin, what you select in the fields will be given to the shortcode as attributes and used later.')));
     }
@@ -93500,13 +99494,21 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _DayPickerInput = __webpack_require__(781);
+var _reactDatepicker = __webpack_require__(276);
 
-var _DayPickerInput2 = _interopRequireDefault(_DayPickerInput);
+var _reactDatepicker2 = _interopRequireDefault(_reactDatepicker);
 
-__webpack_require__(399);
+var _moment = __webpack_require__(3);
+
+var _moment2 = _interopRequireDefault(_moment);
+
+__webpack_require__(277);
+
+__webpack_require__(787);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -93522,36 +99524,50 @@ var EndDate = exports.EndDate = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (EndDate.__proto__ || Object.getPrototypeOf(EndDate)).call(this, props));
 
-    _this.state = { valDate: _this.props.pEndDate };
-    _this.handleDayChange = _this.handleDayChange.bind(_this);
+    _this.state = {
+      startDate: _this.props.pEndDate,
+      endDate: _this.props.pEndDate,
+      endHour: (0, _moment2.default)().hour(),
+      endMinutes: (0, _moment2.default)().minutes()
+    };
+
+    _this.handleChange = _this.handleChange.bind(_this);
+    _this.selectMinTime = _this.selectMinTime.bind(_this);
     return _this;
   }
 
   _createClass(EndDate, [{
-    key: 'handleDayChange',
-    value: function handleDayChange(date) {
-      var returnDataToParent = this.props.callbackChildProp;
-      var tempDate = new Date(date.toString());
-      var mm = parseInt(tempDate.getMonth()) + 1;
-      var dd = tempDate.getDate();
-      var yyyy = tempDate.getFullYear();
-      var finalDateString = yyyy + '/' + mm + '/' + dd;
-      this.setState({ valDate: finalDateString });
-      returnDataToParent(finalDateString);
+    key: 'handleChange',
+    value: function handleChange(date) {
+      var newDate = date.year() + '/' + (date.month() + 1) + '/' + date.date();
+      var newHour = date.hour();
+      var newMinute = date.minute();
+
+      this.setState({ startDate: date, endDate: (0, _moment2.default)(newDate), endHour: newHour, endMinutes: newMinute });
+
+      var SubmitToParent = this.props.callbackChildProp;
+      SubmitToParent(newDate, newHour, newMinute);
     }
   }, {
-    key: 'ectFormatDate',
-    value: function ectFormatDate(tempDate, dateString) {
-      var tempDate = new Date(tempDate.toString());
-      var mm = parseInt(tempDate.getMonth()) + 1;
-      var dd = tempDate.getDate();
-      var yyyy = tempDate.getFullYear();
-      var result = yyyy + '/' + mm + '/' + dd;
+    key: 'selectMinTime',
+    value: function selectMinTime(data) {
+      if (data.date() == (0, _moment2.default)().date()) {
+        return (0, _moment2.default)().hours((0, _moment2.default)().hour()).minutes((0, _moment2.default)().minutes());
+      }
+      return (0, _moment2.default)().hours(0).minutes(0);
     }
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', null, _react2.default.createElement(_DayPickerInput2.default, { format: 'M/D/YYY', formatDate: this.ectFormatDate, onDayChange: this.handleDayChange, placeholder: 'YYYY/M/D', value: this.state.valDate }));
+      var _React$createElement;
+
+      return _react2.default.createElement('div', null, _react2.default.createElement(_reactDatepicker2.default, (_React$createElement = {
+        placeholderText: 'Select a date',
+        dateFormat: 'YYYY/MM/DD',
+        selected: this.state.startDate,
+        onChange: this.handleChange,
+        showTimeSelect: true
+      }, _defineProperty(_React$createElement, 'dateFormat', 'LLL'), _defineProperty(_React$createElement, 'className', 'datePickerStyle'), _defineProperty(_React$createElement, 'timeCaption', 'time'), _defineProperty(_React$createElement, 'timeIntervals', 15), _defineProperty(_React$createElement, 'timeFormat', 'HH:mm'), _defineProperty(_React$createElement, 'minTime', this.selectMinTime(this.state.endDate)), _defineProperty(_React$createElement, 'maxTime', (0, _moment2.default)().hours(23).minutes(59)), _defineProperty(_React$createElement, 'minDate', (0, _moment2.default)()), _defineProperty(_React$createElement, 'maxDate', (0, _moment2.default)().add(1000, "years")), _React$createElement)));
     }
   }]);
 
@@ -93559,8 +99575,51 @@ var EndDate = exports.EndDate = function (_React$Component) {
 }(_react2.default.Component);
 
 /***/ }),
-/* 787 */,
-/* 788 */,
+/* 787 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(788);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(61)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../css-loader/index.js!./react-datepicker-cssmodules.css", function() {
+			var newContent = require("!!../../css-loader/index.js!./react-datepicker-cssmodules.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 788 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(60)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle, .react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle, .react-datepicker__year-read-view--down-arrow, .react-datepicker__month-read-view--down-arrow, .react-datepicker__month-year-read-view--down-arrow {\n  margin-left: -8px;\n  position: absolute;\n}\n\n.react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle, .react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle, .react-datepicker__year-read-view--down-arrow, .react-datepicker__month-read-view--down-arrow, .react-datepicker__month-year-read-view--down-arrow, .react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle::before, .react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle::before, .react-datepicker__year-read-view--down-arrow::before, .react-datepicker__month-read-view--down-arrow::before, .react-datepicker__month-year-read-view--down-arrow::before {\n  box-sizing: content-box;\n  position: absolute;\n  border: 8px solid transparent;\n  height: 0;\n  width: 1px;\n}\n\n.react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle::before, .react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle::before, .react-datepicker__year-read-view--down-arrow::before, .react-datepicker__month-read-view--down-arrow::before, .react-datepicker__month-year-read-view--down-arrow::before {\n  content: \"\";\n  z-index: -1;\n  border-width: 8px;\n  left: -8px;\n  border-bottom-color: #aeaeae;\n}\n\n.react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle {\n  top: 0;\n  margin-top: -8px;\n}\n\n.react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle, .react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle::before {\n  border-top: none;\n  border-bottom-color: #f0f0f0;\n}\n\n.react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle::before {\n  top: -1px;\n  border-bottom-color: #aeaeae;\n}\n\n.react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle, .react-datepicker__year-read-view--down-arrow, .react-datepicker__month-read-view--down-arrow, .react-datepicker__month-year-read-view--down-arrow {\n  bottom: 0;\n  margin-bottom: -8px;\n}\n\n.react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle, .react-datepicker__year-read-view--down-arrow, .react-datepicker__month-read-view--down-arrow, .react-datepicker__month-year-read-view--down-arrow, .react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle::before, .react-datepicker__year-read-view--down-arrow::before, .react-datepicker__month-read-view--down-arrow::before, .react-datepicker__month-year-read-view--down-arrow::before {\n  border-bottom: none;\n  border-top-color: #fff;\n}\n\n.react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle::before, .react-datepicker__year-read-view--down-arrow::before, .react-datepicker__month-read-view--down-arrow::before, .react-datepicker__month-year-read-view--down-arrow::before {\n  bottom: -1px;\n  border-top-color: #aeaeae;\n}\n\n.react-datepicker-wrapper {\n  display: inline-block;\n}\n\n.react-datepicker {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  font-size: 0.8rem;\n  background-color: #fff;\n  color: #000;\n  border: 1px solid #aeaeae;\n  border-radius: 0.3rem;\n  display: inline-block;\n  position: relative;\n}\n\n.react-datepicker__triangle {\n  position: absolute;\n  left: 50px;\n}\n\n.react-datepicker-popper {\n  z-index: 1;\n}\n\n.react-datepicker-popper[data-placement^=\"bottom\"] {\n  margin-top: 10px;\n}\n\n.react-datepicker-popper[data-placement^=\"top\"] {\n  margin-bottom: 10px;\n}\n\n.react-datepicker-popper[data-placement^=\"right\"] {\n  margin-left: 8px;\n}\n\n.react-datepicker-popper[data-placement^=\"right\"] .react-datepicker__triangle {\n  left: auto;\n  right: 42px;\n}\n\n.react-datepicker-popper[data-placement^=\"left\"] {\n  margin-right: 8px;\n}\n\n.react-datepicker-popper[data-placement^=\"left\"] .react-datepicker__triangle {\n  left: 42px;\n  right: auto;\n}\n\n.react-datepicker__header {\n  text-align: center;\n  background-color: #f0f0f0;\n  border-bottom: 1px solid #aeaeae;\n  border-top-left-radius: 0.3rem;\n  border-top-right-radius: 0.3rem;\n  padding-top: 8px;\n  position: relative;\n}\n\n.react-datepicker__header--time {\n  padding-bottom: 8px;\n  padding-left: 5px;\n  padding-right: 5px;\n}\n\n.react-datepicker__year-dropdown-container--select,\n.react-datepicker__month-dropdown-container--select,\n.react-datepicker__month-year-dropdown-container--select,\n.react-datepicker__year-dropdown-container--scroll,\n.react-datepicker__month-dropdown-container--scroll,\n.react-datepicker__month-year-dropdown-container--scroll {\n  display: inline-block;\n  margin: 0 2px;\n}\n\n.react-datepicker__current-month,\n.react-datepicker-time__header {\n  margin-top: 0;\n  color: #000;\n  font-weight: bold;\n  font-size: 0.944rem;\n}\n\n.react-datepicker-time__header {\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n}\n\n.react-datepicker__navigation {\n  background: none;\n  line-height: 1.7rem;\n  text-align: center;\n  cursor: pointer;\n  position: absolute;\n  top: 10px;\n  width: 0;\n  padding: 0;\n  border: 0.45rem solid transparent;\n  z-index: 1;\n}\n\n.react-datepicker__navigation--previous {\n  left: 10px;\n  border-right-color: #ccc;\n}\n\n.react-datepicker__navigation--previous:hover {\n  border-right-color: #b3b3b3;\n}\n\n.react-datepicker__navigation--previous--disabled, .react-datepicker__navigation--previous--disabled:hover {\n  border-right-color: #e6e6e6;\n  cursor: default;\n}\n\n.react-datepicker__navigation--next {\n  right: 10px;\n  border-left-color: #ccc;\n}\n\n.react-datepicker__navigation--next--with-time:not(.react-datepicker__navigation--next--with-today-button) {\n  right: 80px;\n}\n\n.react-datepicker__navigation--next:hover {\n  border-left-color: #b3b3b3;\n}\n\n.react-datepicker__navigation--next--disabled, .react-datepicker__navigation--next--disabled:hover {\n  border-left-color: #e6e6e6;\n  cursor: default;\n}\n\n.react-datepicker__navigation--years {\n  position: relative;\n  top: 0;\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.react-datepicker__navigation--years-previous {\n  top: 4px;\n  border-top-color: #ccc;\n}\n\n.react-datepicker__navigation--years-previous:hover {\n  border-top-color: #b3b3b3;\n}\n\n.react-datepicker__navigation--years-upcoming {\n  top: -4px;\n  border-bottom-color: #ccc;\n}\n\n.react-datepicker__navigation--years-upcoming:hover {\n  border-bottom-color: #b3b3b3;\n}\n\n.react-datepicker__month-container {\n  float: left;\n}\n\n.react-datepicker__month {\n  margin: 0.4rem;\n  text-align: center;\n}\n\n.react-datepicker__time-container {\n  float: right;\n  border-left: 1px solid #aeaeae;\n  width: 70px;\n}\n\n.react-datepicker__time-container--with-today-button {\n  display: inline;\n  border: 1px solid #aeaeae;\n  border-radius: 0.3rem;\n  position: absolute;\n  right: -72px;\n  top: 0;\n}\n\n.react-datepicker__time-container .react-datepicker__time {\n  position: relative;\n  background: white;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box {\n  width: 70px;\n  overflow-x: hidden;\n  margin: 0 auto;\n  text-align: center;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list {\n  list-style: none;\n  margin: 0;\n  height: calc(195px + (1.7rem / 2));\n  overflow-y: scroll;\n  padding-right: 30px;\n  width: 100%;\n  box-sizing: content-box;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item {\n  padding: 5px 10px;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item:hover {\n  cursor: pointer;\n  background-color: #f0f0f0;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected {\n  background-color: #216ba5;\n  color: white;\n  font-weight: bold;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected:hover {\n  background-color: #216ba5;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--disabled {\n  color: #ccc;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--disabled:hover {\n  cursor: default;\n  background-color: transparent;\n}\n\n.react-datepicker__week-number {\n  color: #ccc;\n  display: inline-block;\n  width: 1.7rem;\n  line-height: 1.7rem;\n  text-align: center;\n  margin: 0.166rem;\n}\n\n.react-datepicker__week-number.react-datepicker__week-number--clickable {\n  cursor: pointer;\n}\n\n.react-datepicker__week-number.react-datepicker__week-number--clickable:hover {\n  border-radius: 0.3rem;\n  background-color: #f0f0f0;\n}\n\n.react-datepicker__day-names,\n.react-datepicker__week {\n  white-space: nowrap;\n}\n\n.react-datepicker__day-name,\n.react-datepicker__day,\n.react-datepicker__time-name {\n  color: #000;\n  display: inline-block;\n  width: 1.7rem;\n  line-height: 1.7rem;\n  text-align: center;\n  margin: 0.166rem;\n}\n\n.react-datepicker__day {\n  cursor: pointer;\n}\n\n.react-datepicker__day:hover {\n  border-radius: 0.3rem;\n  background-color: #f0f0f0;\n}\n\n.react-datepicker__day--today {\n  font-weight: bold;\n}\n\n.react-datepicker__day--highlighted {\n  border-radius: 0.3rem;\n  background-color: #3dcc4a;\n  color: #fff;\n}\n\n.react-datepicker__day--highlighted:hover {\n  background-color: #32be3f;\n}\n\n.react-datepicker__day--highlighted-custom-1 {\n  color: magenta;\n}\n\n.react-datepicker__day--highlighted-custom-2 {\n  color: green;\n}\n\n.react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range {\n  border-radius: 0.3rem;\n  background-color: #216ba5;\n  color: #fff;\n}\n\n.react-datepicker__day--selected:hover, .react-datepicker__day--in-selecting-range:hover, .react-datepicker__day--in-range:hover {\n  background-color: #1d5d90;\n}\n\n.react-datepicker__day--keyboard-selected {\n  border-radius: 0.3rem;\n  background-color: #2a87d0;\n  color: #fff;\n}\n\n.react-datepicker__day--keyboard-selected:hover {\n  background-color: #1d5d90;\n}\n\n.react-datepicker__day--in-selecting-range:not(.react-datepicker__day--in-range) {\n  background-color: rgba(33, 107, 165, 0.5);\n}\n\n.react-datepicker__month--selecting-range .react-datepicker__day--in-range:not(.react-datepicker__day--in-selecting-range) {\n  background-color: #f0f0f0;\n  color: #000;\n}\n\n.react-datepicker__day--disabled {\n  cursor: default;\n  color: #ccc;\n}\n\n.react-datepicker__day--disabled:hover {\n  background-color: transparent;\n}\n\n.react-datepicker__input-container {\n  position: relative;\n  display: inline-block;\n}\n\n.react-datepicker__year-read-view,\n.react-datepicker__month-read-view,\n.react-datepicker__month-year-read-view {\n  border: 1px solid transparent;\n  border-radius: 0.3rem;\n}\n\n.react-datepicker__year-read-view:hover,\n.react-datepicker__month-read-view:hover,\n.react-datepicker__month-year-read-view:hover {\n  cursor: pointer;\n}\n\n.react-datepicker__year-read-view:hover .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__year-read-view:hover .react-datepicker__month-read-view--down-arrow,\n.react-datepicker__month-read-view:hover .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view:hover .react-datepicker__month-read-view--down-arrow,\n.react-datepicker__month-year-read-view:hover .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-year-read-view:hover .react-datepicker__month-read-view--down-arrow {\n  border-top-color: #b3b3b3;\n}\n\n.react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view--down-arrow,\n.react-datepicker__month-year-read-view--down-arrow {\n  border-top-color: #ccc;\n  float: right;\n  margin-left: 20px;\n  top: 8px;\n  position: relative;\n  border-width: 0.45rem;\n}\n\n.react-datepicker__year-dropdown,\n.react-datepicker__month-dropdown,\n.react-datepicker__month-year-dropdown {\n  background-color: #f0f0f0;\n  position: absolute;\n  width: 50%;\n  left: 25%;\n  top: 30px;\n  z-index: 1;\n  text-align: center;\n  border-radius: 0.3rem;\n  border: 1px solid #aeaeae;\n}\n\n.react-datepicker__year-dropdown:hover,\n.react-datepicker__month-dropdown:hover,\n.react-datepicker__month-year-dropdown:hover {\n  cursor: pointer;\n}\n\n.react-datepicker__year-dropdown--scrollable,\n.react-datepicker__month-dropdown--scrollable,\n.react-datepicker__month-year-dropdown--scrollable {\n  height: 150px;\n  overflow-y: scroll;\n}\n\n.react-datepicker__year-option,\n.react-datepicker__month-option,\n.react-datepicker__month-year-option {\n  line-height: 20px;\n  width: 100%;\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.react-datepicker__year-option:first-of-type,\n.react-datepicker__month-option:first-of-type,\n.react-datepicker__month-year-option:first-of-type {\n  border-top-left-radius: 0.3rem;\n  border-top-right-radius: 0.3rem;\n}\n\n.react-datepicker__year-option:last-of-type,\n.react-datepicker__month-option:last-of-type,\n.react-datepicker__month-year-option:last-of-type {\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  border-bottom-left-radius: 0.3rem;\n  border-bottom-right-radius: 0.3rem;\n}\n\n.react-datepicker__year-option:hover,\n.react-datepicker__month-option:hover,\n.react-datepicker__month-year-option:hover {\n  background-color: #ccc;\n}\n\n.react-datepicker__year-option:hover .react-datepicker__navigation--years-upcoming,\n.react-datepicker__month-option:hover .react-datepicker__navigation--years-upcoming,\n.react-datepicker__month-year-option:hover .react-datepicker__navigation--years-upcoming {\n  border-bottom-color: #b3b3b3;\n}\n\n.react-datepicker__year-option:hover .react-datepicker__navigation--years-previous,\n.react-datepicker__month-option:hover .react-datepicker__navigation--years-previous,\n.react-datepicker__month-year-option:hover .react-datepicker__navigation--years-previous {\n  border-top-color: #b3b3b3;\n}\n\n.react-datepicker__year-option--selected,\n.react-datepicker__month-option--selected,\n.react-datepicker__month-year-option--selected {\n  position: absolute;\n  left: 15px;\n}\n\n.react-datepicker__close-icon {\n  background-color: transparent;\n  border: 0;\n  cursor: pointer;\n  display: inline-block;\n  height: 0;\n  outline: 0;\n  padding: 0;\n  vertical-align: middle;\n}\n\n.react-datepicker__close-icon::after {\n  background-color: #216ba5;\n  border-radius: 50%;\n  bottom: 0;\n  box-sizing: border-box;\n  color: #fff;\n  content: \"\\D7\";\n  cursor: pointer;\n  font-size: 12px;\n  height: 16px;\n  width: 16px;\n  line-height: 1;\n  margin: -8px auto 0;\n  padding: 2px;\n  position: absolute;\n  right: 7px;\n  text-align: center;\n  top: 50%;\n}\n\n.react-datepicker__today-button {\n  background: #f0f0f0;\n  border-top: 1px solid #aeaeae;\n  cursor: pointer;\n  text-align: center;\n  font-weight: bold;\n  padding: 5px 0;\n  clear: left;\n}\n\n.react-datepicker__portal {\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(0, 0, 0, 0.8);\n  left: 0;\n  top: 0;\n  justify-content: center;\n  align-items: center;\n  display: flex;\n  z-index: 2147483647;\n}\n\n.react-datepicker__portal .react-datepicker__day-name,\n.react-datepicker__portal .react-datepicker__day,\n.react-datepicker__portal .react-datepicker__time-name {\n  width: 3rem;\n  line-height: 3rem;\n}\n\n@media (max-width: 400px), (max-height: 550px) {\n  .react-datepicker__portal .react-datepicker__day-name,\n  .react-datepicker__portal .react-datepicker__day,\n  .react-datepicker__portal .react-datepicker__time-name {\n    width: 2rem;\n    line-height: 2rem;\n  }\n}\n\n.react-datepicker__portal .react-datepicker__current-month,\n.react-datepicker__portal .react-datepicker-time__header {\n  font-size: 1.44rem;\n}\n\n.react-datepicker__portal .react-datepicker__navigation {\n  border: 0.81rem solid transparent;\n}\n\n.react-datepicker__portal .react-datepicker__navigation--previous {\n  border-right-color: #ccc;\n}\n\n.react-datepicker__portal .react-datepicker__navigation--previous:hover {\n  border-right-color: #b3b3b3;\n}\n\n.react-datepicker__portal .react-datepicker__navigation--previous--disabled, .react-datepicker__portal .react-datepicker__navigation--previous--disabled:hover {\n  border-right-color: #e6e6e6;\n  cursor: default;\n}\n\n.react-datepicker__portal .react-datepicker__navigation--next {\n  border-left-color: #ccc;\n}\n\n.react-datepicker__portal .react-datepicker__navigation--next:hover {\n  border-left-color: #b3b3b3;\n}\n\n.react-datepicker__portal .react-datepicker__navigation--next--disabled, .react-datepicker__portal .react-datepicker__navigation--next--disabled:hover {\n  border-left-color: #e6e6e6;\n  cursor: default;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
 /* 789 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -93831,6 +99890,18 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _MuiThemeProvider = __webpack_require__(55);
+
+var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
+
+var _Toggle = __webpack_require__(331);
+
+var _Toggle2 = _interopRequireDefault(_Toggle);
+
+var _MyAwesomeReactComponent = __webpack_require__(96);
+
+var _MyAwesomeReactComponent2 = _interopRequireDefault(_MyAwesomeReactComponent);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -93855,7 +99926,7 @@ var Bold = exports.Bold = function (_React$Component) {
   }
 
   _createClass(Bold, [{
-    key: "changeBold",
+    key: 'changeBold',
     value: function changeBold(evt) {
       var isBold = evt.target.checked;
       this.setState({ isBold: isBold });
@@ -93863,9 +99934,15 @@ var Bold = exports.Bold = function (_React$Component) {
       SubmitB(isBold);
     }
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
-      return _react2.default.createElement("input", { id: "checkBox", checked: this.state.isBold, type: "checkbox", onChange: this.changeBold });
+      var styles = {
+        toggle: {
+          marginBottom: 16
+        }
+      };
+
+      return _react2.default.createElement(_MuiThemeProvider2.default, null, _react2.default.createElement(_Toggle2.default, { onToggle: this.changeBold, style: styles.toggle }));
     }
   }]);
 
@@ -94739,7 +100816,6 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
             timerStyle: 'PlainString'
         };
         var tempClass = window[_this.state.timerStyle + '2'];
-        console.log(_this.tempClass);
         _this.liveCountDown = _this.liveCountDown.bind(_this);
         return _this;
     }
@@ -94764,13 +100840,14 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                 pTimezoneOffset: this.props.pTimezoneOffset,
                 endHour: this.props.endHour,
                 endMinute: this.props.endMinute,
-                cTxtYears: this.props.pYears,
-                cTxtMonths: this.props.pMonths,
-                cTxtWeeks: this.props.pWeeks,
-                cTxtDays: this.props.pDays,
-                cTxtHours: this.props.pHoursFormat,
-                cTxtMinutes: this.props.pMinutesFormat,
-                cTxtSeconds: this.props.pSecondsFormat,
+                customTxtYears: this.props.pYears,
+                customTxtMonths: this.props.pMonths,
+                customTxtWeeks: this.props.pWeeks,
+                customTxtDays: this.props.pDays,
+                customTxtHours: this.props.pHoursFormat,
+                customTxtMinutes: this.props.pMinutesFormat,
+                customTxtSeconds: this.props.pSecondsFormat,
+                customTxtEndedTxt: this.props.pCustomTxtEndedTxt,
                 pFormat: this.props.pFormat
             };
             var divStyle = {
@@ -94800,13 +100877,14 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                     fontSize: propertiesObj.fontSize,
                     color: propertiesObj.color,
                     fontWeight: propertiesObj.fontWeight,
-                    cTxtYears: propertiesObj.cTxtYears,
-                    cTxtMonths: propertiesObj.cTxtMonths,
-                    cTxtWeeks: propertiesObj.cTxtWeeks,
-                    cTxtDays: propertiesObj.cTxtDays,
-                    cTxtHours: propertiesObj.cTxtHours,
-                    cTxtMinutes: propertiesObj.cTxtMinutes,
-                    cTxtSeconds: propertiesObj.cTxtSeconds
+                    customTxtYears: propertiesObj.customTxtYears,
+                    customTxtMonths: propertiesObj.customTxtMonths,
+                    customTxtWeeks: propertiesObj.customTxtWeeks,
+                    customTxtDays: propertiesObj.customTxtDays,
+                    customTxtHours: propertiesObj.customTxtHours,
+                    customTxtMinutes: propertiesObj.customTxtMinutes,
+                    customTxtSeconds: propertiesObj.customTxtSeconds,
+                    customTxtEndedTxt: propertiesObj.customTxtEndedTxt
                 };
                 divStyle = {
                     fontSize: propertiesObj.fontSize,
@@ -94844,13 +100922,14 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                 pTimezoneOffset: this.props.pTimezoneOffset,
                 endHour: this.props.endHour,
                 endMinute: this.props.endMinute,
-                cTxtYears: this.props.pYears,
-                cTxtMonths: this.props.pMonths,
-                cTxtWeeks: this.props.pWeeks,
-                cTxtDays: this.props.pDays,
-                cTxtHours: this.props.pHoursFormat,
-                cTxtMinutes: this.props.pMinutesFormat,
-                cTxtSeconds: this.props.pSecondsFormat,
+                customTxtYears: this.props.pYears,
+                customTxtMonths: this.props.pMonths,
+                customTxtWeeks: this.props.pWeeks,
+                customTxtDays: this.props.pDays,
+                customTxtHours: this.props.pHoursFormat,
+                customTxtMinutes: this.props.pMinutesFormat,
+                customTxtSeconds: this.props.pSecondsFormat,
+                customTxtEndedTxt: this.props.pCustomTxtEndedTxt,
                 pFormat: this.props.pFormat
             };
             var divStyle = {
@@ -94880,13 +100959,14 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                     fontSize: propertiesObj.fontSize,
                     color: propertiesObj.color,
                     fontWeight: propertiesObj.fontWeight,
-                    cTxtYears: propertiesObj.cTxtYears,
-                    cTxtMonths: propertiesObj.cTxtMonths,
-                    cTxtWeeks: propertiesObj.cTxtWeeks,
-                    cTxtDays: propertiesObj.cTxtDays,
-                    cTxtHours: propertiesObj.cTxtHours,
-                    cTxtMinutes: propertiesObj.cTxtMinutes,
-                    cTxtSeconds: propertiesObj.cTxtSeconds
+                    customTxtYears: propertiesObj.customTxtYears,
+                    customTxtMonths: propertiesObj.customTxtMonths,
+                    customTxtWeeks: propertiesObj.customTxtWeeks,
+                    customTxtDays: propertiesObj.customTxtDays,
+                    customTxtHours: propertiesObj.customTxtHours,
+                    customTxtMinutes: propertiesObj.customTxtMinutes,
+                    customTxtSeconds: propertiesObj.customTxtSeconds,
+                    customTxtEndedTxt: propertiesObj.customTxtEndedTxt
                 };
                 divStyle = {
                     fontSize: dataProps.fontSize,
@@ -94905,40 +100985,43 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                 endMinute: dataProps.endMinute
             };
             var numberValues = _mathCountDown2.default.mathFunc(tempDatesObj);
-            if (numberValues == false || typeof numberValues == 'undefined') {
-                return;
+            var timerNumbers = {};
+            if (!numberValues) {
+                timerNumbers = false;
+            } else {
+                timerNumbers = {
+                    Years: numberValues.Years,
+                    Months: numberValues.Months,
+                    Weeks: numberValues.Weeks,
+                    Days: numberValues.Days,
+                    Hours: numberValues.Hours,
+                    Minutes: numberValues.Minutes,
+                    Seconds: numberValues.Seconds,
+                    Styles: {
+                        fontSize: this.props.pFont + 'px',
+                        color: this.props.pColor,
+                        fontWeight: this.props.pIsBold == true ? 'bold' : 'normal'
+                    }
+                };
             }
-            var timerNumbers = {
-                Years: numberValues.Years,
-                Months: numberValues.Months,
-                Weeks: numberValues.Weeks,
-                Days: numberValues.Days,
-                Hours: numberValues.Hours,
-                Minutes: numberValues.Minutes,
-                Seconds: numberValues.Seconds,
-                Styles: {
-                    fontSize: this.props.pFont + 'px',
-                    color: this.props.pColor,
-                    fontWeight: this.props.pIsBold == true ? 'bold' : 'normal'
-                }
-            };
+
             var timerCustomTxt = {
-                Years: dataProps.cTxtYears,
-                Months: dataProps.cTxtMonths,
-                Weeks: dataProps.cTxtWeeks,
-                Days: dataProps.cTxtDays,
-                Hours: dataProps.cTxtHours,
-                Minutes: dataProps.cTxtMinutes,
-                Seconds: dataProps.cTxtSeconds,
+                Years: dataProps.customTxtYears,
+                Months: dataProps.customTxtMonths,
+                Weeks: dataProps.customTxtWeeks,
+                Days: dataProps.customTxtDays,
+                Hours: dataProps.customTxtHours,
+                Minutes: dataProps.customTxtMinutes,
+                Seconds: dataProps.customTxtSeconds,
+                EndedTxt: dataProps.customTxtEndedTxt,
                 Styles: {
                     fontSize: this.props.pFont + 'px',
                     color: this.props.pColor,
                     fontWeight: this.props.pIsBold == true ? 'bold' : 'normal'
                 }
             };
-            console.log(timerNumbers);
             var DynamicComponentName = components[this.state.timerStyle];
-            return _react2.default.createElement(DynamicComponentName, { numbers: timerNumbers, cTxt: timerCustomTxt });
+            return _react2.default.createElement(DynamicComponentName, { numbers: timerNumbers, customTxt: timerCustomTxt });
         }
     }, {
         key: 'render',
@@ -94973,6 +101056,7 @@ var _class = function () {
       _createClass(_class, null, [{
             key: 'mathFunc',
             value: function mathFunc(obj) {
+
                   // var tempTimeout = obj.timeout;
                   // if (!tempTimeout[0]) {
                   //   tempTimeout.push(setTimeout(() => {
@@ -95149,11 +101233,14 @@ var PlainString = function (_React$Component) {
               continue;
             }
           }
-          var tempItem = _react2.default.createElement('div', { className: 'spanDiv' }, _react2.default.createElement('span', { style: this.props.numbers.Styles }, this.props.numbers[key]), ' ', _react2.default.createElement('span', { style: this.props.cTxt.Styles }, this.props.cTxt[key]), '\xA0');
+          var tempItem = _react2.default.createElement('div', { key: key, className: 'spanDiv' }, _react2.default.createElement('span', { style: this.props.numbers.Styles }, this.props.numbers[key]), ' ', _react2.default.createElement('span', { style: this.props.customTxt.Styles }, this.props.customTxt[key]), ' \xA0 ');
           finalResult.push(tempItem);
         }
       }
-      return _react2.default.createElement('div', null, finalResult);
+      if (!this.props.numbers) {
+        finalResult = _react2.default.createElement('span', { style: this.props.customTxt.Styles }, ' ', this.props.customTxt.EndedTxt, ' ');
+      }
+      return _react2.default.createElement('div', null, ' ', finalResult, ' ');
     }
   }]);
 
@@ -95261,102 +101348,6 @@ var TimeFormat = exports.TimeFormat = function (_React$Component) {
   }]);
 
   return TimeFormat;
-}(_react2.default.Component);
-
-/***/ }),
-/* 799 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.EndTime = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var EndTime = exports.EndTime = function (_React$Component) {
-  _inherits(EndTime, _React$Component);
-
-  function EndTime(props) {
-    _classCallCheck(this, EndTime);
-
-    var _this = _possibleConstructorReturn(this, (EndTime.__proto__ || Object.getPrototypeOf(EndTime)).call(this, props));
-
-    _this.state = {
-      endHour: _this.props.pEndHour,
-      endMinute: _this.props.pEndMinute
-    };
-
-    _this.chooseHours = _this.chooseHours.bind(_this);
-    _this.chooseMinutes = _this.chooseMinutes.bind(_this);
-    return _this;
-  }
-
-  _createClass(EndTime, [{
-    key: 'setHour',
-    value: function setHour() {
-      var optionsJsx = [];
-      for (var i = 0; i <= 24; i++) {
-        if (i < 10) {
-          optionsJsx.push(_react2.default.createElement('option', { key: i, value: i }, '0' + i));
-        } else {
-          optionsJsx.push(_react2.default.createElement('option', { key: i, value: i }, i));
-        }
-      }
-      return optionsJsx;
-    }
-  }, {
-    key: 'setMinutes',
-    value: function setMinutes() {
-      var optionsSeconds = [];
-      for (var y = 0; y <= 60; y++) {
-        if (y < 10) {
-          optionsSeconds.push(_react2.default.createElement('option', { key: y, value: y }, '0' + y));
-        } else {
-          optionsSeconds.push(_react2.default.createElement('option', { key: y, value: y }, y));
-        }
-      }
-      return optionsSeconds;
-    }
-  }, {
-    key: 'chooseHours',
-    value: function chooseHours(evt) {
-      var InputValue = evt.target.value;
-      var Submitx = this.props.TimeEnd;
-      this.setState({ endHour: InputValue });
-      Submitx(InputValue, this.state.endMinute);
-    }
-  }, {
-    key: 'chooseMinutes',
-    value: function chooseMinutes(evt) {
-      var InputValue = evt.target.value;
-      this.setState({ endMinute: InputValue });
-      var Submitx = this.props.TimeEnd;
-      Submitx(this.state.endHour, InputValue);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement('div', null, 'Hours:  ', _react2.default.createElement('select', { value: this.state.endHour, onChange: this.chooseHours }, this.setHour()), 'Minutes:  ', _react2.default.createElement('select', { value: this.state.endMinute, onChange: this.chooseMinutes }, this.setMinutes()));
-    }
-  }]);
-
-  return EndTime;
 }(_react2.default.Component);
 
 /***/ })

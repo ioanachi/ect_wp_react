@@ -33,47 +33,46 @@ html {
               padding: 5px;
               width: 60%;
             }
-          }
-          
-        }
-
-        .shortcode {
-          margin: 10px;
-
-          input {
-            padding: 5px;
-            width: 1100px;
-            border: 1px solid #C3C49E;
-          }
-        }
-
-        .timezones {
-          select {
-            max-width: 250px;
-          }
-        }
-
-        .tableStyles {
-          height: 300px;
-          width: 300px;
-
-          label {
-            font-size: 20px;
-            font-weight: bold;
-          }
-
-          tr:nth-child(2n) {
-            background-color: rgb(241, 241, 241);
-            td{
-              padding: 15px;
-              margin:0px;
-              &:before,&:after{
-                background-color: red;
-                margin: 0px;
-                padding: 0px;
-                border:0px solid red;
-              }
+            .endDateShow {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                width: 100%;
+                .endDateShowSmallContainer {
+                    width: 300px;
+                    height: 300px; // background-color: red;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    align-items: flex-center;
+                    -webkit-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);
+                    -moz-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);
+                    box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);
+                    background: #f0f0f0;
+                    label {
+                        align-self: flex-start;
+                        padding: 10px;
+                        font-size: 20px;
+                        font-weight: bold;
+                        display: block;
+                        text-align: center;
+                    }
+                    .datePickerStyle {
+                        align-self: flex-end;
+                        padding: 0px;
+                        margin: 10px 0;
+                    }
+                    input {
+                        width: 190px;
+                        height: 30px;
+                        &::-webkit-input-placeholder {
+                            text-align: center;
+                        }
+                    }
+                }
             }
+<<<<<<< HEAD
           }
         }
 
@@ -164,10 +163,13 @@ html {
 
 
               }
+=======
+            .react-datepicker__time-box {
+                ul {
+                    padding: 0px;
+                }
+>>>>>>> c40d0c953f0799e64ab5e57211e2b0e9ed72f132
             }
-          }
         }
-      }
     }
-  }
 }

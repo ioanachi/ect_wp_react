@@ -27,7 +27,7 @@
     "raw-loader": "^0.5.1",
     "react": "^16.2.0",
     "react-color": "^2.13.8",
-    "react-day-picker": "^7.0.7",
+    "react-datepicker": "^1.2.1",
     "react-dom": "^16.2.0",
     "react-tabs": "^2.2.1",
     "react-timezone": "^1.0.5",
