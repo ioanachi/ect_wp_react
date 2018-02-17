@@ -67,7 +67,6 @@ class MainContainer extends React.Component {
     }
     returnChildDate(endDateChild, endHourChild, endMinuteChild,firstView) {
         
-        console.log(endDateChild,endHourChild,endMinuteChild,firstView,'tre sa fie true');
         
         this.setState({ 
             endDate: moment(endDateChild),
@@ -208,7 +207,6 @@ class MainContainer extends React.Component {
             returnAllData.push(configurationComponentsJSX);
         }
         if (this.state.firstView) {
-            console.log('first view');
             
         returnAllData = (<div className="endDateShow">
                     <div className="endDateShowSmallContainer">

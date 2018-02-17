@@ -12,9 +12,15 @@ class PickColorTxT extends React.Component {
       background: this.props.pcolorTxt,
       displaycolorTxtPicker: false
     };
-    this.handleOncolorTxtChange = this.handleOncolorTxtChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleClose = this.handleClose.bind(this);
+    this.handleOncolorTxtChange = this
+      .handleOncolorTxtChange
+      .bind(this);
+    this.handleClick = this
+      .handleClick
+      .bind(this);
+    this.handleClose = this
+      .handleClose
+      .bind(this);
   };
   handleClick() {
     this.setState({
@@ -38,7 +44,7 @@ class PickColorTxT extends React.Component {
           width: '36px',
           height: '14px',
           borderRadius: '2px',
-          background: `${ this.state.colorTxt}`,
+          background: `${this.state.colorTxt}`
         },
         swatch: {
           padding: '5px',
@@ -46,31 +52,37 @@ class PickColorTxT extends React.Component {
           borderRadius: '1px',
           boxShadow: '0 0 0 1px rgba(0,0,0,.1)',
           display: 'inline-block',
-          cursor: 'pointer',
+          cursor: 'pointer'
         },
         popover: {
           position: 'absolute',
-          zIndex: '2',
+          zIndex: '2'
         },
         cover: {
           position: 'fixed',
           top: '0px',
           right: '0px',
           bottom: '0px',
-          left: '0px',
-        },
-      },
+          left: '0px'
+        }
+      }
     });
-    return (<div className="componentContainer">
+    return (
+      <div className="componentContainer">
 
-      <div style={ styles.swatch } onClick={ this.handleClick }>
-          <div style={ styles.colorTxt } />
+        <div style={styles.swatch} onClick={this.handleClick}>
+          <div style={styles.colorTxt}></div>
         </div>
-        { this.state.displaycolorTxtPicker ? <div style={ styles.popover }>
-          <div style={ styles.cover } onClick={ this.handleClose }/>
-          <SketchPicker colorTxt={ this.state.colorTxt } onChange={ this.handleOncolorTxtChange } />
-        </div> : null }
-    </div>)
+        {this.state.displaycolorTxtPicker
+          ? (
+            <div style={styles.popover}><div style={styles.cover} onClick={this.handleClose}/><SketchPicker
+              colorTxt={this.state.colorTxt}
+              onChange={this.handleOncolorTxtChange}/>
+            </div>
+          )
+          : null}
+      </div>
+    )
   }
 }
-export default PickcolorTxT
+export default PickcolorTxT;
