@@ -96823,6 +96823,8 @@ var _moment4 = _interopRequireDefault(_moment3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -96833,37 +96835,25 @@ var MainContainer = function (_React$Component) {
     _inherits(MainContainer, _React$Component);
 
     function MainContainer(props) {
+        var _this$state;
+
         _classCallCheck(this, MainContainer);
 
         var _this = _possibleConstructorReturn(this, (MainContainer.__proto__ || Object.getPrototypeOf(MainContainer)).call(this, props));
 
-        _this.state = {
+        _this.state = (_this$state = {
             endDate: (0, _moment4.default)(),
             isDisabled: false,
             naMeP: '',
             fontSizeP: 42,
             pColor: '#000',
-            pColorTxt: '#000',
-            pIsBold: false,
-            timezoneOffset: -(new Date().getTimezoneOffset() * 60000),
-            endHour: 0,
-            endMinute: 0,
-            utcTz: 'Etc/GMT+12',
-            timeFormat: 'Y2S',
-            yearsFormat: 'Years',
-            monthsFormat: 'Months',
-            weeksFormat: 'Weeks',
-            daysFormat: 'Days',
-            hoursFormat: 'Hours',
-            minutesFormat: 'Minutes',
-            secondsFormat: 'Seconds',
-            customTxtEndedTxt: 'Timer Ended',
-            firstView: true
-        };
+            pColorTxt: '#000'
+        }, _defineProperty(_this$state, 'pColorTxt', '#000'), _defineProperty(_this$state, 'pIsBold', false), _defineProperty(_this$state, 'timezoneOffset', -(new Date().getTimezoneOffset() * 60000)), _defineProperty(_this$state, 'endHour', 0), _defineProperty(_this$state, 'endMinute', 0), _defineProperty(_this$state, 'utcTz', 'Etc/GMT+12'), _defineProperty(_this$state, 'timeFormat', 'Y2S'), _defineProperty(_this$state, 'yearsFormat', 'Years'), _defineProperty(_this$state, 'monthsFormat', 'Months'), _defineProperty(_this$state, 'weeksFormat', 'Weeks'), _defineProperty(_this$state, 'daysFormat', 'Days'), _defineProperty(_this$state, 'hoursFormat', 'Hours'), _defineProperty(_this$state, 'minutesFormat', 'Minutes'), _defineProperty(_this$state, 'secondsFormat', 'Seconds'), _defineProperty(_this$state, 'customTxtEndedTxt', 'Timer Ended'), _defineProperty(_this$state, 'firstView', true), _this$state);
         _this.onFontSubmit = _this.onFontSubmit.bind(_this);
         _this.returnChildDate = _this.returnChildDate.bind(_this);
         _this.onNameSubmit = _this.onNameSubmit.bind(_this);
         _this.returnChildColor = _this.returnChildColor.bind(_this);
+        _this.returnChildColorTxt = _this.returnChildColorTxt.bind(_this);
         _this.isBold = _this.isBold.bind(_this);
         _this.returnTimezone = _this.returnTimezone.bind(_this);
         _this.returnFormat = _this.returnFormat.bind(_this);
@@ -96904,6 +96894,11 @@ var MainContainer = function (_React$Component) {
             this.setState({ pColor: childVal });
         }
     }, {
+        key: 'returnChildColorTxt',
+        value: function returnChildColorTxt(childVal) {
+            this.setState({ pColorTxt: childVal });
+        }
+    }, {
         key: 'returnChildColorText',
         value: function returnChildColorText(textColor) {
             this.setState({ pColorTxt: textColor });
@@ -96940,7 +96935,7 @@ var MainContainer = function (_React$Component) {
                 parentID: this.props.parentID, pName: this.state.naMeP, endDate: this.state.endDate, pFont: this.state.fontSizeP, pColor: this.state.pColor, pColorTxt: this.state.pColorTxt, pIsBold: this.state.pIsBold, pTimezoneOffset: this.state.timezoneOffset, endHour: this.state.endHour, endMinute: this.state.endMinute, pFormat: this.state.timeFormat, pCustomTxtEndedTxt: this.state.customTxtEndedTxt });
 
             // the rest of the data
-            var configurationComponentsJSX = _react2.default.createElement('div', { key: 'configurationComponentsJSX' }, _react2.default.createElement('label', { htmlFor: 'tableStyles', className: 'containerLabels' }, 'Configuration'), _react2.default.createElement(_reactTabs.Tabs, null, _react2.default.createElement(_reactTabs.TabList, null, _react2.default.createElement(_reactTabs.Tab, null, 'General'), _react2.default.createElement(_reactTabs.Tab, null, 'Styles'), _react2.default.createElement(_reactTabs.Tab, null, 'Custom Text')), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_endDate.EndDate, { callbackChildProp: this.returnChildDate, pEndDate: this.state.endDate }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { pTimezoneOffset: this.state.timezoneOffset, callbackChildPropT: this.returnTimezone }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Time Format')), _react2.default.createElement('td', null, _react2.default.createElement(_timeFormat.TimeFormat, { pTimeFormat: this.state.timeFormat, callBackSelectFormat: this.returnFormat })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit, nameValue: this.state.naMeP }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor, pColor: this.state.pColor }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Numbers Font Size')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_fontSize.NumbersFontSize, { pFont: this.state.fontSizeP, aaa: this.onFontSubmit }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Select to make text Bold')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold, pIsBold: this.state.pIsBold })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement(_customText.CustomText, { pYears: this.state.yearsFormat, pMonths: this.state.monthsFormat, pWeeks: this.state.weeksFormat, pDays: this.state.daysFormat, pHoursFormat: this.state.hoursFormat, pMinutesFormat: this.state.minutesFormat, pSecondsFormat: this.state.secondsFormat, callbackChildPropFormatText: this.returnTextFormat }), _react2.default.createElement('label', null, 'Color Text'), _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColorTxt: this.returnChildColorTxt, pColor: this.state.pColorTxt }))), _react2.default.createElement(_ectShortcode.EctShortcode, { pYears: this.state.yearsFormat, pMonths: this.state.monthsFormat, pWeeks: this.state.weeksFormat, pDays: this.state.daysFormat,
+            var configurationComponentsJSX = _react2.default.createElement('div', { key: 'configurationComponentsJSX' }, _react2.default.createElement('label', { htmlFor: 'tableStyles', className: 'containerLabels' }, 'Configuration'), _react2.default.createElement(_reactTabs.Tabs, null, _react2.default.createElement(_reactTabs.TabList, null, _react2.default.createElement(_reactTabs.Tab, null, 'General'), _react2.default.createElement(_reactTabs.Tab, null, 'Styles'), _react2.default.createElement(_reactTabs.Tab, null, 'Custom Text')), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_endDate.EndDate, { callbackChildProp: this.returnChildDate, pEndDate: this.state.endDate }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { pTimezoneOffset: this.state.timezoneOffset, callbackChildPropT: this.returnTimezone }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Time Format')), _react2.default.createElement('td', null, _react2.default.createElement(_timeFormat.TimeFormat, { pTimeFormat: this.state.timeFormat, callBackSelectFormat: this.returnFormat })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit, nameValue: this.state.naMeP }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor, pColor: this.state.pColor }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Numbers Font Size')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_fontSize.NumbersFontSize, { pFont: this.state.fontSizeP, aaa: this.onFontSubmit }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Select to make text Bold')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold, pIsBold: this.state.pIsBold })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement(_customText.CustomText, { pYears: this.state.yearsFormat, pMonths: this.state.monthsFormat, pWeeks: this.state.weeksFormat, pDays: this.state.daysFormat, pHoursFormat: this.state.hoursFormat, pMinutesFormat: this.state.minutesFormat, pSecondsFormat: this.state.secondsFormat, callbackChildPropFormatText: this.returnTextFormat }), _react2.default.createElement('label', null, 'Color Text'), _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColorTxt, pColor: this.state.pColorTxt }))), _react2.default.createElement(_ectShortcode.EctShortcode, { pYears: this.state.yearsFormat, pMonths: this.state.monthsFormat, pWeeks: this.state.weeksFormat, pDays: this.state.daysFormat,
                 pHoursFormat: this.state.hoursFormat, pMinutesFormat: this.state.minutesFormat, pSecondsFormat: this.state.secondsFormat, pName: this.state.naMeP,
                 pTimeFormat: this.state.timeFormat, endDate: this.state.endDate, pFont: this.state.fontSizeP, pColor: this.state.pColor, chooseBold: this.state.pIsBold,
                 pUtcTz: this.state.utcTz, pTimezoneOffset: this.state.timezoneOffset, pEndHour: this.state.endHour, pEndMinute: this.state.endMinute,

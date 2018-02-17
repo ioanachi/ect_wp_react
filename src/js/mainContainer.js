@@ -26,6 +26,7 @@ class MainContainer extends React.Component {
             naMeP: '',
             fontSizeP: 42,
             pColor: '#000',
+            pColorTxt: '#000',
             pColorTxt:'#000',
             pIsBold: false,
             timezoneOffset: -(new Date().getTimezoneOffset() * 60000),
@@ -47,6 +48,7 @@ class MainContainer extends React.Component {
         this.returnChildDate = this.returnChildDate.bind(this);
         this.onNameSubmit = this.onNameSubmit.bind(this);
         this.returnChildColor = this.returnChildColor.bind(this);
+        this.returnChildColorTxt = this.returnChildColorTxt.bind(this);
         this.isBold = this.isBold.bind(this);
         this.returnTimezone = this.returnTimezone.bind(this);
         this.returnFormat = this.returnFormat.bind(this);
@@ -78,6 +80,9 @@ class MainContainer extends React.Component {
     }
     returnChildColor(childVal) {
         this.setState({ pColor: childVal })
+    };
+    returnChildColorTxt(childVal) {
+        this.setState({ pColorTxt: childVal })
     };
     returnChildColorText(textColor){
         this.setState({ pColorTxt: textColor })
@@ -190,7 +195,7 @@ class MainContainer extends React.Component {
                 <TabPanel>
                     <CustomText pYears={this.state.yearsFormat} pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat} pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat} callbackChildPropFormatText={this.returnTextFormat} />
                     <label>Color Text</label>
-                    <PickColor callbackChildPropColorTxt={this.returnChildColorTxt} pColor={this.state.pColorTxt} />
+                    <PickColor callbackChildPropColor={this.returnChildColorTxt} pColor={this.state.pColorTxt} />
 
                 </TabPanel>
             </Tabs>
