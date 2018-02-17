@@ -4,7 +4,11 @@ import 'react-dom';
 import 'react-day-picker';
 import 'react-day-picker/moment';
 import 'react-day-picker/lib/style.css';
+import  'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
+
+import  'moment';
 import 'material-ui';
 import 'material-ui/styles/MuiThemeProvider';
 
