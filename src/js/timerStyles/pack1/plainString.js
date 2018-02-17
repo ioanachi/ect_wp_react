@@ -16,7 +16,7 @@ export default class PlainString extends React.Component {
             continue;
           }
         }
-        var tempItem = (<div className="spanDiv">
+        var tempItem = (<div key={key} className="spanDiv">
         <span style = {this.props.numbers.Styles}>
         { this.props.numbers[key] } 
         </span> <span style={this.props.customTxt.Styles}>{this.props.customTxt[key]}</span> &nbsp; </div>);
