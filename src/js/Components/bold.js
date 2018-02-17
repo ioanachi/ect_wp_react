@@ -31,3 +31,5 @@ export class Bold extends React.Component {
         <Toggle onToggle={this.changeBold} style={styles.toggle} />
       </MuiThemeProvider>
     )
+  }
+}
