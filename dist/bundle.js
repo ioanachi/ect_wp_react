@@ -35012,7 +35012,7 @@ __webpack_require__(770);
 /* 378 */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n  </div>\r\n\r\n  <script type=\"text/javascript\">\r\n    var isOnlyPreview = false;\r\n\r\n    var ectProperties = [{\r\n      'ectPopupContent': {\r\n        timeout: [],\r\n        endDate: '2028/2/19',\r\n        pTimezoneOffset: '+7200000',\r\n        endHour: '00',\r\n        endMinute: '00',\r\n        pFormat: 'D then H:M:S',\r\n        fontSize: '32px',\r\n        color: '#F00',\r\n        fontWeight: 'bold',\r\n        cTxtYears: 'Years',\r\n        cTxtMonths: 'Months',\r\n        cTxtWeeks: 'Weeks',\r\n        cTxtDays: 'Days',\r\n        cTxtHours: 'Hours',\r\n        cTxtMinutes: 'Minutes',\r\n        cTxtSeconds: 'Seconds'\r\n      }\r\n    }\r\n    ];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>";
+module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n  </div>\r\n\r\n  <script type=\"text/javascript\">\r\n    var isOnlyPreview = true;\r\n\r\n    var ectProperties = [{\r\n      'ectPopupContent': {\r\n        timeout: [],\r\n        endDate: '2029/2/16',\r\n        pTimezoneOffset: '+7200000',\r\n        endHour: '00',\r\n        endMinute: '00',\r\n        pFormat: 'D then H:M:S',\r\n        fontSize: '32px',\r\n        color: '#F00',\r\n        fontWeight: 'bold',\r\n        customTxtYears: 'Years',\r\n        customTxtMonths: 'Months',\r\n        customTxtWeeks: 'Weeks',\r\n        customTxtDays: 'Days',\r\n        customTxtHours: 'Hours',\r\n        customTxtMinutes: 'Minutes',\r\n        customTxtSeconds: 'Seconds',\r\n        customTxtEndedTxt: 'Timer Ended'\r\n      }\r\n    }\r\n    ];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>";
 
 /***/ }),
 /* 379 */
@@ -92564,7 +92564,7 @@ var MainContainer = function (_React$Component) {
         _this.state = (_this$state = {
             endDate: '',
             isDisabled: false
-        }, _defineProperty(_this$state, 'endDate', ''), _defineProperty(_this$state, 'naMeP', ''), _defineProperty(_this$state, 'fontSizeP', 42), _defineProperty(_this$state, 'pColor', '#000'), _defineProperty(_this$state, 'pIsBold', false), _defineProperty(_this$state, 'timezoneOffset', -(new Date().getTimezoneOffset() * 60000)), _defineProperty(_this$state, 'endHour', 0), _defineProperty(_this$state, 'endMinute', 0), _defineProperty(_this$state, 'utcTz', 'Etc/GMT+12'), _defineProperty(_this$state, 'timeFormat', 'Y2S'), _defineProperty(_this$state, 'yearsFormat', 'Years'), _defineProperty(_this$state, 'monthsFormat', 'Months'), _defineProperty(_this$state, 'weeksFormat', 'Weeks'), _defineProperty(_this$state, 'daysFormat', 'Days'), _defineProperty(_this$state, 'hoursFormat', 'Hours'), _defineProperty(_this$state, 'minutesFormat', 'Minutes'), _defineProperty(_this$state, 'secondsFormat', 'Seconds'), _this$state);
+        }, _defineProperty(_this$state, 'endDate', ''), _defineProperty(_this$state, 'naMeP', ''), _defineProperty(_this$state, 'fontSizeP', 42), _defineProperty(_this$state, 'pColor', '#000'), _defineProperty(_this$state, 'pIsBold', false), _defineProperty(_this$state, 'timezoneOffset', -(new Date().getTimezoneOffset() * 60000)), _defineProperty(_this$state, 'endHour', 0), _defineProperty(_this$state, 'endMinute', 0), _defineProperty(_this$state, 'utcTz', 'Etc/GMT+12'), _defineProperty(_this$state, 'timeFormat', 'Y2S'), _defineProperty(_this$state, 'yearsFormat', 'Years'), _defineProperty(_this$state, 'monthsFormat', 'Months'), _defineProperty(_this$state, 'weeksFormat', 'Weeks'), _defineProperty(_this$state, 'daysFormat', 'Days'), _defineProperty(_this$state, 'hoursFormat', 'Hours'), _defineProperty(_this$state, 'minutesFormat', 'Minutes'), _defineProperty(_this$state, 'secondsFormat', 'Seconds'), _defineProperty(_this$state, 'customTxtEndedTxt', 'Timer Ended'), _this$state);
         _this.onFontSubmit = _this.onFontSubmit.bind(_this);
         _this.returnChildDate = _this.returnChildDate.bind(_this);
         _this.onNameSubmit = _this.onNameSubmit.bind(_this);
@@ -92637,7 +92637,7 @@ var MainContainer = function (_React$Component) {
             var returnAllData = [];
             var labelPreview = _react2.default.createElement('label', { key: 'labelLivePreview', htmlFor: 'tableStyles', className: 'containerLabels' }, 'Preview');
             var livePreviewOnly = _react2.default.createElement(_livePreview.LivePreview, { key: 'LivePreview', pYears: this.state.yearsFormat, pMonths: this.state.monthsFormat, pWeeks: this.state.weeksFormat, pDays: this.state.daysFormat, pHoursFormat: this.state.hoursFormat, pMinutesFormat: this.state.minutesFormat, pSecondsFormat: this.state.secondsFormat,
-                parentID: this.props.parentID, pName: this.state.naMeP, endDate: this.state.endDate, pFont: this.state.fontSizeP, pColor: this.state.pColor, pIsBold: this.state.pIsBold, pTimezoneOffset: this.state.timezoneOffset, endHour: this.state.endHour, endMinute: this.state.endMinute, pFormat: this.state.timeFormat });
+                parentID: this.props.parentID, pName: this.state.naMeP, endDate: this.state.endDate, pFont: this.state.fontSizeP, pColor: this.state.pColor, pIsBold: this.state.pIsBold, pTimezoneOffset: this.state.timezoneOffset, endHour: this.state.endHour, endMinute: this.state.endMinute, pFormat: this.state.timeFormat, pCustomTxtEndedTxt: this.state.customTxtEndedTxt });
 
             // the rest of the data
             var configurationComponentsJSX = _react2.default.createElement('div', { key: 'configurationComponentsJSX' }, _react2.default.createElement('label', { htmlFor: 'tableStyles', className: 'containerLabels' }, 'Configuration'), _react2.default.createElement(_reactTabs.Tabs, null, _react2.default.createElement(_reactTabs.TabList, null, _react2.default.createElement(_reactTabs.Tab, null, 'General'), _react2.default.createElement(_reactTabs.Tab, null, 'Styles'), _react2.default.createElement(_reactTabs.Tab, null, 'Custom Text')), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_endDate.EndDate, { callbackChildProp: this.returnChildDate, pEndDate: this.state.endDate }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Time')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_endTime.EndTime, { TimeEnd: this.returnChildTime, pEndHour: this.state.endHour, pEndMinute: this.state.endMinute }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { pTimezoneOffset: this.state.timezoneOffset, callbackChildPropT: this.returnTimezone }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Time Format')), _react2.default.createElement('td', null, _react2.default.createElement(_timeFormat.TimeFormat, { pTimeFormat: this.state.timeFormat, callBackSelectFormat: this.returnFormat })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit, nameValue: this.state.naMeP }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor, pColor: this.state.pColor }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Numbers Font Size')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_fontSize.NumbersFontSize, { pFont: this.state.fontSizeP, aaa: this.onFontSubmit }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Select to make text Bold')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold, pIsBold: this.state.pIsBold })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement(_customText.CustomText, { pYears: this.state.yearsFormat, pMonths: this.state.monthsFormat, pWeeks: this.state.weeksFormat, pDays: this.state.daysFormat, pHoursFormat: this.state.hoursFormat, pMinutesFormat: this.state.minutesFormat, pSecondsFormat: this.state.secondsFormat, callbackChildPropFormatText: this.returnTextFormat }))), _react2.default.createElement(_ectShortcode.EctShortcode, { pYears: this.state.yearsFormat, pMonths: this.state.monthsFormat, pWeeks: this.state.weeksFormat, pDays: this.state.daysFormat,
@@ -92652,7 +92652,7 @@ var MainContainer = function (_React$Component) {
             if (!isOnlyPreview) {
                 returnAllData.push(configurationComponentsJSX);
             }
-            if (this.state.endDate == '') {
+            if (this.state.endDate == '' && !isOnlyPreview) {
                 returnAllData = _react2.default.createElement('div', { className: 'endDateShow' }, _react2.default.createElement('div', { className: 'endDateShowSmallContainer' }, _react2.default.createElement('div', null, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'Select END Date'), _react2.default.createElement(_endDate.EndDate, { className: 'endDateDiv', callbackChildProp: this.returnChildDate, pEndDate: this.state.endDate }))));
             }
             return returnAllData;
@@ -94759,6 +94759,7 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                 customTxtHours: this.props.pHoursFormat,
                 customTxtMinutes: this.props.pMinutesFormat,
                 customTxtSeconds: this.props.pSecondsFormat,
+                customTxtEndedTxt: this.props.pCustomTxtEndedTxt,
                 pFormat: this.props.pFormat
             };
             var divStyle = {
@@ -94794,7 +94795,8 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                     customTxtDays: propertiesObj.customTxtDays,
                     customTxtHours: propertiesObj.customTxtHours,
                     customTxtMinutes: propertiesObj.customTxtMinutes,
-                    customTxtSeconds: propertiesObj.customTxtSeconds
+                    customTxtSeconds: propertiesObj.customTxtSeconds,
+                    customTxtEndedTxt: propertiesObj.customTxtEndedTxt
                 };
                 divStyle = {
                     fontSize: propertiesObj.fontSize,
@@ -94839,6 +94841,7 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                 customTxtHours: this.props.pHoursFormat,
                 customTxtMinutes: this.props.pMinutesFormat,
                 customTxtSeconds: this.props.pSecondsFormat,
+                customTxtEndedTxt: this.props.pCustomTxtEndedTxt,
                 pFormat: this.props.pFormat
             };
             var divStyle = {
@@ -94874,7 +94877,8 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                     customTxtDays: propertiesObj.customTxtDays,
                     customTxtHours: propertiesObj.customTxtHours,
                     customTxtMinutes: propertiesObj.customTxtMinutes,
-                    customTxtSeconds: propertiesObj.customTxtSeconds
+                    customTxtSeconds: propertiesObj.customTxtSeconds,
+                    customTxtEndedTxt: propertiesObj.customTxtEndedTxt
                 };
                 divStyle = {
                     fontSize: dataProps.fontSize,
@@ -94893,23 +94897,26 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                 endMinute: dataProps.endMinute
             };
             var numberValues = _mathCountDown2.default.mathFunc(tempDatesObj);
-            if (numberValues == false || typeof numberValues == 'undefined') {
-                return;
+            var timerNumbers = {};
+            if (!numberValues) {
+                timerNumbers = false;
+            } else {
+                timerNumbers = {
+                    Years: numberValues.Years,
+                    Months: numberValues.Months,
+                    Weeks: numberValues.Weeks,
+                    Days: numberValues.Days,
+                    Hours: numberValues.Hours,
+                    Minutes: numberValues.Minutes,
+                    Seconds: numberValues.Seconds,
+                    Styles: {
+                        fontSize: this.props.pFont + 'px',
+                        color: this.props.pColor,
+                        fontWeight: this.props.pIsBold == true ? 'bold' : 'normal'
+                    }
+                };
             }
-            var timerNumbers = {
-                Years: numberValues.Years,
-                Months: numberValues.Months,
-                Weeks: numberValues.Weeks,
-                Days: numberValues.Days,
-                Hours: numberValues.Hours,
-                Minutes: numberValues.Minutes,
-                Seconds: numberValues.Seconds,
-                Styles: {
-                    fontSize: this.props.pFont + 'px',
-                    color: this.props.pColor,
-                    fontWeight: this.props.pIsBold == true ? 'bold' : 'normal'
-                }
-            };
+
             var timerCustomTxt = {
                 Years: dataProps.customTxtYears,
                 Months: dataProps.customTxtMonths,
@@ -94918,6 +94925,7 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                 Hours: dataProps.customTxtHours,
                 Minutes: dataProps.customTxtMinutes,
                 Seconds: dataProps.customTxtSeconds,
+                EndedTxt: dataProps.customTxtEndedTxt,
                 Styles: {
                     fontSize: this.props.pFont + 'px',
                     color: this.props.pColor,
@@ -95139,6 +95147,9 @@ var PlainString = function (_React$Component) {
           var tempItem = _react2.default.createElement('div', { className: 'spanDiv' }, _react2.default.createElement('span', { style: this.props.numbers.Styles }, this.props.numbers[key]), ' ', _react2.default.createElement('span', { style: this.props.customTxt.Styles }, this.props.customTxt[key]), '\xA0');
           finalResult.push(tempItem);
         }
+      }
+      if (!this.props.numbers) {
+        finalResult = _react2.default.createElement('span', { style: this.props.customTxt.Styles }, this.props.customTxt.EndedTxt);
       }
       return _react2.default.createElement('div', null, finalResult);
     }
