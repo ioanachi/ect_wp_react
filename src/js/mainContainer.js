@@ -212,16 +212,10 @@ class MainContainer extends React.Component {
         if (!isOnlyPreview) {
             returnAllData.push(configurationComponentsJSX);
         }
-<<<<<<< HEAD
         if (this.state.firstView) {
 
             returnAllData = (<div className="endDateShow">
                 <div className="endDateShowSmallContainer">
-=======
-        if (this.state.endDate == '' && !devMode) {
-                 returnAllData = (<div className="endDateShow">
-                    <div className="endDateShowSmallContainer">
->>>>>>> 5f542461a194fb422f673ed01e8c2f29483899da
                     <div>
                         <label htmlFor="datePicker">Select END Date</label>
                         <EndDate className="endDateDiv" callbackChildProp={this.returnChildDate} pEndDate={this.state.endDate} />
