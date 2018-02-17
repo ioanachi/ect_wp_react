@@ -25,10 +25,11 @@ class MainContainer extends React.Component {
             isDisabled: false,
             naMeP: '',
             fontSizeP: 42,
+            fontSizeTxt: 42,
             pColor: '#000',
             pColorTxt: '#000',
-            pColorTxt:'#000',
             pIsBold: false,
+            pIsBoldTxt: false,
             timezoneOffset: -(new Date().getTimezoneOffset() * 60000),
             endHour: 0,
             endMinute: 0,
@@ -59,7 +60,9 @@ class MainContainer extends React.Component {
     isBold(childVal) {
         this.setState({ pIsBold: childVal })
     }
-    ;
+    isBoldTxt(childVal) {
+        this.setState({ pIsBoldTxt: childVal })
+    }
     onFontSubmit(childVal) {
         this.setState({ fontSizeP: childVal });
     }
@@ -109,10 +112,32 @@ class MainContainer extends React.Component {
     ;
     showOnlyLivePreview() {
         var returnAllData = [];
+            var pData = {
+            Years:this.state.yearsFormat,
+            Months:this.state.monthsFormat,
+            Weeks:this.state.weeksFormat,
+            Days:this.state.daysFormat,
+            Hours:this.state.hoursFormat,
+            Minutes:this.state.minutesFormat,
+            Seconds:this.state.secondsFormat,
+            parentID:this.props.parentID,
+            naMeP:this.state.naMeP,
+            endDate:this.state.endDate,
+            fontSize:this.state.fontSizeP,
+            fontSizeTxt:this.state.fontSizeTxt,
+            color:this.state.pColor,
+            colorTxt:this.state.pColorTxt,
+            isBold:this.state.pIsBold,
+            isBoldTxt:this.state.pIsBoldTxt,
+            timezoneOffset:this.state.timezoneOffset,
+            endHour:this.state.endHour,
+            endMinute:this.state.endMinute,
+            timeFormat:this.state.timeFormat,
+            customTxtEndedTxt:this.state.customTxtEndedTxt,
+        };
         var labelPreview = (<label key="labelLivePreview" htmlFor="tableStyles" className="containerLabels">
             Preview</label>)
-        const livePreviewOnly = (<LivePreview key="LivePreview" pYears={this.state.yearsFormat} pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat} pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat}
-            parentID={this.props.parentID} pName={this.state.naMeP} endDate={this.state.endDate} pFont={this.state.fontSizeP} pColor={this.state.pColor}  pColorTxt={this.state.pColorTxt}pIsBold={this.state.pIsBold} pTimezoneOffset={this.state.timezoneOffset} endHour={this.state.endHour} endMinute={this.state.endMinute} pFormat={this.state.timeFormat} pCustomTxtEndedTxt={this.state.customTxtEndedTxt} />);
+        const livePreviewOnly = (<LivePreview key="LivePreview" pAllData={pData}  />);
 
         // the rest of the data
         var configurationComponentsJSX = (<div key="configurationComponentsJSX">
@@ -194,9 +219,8 @@ class MainContainer extends React.Component {
                 </TabPanel>
                 <TabPanel>
                     <CustomText pYears={this.state.yearsFormat} pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat} pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat} callbackChildPropFormatText={this.returnTextFormat} />
-                    <label>Color Text</label>
+                    <h3>Custom Text Color</h3>
                     <PickColor callbackChildPropColor={this.returnChildColorTxt} pColor={this.state.pColorTxt} />
-
                 </TabPanel>
             </Tabs>
 
