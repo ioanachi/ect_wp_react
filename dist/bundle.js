@@ -98519,8 +98519,6 @@ var _moment4 = _interopRequireDefault(_moment3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -98531,16 +98529,32 @@ var MainContainer = function (_React$Component) {
     _inherits(MainContainer, _React$Component);
 
     function MainContainer(props) {
-        var _this$state;
-
         _classCallCheck(this, MainContainer);
 
         var _this = _possibleConstructorReturn(this, (MainContainer.__proto__ || Object.getPrototypeOf(MainContainer)).call(this, props));
 
-        _this.state = (_this$state = {
+        _this.state = {
             endDate: (0, _moment4.default)(),
-            isDisabled: false
-        }, _defineProperty(_this$state, 'endDate', (0, _moment4.default)()), _defineProperty(_this$state, 'naMeP', ''), _defineProperty(_this$state, 'fontSizeP', 42), _defineProperty(_this$state, 'pColor', '#000'), _defineProperty(_this$state, 'pIsBold', false), _defineProperty(_this$state, 'timezoneOffset', -(new Date().getTimezoneOffset() * 60000)), _defineProperty(_this$state, 'endHour', 0), _defineProperty(_this$state, 'endMinute', 0), _defineProperty(_this$state, 'utcTz', 'Etc/GMT+12'), _defineProperty(_this$state, 'timeFormat', 'Y2S'), _defineProperty(_this$state, 'yearsFormat', 'Years'), _defineProperty(_this$state, 'monthsFormat', 'Months'), _defineProperty(_this$state, 'weeksFormat', 'Weeks'), _defineProperty(_this$state, 'daysFormat', 'Days'), _defineProperty(_this$state, 'hoursFormat', 'Hours'), _defineProperty(_this$state, 'minutesFormat', 'Minutes'), _defineProperty(_this$state, 'secondsFormat', 'Seconds'), _defineProperty(_this$state, 'customTxtEndedTxt', 'Timer Ended'), _defineProperty(_this$state, 'firstView', true), _this$state);
+            isDisabled: false,
+            naMeP: '',
+            fontSizeP: 42,
+            pColor: '#000',
+            pIsBold: false,
+            timezoneOffset: -(new Date().getTimezoneOffset() * 60000),
+            endHour: 0,
+            endMinute: 0,
+            utcTz: 'Etc/GMT+12',
+            timeFormat: 'Y2S',
+            yearsFormat: 'Years',
+            monthsFormat: 'Months',
+            weeksFormat: 'Weeks',
+            daysFormat: 'Days',
+            hoursFormat: 'Hours',
+            minutesFormat: 'Minutes',
+            secondsFormat: 'Seconds',
+            customTxtEndedTxt: 'Timer Ended',
+            firstView: true
+        };
         _this.onFontSubmit = _this.onFontSubmit.bind(_this);
         _this.returnChildDate = _this.returnChildDate.bind(_this);
         _this.onNameSubmit = _this.onNameSubmit.bind(_this);

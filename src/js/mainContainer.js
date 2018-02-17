@@ -23,7 +23,6 @@ class MainContainer extends React.Component {
         this.state = {
             endDate: moment(),
             isDisabled: false,
-            endDate: moment(),
             naMeP: '',
             fontSizeP: 42,
             pColor: '#000',
