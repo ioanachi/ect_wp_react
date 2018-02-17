@@ -10,20 +10,34 @@ export class NumbersFontSize extends React.Component {
       fontSize: this.props.pFont
 
     }
-    this.inputfontSize = this.inputfontSize.bind(this);
+    this.inputfontSize = this
+      .inputfontSize
+      .bind(this);
   };
   inputfontSize(evt, valx) {
     this.setState({fontSize: valx})
     const Submitx = this.props.aaa;
     Submitx(valx);
-  };
+  }
 
   render() {
-    return (<MuiThemeProvider>
-      <span>{this.state.fontSize}px </span>
-      <Slider min={8} max={100} step={1} value={this.state.fontSize} onChange={this.inputfontSize} sliderStyle={{'height': '5px',marginTop:'5px'}} defaultValue={this.props.pFont}/>
-    </MuiThemeProvider>);
+    return (
+      <MuiThemeProvider>
+        <div>
+          {this.state.fontSize + 'px'}
+        </ span>
+        <Slider
+          min={8}
+          max={100}
+          step={1}
+          value={this.state.fontSize}
+          onChange={this.inputfontSize}
+          sliderStyle={{
+          'height': '5px',
+          marginTop: '5px'
+        }}
+          defaultValue={this.props.pFont}/>
+      </MuiThemeProvider>
+    );
   }
 }
-// <input type="number" className="fontInput" value={this.state.fontSize} onChange={this.inputfontSize}/>
-//
