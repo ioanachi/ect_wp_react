@@ -23,9 +23,10 @@ export class NumbersFontSize extends React.Component {
   render() {
     return (
       <MuiThemeProvider>
-        <div>
-          {this.state.fontSize + 'px'}
-        </ span>
+        <span>
+          {this.state.fontSize}
+          px
+        </span>
         <Slider
           min={8}
           max={100}

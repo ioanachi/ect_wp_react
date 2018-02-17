@@ -35012,7 +35012,7 @@ __webpack_require__(770);
 /* 378 */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n  </div>\r\n\r\n  <script type=\"text/javascript\">\r\n    var isOnlyPreview = false;\r\n\r\n    var ectProperties = [{\r\n      'ectPopupContent': {\r\n        timeout: [],\r\n        endDate: '2029/2/16',\r\n        pTimezoneOffset: '+7200000',\r\n        endHour: '00',\r\n        endMinute: '00',\r\n        pFormat: 'D then H:M:S',\r\n        fontSize: '32px',\r\n        color: '#F00',\r\n        fontWeight: 'bold',\r\n        customTxtYears: 'Years',\r\n        customTxtMonths: 'Months',\r\n        customTxtWeeks: 'Weeks',\r\n        customTxtDays: 'Days',\r\n        customTxtHours: 'Hours',\r\n        customTxtMinutes: 'Minutes',\r\n        customTxtSeconds: 'Seconds',\r\n        customTxtEndedTxt: 'Timer Ended'\r\n      }\r\n    }\r\n    ];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>";
+module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n  </div>\r\n  <script type=\"text/javascript\">\r\n    var isOnlyPreview = false;\r\n    var ectProperties = [{\r\n      'ectPopupContent': {\r\n        timeout: [],\r\n        endDate: '2029/2/16',\r\n        pTimezoneOffset: '+7200000',\r\n        endHour: '00',\r\n        endMinute: '00',\r\n        pFormat: 'D then H:M:S',\r\n        fontSize: '32px',\r\n        color: '#F00',\r\n        fontWeight: 'bold',\r\n        customTxtYears: 'Years',\r\n        customTxtMonths: 'Months',\r\n        customTxtWeeks: 'Weeks',\r\n        customTxtDays: 'Days',\r\n        customTxtHours: 'Hours',\r\n        customTxtMinutes: 'Minutes',\r\n        customTxtSeconds: 'Seconds',\r\n        customTxtEndedTxt: 'Timer Ended'\r\n      }\r\n    }\r\n    ];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>";
 
 /***/ }),
 /* 379 */
@@ -93397,14 +93397,22 @@ var NumbersFontSize = exports.NumbersFontSize = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(_MuiThemeProvider2.default, null, _react2.default.createElement('span', null, this.state.fontSize, 'px '), _react2.default.createElement(_Slider2.default, { min: 8, max: 100, step: 1, value: this.state.fontSize, onChange: this.inputfontSize, sliderStyle: { 'height': '5px', marginTop: '5px' }, defaultValue: this.props.pFont }));
+      return _react2.default.createElement(_MuiThemeProvider2.default, null, _react2.default.createElement('span', null, this.state.fontSize, 'px'), _react2.default.createElement(_Slider2.default, {
+        min: 8,
+        max: 100,
+        step: 1,
+        value: this.state.fontSize,
+        onChange: this.inputfontSize,
+        sliderStyle: {
+          'height': '5px',
+          marginTop: '5px'
+        },
+        defaultValue: this.props.pFont }));
     }
   }]);
 
   return NumbersFontSize;
 }(_react2.default.Component);
-// <input type="number" className="fontInput" value={this.state.fontSize} onChange={this.inputfontSize}/>
-//
 
 /***/ }),
 /* 775 */
@@ -93463,7 +93471,7 @@ var EctShortcode = exports.EctShortcode = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var shortValue = '[ectShortcode timername="' + this.props.pName + '"   enddate="' + this.props.endDate + '"  numbercolor= "' + this.props.pColor + '" numberfontsize="' + this.props.pFont + 'px"' + ' numberbold="' + this.props.chooseBold + '" enddatetimezone="' + this.props.pTimezoneOffset + '" endhour="' + this.props.pEndHour + '"  endminute= "' + this.props.pEndMinute + '" timeFormat="' + this.props.pTimeFormat + '" cTxtYears=" ' + this.props.pYears + '"  cTxtMonths="' + this.props.pMonths + '" cTxtWeeks="' + this.props.pWeeks + '" cTxtDays="' + this.props.pDays + '" cTxtHours="' + this.props.pHoursFormat + '" cTxtMinutes="' + this.props.pMinutesFormat + '" cTxtSeconds="' + this.props.pSecondsFormat + '"]';
+      var shortValue = '[ectShortcode timername="' + this.props.pName + '"   enddate="' + this.props.endDate + '"  numbercolor= "' + this.props.pColor + '" numberfontsize="' + this.props.pFont + 'px"' + ' numberbold="' + this.props.chooseBold + '" enddatetimezone="' + this.props.pTimezoneOffset + '" endhour="' + this.props.pEndHour + '"  endminute= "' + this.props.pEndMinute + '" timeFormat="' + this.props.pTimeFormat + '" customTxtYears=" ' + this.props.pYears + '"  customTxtMonths="' + this.props.pMonths + '" customTxtWeeks="' + this.props.pWeeks + '" customTxtDays="' + this.props.pDays + '" customTxtHours="' + this.props.pHoursFormat + '" customTxtMinutes="' + this.props.pMinutesFormat + '" customTxtSeconds="' + this.props.pSecondsFormat + '"]';
 
       return _react2.default.createElement('div', { className: 'ectSortcode' }, _react2.default.createElement('label', null, 'Shortcode'), _react2.default.createElement('span', null, '(click to automatically select all, then copy)'), _react2.default.createElement('div', { className: 'shortcode' }, _react2.default.createElement('input', { id: 'ectSCInput', onClick: this.selectAllText, onChange: this.selectAllText, value: shortValue }), _react2.default.createElement('h4', null, 'This interface helps you generate customly a shortcode for later use with a wordpress plugin, what you select in the fields will be given to the shortcode as attributes and used later.')));
     }
@@ -95144,14 +95152,14 @@ var PlainString = function (_React$Component) {
               continue;
             }
           }
-          var tempItem = _react2.default.createElement('div', { className: 'spanDiv' }, _react2.default.createElement('span', { style: this.props.numbers.Styles }, this.props.numbers[key]), ' ', _react2.default.createElement('span', { style: this.props.customTxt.Styles }, this.props.customTxt[key]), '\xA0');
+          var tempItem = _react2.default.createElement('div', { className: 'spanDiv' }, _react2.default.createElement('span', { style: this.props.numbers.Styles }, this.props.numbers[key]), ' ', _react2.default.createElement('span', { style: this.props.customTxt.Styles }, this.props.customTxt[key]), ' \xA0 ');
           finalResult.push(tempItem);
         }
       }
       if (!this.props.numbers) {
-        finalResult = _react2.default.createElement('span', { style: this.props.customTxt.Styles }, this.props.customTxt.EndedTxt);
+        finalResult = _react2.default.createElement('span', { style: this.props.customTxt.Styles }, ' ', this.props.customTxt.EndedTxt, ' ');
       }
-      return _react2.default.createElement('div', null, finalResult);
+      return _react2.default.createElement('div', null, ' ', finalResult, ' ');
     }
   }]);
 
