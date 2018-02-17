@@ -4,7 +4,7 @@ import 'react-day-picker/lib/style.css';
 
 export class EndDate extends React.Component {
   constructor(props) {
-    super(props);
+    super(props); 
     this.state = {valDate:this.props.pEndDate};
     this.handleDayChange = this.handleDayChange.bind(this);
   }
@@ -27,7 +27,7 @@ export class EndDate extends React.Component {
   };
   render() {
     return (
-      <div className="componentContainer">
+      <div>
         <DayPickerInput format="M/D/YYY" formatDate={this.ectFormatDate} onDayChange={this.handleDayChange} placeholder="YYYY/M/D" value={this.state.valDate} />
       </div>
     );
