@@ -107,6 +107,15 @@ html {
                         font-size: 18px;
                     }
                 }
+                .tableStyles{
+                    table{
+                        tr{
+                            &:nth-child(2n){
+                                background-color: #f0f0f0;
+                            }
+                        }
+                    }
+                }
             }
             .endDateShow {
                 display: flex;
