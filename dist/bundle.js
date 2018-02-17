@@ -99318,7 +99318,6 @@ var UserName = exports.UserName = function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(_MuiThemeProvider2.default, null, _react2.default.createElement(_TextField2.default, { onChange: this.inputName, value: this.state.nameValue, hintText: 'Timer Name' }));
-      // <input className="username" type="text" onInput={this.inputName} value={this.state.nameValue}/>;
     }
   }]);
 
@@ -99389,7 +99388,7 @@ var NumbersFontSize = exports.NumbersFontSize = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(_MuiThemeProvider2.default, null, _react2.default.createElement('span', null, this.state.fontSize, 'px'), _react2.default.createElement(_Slider2.default, {
+      return _react2.default.createElement(_MuiThemeProvider2.default, null, _react2.default.createElement('div', null, _react2.default.createElement('span', null, this.state.fontSize, ' px'), _react2.default.createElement(_Slider2.default, {
         min: 8,
         max: 100,
         step: 1,
@@ -99399,7 +99398,7 @@ var NumbersFontSize = exports.NumbersFontSize = function (_React$Component) {
           'height': '5px',
           marginTop: '5px'
         },
-        defaultValue: this.props.pFont }));
+        defaultValue: this.props.pFont })));
     }
   }]);
 

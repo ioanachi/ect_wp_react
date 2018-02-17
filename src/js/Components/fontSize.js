@@ -23,21 +23,22 @@ export class NumbersFontSize extends React.Component {
   render() {
     return (
       <MuiThemeProvider>
-        <span>
-          {this.state.fontSize}
-          px
-        </span>
-        <Slider
-          min={8}
-          max={100}
-          step={1}
-          value={this.state.fontSize}
-          onChange={this.inputfontSize}
-          sliderStyle={{
-          'height': '5px',
-          marginTop: '5px'
-        }}
-          defaultValue={this.props.pFont}/>
+        <div>
+          <span>
+            {this.state.fontSize} px
+          </span>
+          <Slider
+            min={8}
+            max={100}
+            step={1}
+            value={this.state.fontSize}
+            onChange={this.inputfontSize}
+            sliderStyle={{
+            'height': '5px',
+            marginTop: '5px'
+          }}
+            defaultValue={this.props.pFont}/>
+        </div>
       </MuiThemeProvider>
     );
   }
