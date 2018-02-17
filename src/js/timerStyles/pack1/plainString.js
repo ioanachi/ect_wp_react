@@ -12,22 +12,27 @@ export default class PlainString extends React.Component {
         if (isLast) {
           if (this.props.numbers[key] != 0) {
             isLast = false;
-          }else{
+          } else {
             continue;
           }
         }
-          var tempItem = (<div className="spanDiv"><span style={this.props.numbers.Styles}>{this.props.numbers[key]}</span> <span style={this.props.customTxt.Styles}>{this.props.customTxt[key]}</span>&nbsp;</div>);
-          finalResult.push(tempItem);
+        var tempItem = (<div className="spanDiv">
+        <span style = {this.props.numbers.Styles}>
+        { this.props.numbers[key] } 
+        </span> <span style={this.props.customTxt.Styles}>{this.props.customTxt[key]}</span> &nbsp; </div>);
+              finalResult.push(tempItem);
+            }
+          }
+          if (!this.props.numbers) {
+            finalResult = ( <span style = {
+                this.props.customTxt.Styles
+              } > {
+                this.props.customTxt.EndedTxt
+              } </span>);
       }
-    }
-    
-    if(!this.props.numbers){ 
-      finalResult = (<span style={this.props.customTxt.Styles}>{this.props.customTxt.EndedTxt}</span>); 
-    }
-    return (
-      <div>
-        {finalResult}
-      </div>
-    );
-  }
-}
+      return ( <div> {
+        finalResult
+      } </div>
+            );
+          }
+        }
