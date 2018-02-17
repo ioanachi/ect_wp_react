@@ -23,9 +23,9 @@ export class EctShortcode extends React.Component {
     const shortValue = '[ectShortcode timername="' + this.props.pName + '"   enddate="' + this.props.endDate + '"  numbercolor= "' + this.props.pColor +
     '" numberfontsize="' + this.props.pFont + 'px"' + ' numberbold="' + this.props.chooseBold + '" enddatetimezone="' + this.props.pTimezoneOffset +
     '" endhour="' + this.props.pEndHour + '"  endminute= "' + this.props.pEndMinute + '" timeFormat="' + this.props.pTimeFormat  +
-    '" cTxtYears=" ' + this.props.pYears + '"  cTxtMonths="' + this.props.pMonths + '" cTxtWeeks="' + this.props.pWeeks +
-    '" cTxtDays="' + this.props.pDays + '" cTxtHours="' + this.props.pHoursFormat + '" cTxtMinutes="' + this.props.pMinutesFormat +
-    '" cTxtSeconds="' + this.props.pSecondsFormat + '"]';
+    '" customTxtYears=" ' + this.props.pYears + '"  customTxtMonths="' + this.props.pMonths + '" customTxtWeeks="' + this.props.pWeeks +
+    '" customTxtDays="' + this.props.pDays + '" customTxtHours="' + this.props.pHoursFormat + '" customTxtMinutes="' + this.props.pMinutesFormat +
+    '" customTxtSeconds="' + this.props.pSecondsFormat + '"]';
 
     return (<div className="ectSortcode">
       <label>Shortcode</label>
