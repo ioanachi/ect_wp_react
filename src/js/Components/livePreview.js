@@ -39,6 +39,7 @@ export class LivePreview extends React.Component {
             customTxtHours: this.props.pHoursFormat,
             customTxtMinutes: this.props.pMinutesFormat,
             customTxtSeconds: this.props.pSecondsFormat,
+            customTxtEndedTxt: this.props.pCustomTxtEndedTxt,
             pFormat: this.props.pFormat,
         };
         var divStyle = {
@@ -78,6 +79,7 @@ export class LivePreview extends React.Component {
                 customTxtHours: propertiesObj.customTxtHours,
                 customTxtMinutes: propertiesObj.customTxtMinutes,
                 customTxtSeconds: propertiesObj.customTxtSeconds,
+                customTxtEndedTxt: propertiesObj.customTxtEndedTxt
             }
             divStyle = {
                 fontSize: propertiesObj.fontSize,
@@ -121,7 +123,8 @@ export class LivePreview extends React.Component {
             customTxtHours: this.props.pHoursFormat,
             customTxtMinutes: this.props.pMinutesFormat,
             customTxtSeconds: this.props.pSecondsFormat,
-            pFormat: this.props.pFormat,
+            customTxtEndedTxt: this.props.pCustomTxtEndedTxt,
+                pFormat: this.props.pFormat,
         };
         var divStyle = {
             fontSize: this.props.pFont + 'px',
@@ -160,7 +163,8 @@ export class LivePreview extends React.Component {
                 customTxtHours: propertiesObj.customTxtHours,
                 customTxtMinutes: propertiesObj.customTxtMinutes,
                 customTxtSeconds: propertiesObj.customTxtSeconds,
-            }
+                customTxtEndedTxt: propertiesObj.customTxtEndedTxt
+            };
             divStyle = {
                 fontSize: dataProps.fontSize,
                 color: dataProps.color,
@@ -177,27 +181,30 @@ export class LivePreview extends React.Component {
             endHour: dataProps.endHour,
             endMinute: dataProps.endMinute
         };
-        var numberValues = mathCountDown.mathFunc(tempDatesObj); 
-        if(numberValues==false || typeof numberValues == 'undefined'){
-            return;
-        }
-        const timerNumbers = {
-            Years: numberValues.Years,
-            Months: numberValues.Months,
-            Weeks: numberValues.Weeks,
-            Days: numberValues.Days,
-            Hours: numberValues.Hours,
-            Minutes: numberValues.Minutes,
-            Seconds: numberValues.Seconds,
-            Styles: {
-                fontSize: this.props.pFont + 'px',
-                color: this.props.pColor,
-                fontWeight: (
-                    this.props.pIsBold == true ?
-                        'bold' :
-                        'normal')
+        var numberValues = mathCountDown.mathFunc(tempDatesObj);
+        var timerNumbers = {};
+        if (!numberValues) {
+            timerNumbers = false;
+        } else {
+            timerNumbers = {
+                Years: numberValues.Years,
+                Months: numberValues.Months,
+                Weeks: numberValues.Weeks,
+                Days: numberValues.Days,
+                Hours: numberValues.Hours,
+                Minutes: numberValues.Minutes,
+                Seconds: numberValues.Seconds,
+                Styles: {
+                    fontSize: this.props.pFont + 'px',
+                    color: this.props.pColor,
+                    fontWeight: (
+                        this.props.pIsBold == true ?
+                            'bold' :
+                            'normal')
+                }
             }
         }
+
         const timerCustomTxt = {
             Years: dataProps.customTxtYears,
             Months: dataProps.customTxtMonths,
@@ -206,6 +213,7 @@ export class LivePreview extends React.Component {
             Hours: dataProps.customTxtHours,
             Minutes: dataProps.customTxtMinutes,
             Seconds: dataProps.customTxtSeconds,
+            EndedTxt: dataProps.customTxtEndedTxt,
             Styles: {
                 fontSize: this.props.pFont + 'px',
                 color: this.props.pColor,
