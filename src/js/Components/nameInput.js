@@ -19,6 +19,5 @@ export class UserName extends React.Component {
   };
   render() {
     return (<MuiThemeProvider><TextField onChange={this.inputName} value={this.state.nameValue} hintText="Timer Name"/></MuiThemeProvider>)
-    // <input className="username" type="text" onInput={this.inputName} value={this.state.nameValue}/>;
   }
 }
