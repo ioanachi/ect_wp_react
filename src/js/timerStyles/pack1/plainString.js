@@ -20,6 +20,7 @@ export default class PlainString extends React.Component {
           finalResult.push(tempItem);
       }
     }
+    
     if(!this.props.numbers){ 
       finalResult = (<span style={this.props.customTxt.Styles}>{this.props.customTxt.EndedTxt}</span>); 
     }

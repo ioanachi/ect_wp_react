@@ -98627,7 +98627,7 @@ var _timezonePicker = __webpack_require__(792);
 
 var _livePreview = __webpack_require__(794);
 
-var _timeFormat = __webpack_require__(799);
+var _timeFormat = __webpack_require__(798);
 
 var _reactTabs = __webpack_require__(373);
 
@@ -101169,6 +101169,7 @@ var _class = function () {
       _createClass(_class, null, [{
             key: 'mathFunc',
             value: function mathFunc(obj) {
+
                   // var tempTimeout = obj.timeout;
                   // if (!tempTimeout[0]) {
                   //   tempTimeout.push(setTimeout(() => {
@@ -101349,6 +101350,7 @@ var PlainString = function (_React$Component) {
           finalResult.push(tempItem);
         }
       }
+
       if (!this.props.numbers) {
         finalResult = _react2.default.createElement('span', { style: this.props.customTxt.Styles }, this.props.customTxt.EndedTxt);
       }
@@ -101362,8 +101364,7 @@ var PlainString = function (_React$Component) {
 exports.default = PlainString;
 
 /***/ }),
-/* 798 */,
-/* 799 */
+/* 798 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

@@ -1,5 +1,6 @@
 export default class {
   static mathFunc(obj) {
+    
     // var tempTimeout = obj.timeout;
     // if (!tempTimeout[0]) {
     //   tempTimeout.push(setTimeout(() => {
