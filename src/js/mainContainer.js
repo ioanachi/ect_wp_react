@@ -239,5 +239,4 @@ ectProperties.forEach(function (eachTimer) {
     for (var key in eachTimer) {
         ReactDOM.render(<MainContainer id="ectInsertSC" parentID={key} />, document.getElementById(key));
     }
-    ;
-})
+});

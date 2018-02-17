@@ -96978,7 +96978,6 @@ ectProperties.forEach(function (eachTimer) {
     for (var key in eachTimer) {
         _reactDom2.default.render(_react2.default.createElement(MainContainer, { id: 'ectInsertSC', parentID: key }), document.getElementById(key));
     }
-    ;
 });
 
 /***/ }),
