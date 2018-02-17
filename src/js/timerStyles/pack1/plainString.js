@@ -16,9 +16,12 @@ export default class PlainString extends React.Component {
             continue;
           }
         }
-          var tempItem = (<div className="spanDiv"><span style={this.props.numbers.Styles}>{this.props.numbers[key]}</span> <span style={this.props.cTxt.Styles}>{this.props.cTxt[key]}</span>&nbsp;</div>);
+          var tempItem = (<div className="spanDiv"><span style={this.props.numbers.Styles}>{this.props.numbers[key]}</span> <span style={this.props.customTxt.Styles}>{this.props.customTxt[key]}</span>&nbsp;</div>);
           finalResult.push(tempItem);
       }
+    }
+    if(!this.props.numbers){ 
+      finalResult = (<span style={this.props.customTxt.Styles}>{this.props.customTxt.EndedTxt}</span>); 
     }
     return (
       <div>

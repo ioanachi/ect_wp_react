@@ -38,7 +38,8 @@ class MainContainer extends React.Component {
             daysFormat: 'Days',
             hoursFormat: 'Hours',
             minutesFormat: 'Minutes',
-            secondsFormat: 'Seconds'
+            secondsFormat: 'Seconds',
+            customTxtEndedTxt: 'Timer Ended'
         };
         this.onFontSubmit = this.onFontSubmit.bind(this);
         this.returnChildDate = this.returnChildDate.bind(this);
@@ -104,7 +105,7 @@ class MainContainer extends React.Component {
         var labelPreview = (<label key="labelLivePreview" htmlFor="tableStyles" className="containerLabels">
             Preview</label>)
         const livePreviewOnly = (<LivePreview key="LivePreview" pYears={this.state.yearsFormat} pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat} pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat}
-            parentID={this.props.parentID} pName={this.state.naMeP} endDate={this.state.endDate} pFont={this.state.fontSizeP} pColor={this.state.pColor} pIsBold={this.state.pIsBold} pTimezoneOffset={this.state.timezoneOffset} endHour={this.state.endHour} endMinute={this.state.endMinute} pFormat={this.state.timeFormat} />);
+            parentID={this.props.parentID} pName={this.state.naMeP} endDate={this.state.endDate} pFont={this.state.fontSizeP} pColor={this.state.pColor} pIsBold={this.state.pIsBold} pTimezoneOffset={this.state.timezoneOffset} endHour={this.state.endHour} endMinute={this.state.endMinute} pFormat={this.state.timeFormat} pCustomTxtEndedTxt={this.state.customTxtEndedTxt} />);
 
         // the rest of the data
         var configurationComponentsJSX = (<div key="configurationComponentsJSX">
@@ -212,7 +213,7 @@ class MainContainer extends React.Component {
         if (!isOnlyPreview) {
             returnAllData.push(configurationComponentsJSX);
         }
-        if (this.state.endDate == '') {
+        if (this.state.endDate == '' && !isOnlyPreview) {
                  returnAllData = (<div className="endDateShow">
                     <div className="endDateShowSmallContainer">
                     <div>
