@@ -205,7 +205,7 @@ class MainContainer extends React.Component {
         if (!isOnlyPreview) {
             returnAllData.push(configurationComponentsJSX);
         }
-        if (this.state.endDate == '') {
+        if (this.state.endDate == '' && !devMode) {
                  returnAllData = (<div className="endDateShow">
                     <div className="endDateShowSmallContainer">
                     <div>
