@@ -99870,81 +99870,10 @@ exports.default = PickColor;
 
 /***/ }),
 /* 791 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Bold = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _MuiThemeProvider = __webpack_require__(55);
-
-var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
-
-var _Toggle = __webpack_require__(331);
-
-var _Toggle2 = _interopRequireDefault(_Toggle);
-
-var _MyAwesomeReactComponent = __webpack_require__(96);
-
-var _MyAwesomeReactComponent2 = _interopRequireDefault(_MyAwesomeReactComponent);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Bold = exports.Bold = function (_React$Component) {
-  _inherits(Bold, _React$Component);
-
-  function Bold(props) {
-    _classCallCheck(this, Bold);
-
-    var _this = _possibleConstructorReturn(this, (Bold.__proto__ || Object.getPrototypeOf(Bold)).call(this, props));
-
-    _this.state = {
-      isBold: _this.props.pIsBold
-    };
-    _this.changeBold = _this.changeBold.bind(_this);
-    return _this;
-  }
-
-  _createClass(Bold, [{
-    key: 'changeBold',
-    value: function changeBold(evt) {
-      var isBold = evt.target.checked;
-      this.setState({ isBold: isBold });
-      var SubmitB = this.props.callbackChildPropB;
-      SubmitB(isBold);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var styles = {
-        toggle: {
-          marginBottom: 16
-        }
-      };
-
-      return _react2.default.createElement(_MuiThemeProvider2.default, null, _react2.default.createElement(_Toggle2.default, { onToggle: this.changeBold, style: styles.toggle }));
-      // <input id="checkBox" checked={this.state.isBold} type="checkbox" onChange={this.changeBold}/>);
-    }
-  }]);
-
-  return Bold;
-}(_react2.default.Component);
+throw new Error("Module build failed: SyntaxError: C:/Users/cipri/Documents/work/ect_wp_react/src/js/Components/bold.js: Unexpected token (33:5)\n\n\u001b[0m \u001b[90m 31 | \u001b[39m        \u001b[33m<\u001b[39m\u001b[33mToggle\u001b[39m onToggle\u001b[33m=\u001b[39m{\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mchangeBold} style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mtoggle} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 32 | \u001b[39m      \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mMuiThemeProvider\u001b[39m\u001b[33m>\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 33 | \u001b[39m    )\n \u001b[90m    | \u001b[39m     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n");
 
 /***/ }),
 /* 792 */
@@ -100813,7 +100742,6 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
             timerStyle: 'PlainString'
         };
         var tempClass = window[_this.state.timerStyle + '2'];
-        console.log(_this.tempClass);
         _this.liveCountDown = _this.liveCountDown.bind(_this);
         return _this;
     }

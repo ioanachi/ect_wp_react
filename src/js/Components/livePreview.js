@@ -12,7 +12,6 @@ export class LivePreview extends React.Component {
             timerStyle: 'PlainString'
         };
         const tempClass = window[this.state.timerStyle + '2'];
-        console.log(this.tempClass);
         this.liveCountDown = this.liveCountDown.bind(this);
     }
     ;

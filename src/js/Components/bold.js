@@ -9,7 +9,9 @@ export class Bold extends React.Component {
     this.state = {
       isBold: this.props.pIsBold
     }
-    this.changeBold = this.changeBold.bind(this);
+    this.changeBold = this
+      .changeBold
+      .bind(this);
   };
   changeBold(evt) {
     const isBold = evt.target.checked;
@@ -26,8 +28,6 @@ export class Bold extends React.Component {
 
     return (
       <MuiThemeProvider>
-        <Toggle  onToggle={this.changeBold}  style={styles.toggle}/>
-    </MuiThemeProvider>)
-    // <input id="checkBox" checked={this.state.isBold} type="checkbox" onChange={this.changeBold}/>);
-  }
-}
+        <Toggle onToggle={this.changeBold} style={styles.toggle} />
+      </MuiThemeProvider>
+    )
