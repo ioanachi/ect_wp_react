@@ -26,6 +26,7 @@ class MainContainer extends React.Component {
             naMeP: '',
             fontSizeP: 42,
             pColor: '#000',
+            pColorTxt:'#000',
             pIsBold: false,
             timezoneOffset: -(new Date().getTimezoneOffset() * 60000),
             endHour: 0,
@@ -64,24 +65,27 @@ class MainContainer extends React.Component {
     onNameSubmit(childVal) {
         this.setState({ naMeP: childVal });
     }
-    returnChildDate(endDateChild, endHourChild, endMinuteChild,firstView) {
-        
-        
-        this.setState({ 
+    returnChildDate(endDateChild, endHourChild, endMinuteChild, firstView) {
+
+
+        this.setState({
             endDate: moment(endDateChild),
-            endHour:endHourChild,
-            endMinute:endMinuteChild,
-            firstView:firstView
+            endHour: endHourChild,
+            endMinute: endMinuteChild,
+            firstView: firstView
         });
         this.state.firstView = firstView;
     }
     returnChildColor(childVal) {
         this.setState({ pColor: childVal })
+    };
+    returnChildColorText(textColor){
+        this.setState({ pColorTxt: textColor })
     }
     returnTimezone(timezoneChosen, utcTz) {
         this.setState({ timezoneOffset: timezoneChosen, utcTz: utcTz });
     }
-    
+
     returnFormat(formatType) {
         this.setState({ timeFormat: formatType });
     }
@@ -103,7 +107,7 @@ class MainContainer extends React.Component {
         var labelPreview = (<label key="labelLivePreview" htmlFor="tableStyles" className="containerLabels">
             Preview</label>)
         const livePreviewOnly = (<LivePreview key="LivePreview" pYears={this.state.yearsFormat} pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat} pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat}
-            parentID={this.props.parentID} pName={this.state.naMeP} endDate={this.state.endDate} pFont={this.state.fontSizeP} pColor={this.state.pColor} pIsBold={this.state.pIsBold} pTimezoneOffset={this.state.timezoneOffset} endHour={this.state.endHour} endMinute={this.state.endMinute} pFormat={this.state.timeFormat} pCustomTxtEndedTxt={this.state.customTxtEndedTxt} />);
+            parentID={this.props.parentID} pName={this.state.naMeP} endDate={this.state.endDate} pFont={this.state.fontSizeP} pColor={this.state.pColor}  pColorTxt={this.state.pColorTxt}pIsBold={this.state.pIsBold} pTimezoneOffset={this.state.timezoneOffset} endHour={this.state.endHour} endMinute={this.state.endMinute} pFormat={this.state.timeFormat} pCustomTxtEndedTxt={this.state.customTxtEndedTxt} />);
 
         // the rest of the data
         var configurationComponentsJSX = (<div key="configurationComponentsJSX">
@@ -124,10 +128,10 @@ class MainContainer extends React.Component {
                                     <label htmlFor="datePicker">End Date</label>
                                 </td>
                                 <td className="componentContainer">
-                                <EndDate callbackChildProp={this.returnChildDate} pEndDate={this.state.endDate} />
+                                    <EndDate callbackChildProp={this.returnChildDate} pEndDate={this.state.endDate} />
                                 </td>
                             </tr>
-                           
+
                             <tr>
                                 <td className="componentContainer">
                                     <label>Timezone</label>
@@ -185,6 +189,9 @@ class MainContainer extends React.Component {
                 </TabPanel>
                 <TabPanel>
                     <CustomText pYears={this.state.yearsFormat} pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat} pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat} callbackChildPropFormatText={this.returnTextFormat} />
+                    <label>Color Text</label>
+                    <PickColor callbackChildPropColorTxt={this.returnChildColorTxt} pColor={this.state.pColorTxt} />
+
                 </TabPanel>
             </Tabs>
 
@@ -209,12 +216,12 @@ class MainContainer extends React.Component {
                  returnAllData = (<div className="endDateShow">
                     <div className="endDateShowSmallContainer">
                     <div>
-                      <label htmlFor="datePicker">Select END Date</label>
-                      <EndDate className="endDateDiv" callbackChildProp={this.returnChildDate} pEndDate={this.state.endDate}/>
-                        </div>
-                   </div>
-                 </div>);
-           }
+                        <label htmlFor="datePicker">Select END Date</label>
+                        <EndDate className="endDateDiv" callbackChildProp={this.returnChildDate} pEndDate={this.state.endDate} />
+                    </div>
+                </div>
+            </div>);
+        }
         return returnAllData;
     }
     render() {
