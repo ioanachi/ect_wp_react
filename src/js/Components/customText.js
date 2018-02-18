@@ -85,20 +85,10 @@ export class CustomText extends React.Component {
         <tbody>
           <tr>
             <td className="componentContainer">
-              <label>Years</label>
-            </td>
-            <td className="componentContainer">
               <TextField hintText="Hint Text" onChange={this.chooseYears} value={this.state.yearsFormat}/>
             </td>
             <td className="componentContainer">
-              <label>Months</label>
-            </td>
-            <td className="componentContainer">
             <TextField hintText="Hint Text" onChange={this.chooseMonths} value={this.state.monthsFormat}/>
-
-            </td>
-            <td className="componentContainer">
-              <label>Weeks</label>
             </td>
             <td className="componentContainer">
             <TextField hintText="Hint Text" onChange={this.chooseWeeks} value={this.state.weeksFormat}/>
@@ -106,28 +96,16 @@ export class CustomText extends React.Component {
           </tr>
           <tr>
             <td className="componentContainer">
-              <label>Days</label>
-            </td>
-            <td className="componentContainer">
             <TextField hintText="Hint Text" onChange={this.chooseDays} value={this.state.daysFormat}/>
             </td>
             <td className="componentContainer">
-              <label>Hours</label>
-            </td>
-            <td className="componentContainer">
             <TextField hintText="Hint Text" onChange={this.chooseHours} value={this.state.hoursFormat}/>
-            </td>
-            <td className="componentContainer">
-              <label>Minutes</label>
             </td>
             <td className="componentContainer">
             <TextField hintText="Hint Text" onChange={this.chooseMinutes} value={this.state.minutesFormat}/>
             </td>
           </tr>
           <tr>
-            <td className="componentContainer">
-              <label>Seconds</label>
-            </td>
             <td className="componentContainer">
             <TextField hintText="Hint Text" onChange={this.chooseSeconds} value={this.state.secondsFormat}/>
             </td>

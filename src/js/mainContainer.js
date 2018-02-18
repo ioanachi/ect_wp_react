@@ -167,26 +167,8 @@ class MainContainer extends React.Component {
                                         <Timezones
                                             pTimezoneOffset={this.state.timezoneOffset}
                                             callbackChildPropT={this.returnTimezone} /></td>
-
                                 </tr>
                                 <tr>
-
-                                    <td className="componentContainer">
-                                        <label >Time Format</label>
-                                    </td>
-                                    <td><TimeFormat
-                                        pTimeFormat={this.state.timeFormat}
-                                        callBackSelectFormat={this.returnFormat} /></td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </TabPanel>
-                    <TabPanel>
-                        <table className="tableStyles">
-                            <tbody>
-                                <tr>
-
                                     <td className="componentContainer">
                                         <label htmlFor="username">Name</label>
                                     </td>
@@ -194,8 +176,13 @@ class MainContainer extends React.Component {
                                         <UserName NameParent={this.onNameSubmit} nameValue={this.state.naMeP} />
                                     </td>
                                 </tr>
+                            </tbody>
+                        </table>
+                    </TabPanel>
+                    <TabPanel>
+                        <table className="tableStyles">
+                            <tbody>
                                 <tr>
-
                                     <td className="componentContainer">
                                         <label>Color</label>
                                     </td>
