@@ -97054,7 +97054,9 @@ var Bold = exports.Bold = function (_React$Component) {
     value: function render() {
       var styles = {
         toggle: {
-          marginBottom: 16
+          marginBottom: 16,
+          width: "auto",
+          display: "inline-block"
         }
       };
 

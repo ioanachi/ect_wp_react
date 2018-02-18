@@ -22,7 +22,9 @@ export class Bold extends React.Component {
   render() {
     const styles = {
       toggle: {
-        marginBottom: 16
+        marginBottom: 16,
+        width: "auto",
+        display: "inline-block"
       }
     };
 
