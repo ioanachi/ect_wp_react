@@ -35981,7 +35981,7 @@ __webpack_require__(760);
 /* 368 */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n  </div>\r\n  <script type=\"text/javascript\">\r\n    var devMode = true;\r\n    var isOnlyPreview = false;\r\n    var ectProperties = [{\r\n      'ectPopupContent': {\r\n        timeout: [],\r\n        endDate: '2029/2/16',\r\n        pTimezoneOffset: '+7200000',\r\n        endHour: '00',\r\n        endMinute: '00',\r\n        pFormat: 'D then H:M:S',\r\n        fontSize: 172,\r\n        fontSizeTxt: 32,\r\n        color: 'green',\r\n        colorTxt: '#F00',\r\n        isBold: false,\r\n        isBoldTxt: false,\r\n        customTxtYears: 'Years',\r\n        customTxtMonths: 'Months',\r\n        customTxtWeeks: 'Weeks',\r\n        customTxtDays: 'Days',\r\n        customTxtHours: 'Hours',\r\n        customTxtMinutes: 'Minutes',\r\n        customTxtSeconds: 'Seconds',\r\n        customTxtEndedTxt: 'Timer Ended'\r\n      }\r\n    }];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>";
+module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n  </div>\r\n  <script type=\"text/javascript\">\r\n    var devMode = true;\r\n    var isOnlyPreview = true;\r\n    var ectProperties = [{\r\n      'ectPopupContent': {\r\n        timeout: [],\r\n        endDate: '2029/2/16',\r\n        pTimezoneOffset: '+7200000',\r\n        endHour: '00',\r\n        endMinute: '00',\r\n        pFormat: 'D then H:M:S',\r\n        fontSize: 172,\r\n        fontSizeTxt: 32,\r\n        color: 'green',\r\n        colorTxt: '#F00',\r\n        isBold: false,\r\n        isBoldTxt: false,\r\n        customTxtYears: 'Years',\r\n        customTxtMonths: 'Months',\r\n        customTxtWeeks: 'Weeks',\r\n        customTxtDays: 'Days',\r\n        customTxtHours: 'Hours',\r\n        customTxtMinutes: 'Minutes',\r\n        customTxtSeconds: 'Seconds',\r\n        customTxtEndedTxt: 'Timer Ended'\r\n      }\r\n    }];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>";
 
 /***/ }),
 /* 369 */
@@ -96111,280 +96111,285 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var MainContainer = function (_React$Component) {
-  _inherits(MainContainer, _React$Component);
+    _inherits(MainContainer, _React$Component);
 
-  function MainContainer(props) {
-    _classCallCheck(this, MainContainer);
+    function MainContainer(props) {
+        _classCallCheck(this, MainContainer);
 
-    var _this = _possibleConstructorReturn(this, (MainContainer.__proto__ || Object.getPrototypeOf(MainContainer)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (MainContainer.__proto__ || Object.getPrototypeOf(MainContainer)).call(this, props));
 
-    _this.state = {
-      endDate: (0, _moment2.default)(),
-      isDisabled: false,
-      naMeP: "",
-      fontSize: 42,
-      fontSizeTxt: 42,
-      pColor: "#000",
-      pColorTxt: "#000",
-      pIsBold: false,
-      pIsBoldTxt: false,
-      timezoneOffset: -(new Date().getTimezoneOffset() * 60000),
-      endHour: 0,
-      endMinute: 0,
-      utcTz: "Etc/GMT+12",
-      timeFormat: "Y2S",
-      yearsFormat: "Years",
-      monthsFormat: "Months",
-      weeksFormat: "Weeks",
-      daysFormat: "Days",
-      hoursFormat: "Hours",
-      minutesFormat: "Minutes",
-      secondsFormat: "Seconds",
-      customTxtEndedTxt: "Timer Ended",
-      firstView: true
-    };
-    _this.onFontSubmit = _this.onFontSubmit.bind(_this);
-    _this.onFontSubmitTxt = _this.onFontSubmitTxt.bind(_this);
-    _this.returnChildDate = _this.returnChildDate.bind(_this);
-    _this.onNameSubmit = _this.onNameSubmit.bind(_this);
-    _this.returnChildColor = _this.returnChildColor.bind(_this);
-    _this.returnChildColorTxt = _this.returnChildColorTxt.bind(_this);
-    _this.isBold = _this.isBold.bind(_this);
-    _this.returnTimezone = _this.returnTimezone.bind(_this);
-    _this.returnFormat = _this.returnFormat.bind(_this);
-    _this.returnTextFormat = _this.returnTextFormat.bind(_this);
-    _this.isBoldTxt = _this.isBoldTxt.bind(_this);
-    return _this;
-  }
+        _this.state = {
+            endDate: (0, _moment2.default)(),
+            isDisabled: false,
+            naMeP: "",
+            fontSize: 42,
+            fontSizeTxt: 42,
+            pColor: "#000",
+            pColorTxt: "#000",
+            pIsBold: false,
+            pIsBoldTxt: false,
+            timezoneOffset: -(new Date().getTimezoneOffset() * 60000),
+            endHour: 0,
+            endMinute: 0,
+            utcTz: "Etc/GMT+12",
+            timeFormat: "Y2S",
+            yearsFormat: "Years",
+            monthsFormat: "Months",
+            weeksFormat: "Weeks",
+            daysFormat: "Days",
+            hoursFormat: "Hours",
+            minutesFormat: "Minutes",
+            secondsFormat: "Seconds",
+            customTxtEndedTxt: "Timer Ended",
+            firstView: true,
+            livePrewiewOnly: ''
+        };
+        _this.onFontSubmit = _this.onFontSubmit.bind(_this);
+        _this.onFontSubmitTxt = _this.onFontSubmitTxt.bind(_this);
+        _this.returnChildDate = _this.returnChildDate.bind(_this);
+        _this.onNameSubmit = _this.onNameSubmit.bind(_this);
+        _this.returnChildColor = _this.returnChildColor.bind(_this);
+        _this.returnChildColorTxt = _this.returnChildColorTxt.bind(_this);
+        _this.isBold = _this.isBold.bind(_this);
+        _this.returnTimezone = _this.returnTimezone.bind(_this);
+        _this.returnFormat = _this.returnFormat.bind(_this);
+        _this.returnTextFormat = _this.returnTextFormat.bind(_this);
+        _this.isBoldTxt = _this.isBoldTxt.bind(_this);
+        return _this;
+    }
 
-  _createClass(MainContainer, [{
-    key: "isBold",
-    value: function isBold(childVal) {
-      this.setState({ pIsBold: childVal });
-    }
-  }, {
-    key: "isBoldTxt",
-    value: function isBoldTxt(childVal) {
-      this.setState({ pIsBoldTxt: childVal });
-    }
-  }, {
-    key: "onFontSubmit",
-    value: function onFontSubmit(childVal) {
-      this.setState({ fontSize: childVal });
-    }
-  }, {
-    key: "onFontSubmitTxt",
-    value: function onFontSubmitTxt(childVal) {
-      this.setState({ fontSizeTxt: childVal });
-    }
-  }, {
-    key: "onNameSubmit",
-    value: function onNameSubmit(childVal) {
-      this.setState({ naMeP: childVal });
-    }
-  }, {
-    key: "returnChildDate",
-    value: function returnChildDate(endDateChild, endHourChild, endMinuteChild, firstView) {
-      this.setState({
-        endDate: (0, _moment2.default)(endDateChild),
-        endHour: endHourChild,
-        endMinute: endMinuteChild,
-        firstView: firstView
-      });
-      this.state.firstView = firstView;
-    }
-  }, {
-    key: "returnChildColor",
-    value: function returnChildColor(childVal) {
-      this.setState({ pColor: childVal });
-    }
-  }, {
-    key: "returnChildColorTxt",
-    value: function returnChildColorTxt(childVal) {
-      this.setState({ pColorTxt: childVal });
-    }
-  }, {
-    key: "returnChildColorText",
-    value: function returnChildColorText(textColor) {
-      this.setState({ pColorTxt: textColor });
-    }
-  }, {
-    key: "returnTimezone",
-    value: function returnTimezone(timezoneChosen, utcTz) {
-      this.setState({ timezoneOffset: timezoneChosen, utcTz: utcTz });
-    }
-  }, {
-    key: "returnFormat",
-    value: function returnFormat(formatType) {
-      this.setState({ timeFormat: formatType });
-    }
-  }, {
-    key: "returnTextFormat",
-    value: function returnTextFormat(Y, M, W, D, H, Minute, S, endText) {
-      this.setState({
-        yearsFormat: Y,
-        monthsFormat: M,
-        weeksFormat: W,
-        daysFormat: D,
-        hoursFormat: H,
-        minutesFormat: Minute,
-        secondsFormat: S,
-        customTxtEndedTxt: endText
-      });
-    }
-  }, {
-    key: "showOnlyLivePreview",
-    value: function showOnlyLivePreview() {
-      var returnAllData = [];
-      var pData = {
-        Years: this.state.yearsFormat,
-        Months: this.state.monthsFormat,
-        Weeks: this.state.weeksFormat,
-        Days: this.state.daysFormat,
-        Hours: this.state.hoursFormat,
-        Minutes: this.state.minutesFormat,
-        Seconds: this.state.secondsFormat,
-        parentID: this.props.parentID,
-        naMeP: this.state.naMeP,
-        endDate: this.state.endDate,
-        fontSize: this.state.fontSize,
-        fontSizeTxt: this.state.fontSizeTxt,
-        color: this.state.pColor,
-        colorTxt: this.state.pColorTxt,
-        isBold: this.state.pIsBold,
-        isBoldTxt: this.state.pIsBoldTxt,
-        timezoneOffset: this.state.timezoneOffset,
-        endHour: this.state.endHour,
-        endMinute: this.state.endMinute,
-        timeFormat: this.state.timeFormat,
-        customTxtEndedTxt: this.state.customTxtEndedTxt
-      };
-      var labelPreview = _react2.default.createElement("label", {
-        key: "labelLivePreview",
-        htmlFor: "tableStyles",
-        className: "containerLabels"
-      }, "Preview");
-      var livePreviewOnly = _react2.default.createElement(_livePreview.LivePreview, { key: "LivePreview", pAllData: pData });
+    _createClass(MainContainer, [{
+        key: "isBold",
+        value: function isBold(childVal) {
+            this.setState({ pIsBold: childVal });
+        }
+    }, {
+        key: "isBoldTxt",
+        value: function isBoldTxt(childVal) {
+            this.setState({ pIsBoldTxt: childVal });
+        }
+    }, {
+        key: "onFontSubmit",
+        value: function onFontSubmit(childVal) {
+            this.setState({ fontSize: childVal });
+        }
+    }, {
+        key: "onFontSubmitTxt",
+        value: function onFontSubmitTxt(childVal) {
+            this.setState({ fontSizeTxt: childVal });
+        }
+    }, {
+        key: "onNameSubmit",
+        value: function onNameSubmit(childVal) {
+            this.setState({ naMeP: childVal });
+        }
+    }, {
+        key: "returnChildDate",
+        value: function returnChildDate(endDateChild, endHourChild, endMinuteChild, firstView) {
+            this.setState({
+                endDate: (0, _moment2.default)(endDateChild),
+                endHour: endHourChild,
+                endMinute: endMinuteChild,
+                firstView: firstView
+            });
+            this.state.firstView = firstView;
+        }
+    }, {
+        key: "returnChildColor",
+        value: function returnChildColor(childVal) {
+            this.setState({ pColor: childVal });
+        }
+    }, {
+        key: "returnChildColorTxt",
+        value: function returnChildColorTxt(childVal) {
+            this.setState({ pColorTxt: childVal });
+        }
+    }, {
+        key: "returnChildColorText",
+        value: function returnChildColorText(textColor) {
+            this.setState({ pColorTxt: textColor });
+        }
+    }, {
+        key: "returnTimezone",
+        value: function returnTimezone(timezoneChosen, utcTz) {
+            this.setState({ timezoneOffset: timezoneChosen, utcTz: utcTz });
+        }
+    }, {
+        key: "returnFormat",
+        value: function returnFormat(formatType) {
+            this.setState({ timeFormat: formatType });
+        }
+    }, {
+        key: "returnTextFormat",
+        value: function returnTextFormat(Y, M, W, D, H, Minute, S, endText) {
+            this.setState({
+                yearsFormat: Y,
+                monthsFormat: M,
+                weeksFormat: W,
+                daysFormat: D,
+                hoursFormat: H,
+                minutesFormat: Minute,
+                secondsFormat: S,
+                customTxtEndedTxt: endText
+            });
+        }
+    }, {
+        key: "showOnlyLivePreview",
+        value: function showOnlyLivePreview() {
+            var returnAllData = [];
+            var pData = {
+                Years: this.state.yearsFormat,
+                Months: this.state.monthsFormat,
+                Weeks: this.state.weeksFormat,
+                Days: this.state.daysFormat,
+                Hours: this.state.hoursFormat,
+                Minutes: this.state.minutesFormat,
+                Seconds: this.state.secondsFormat,
+                parentID: this.props.parentID,
+                naMeP: this.state.naMeP,
+                endDate: this.state.endDate,
+                fontSize: this.state.fontSize,
+                fontSizeTxt: this.state.fontSizeTxt,
+                color: this.state.pColor,
+                colorTxt: this.state.pColorTxt,
+                isBold: this.state.pIsBold,
+                isBoldTxt: this.state.pIsBoldTxt,
+                timezoneOffset: this.state.timezoneOffset,
+                endHour: this.state.endHour,
+                endMinute: this.state.endMinute,
+                timeFormat: this.state.timeFormat,
+                customTxtEndedTxt: this.state.customTxtEndedTxt
+            };
+            var labelPreview = _react2.default.createElement("label", {
+                key: "labelLivePreview",
+                htmlFor: "tableStyles",
+                className: "containerLabels"
+            }, "Preview");
+            var livePreviewOnlyClass = '';
+            if (isOnlyPreview) {
+                livePreviewOnlyClass = 'livePreviewOnly';
+            }
+            var livePreviewOnly = _react2.default.createElement(_livePreview.LivePreview, { key: "LivePreview", pAllData: pData, livePreviewOnly: livePreviewOnlyClass });
 
-      // the rest of the data
-      var configurationComponentsJSX = _react2.default.createElement("div", { key: "configurationComponentsJSX" }, _react2.default.createElement("label", { htmlFor: "tableStyles", className: "containerLabels" }, "Configuration"), _react2.default.createElement(_reactTabs.Tabs, { className: "tableStyles" }, _react2.default.createElement(_reactTabs.TabList, null, _react2.default.createElement(_reactTabs.Tab, null, "General"), _react2.default.createElement(_reactTabs.Tab, null, "Configuration"), _react2.default.createElement(_reactTabs.Tab, null, "Custom Text")), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement("table", { className: "configTable" }, _react2.default.createElement("tbody", null, _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", { htmlFor: "datePicker" }, "End Date")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement(_endDate.EndDate, {
-        callbackChildProp: this.returnChildDate,
-        pEndDate: this.state.endDate
-      }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Timezone")), _react2.default.createElement("td", { className: "timezones" }, _react2.default.createElement(_timezonePicker.Timezones, {
-        pTimezoneOffset: this.state.timezoneOffset,
-        callbackChildPropT: this.returnTimezone
-      }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", { htmlFor: "username" }, "Name")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement(_nameInput.UserName, {
-        NameParent: this.onNameSubmit,
-        nameValue: this.state.naMeP
-      })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement("table", { className: "configTable configuration" }, _react2.default.createElement("thead", null, _react2.default.createElement("tr", null, _react2.default.createElement("th", null, " "), _react2.default.createElement("th", null, "Numbers"), _react2.default.createElement("th", null, "Custom Text"))), _react2.default.createElement("tbody", null, _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Color")), _react2.default.createElement("td", null, _react2.default.createElement(_colorReactPicker2.default, {
-        callbackChildPropColor: this.returnChildColor,
-        pColor: this.state.pColor
-      })), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement(_colorReactPicker2.default, {
-        callbackChildPropColor: this.returnChildColorTxt,
-        pColor: this.state.pColorTxt
-      }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", { htmlFor: "fontInput" }, "Font Size")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement(_fontSize.EctSlider, {
-        pFontSize: this.state.fontSize,
-        pFontSizeCallback: this.onFontSubmit
-      })), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement(_fontSize.EctSlider, {
-        pFontSize: this.state.fontSizeTxt,
-        pFontSizeCallback: this.onFontSubmitTxt
-      }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Select to make Bold")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement(_bold.Bold, {
-        callbackChildPropB: this.isBold,
-        pIsBold: this.state.pIsBold
-      })), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement(_bold.Bold, {
-        callbackChildPropB: this.isBoldTxt,
-        pIsBold: this.state.pIsBoldTxt
-      })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement(_customText.CustomText, {
-        pYears: this.state.yearsFormat,
-        pMonths: this.state.monthsFormat,
-        pWeeks: this.state.weeksFormat,
-        pDays: this.state.daysFormat,
-        pHoursFormat: this.state.hoursFormat,
-        pMinutesFormat: this.state.minutesFormat,
-        pSecondsFormat: this.state.secondsFormat,
-        pcustomTxtEndedTxt: this.state.customTxtEndedTxt,
-        callbackChildPropFormatText: this.returnTextFormat
-      }))), _react2.default.createElement("button", {
-        type: "button",
-        id: "ectInsertSC",
-        className: "insertButton button button-primary",
-        onClick: this.ectInsertSC
-      }, "Insert Shortcode"), _react2.default.createElement("button", {
-        type: "button",
-        className: "ectClosePopupButton",
-        onClick: this.ectClosePopupButton,
-        name: "button"
-      }, "X Close"));
-      if (!isOnlyPreview) {
-        returnAllData.push(labelPreview);
-      }
-      returnAllData.push(livePreviewOnly);
-      if (!isOnlyPreview) {
-        returnAllData.push(configurationComponentsJSX);
-      }
-      if (this.state.firstView && !devMode) {
-        returnAllData = _react2.default.createElement("div", { className: "endDateShow" }, _react2.default.createElement("div", { className: "endDateShowSmallContainer" }, _react2.default.createElement("div", null, _react2.default.createElement("label", { htmlFor: "datePicker" }, "Select END Date"), _react2.default.createElement(_endDate.EndDate, {
-          className: "endDateDiv",
-          callbackChildProp: this.returnChildDate,
-          pEndDate: this.state.endDate
-        }))));
-      }
-      return returnAllData;
-    }
-  }, {
-    key: "ectInsertSC",
-    value: function (_ectInsertSC) {
-      function ectInsertSC() {
-        return _ectInsertSC.apply(this, arguments);
-      }
+            // the rest of the data
+            var configurationComponentsJSX = _react2.default.createElement("div", { key: "configurationComponentsJSX" }, _react2.default.createElement("label", { htmlFor: "tableStyles", className: "containerLabels" }, "Configuration"), _react2.default.createElement(_reactTabs.Tabs, { className: "tableStyles" }, _react2.default.createElement(_reactTabs.TabList, null, _react2.default.createElement(_reactTabs.Tab, null, "General"), _react2.default.createElement(_reactTabs.Tab, null, "Configuration"), _react2.default.createElement(_reactTabs.Tab, null, "Custom Text")), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement("table", { className: "configTable" }, _react2.default.createElement("tbody", null, _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", { htmlFor: "datePicker" }, "End Date")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement(_endDate.EndDate, {
+                callbackChildProp: this.returnChildDate,
+                pEndDate: this.state.endDate
+            }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Timezone")), _react2.default.createElement("td", { className: "timezones" }, _react2.default.createElement(_timezonePicker.Timezones, {
+                pTimezoneOffset: this.state.timezoneOffset,
+                callbackChildPropT: this.returnTimezone
+            }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", { htmlFor: "username" }, "Name")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement(_nameInput.UserName, {
+                NameParent: this.onNameSubmit,
+                nameValue: this.state.naMeP
+            })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement("table", { className: "configTable configuration" }, _react2.default.createElement("thead", null, _react2.default.createElement("tr", null, _react2.default.createElement("th", null, " "), _react2.default.createElement("th", null, "Numbers"), _react2.default.createElement("th", null, "Custom Text"))), _react2.default.createElement("tbody", null, _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Color")), _react2.default.createElement("td", null, _react2.default.createElement(_colorReactPicker2.default, {
+                callbackChildPropColor: this.returnChildColor,
+                pColor: this.state.pColor
+            })), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement(_colorReactPicker2.default, {
+                callbackChildPropColor: this.returnChildColorTxt,
+                pColor: this.state.pColorTxt
+            }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", { htmlFor: "fontInput" }, "Font Size")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement(_fontSize.EctSlider, {
+                pFontSize: this.state.fontSize,
+                pFontSizeCallback: this.onFontSubmit
+            })), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement(_fontSize.EctSlider, {
+                pFontSize: this.state.fontSizeTxt,
+                pFontSizeCallback: this.onFontSubmitTxt
+            }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Select to make Bold")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement(_bold.Bold, {
+                callbackChildPropB: this.isBold,
+                pIsBold: this.state.pIsBold
+            })), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement(_bold.Bold, {
+                callbackChildPropB: this.isBoldTxt,
+                pIsBold: this.state.pIsBoldTxt
+            })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement(_customText.CustomText, {
+                pYears: this.state.yearsFormat,
+                pMonths: this.state.monthsFormat,
+                pWeeks: this.state.weeksFormat,
+                pDays: this.state.daysFormat,
+                pHoursFormat: this.state.hoursFormat,
+                pMinutesFormat: this.state.minutesFormat,
+                pSecondsFormat: this.state.secondsFormat,
+                pcustomTxtEndedTxt: this.state.customTxtEndedTxt,
+                callbackChildPropFormatText: this.returnTextFormat
+            }))), _react2.default.createElement("button", {
+                type: "button",
+                id: "ectInsertSC",
+                className: "insertButton button button-primary",
+                onClick: this.ectInsertSC
+            }, "Insert Shortcode"), _react2.default.createElement("button", {
+                type: "button",
+                className: "ectClosePopupButton",
+                onClick: this.ectClosePopupButton,
+                name: "button"
+            }, "X Close"));
+            if (!isOnlyPreview) {
+                returnAllData.push(labelPreview);
+            }
+            returnAllData.push(livePreviewOnly);
+            if (!isOnlyPreview) {
+                returnAllData.push(configurationComponentsJSX);
+            }
+            if (this.state.firstView && !devMode) {
+                returnAllData = _react2.default.createElement("div", { className: "endDateShow" }, _react2.default.createElement("div", { className: "endDateShowSmallContainer" }, _react2.default.createElement("div", null, _react2.default.createElement("label", { htmlFor: "datePicker" }, "Select END Date"), _react2.default.createElement(_endDate.EndDate, {
+                    className: "endDateDiv",
+                    callbackChildProp: this.returnChildDate,
+                    pEndDate: this.state.endDate
+                }))));
+            }
+            return returnAllData;
+        }
+    }, {
+        key: "ectInsertSC",
+        value: function (_ectInsertSC) {
+            function ectInsertSC() {
+                return _ectInsertSC.apply(this, arguments);
+            }
 
-      ectInsertSC.toString = function () {
-        return _ectInsertSC.toString();
-      };
+            ectInsertSC.toString = function () {
+                return _ectInsertSC.toString();
+            };
 
-      return ectInsertSC;
-    }(function () {
-      if (typeof ectInsertSC != "undefined") {
-        ectInsertSC();
-      }
-    })
-  }, {
-    key: "ectClosePopupButton",
-    value: function (_ectClosePopupButton) {
-      function ectClosePopupButton() {
-        return _ectClosePopupButton.apply(this, arguments);
-      }
+            return ectInsertSC;
+        }(function () {
+            if (typeof ectInsertSC != "undefined") {
+                ectInsertSC();
+            }
+        })
+    }, {
+        key: "ectClosePopupButton",
+        value: function (_ectClosePopupButton) {
+            function ectClosePopupButton() {
+                return _ectClosePopupButton.apply(this, arguments);
+            }
 
-      ectClosePopupButton.toString = function () {
-        return _ectClosePopupButton.toString();
-      };
+            ectClosePopupButton.toString = function () {
+                return _ectClosePopupButton.toString();
+            };
 
-      return ectClosePopupButton;
-    }(function () {
-      if (typeof ectPopup != "undefined") {
-        ectClosePopupButton();
-      }
-    })
-  }, {
-    key: "render",
-    value: function render() {
-      var _state = this.state,
-          endDate = _state.endDate,
-          isDisabled = _state.isDisabled; //from the day picker
-      //only the live preview section
+            return ectClosePopupButton;
+        }(function () {
+            if (typeof ectPopup != "undefined") {
+                ectClosePopupButton();
+            }
+        })
+    }, {
+        key: "render",
+        value: function render() {
+            var _state = this.state,
+                endDate = _state.endDate,
+                isDisabled = _state.isDisabled; //from the day picker
+            //only the live preview section
 
-      var renderReturn = _react2.default.createElement("div", { className: "ContainerMain" }, this.showOnlyLivePreview());
-      return renderReturn;
-    }
-  }]);
+            var renderReturn = _react2.default.createElement("div", { className: "ContainerMain" }, this.showOnlyLivePreview());
+            return renderReturn;
+        }
+    }]);
 
-  return MainContainer;
+    return MainContainer;
 }(_react2.default.Component);
 
 ectProperties.forEach(function (eachTimer) {
-  for (var key in eachTimer) {
-    _reactDom2.default.render(_react2.default.createElement(MainContainer, { id: "ectInsertSC", parentID: key }), document.getElementById(key));
-  }
+    for (var key in eachTimer) {
+        _reactDom2.default.render(_react2.default.createElement(MainContainer, { id: "ectInsertSC", parentID: key }), document.getElementById(key));
+    }
 });
 
 /***/ }),
