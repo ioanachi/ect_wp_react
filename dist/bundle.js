@@ -96304,7 +96304,15 @@ var MainContainer = function (_React$Component) {
                 pTimezoneOffset: this.state.timezoneOffset,
                 pEndHour: this.state.endHour,
                 pEndMinute: this.state.endMinute,
-                pFormat: this.state.timeFormat }), _react2.default.createElement('button', { type: 'button', id: 'ectInsertSC', className: 'insertButton button button-primary', onClick: this.ectInsertSC }, 'Insert Shortcode'), _react2.default.createElement('button', { type: 'button', className: 'ectClosePopupButton', onClick: this.ectClosePopupButton, name: 'button' }, 'X Close'));
+                pFormat: this.state.timeFormat }), _react2.default.createElement('button', {
+                type: 'button',
+                id: 'ectInsertSC',
+                className: 'insertButton button button-primary',
+                onClick: this.ectInsertSC }, 'Insert Shortcode'), _react2.default.createElement('button', {
+                type: 'button',
+                className: 'ectClosePopupButton',
+                onClick: this.ectClosePopupButton,
+                name: 'button' }, 'X Close'));
             if (!isOnlyPreview) {
                 returnAllData.push(labelPreview);
             };
