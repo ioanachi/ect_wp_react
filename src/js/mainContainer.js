@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { UserName } from './Components/nameInput';
-import { EctSlider } from './Components/fontSize';
-import { EctShortcode } from './Components/ectShortcode';
-import { EndDate } from './Components/endDate.js';
-import { CustomText } from './Components/customText.js';
+import {UserName} from './Components/nameInput';
+import {EctSlider} from './Components/fontSize';
+import {EctShortcode} from './Components/ectShortcode';
+import {EndDate} from './Components/endDate.js';
+import {CustomText} from './Components/customText.js';
 import PickColor from './Components/colorReactPicker.js';
-import { Bold } from './Components/bold.js';
-import { Timezones } from './Components/timezonePicker.js';
-import { LivePreview } from './Components/livePreview.js';
-import { TimeFormat } from './Components/timeFormat.js';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import {Bold} from './Components/bold.js';
+import {Timezones} from './Components/timezonePicker.js';
+import {LivePreview} from './Components/livePreview.js';
+import {TimeFormat} from './Components/timeFormat.js';
+import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import moment from 'moment';
 
 class MainContainer extends React.Component {
@@ -41,55 +41,77 @@ class MainContainer extends React.Component {
             customTxtEndedTxt: 'Timer Ended',
             firstView: true
         };
-        this.onFontSubmit = this.onFontSubmit.bind(this);
-        this.onFontSubmitTxt = this.onFontSubmitTxt.bind(this);
-        this.returnChildDate = this.returnChildDate.bind(this);
-        this.onNameSubmit = this.onNameSubmit.bind(this);
-        this.returnChildColor = this.returnChildColor.bind(this);
-        this.returnChildColorTxt = this.returnChildColorTxt.bind(this);
-        this.isBold = this.isBold.bind(this);
-        this.returnTimezone = this.returnTimezone.bind(this);
-        this.returnFormat = this.returnFormat.bind(this);
-        this.returnTextFormat = this.returnTextFormat.bind(this);
-        this.isBoldTxt = this.isBoldTxt.bind(this);
+        this.onFontSubmit = this
+            .onFontSubmit
+            .bind(this);
+        this.onFontSubmitTxt = this
+            .onFontSubmitTxt
+            .bind(this);
+        this.returnChildDate = this
+            .returnChildDate
+            .bind(this);
+        this.onNameSubmit = this
+            .onNameSubmit
+            .bind(this);
+        this.returnChildColor = this
+            .returnChildColor
+            .bind(this);
+        this.returnChildColorTxt = this
+            .returnChildColorTxt
+            .bind(this);
+        this.isBold = this
+            .isBold
+            .bind(this);
+        this.returnTimezone = this
+            .returnTimezone
+            .bind(this);
+        this.returnFormat = this
+            .returnFormat
+            .bind(this);
+        this.returnTextFormat = this
+            .returnTextFormat
+            .bind(this);
+        this.isBoldTxt = this
+            .isBoldTxt
+            .bind(this);
     }
 
     isBold(childVal) {
-        this.setState({ pIsBold: childVal })
+        this.setState({pIsBold: childVal})
     };
 
     isBoldTxt(childVal) {
-        this.setState({ pIsBoldTxt: childVal })
+        this.setState({pIsBoldTxt: childVal})
     }
     onFontSubmit(childVal) {
-        this.setState({ fontSize: childVal });
+        this.setState({fontSize: childVal});
     }
     onFontSubmitTxt(childVal) {
-        this.setState({ fontSizeTxt: childVal });
+        this.setState({fontSizeTxt: childVal});
     }
     onNameSubmit(childVal) {
-        this.setState({ naMeP: childVal });
+        this.setState({naMeP: childVal});
     }
     returnChildDate(endDateChild, endHourChild, endMinuteChild, firstView) {
 
-        this.setState({ endDate: moment(endDateChild), endHour: endHourChild, endMinute: endMinuteChild, firstView: firstView });
+        this.setState({endDate: moment(endDateChild), endHour: endHourChild, endMinute: endMinuteChild, firstView: firstView});
         this.state.firstView = firstView;
     }
     returnChildColor(childVal) {
-        this.setState({ pColor: childVal })
+        this.setState({pColor: childVal})
     };
     returnChildColorTxt(childVal) {
-        this.setState({ pColorTxt: childVal })
+        this.setState({pColorTxt: childVal})
     };
     returnChildColorText(textColor) {
-        this.setState({ pColorTxt: textColor })
+        this.setState({pColorTxt: textColor})
     }
     returnTimezone(timezoneChosen, utcTz) {
-        this.setState({ timezoneOffset: timezoneChosen, utcTz: utcTz });
+        this.setState({timezoneOffset: timezoneChosen, utcTz: utcTz});
     }
 
     returnFormat(formatType) {
-        this.setState({ timeFormat: formatType });
+        this.setState({timeFormat: formatType});
     };
     returnTextFormat(Y, M, W, D, H, Minute, S) {
         this.setState({
@@ -131,7 +153,7 @@ class MainContainer extends React.Component {
             <label key="labelLivePreview" htmlFor="tableStyles" className="containerLabels">
                 Preview</label>
         )
-        const livePreviewOnly = (<LivePreview key="LivePreview" pAllData={pData} />);
+        const livePreviewOnly = (<LivePreview key="LivePreview" pAllData={pData}/>);
 
         // the rest of the data
         var configurationComponentsJSX = (
@@ -155,7 +177,7 @@ class MainContainer extends React.Component {
                                     <td className="componentContainer">
                                         <EndDate
                                             callbackChildProp={this.returnChildDate}
-                                            pEndDate={this.state.endDate} />
+                                            pEndDate={this.state.endDate}/>
                                     </td>
                                 </tr>
 
@@ -166,14 +188,14 @@ class MainContainer extends React.Component {
                                     <td className="timezones">
                                         <Timezones
                                             pTimezoneOffset={this.state.timezoneOffset}
-                                            callbackChildPropT={this.returnTimezone} /></td>
+                                            callbackChildPropT={this.returnTimezone}/></td>
                                 </tr>
                                 <tr>
                                     <td className="componentContainer">
                                         <label htmlFor="username">Name</label>
                                     </td>
                                     <td className="componentContainer">
-                                        <UserName NameParent={this.onNameSubmit} nameValue={this.state.naMeP} />
+                                        <UserName NameParent={this.onNameSubmit} nameValue={this.state.naMeP}/>
                                     </td>
                                 </tr>
                             </tbody>
@@ -188,7 +210,7 @@ class MainContainer extends React.Component {
                                     </td>
                                     <td><PickColor
                                         callbackChildPropColor={this.returnChildColor}
-                                        pColor={this.state.pColor} /></td>
+                                        pColor={this.state.pColor}/></td>
                                 </tr>
                                 <tr>
                                     <td className="componentContainer">
@@ -197,14 +219,14 @@ class MainContainer extends React.Component {
                                     <td className="componentContainer">
                                         <EctSlider
                                             pFontSize={this.state.fontSize}
-                                            pFontSizeCallback={this.onFontSubmit} /></td>
+                                            pFontSizeCallback={this.onFontSubmit}/></td>
                                 </tr>
                                 <tr>
                                     <td className="componentContainer">
                                         <label>Select to make text Bold</label>
                                     </td>
                                     <td className="componentContainer">
-                                        <Bold callbackChildPropB={this.isBold} pIsBold={this.state.pIsBold} /></td>
+                                        <Bold callbackChildPropB={this.isBold} pIsBold={this.state.pIsBold}/></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -218,7 +240,7 @@ class MainContainer extends React.Component {
                             pHoursFormat={this.state.hoursFormat}
                             pMinutesFormat={this.state.minutesFormat}
                             pSecondsFormat={this.state.secondsFormat}
-                            callbackChildPropFormatText={this.returnTextFormat} />
+                            callbackChildPropFormatText={this.returnTextFormat}/>
                         <table className="configTable">
                             <tbody>
                                 <tr>
@@ -227,7 +249,7 @@ class MainContainer extends React.Component {
                                     </td>
                                     <td className="componentContainer"><PickColor
                                         callbackChildPropColor={this.returnChildColorTxt}
-                                        pColor={this.state.pColorTxt} /></td>
+                                        pColor={this.state.pColorTxt}/></td>
                                 </tr>
                                 <tr>
                                     <td className="componentContainer">
@@ -235,14 +257,14 @@ class MainContainer extends React.Component {
                                     </td>
                                     <td className="componentContainer"><EctSlider
                                         pFontSize={this.state.fontSizeTxt}
-                                        pFontSizeCallback={this.onFontSubmitTxt} /></td>
+                                        pFontSizeCallback={this.onFontSubmitTxt}/></td>
                                 </tr>
                                 <tr>
                                     <td className="componentContainer">
                                         <label>Select to make text Bold</label>
                                     </td>
                                     <td className="componentContainer">
-                                        <Bold callbackChildPropB={this.isBoldTxt} pIsBold={this.state.pIsBoldTxt} /></td>
+                                        <Bold callbackChildPropB={this.isBoldTxt} pIsBold={this.state.pIsBoldTxt}/></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -268,13 +290,10 @@ class MainContainer extends React.Component {
                     pTimezoneOffset={this.state.timezoneOffset}
                     pEndHour={this.state.endHour}
                     pEndMinute={this.state.endMinute}
-                    pFormat={this.state.timeFormat} />
+                    pFormat={this.state.timeFormat}/>
 
-                <button
-                    type="button"
-                    id="ectInsertSC"
-                    className="insertButton button button-primary">Insert Shortcode</button>
-                <button type="button" className="ectClosePopupButton" name="button">X Close</button>
+                <button type="button" id="ectInsertSC" className="insertButton button button-primary" onClick={this.ectInsertSC}>Insert Shortcode</button>
+                <button type="button" className="ectClosePopupButton" onClick={this.ectClosePopupButton} name="button">X Close</button>
             </div>
         );
         if (!isOnlyPreview) {
@@ -293,7 +312,7 @@ class MainContainer extends React.Component {
                             <EndDate
                                 className="endDateDiv"
                                 callbackChildProp={this.returnChildDate}
-                                pEndDate={this.state.endDate} />
+                                pEndDate={this.state.endDate}/>
                         </div>
                     </div>
                 </div>
@@ -301,8 +320,18 @@ class MainContainer extends React.Component {
         }
         return returnAllData;
     }
+    ectInsertSC() {
+        if (typeof ectInsertSC != 'undefined') {
+            ectInsertSC();
+        }
+    }
+    ectClosePopupButton(){
+        if (typeof ectPopup != 'undefined') {
+            ectClosePopupButton();
+        }  
+    }
     render() {
-        const { endDate, isDisabled } = this.state; //from the day picker
+        const {endDate, isDisabled} = this.state; //from the day picker
         //only the live preview section
 
         var renderReturn = (
@@ -316,6 +345,6 @@ class MainContainer extends React.Component {
 ectProperties.forEach(function (eachTimer) {
     for (var key in eachTimer) {
         ReactDOM.render(
-            <MainContainer id="ectInsertSC" parentID={key} />, document.getElementById(key));
+            <MainContainer id="ectInsertSC" parentID={key}/>, document.getElementById(key));
     }
 });
