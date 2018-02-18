@@ -114,6 +114,14 @@ html {
                                 background-color: #f0f0f0;
                             }
                         }
+                        &.configTable{
+                            width: 500px;
+                            td{
+                                &:nth-child(1){
+                                    width: 170px;
+                                }
+                            }
+                        }
                     }
                 }
             }

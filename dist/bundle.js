@@ -36692,7 +36692,7 @@ __webpack_require__(767);
 /* 375 */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n  </div>\r\n  <script type=\"text/javascript\">\r\n    var devMode = true;\r\n    var isOnlyPreview = false;\r\n    var ectProperties = [{\r\n      'ectPopupContent': {\r\n        timeout: [],\r\n        endDate: '2029/2/16',\r\n        pTimezoneOffset: '+7200000',\r\n        endHour: '00',\r\n        endMinute: '00',\r\n        pFormat: 'D then H:M:S',\r\n        fontSize: '172px',\r\n        fontSizeTxt: '32px',\r\n        color: 'green',\r\n        colorTxt: '#F00',\r\n        isBold: true,\r\n        isBoldTxt: false,\r\n        customTxtYears: 'Years',\r\n        customTxtMonths: 'Months',\r\n        customTxtWeeks: 'Weeks',\r\n        customTxtDays: 'Days',\r\n        customTxtHours: 'Hours',\r\n        customTxtMinutes: 'Minutes',\r\n        customTxtSeconds: 'Seconds',\r\n        customTxtEndedTxt: 'Timer Ended'\r\n      }\r\n    }];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>";
+module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n  </div>\r\n  <script type=\"text/javascript\">\r\n    var devMode = false;\r\n    var isOnlyPreview = false;\r\n    var ectProperties = [{\r\n      'ectPopupContent': {\r\n        timeout: [],\r\n        endDate: '2029/2/16',\r\n        pTimezoneOffset: '+7200000',\r\n        endHour: '00',\r\n        endMinute: '00',\r\n        pFormat: 'D then H:M:S',\r\n        fontSize: 172,\r\n        fontSizeTxt: 32,\r\n        color: 'green',\r\n        colorTxt: '#F00',\r\n        isBold: true,\r\n        isBoldTxt: false,\r\n        customTxtYears: 'Years',\r\n        customTxtMonths: 'Months',\r\n        customTxtWeeks: 'Weeks',\r\n        customTxtDays: 'Days',\r\n        customTxtHours: 'Hours',\r\n        customTxtMinutes: 'Minutes',\r\n        customTxtSeconds: 'Seconds',\r\n        customTxtEndedTxt: 'Timer Ended'\r\n      }\r\n    }];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>";
 
 /***/ }),
 /* 376 */
@@ -96754,7 +96754,7 @@ exports = module.exports = __webpack_require__(74)(undefined);
 
 
 // module
-exports.push([module.i, "html {\n  height: 100%;\n  width: 100%;\n  margin: 0px;\n  padding: 0px; }\n  html body {\n    margin: 0px;\n    padding: 0px;\n    height: 100%;\n    width: 100%; }\n    html body #ectPopupContent {\n      height: 100%;\n      width: 100%; }\n      html body #ectPopupContent .ContainerMain {\n        position: relative;\n        margin: 0 2%;\n        height: 100%;\n        width: 98%; }\n        html body #ectPopupContent .ContainerMain .componentContainer {\n          padding: 20px;\n          margin-bottom: 10px; }\n          html body #ectPopupContent .ContainerMain .componentContainer label {\n            font-size: 20px;\n            margin-right: 20px; }\n          html body #ectPopupContent .ContainerMain .componentContainer input.shortcode {\n            padding: 5px;\n            width: 60%; }\n          html body #ectPopupContent .ContainerMain .componentContainer input .endDateShow {\n            display: flex;\n            justify-content: center;\n            align-items: center;\n            height: 100%;\n            width: 100%; }\n            html body #ectPopupContent .ContainerMain .componentContainer input .endDateShow .endDateShowSmallContainer {\n              width: 300px;\n              height: 300px;\n              display: flex;\n              align-items: center;\n              justify-content: center;\n              align-items: flex-center;\n              -webkit-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n              -moz-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n              box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n              background: #f0f0f0; }\n              html body #ectPopupContent .ContainerMain .componentContainer input .endDateShow .endDateShowSmallContainer label {\n                align-self: flex-start;\n                padding: 10px;\n                font-size: 20px;\n                font-weight: bold;\n                display: block;\n                text-align: center; }\n              html body #ectPopupContent .ContainerMain .componentContainer input .endDateShow .endDateShowSmallContainer .datePickerStyle {\n                align-self: flex-end;\n                padding: 0px;\n                margin: 10px 0; }\n              html body #ectPopupContent .ContainerMain .componentContainer input .endDateShow .endDateShowSmallContainer input {\n                width: 190px;\n                height: 30px; }\n                html body #ectPopupContent .ContainerMain .componentContainer input .endDateShow .endDateShowSmallContainer input::-webkit-input-placeholder {\n                  text-align: center; }\n        html body #ectPopupContent .ContainerMain .containerPreview {\n          display: inline-block; }\n          html body #ectPopupContent .ContainerMain .containerPreview div.spanDiv {\n            display: inline-block; }\n        html body #ectPopupContent .ContainerMain .containerLabels {\n          padding: 20px 0;\n          font-style: italic;\n          text-decoration: underline;\n          font-size: 20px;\n          font-weight: bold;\n          display: grid;\n          align-self: center; }\n        html body #ectPopupContent .ContainerMain .hourAndMinutes {\n          margin-left: 10px; }\n        html body #ectPopupContent .ContainerMain .ectSortcode {\n          padding: 5px;\n          width: 60%;\n          display: none; }\n        html body #ectPopupContent .ContainerMain button.insertButton {\n          margin: 20px 0; }\n        html body #ectPopupContent .ContainerMain button.ectClosePopupButton {\n          position: absolute;\n          top: 0;\n          right: 0;\n          padding: 5px;\n          font-size: 18px; }\n        html body #ectPopupContent .ContainerMain .tableStyles table tr:nth-child(2n) {\n          background-color: #f0f0f0; }\n      html body #ectPopupContent .endDateShow {\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        height: 100%;\n        width: 100%; }\n        html body #ectPopupContent .endDateShow .endDateShowSmallContainer {\n          width: 300px;\n          height: 300px;\n          display: flex;\n          align-items: center;\n          justify-content: center;\n          align-items: flex-center;\n          -webkit-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          -moz-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          background: #f0f0f0; }\n          html body #ectPopupContent .endDateShow .endDateShowSmallContainer label {\n            align-self: flex-start;\n            padding: 10px;\n            font-size: 20px;\n            font-weight: bold;\n            display: block;\n            text-align: center; }\n          html body #ectPopupContent .endDateShow .endDateShowSmallContainer .DayPickerInput {\n            align-self: flex-end;\n            padding: 10px;\n            margin: 10px 0; }\n            html body #ectPopupContent .endDateShow .endDateShowSmallContainer .DayPickerInput input {\n              width: 190px;\n              height: 30px; }\n              html body #ectPopupContent .endDateShow .endDateShowSmallContainer .DayPickerInput input::-webkit-input-placeholder {\n                text-align: center; }\n    html body .react-datepicker__time-box ul {\n      margin: 0px;\n      padding: 0px; }\n", ""]);
+exports.push([module.i, "html {\n  height: 100%;\n  width: 100%;\n  margin: 0px;\n  padding: 0px; }\n  html body {\n    margin: 0px;\n    padding: 0px;\n    height: 100%;\n    width: 100%; }\n    html body #ectPopupContent {\n      height: 100%;\n      width: 100%; }\n      html body #ectPopupContent .ContainerMain {\n        position: relative;\n        margin: 0 2%;\n        height: 100%;\n        width: 98%; }\n        html body #ectPopupContent .ContainerMain .componentContainer {\n          padding: 20px;\n          margin-bottom: 10px; }\n          html body #ectPopupContent .ContainerMain .componentContainer label {\n            font-size: 20px;\n            margin-right: 20px; }\n          html body #ectPopupContent .ContainerMain .componentContainer input.shortcode {\n            padding: 5px;\n            width: 60%; }\n          html body #ectPopupContent .ContainerMain .componentContainer input .endDateShow {\n            display: flex;\n            justify-content: center;\n            align-items: center;\n            height: 100%;\n            width: 100%; }\n            html body #ectPopupContent .ContainerMain .componentContainer input .endDateShow .endDateShowSmallContainer {\n              width: 300px;\n              height: 300px;\n              display: flex;\n              align-items: center;\n              justify-content: center;\n              align-items: flex-center;\n              -webkit-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n              -moz-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n              box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n              background: #f0f0f0; }\n              html body #ectPopupContent .ContainerMain .componentContainer input .endDateShow .endDateShowSmallContainer label {\n                align-self: flex-start;\n                padding: 10px;\n                font-size: 20px;\n                font-weight: bold;\n                display: block;\n                text-align: center; }\n              html body #ectPopupContent .ContainerMain .componentContainer input .endDateShow .endDateShowSmallContainer .datePickerStyle {\n                align-self: flex-end;\n                padding: 0px;\n                margin: 10px 0; }\n              html body #ectPopupContent .ContainerMain .componentContainer input .endDateShow .endDateShowSmallContainer input {\n                width: 190px;\n                height: 30px; }\n                html body #ectPopupContent .ContainerMain .componentContainer input .endDateShow .endDateShowSmallContainer input::-webkit-input-placeholder {\n                  text-align: center; }\n        html body #ectPopupContent .ContainerMain .containerPreview {\n          display: inline-block; }\n          html body #ectPopupContent .ContainerMain .containerPreview div.spanDiv {\n            display: inline-block; }\n        html body #ectPopupContent .ContainerMain .containerLabels {\n          padding: 20px 0;\n          font-style: italic;\n          text-decoration: underline;\n          font-size: 20px;\n          font-weight: bold;\n          display: grid;\n          align-self: center; }\n        html body #ectPopupContent .ContainerMain .hourAndMinutes {\n          margin-left: 10px; }\n        html body #ectPopupContent .ContainerMain .ectSortcode {\n          padding: 5px;\n          width: 60%;\n          display: none; }\n        html body #ectPopupContent .ContainerMain button.insertButton {\n          margin: 20px 0; }\n        html body #ectPopupContent .ContainerMain button.ectClosePopupButton {\n          position: absolute;\n          top: 0;\n          right: 0;\n          padding: 5px;\n          font-size: 18px; }\n        html body #ectPopupContent .ContainerMain .tableStyles table tr:nth-child(2n) {\n          background-color: #f0f0f0; }\n        html body #ectPopupContent .ContainerMain .tableStyles table.configTable {\n          width: 500px; }\n          html body #ectPopupContent .ContainerMain .tableStyles table.configTable td:nth-child(1) {\n            width: 170px; }\n      html body #ectPopupContent .endDateShow {\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        height: 100%;\n        width: 100%; }\n        html body #ectPopupContent .endDateShow .endDateShowSmallContainer {\n          width: 300px;\n          height: 300px;\n          display: flex;\n          align-items: center;\n          justify-content: center;\n          align-items: flex-center;\n          -webkit-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          -moz-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          background: #f0f0f0; }\n          html body #ectPopupContent .endDateShow .endDateShowSmallContainer label {\n            align-self: flex-start;\n            padding: 10px;\n            font-size: 20px;\n            font-weight: bold;\n            display: block;\n            text-align: center; }\n          html body #ectPopupContent .endDateShow .endDateShowSmallContainer .DayPickerInput {\n            align-self: flex-end;\n            padding: 10px;\n            margin: 10px 0; }\n            html body #ectPopupContent .endDateShow .endDateShowSmallContainer .DayPickerInput input {\n              width: 190px;\n              height: 30px; }\n              html body #ectPopupContent .endDateShow .endDateShowSmallContainer .DayPickerInput input::-webkit-input-placeholder {\n                text-align: center; }\n    html body .react-datepicker__time-box ul {\n      margin: 0px;\n      padding: 0px; }\n", ""]);
 
 // exports
 
@@ -96841,7 +96841,7 @@ var MainContainer = function (_React$Component) {
             endDate: (0, _moment4.default)(),
             isDisabled: false,
             naMeP: '',
-            fontSizeP: 42,
+            fontSize: 42,
             fontSizeTxt: 42,
             pColor: '#000',
             pColorTxt: '#000',
@@ -96863,6 +96863,7 @@ var MainContainer = function (_React$Component) {
             firstView: true
         };
         _this.onFontSubmit = _this.onFontSubmit.bind(_this);
+        _this.onFontSubmitTxt = _this.onFontSubmitTxt.bind(_this);
         _this.returnChildDate = _this.returnChildDate.bind(_this);
         _this.onNameSubmit = _this.onNameSubmit.bind(_this);
         _this.returnChildColor = _this.returnChildColor.bind(_this);
@@ -96887,7 +96888,12 @@ var MainContainer = function (_React$Component) {
     }, {
         key: 'onFontSubmit',
         value: function onFontSubmit(childVal) {
-            this.setState({ fontSizeP: childVal });
+            this.setState({ fontSize: childVal });
+        }
+    }, {
+        key: 'onFontSubmitTxt',
+        value: function onFontSubmitTxt(childVal) {
+            this.setState({ fontSizeTxt: childVal });
         }
     }, {
         key: 'onNameSubmit',
@@ -96898,12 +96904,7 @@ var MainContainer = function (_React$Component) {
         key: 'returnChildDate',
         value: function returnChildDate(endDateChild, endHourChild, endMinuteChild, firstView) {
 
-            this.setState({
-                endDate: (0, _moment4.default)(endDateChild),
-                endHour: endHourChild,
-                endMinute: endMinuteChild,
-                firstView: firstView
-            });
+            this.setState({ endDate: (0, _moment4.default)(endDateChild), endHour: endHourChild, endMinute: endMinuteChild, firstView: firstView });
             this.state.firstView = firstView;
         }
     }, {
@@ -96959,7 +96960,7 @@ var MainContainer = function (_React$Component) {
                 parentID: this.props.parentID,
                 naMeP: this.state.naMeP,
                 endDate: this.state.endDate,
-                fontSize: this.state.fontSizeP,
+                fontSize: this.state.fontSize,
                 fontSizeTxt: this.state.fontSizeTxt,
                 color: this.state.pColor,
                 colorTxt: this.state.pColorTxt,
@@ -96975,11 +96976,50 @@ var MainContainer = function (_React$Component) {
             var livePreviewOnly = _react2.default.createElement(_livePreview.LivePreview, { key: 'LivePreview', pAllData: pData });
 
             // the rest of the data
-            var configurationComponentsJSX = _react2.default.createElement('div', { key: 'configurationComponentsJSX' }, _react2.default.createElement('label', { htmlFor: 'tableStyles', className: 'containerLabels' }, 'Configuration'), _react2.default.createElement(_reactTabs.Tabs, null, _react2.default.createElement(_reactTabs.TabList, null, _react2.default.createElement(_reactTabs.Tab, null, 'General'), _react2.default.createElement(_reactTabs.Tab, null, 'Styles'), _react2.default.createElement(_reactTabs.Tab, null, 'Custom Text')), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_endDate.EndDate, { callbackChildProp: this.returnChildDate, pEndDate: this.state.endDate }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, { pTimezoneOffset: this.state.timezoneOffset, callbackChildPropT: this.returnTimezone }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Time Format')), _react2.default.createElement('td', null, _react2.default.createElement(_timeFormat.TimeFormat, { pTimeFormat: this.state.timeFormat, callBackSelectFormat: this.returnFormat })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit, nameValue: this.state.naMeP }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColor, pColor: this.state.pColor }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Numbers Font Size')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_fontSize.NumbersFontSize, { pFont: this.state.fontSizeP, aaa: this.onFontSubmit }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Select to make text Bold')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold, pIsBold: this.state.pIsBold })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement(_customText.CustomText, { pYears: this.state.yearsFormat, pMonths: this.state.monthsFormat, pWeeks: this.state.weeksFormat, pDays: this.state.daysFormat, pHoursFormat: this.state.hoursFormat, pMinutesFormat: this.state.minutesFormat, pSecondsFormat: this.state.secondsFormat, callbackChildPropFormatText: this.returnTextFormat }), _react2.default.createElement('h3', null, 'Custom Text Color'), _react2.default.createElement(_colorReactPicker2.default, { callbackChildPropColor: this.returnChildColorTxt, pColor: this.state.pColorTxt }))), _react2.default.createElement(_ectShortcode.EctShortcode, { pYears: this.state.yearsFormat, pMonths: this.state.monthsFormat, pWeeks: this.state.weeksFormat, pDays: this.state.daysFormat,
-                pHoursFormat: this.state.hoursFormat, pMinutesFormat: this.state.minutesFormat, pSecondsFormat: this.state.secondsFormat, pName: this.state.naMeP,
-                pTimeFormat: this.state.timeFormat, endDate: this.state.endDate, pFont: this.state.fontSizeP, pColor: this.state.pColor, chooseBold: this.state.pIsBold,
-                pUtcTz: this.state.utcTz, pTimezoneOffset: this.state.timezoneOffset, pEndHour: this.state.endHour, pEndMinute: this.state.endMinute,
-                pFormat: this.state.timeFormat }), _react2.default.createElement('button', { type: 'button', id: 'ectInsertSC', className: 'insertButton button button-primary' }, 'Insert Shortcode'), _react2.default.createElement('button', { type: 'button', className: 'ectClosePopupButton', name: 'button' }, 'X Close'));
+            var configurationComponentsJSX = _react2.default.createElement('div', { key: 'configurationComponentsJSX' }, _react2.default.createElement('label', { htmlFor: 'tableStyles', className: 'containerLabels' }, 'Configuration'), _react2.default.createElement(_reactTabs.Tabs, { className: 'tableStyles' }, _react2.default.createElement(_reactTabs.TabList, null, _react2.default.createElement(_reactTabs.Tab, null, 'General'), _react2.default.createElement(_reactTabs.Tab, null, 'Styles'), _react2.default.createElement(_reactTabs.Tab, null, 'Custom Text')), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement('table', null, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'End Date')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_endDate.EndDate, {
+                callbackChildProp: this.returnChildDate,
+                pEndDate: this.state.endDate }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Timezone')), _react2.default.createElement('td', { className: 'timezones' }, _react2.default.createElement(_timezonePicker.Timezones, {
+                pTimezoneOffset: this.state.timezoneOffset,
+                callbackChildPropT: this.returnTimezone }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Time Format')), _react2.default.createElement('td', null, _react2.default.createElement(_timeFormat.TimeFormat, {
+                pTimeFormat: this.state.timeFormat,
+                callBackSelectFormat: this.returnFormat })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement('table', { className: 'tableStyles' }, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'username' }, 'Name')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_nameInput.UserName, { NameParent: this.onNameSubmit, nameValue: this.state.naMeP }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, {
+                callbackChildPropColor: this.returnChildColor,
+                pColor: this.state.pColor }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', { htmlFor: 'fontInput' }, 'Numbers Font Size')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_fontSize.EctSlider, {
+                pFontSize: this.state.fontSize,
+                pFontSizeCallback: this.onFontSubmit }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement('label', null, 'Select to make text Bold')), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_bold.Bold, { callbackChildPropB: this.isBold, pIsBold: this.state.pIsBold })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement(_customText.CustomText, {
+                pYears: this.state.yearsFormat,
+                pMonths: this.state.monthsFormat,
+                pWeeks: this.state.weeksFormat,
+                pDays: this.state.daysFormat,
+                pHoursFormat: this.state.hoursFormat,
+                pMinutesFormat: this.state.minutesFormat,
+                pSecondsFormat: this.state.secondsFormat,
+                callbackChildPropFormatText: this.returnTextFormat }), _react2.default.createElement('table', { className: 'configTable' }, _react2.default.createElement('tr', null, _react2.default.createElement('td', null, _react2.default.createElement('label', null, 'Custom Text Color')), _react2.default.createElement('td', null, _react2.default.createElement(_colorReactPicker2.default, {
+                callbackChildPropColor: this.returnChildColorTxt,
+                pColor: this.state.pColorTxt }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', null, _react2.default.createElement('label', null, 'Custom Text Size')), _react2.default.createElement('td', null, _react2.default.createElement(_fontSize.EctSlider, {
+                pFontSize: this.state.fontSizeTxt,
+                pFontSizeCallback: this.onFontSubmitTxt })))))), _react2.default.createElement(_ectShortcode.EctShortcode, {
+                pYears: this.state.yearsFormat,
+                pMonths: this.state.monthsFormat,
+                pWeeks: this.state.weeksFormat,
+                pDays: this.state.daysFormat,
+                pHoursFormat: this.state.hoursFormat,
+                pMinutesFormat: this.state.minutesFormat,
+                pSecondsFormat: this.state.secondsFormat,
+                pName: this.state.naMeP,
+                pTimeFormat: this.state.timeFormat,
+                endDate: this.state.endDate,
+                pFont: this.state.fontSize,
+                pColor: this.state.pColor,
+                chooseBold: this.state.pIsBold,
+                pUtcTz: this.state.utcTz,
+                pTimezoneOffset: this.state.timezoneOffset,
+                pEndHour: this.state.endHour,
+                pEndMinute: this.state.endMinute,
+                pFormat: this.state.timeFormat }), _react2.default.createElement('button', {
+                type: 'button',
+                id: 'ectInsertSC',
+                className: 'insertButton button button-primary' }, 'Insert Shortcode'), _react2.default.createElement('button', { type: 'button', className: 'ectClosePopupButton', name: 'button' }, 'X Close'));
             if (!isOnlyPreview) {
                 returnAllData.push(labelPreview);
             };
@@ -96988,7 +97028,10 @@ var MainContainer = function (_React$Component) {
                 returnAllData.push(configurationComponentsJSX);
             }
             if (this.state.firstView && !devMode) {
-                returnAllData = _react2.default.createElement('div', { className: 'endDateShow' }, _react2.default.createElement('div', { className: 'endDateShowSmallContainer' }, _react2.default.createElement('div', null, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'Select END Date'), _react2.default.createElement(_endDate.EndDate, { className: 'endDateDiv', callbackChildProp: this.returnChildDate, pEndDate: this.state.endDate }))));
+                returnAllData = _react2.default.createElement('div', { className: 'endDateShow' }, _react2.default.createElement('div', { className: 'endDateShowSmallContainer' }, _react2.default.createElement('div', null, _react2.default.createElement('label', { htmlFor: 'datePicker' }, 'Select END Date'), _react2.default.createElement(_endDate.EndDate, {
+                    className: 'endDateDiv',
+                    callbackChildProp: this.returnChildDate,
+                    pEndDate: this.state.endDate }))));
             }
             return returnAllData;
         }
@@ -99374,7 +99417,7 @@ var UserName = exports.UserName = function (_React$Component) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.NumbersFontSize = undefined;
+exports.EctSlider = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -99402,28 +99445,28 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var NumbersFontSize = exports.NumbersFontSize = function (_React$Component) {
-  _inherits(NumbersFontSize, _React$Component);
+var EctSlider = exports.EctSlider = function (_React$Component) {
+  _inherits(EctSlider, _React$Component);
 
-  function NumbersFontSize(props) {
-    _classCallCheck(this, NumbersFontSize);
+  function EctSlider(props) {
+    _classCallCheck(this, EctSlider);
 
-    var _this = _possibleConstructorReturn(this, (NumbersFontSize.__proto__ || Object.getPrototypeOf(NumbersFontSize)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (EctSlider.__proto__ || Object.getPrototypeOf(EctSlider)).call(this, props));
 
     _this.state = {
-      fontSize: _this.props.pFont
+      fontSize: _this.props.pFontSize
 
     };
     _this.inputfontSize = _this.inputfontSize.bind(_this);
     return _this;
   }
 
-  _createClass(NumbersFontSize, [{
+  _createClass(EctSlider, [{
     key: 'inputfontSize',
-    value: function inputfontSize(evt, valx) {
-      this.setState({ fontSize: valx });
-      var Submitx = this.props.aaa;
-      Submitx(valx);
+    value: function inputfontSize(evt, sendValue) {
+      this.setState({ fontSize: sendValue });
+      var SubmitCallback = this.props.pFontSizeCallback;
+      SubmitCallback(sendValue);
     }
   }, {
     key: 'render',
@@ -99438,11 +99481,11 @@ var NumbersFontSize = exports.NumbersFontSize = function (_React$Component) {
           'height': '5px',
           marginTop: '5px'
         },
-        defaultValue: this.props.pFont })));
+        defaultValue: this.props.pFontSize })));
     }
   }]);
 
-  return NumbersFontSize;
+  return EctSlider;
 }(_react2.default.Component);
 
 /***/ }),
@@ -100888,6 +100931,7 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                 endHour: this.props.pAllData.endHour,
                 endMinute: this.props.pAllData.endMinute,
                 fontSize: this.props.pAllData.fontSize,
+                fontSizeTxt: this.props.pAllData.fontSizeTxt,
                 isBold: this.props.pAllData.isBold,
                 isBoldTxt: this.props.pAllData.isBoldTxt,
                 customTxtYears: this.props.pAllData.Years,
@@ -100937,12 +100981,12 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                     customTxtEndedTxt: propertiesObj.customTxtEndedTxt
                 };
                 divStyle = {
-                    fontSize: dataProps.fontSize,
+                    fontSize: dataProps.fontSize + 'px',
                     color: dataProps.color,
                     fontWeight: dataProps.isBold == true ? 'bold' : 'normal'
                 };
                 divStyleTxt = {
-                    fontSize: dataProps.fontSizeTxt,
+                    fontSize: dataProps.fontSizeTxt + 'px',
                     color: dataProps.colorTxt,
                     fontWeight: dataProps.isBoldTxt == true ? 'bold' : 'normal'
                 };

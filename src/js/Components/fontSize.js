@@ -3,21 +3,21 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Slider from 'material-ui/Slider';
 import MyAwesomeReactComponent from './MyAwesomeReactComponent';
 
-export class NumbersFontSize extends React.Component {
+export class EctSlider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fontSize: this.props.pFont
+      fontSize: this.props.pFontSize
 
     }
     this.inputfontSize = this
       .inputfontSize
       .bind(this);
   };
-  inputfontSize(evt, valx) {
-    this.setState({fontSize: valx})
-    const Submitx = this.props.aaa;
-    Submitx(valx);
+  inputfontSize(evt, sendValue) {
+    this.setState({fontSize: sendValue})
+    const SubmitCallback = this.props.pFontSizeCallback;
+    SubmitCallback(sendValue);
   }
 
   render() {
@@ -37,7 +37,7 @@ export class NumbersFontSize extends React.Component {
             'height': '5px',
             marginTop: '5px'
           }}
-            defaultValue={this.props.pFont}/>
+            defaultValue={this.props.pFontSize}/>
         </div>
       </MuiThemeProvider>
     );

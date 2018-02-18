@@ -33,6 +33,7 @@ export class LivePreview extends React.Component {
             endHour: this.props.pAllData.endHour,
             endMinute: this.props.pAllData.endMinute,
             fontSize: this.props.pAllData.fontSize,
+            fontSizeTxt: this.props.pAllData.fontSizeTxt,
             isBold: this.props.pAllData.isBold,
             isBoldTxt: this.props.pAllData.isBoldTxt,
             customTxtYears: this.props.pAllData.Years,
@@ -82,14 +83,14 @@ export class LivePreview extends React.Component {
                 customTxtEndedTxt: propertiesObj.customTxtEndedTxt
             };
             divStyle = {
-                fontSize: dataProps.fontSize,
+                fontSize: dataProps.fontSize+'px',
                 color: dataProps.color,
                 fontWeight: (dataProps.isBold == true
                     ? 'bold'
                     : 'normal')
             }
             divStyleTxt = {
-                fontSize: dataProps.fontSizeTxt,
+                fontSize: dataProps.fontSizeTxt+'px',
                 color: dataProps.colorTxt,
                 fontWeight: (dataProps.isBoldTxt == true
                     ? 'bold'
