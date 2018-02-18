@@ -96220,7 +96220,7 @@ var MainContainer = function (_React$Component) {
     }
   }, {
     key: "returnTextFormat",
-    value: function returnTextFormat(Y, M, W, D, H, Minute, S) {
+    value: function returnTextFormat(Y, M, W, D, H, Minute, S, endText) {
       this.setState({
         yearsFormat: Y,
         monthsFormat: M,
@@ -96228,8 +96228,10 @@ var MainContainer = function (_React$Component) {
         daysFormat: D,
         hoursFormat: H,
         minutesFormat: Minute,
-        secondsFormat: S
+        secondsFormat: S,
+        customTxtEndedTxt: endText
       });
+      console.log(this.state.customTxtEndedTxt, "jjjjjjjjj");
     }
   }, {
     key: "showOnlyLivePreview",
@@ -96301,6 +96303,7 @@ var MainContainer = function (_React$Component) {
         pHoursFormat: this.state.hoursFormat,
         pMinutesFormat: this.state.minutesFormat,
         pSecondsFormat: this.state.secondsFormat,
+        pcustomTxtEndedTxt: this.state.customTxtEndedTxt,
         callbackChildPropFormatText: this.returnTextFormat
       }))), _react2.default.createElement("button", {
         type: "button",
@@ -96799,7 +96802,8 @@ var CustomText = exports.CustomText = function (_React$Component) {
       daysFormat: _this.props.pDays,
       hoursFormat: _this.props.pHoursFormat,
       minutesFormat: _this.props.pMinutesFormat,
-      secondsFormat: _this.props.pSecondsFormat
+      secondsFormat: _this.props.pSecondsFormat,
+      customTxtEndedTxt: _this.props.pcustomTxtEndedTxt
     };
     _this.chooseYears = _this.chooseYears.bind(_this);
     _this.chooseMonths = _this.chooseMonths.bind(_this);
@@ -96809,6 +96813,7 @@ var CustomText = exports.CustomText = function (_React$Component) {
     _this.chooseMinutes = _this.chooseMinutes.bind(_this);
     _this.chooseSeconds = _this.chooseSeconds.bind(_this);
     _this.sendValuesToParent = _this.sendValuesToParent.bind(_this);
+    _this.chooseEndText = _this.chooseEndText.bind(_this);
     return _this;
   }
 
@@ -96869,15 +96874,27 @@ var CustomText = exports.CustomText = function (_React$Component) {
       this.sendValuesToParent();
     }
   }, {
+    key: 'chooseEndText',
+    value: function chooseEndText(evt) {
+
+      var FormatValue = evt.target.value;
+      this.state.customTxtEndedTxt = FormatValue;
+
+      console.log(FormatValue, this.props.pcustomTxtEndedTxt, "FormatValue");
+
+      this.setState({ customTxtEndedTxt: FormatValue });
+      this.sendValuesToParent();
+    }
+  }, {
     key: 'sendValuesToParent',
     value: function sendValuesToParent() {
       var SubmitTF = this.props.callbackChildPropFormatText;
-      SubmitTF(this.state.yearsFormat, this.state.monthsFormat, this.state.weeksFormat, this.state.daysFormat, this.state.hoursFormat, this.state.minutesFormat, this.state.secondsFormat);
+      SubmitTF(this.state.yearsFormat, this.state.monthsFormat, this.state.weeksFormat, this.state.daysFormat, this.state.hoursFormat, this.state.minutesFormat, this.state.secondsFormat, this.state.customTxtEndedTxt);
     }
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(_MuiThemeProvider2.default, null, _react2.default.createElement('table', null, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_TextField2.default, { hintText: 'Hint Text', onChange: this.chooseYears, value: this.state.yearsFormat })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_TextField2.default, { hintText: 'Hint Text', onChange: this.chooseMonths, value: this.state.monthsFormat })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_TextField2.default, { hintText: 'Hint Text', onChange: this.chooseWeeks, value: this.state.weeksFormat }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_TextField2.default, { hintText: 'Hint Text', onChange: this.chooseDays, value: this.state.daysFormat })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_TextField2.default, { hintText: 'Hint Text', onChange: this.chooseHours, value: this.state.hoursFormat })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_TextField2.default, { hintText: 'Hint Text', onChange: this.chooseMinutes, value: this.state.minutesFormat }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_TextField2.default, { hintText: 'Hint Text', onChange: this.chooseSeconds, value: this.state.secondsFormat }))))));
+      return _react2.default.createElement(_MuiThemeProvider2.default, null, _react2.default.createElement('table', null, _react2.default.createElement('tbody', null, _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_TextField2.default, { hintText: 'Hint Text', onChange: this.chooseYears, value: this.state.yearsFormat })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_TextField2.default, { hintText: 'Hint Text', onChange: this.chooseMonths, value: this.state.monthsFormat })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_TextField2.default, { hintText: 'Hint Text', onChange: this.chooseWeeks, value: this.state.weeksFormat }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_TextField2.default, { hintText: 'Hint Text', onChange: this.chooseDays, value: this.state.daysFormat })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_TextField2.default, { hintText: 'Hint Text', onChange: this.chooseHours, value: this.state.hoursFormat })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_TextField2.default, { hintText: 'Hint Text', onChange: this.chooseMinutes, value: this.state.minutesFormat }))), _react2.default.createElement('tr', null, _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_TextField2.default, { hintText: 'Hint Text', onChange: this.chooseSeconds, value: this.state.secondsFormat })), _react2.default.createElement('td', { className: 'componentContainer' }, _react2.default.createElement(_TextField2.default, { hintText: 'Hint Text', onChange: this.chooseEndText, value: this.state.customTxtEndedTxt }))))));
     }
   }]);
 
@@ -97065,8 +97082,8 @@ var Bold = exports.Bold = function (_React$Component) {
       var styles = {
         toggle: {
           marginBottom: 16,
-          width: 'auto',
-          display: 'inline-block'
+          width: "auto",
+          display: "inline-block"
         }
       };
 

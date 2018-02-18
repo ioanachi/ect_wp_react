@@ -52,6 +52,7 @@ class MainContainer extends React.Component {
     this.returnFormat = this.returnFormat.bind(this);
     this.returnTextFormat = this.returnTextFormat.bind(this);
     this.isBoldTxt = this.isBoldTxt.bind(this);
+    
   }
 
   isBold(childVal) {
@@ -95,7 +96,8 @@ class MainContainer extends React.Component {
   returnFormat(formatType) {
     this.setState({ timeFormat: formatType });
   }
-  returnTextFormat(Y, M, W, D, H, Minute, S) {
+  
+  returnTextFormat(Y, M, W, D, H, Minute, S, endText) {
     this.setState({
       yearsFormat: Y,
       monthsFormat: M,
@@ -103,8 +105,11 @@ class MainContainer extends React.Component {
       daysFormat: D,
       hoursFormat: H,
       minutesFormat: Minute,
-      secondsFormat: S
+      secondsFormat: S,
+      customTxtEndedTxt:endText
     });
+    console.log(this.state.customTxtEndedTxt, "jjjjjjjjj");
+    
   }
   showOnlyLivePreview() {
     var returnAllData = [];
@@ -268,6 +273,7 @@ class MainContainer extends React.Component {
               pHoursFormat={this.state.hoursFormat}
               pMinutesFormat={this.state.minutesFormat}
               pSecondsFormat={this.state.secondsFormat}
+              pcustomTxtEndedTxt = {this.state.customTxtEndedTxt}
               callbackChildPropFormatText={this.returnTextFormat}
             />
           </TabPanel>
