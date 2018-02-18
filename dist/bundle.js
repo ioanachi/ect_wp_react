@@ -96231,7 +96231,6 @@ var MainContainer = function (_React$Component) {
         secondsFormat: S,
         customTxtEndedTxt: endText
       });
-      console.log(this.state.customTxtEndedTxt, "jjjjjjjjj");
     }
   }, {
     key: "showOnlyLivePreview",
@@ -96669,11 +96668,20 @@ var EndDate = exports.EndDate = function (_React$Component) {
   _createClass(EndDate, [{
     key: 'handleChange',
     value: function handleChange(date) {
-      var newDate = date.year() + '/' + (date.month() + 1) + '/' + date.date();
+      if (date.month() + 1 < 10) {
+        var newDate = date.year() + '-' + '0' + (date.month() + 1) + '-' + date.date();
+      } else {
+        var newDate = date.year() + '-' + (date.month() + 1) + '-' + date.date();
+      }
       var newHour = date.hour();
       var newMinute = date.minute();
 
-      this.setState({ startDate: date, endDate: (0, _moment2.default)(newDate), endHour: newHour, endMinutes: newMinute });
+      this.setState({
+        startDate: date,
+        endDate: (0, _moment2.default)(newDate),
+        endHour: newHour,
+        endMinutes: newMinute
+      });
 
       var SubmitToParent = this.props.callbackChildProp;
       SubmitToParent(newDate, newHour, newMinute);

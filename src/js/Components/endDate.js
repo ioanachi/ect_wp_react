@@ -23,11 +23,21 @@ export class EndDate extends React.Component {
       .bind(this);
   }
   handleChange(date) {
-    var newDate = date.year() + '/' + (date.month() + 1) + '/' + date.date();
+    if((date.month()+1)< 10 ){
+      var newDate = date.year() + '-' + '0'+(date.month() + 1) + '-' + date.date();
+    }else{
+      var newDate = date.year() + '-' +(date.month() + 1) + '-' + date.date();
+      
+    }
     var newHour = date.hour();
     var newMinute = date.minute();
 
-    this.setState({startDate: date, endDate: moment(newDate), endHour: newHour, endMinutes: newMinute});
+    this.setState({
+      startDate: date, 
+      endDate: moment(newDate),
+       endHour: newHour, 
+       endMinutes: newMinute
+      });
 
     const SubmitToParent = this.props.callbackChildProp;
     SubmitToParent(newDate, newHour, newMinute)
