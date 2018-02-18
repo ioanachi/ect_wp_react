@@ -23,7 +23,7 @@ export class EctSlider extends React.Component {
   render() {
     return (
       <MuiThemeProvider>
-        <div>
+        <div className="ectSliderContainer">
           <span>
             {this.state.fontSize} px
           </span>
