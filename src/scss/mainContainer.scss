@@ -141,8 +141,13 @@ html {
                                     padding: 3px;
                                 }
                                 td {
-                                    
+                                    text-align: center;
+
                                     width: 38%;
+                                    div{
+                                        align-content: center;
+                                        display: inline-block;
+                                    }
                                 }
                             }
                         }
