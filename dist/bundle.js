@@ -36692,7 +36692,7 @@ __webpack_require__(767);
 /* 375 */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n  </div>\r\n  <script type=\"text/javascript\">\r\n    var devMode = true;\r\n    var isOnlyPreview = false;\r\n    var ectProperties = [{\r\n      'ectPopupContent': {\r\n        timeout: [],\r\n        endDate: '2029/2/16',\r\n        pTimezoneOffset: '+7200000',\r\n        endHour: '00',\r\n        endMinute: '00',\r\n        pFormat: 'D then H:M:S',\r\n        fontSize: '32px',\r\n        color: '#F00',\r\n        fontWeight: 'bold',\r\n        customTxtYears: 'Years',\r\n        customTxtMonths: 'Months',\r\n        customTxtWeeks: 'Weeks',\r\n        customTxtDays: 'Days',\r\n        customTxtHours: 'Hours',\r\n        customTxtMinutes: 'Minutes',\r\n        customTxtSeconds: 'Seconds',\r\n        customTxtEndedTxt: 'Timer Ended'\r\n      }\r\n    }];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>";
+module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n  </div>\r\n  <script type=\"text/javascript\">\r\n    var devMode = true;\r\n    var isOnlyPreview = false;\r\n    var ectProperties = [{\r\n      'ectPopupContent': {\r\n        timeout: [],\r\n        endDate: '2029/2/16',\r\n        pTimezoneOffset: '+7200000',\r\n        endHour: '00',\r\n        endMinute: '00',\r\n        pFormat: 'D then H:M:S',\r\n        fontSize: '172px',\r\n        fontSizeTxt: '32px',\r\n        color: 'green',\r\n        colorTxt: '#F00',\r\n        isBold: true,\r\n        isBoldTxt: false,\r\n        customTxtYears: 'Years',\r\n        customTxtMonths: 'Months',\r\n        customTxtWeeks: 'Weeks',\r\n        customTxtDays: 'Days',\r\n        customTxtHours: 'Hours',\r\n        customTxtMinutes: 'Minutes',\r\n        customTxtSeconds: 'Seconds',\r\n        customTxtEndedTxt: 'Timer Ended'\r\n      }\r\n    }];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>";
 
 /***/ }),
 /* 376 */
@@ -100863,51 +100863,6 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
         return _this;
     }
 
-    //     liveCountDown() {         console.log('test');         var tempTimeout =
-    // this.state.timeout;         if (!tempTimeout[0]) {
-    // tempTimeout.push(setTimeout(() => {                 this.setState({timeout:
-    // []});             }, 1000));         }         var dataProps = { tThis: this,
-    //             timeout: [],             endDate: this.props.pAllData.endDate,
-    //       pTimezoneOffset: this.props.pAllData.timezoneOffset, endHour:
-    // this.props.pAllData.endHour,             endMinute:
-    // this.props.pAllData.endMinute,             customTxtYears:
-    // this.props.pAllData.Years,             customTxtMonths:
-    // this.props.pAllData.Months,             customTxtWeeks:
-    // this.props.pAllData.Weeks,             customTxtDays:
-    // this.props.pAllData.Days,             customTxtHours:
-    // this.props.pAllData.Hours,             customTxtMinutes:
-    // this.props.pAllData.Minutes,             customTxtSeconds:
-    // this.props.pAllData.Seconds,             customTxtEndedTxt:
-    // this.props.pAllData.customTxtEndedTxt,             pFormat:
-    // this.props.pAllData.timeFormat         };         console.log(dataProps); var
-    // divStyle = {             fontSize: this.props.pFont + 'px',   color:
-    // this.props.pColor,             fontWeight: (this.props.pIsBold == true
-    //   ? 'bold'                 : 'normal')         }; if (isOnlyPreview) {
-    //      var theMainID = this.props.parentID;     var ectPIndex;
-    // ectProperties.forEach(function (item, index) {                 for (var key
-    // in item) {                     if (key == theMainID) {  ectPIndex = index;
-    // return;                     }                 }     }); var propertiesObj =
-    // ectProperties[ectPIndex][theMainID]; dataProps = {                 timeout:
-    // propertiesObj.timeout, endDate: propertiesObj.endDate,
-    // pTimezoneOffset: propertiesObj.pTimezoneOffset,                 endHour:
-    // propertiesObj.endHour,                 endMinute: propertiesObj.endMinute,
-    //        pFormat: propertiesObj.pFormat,                 fontSize:
-    // propertiesObj.fontSize,                 color: propertiesObj.color,
-    // fontWeight: propertiesObj.fontWeight,                 customTxtYears:
-    // propertiesObj.customTxtYears,                 customTxtMonths:
-    // propertiesObj.customTxtMonths,                 customTxtWeeks:
-    // propertiesObj.customTxtWeeks,                 customTxtDays:
-    // propertiesObj.customTxtDays,                 customTxtHours:
-    // propertiesObj.customTxtHours,                 customTxtMinutes:
-    // propertiesObj.customTxtMinutes,                 customTxtSeconds:
-    // propertiesObj.customTxtSeconds,                 customTxtEndedTxt:
-    // propertiesObj.customTxtEndedTxt             }             divStyle = {
-    // fontSize: propertiesObj.fontSize,                 color: propertiesObj.color,
-    //                 fontWeight: propertiesObj.fontWeight     };         }
-    // return (             <span style={divStyle}>
-    // {mathCountDown.mathFunc(dataProps) }             </span> );     }
-
-
     _createClass(LivePreview, [{
         key: 'dinamicComponent',
         value: function dinamicComponent() {
@@ -100945,13 +100900,10 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                 customTxtEndedTxt: this.props.pAllData.customTxtEndedTxt,
                 pFormat: this.props.pAllData.timeFormat
             };
-            var divStyle = {
-                fontSize: dataProps.fontSize + 'px',
-                color: dataProps.color,
-                fontWeight: dataProps.isBold == true ? 'bold' : 'normal'
-            };
+            var divStyle = {},
+                divStyleTxt = {};
             if (isOnlyPreview) {
-                var theMainID = this.props.parentID;
+                var theMainID = this.props.pAllData.parentID;
                 var ectPIndex;
                 ectProperties.forEach(function (item, index) {
                     for (var key in item) {
@@ -100970,9 +100922,11 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                     endMinute: propertiesObj.endMinute,
                     pFormat: propertiesObj.pFormat,
                     fontSize: propertiesObj.fontSize,
+                    fontSizeTxt: propertiesObj.fontSizeTxt,
                     color: propertiesObj.color,
                     colorTxt: propertiesObj.colorTxt,
-                    fontWeight: propertiesObj.fontWeight,
+                    isBold: propertiesObj.isBold,
+                    isBoldTxt: propertiesObj.isBoldTxt,
                     customTxtYears: propertiesObj.customTxtYears,
                     customTxtMonths: propertiesObj.customTxtMonths,
                     customTxtWeeks: propertiesObj.customTxtWeeks,
@@ -100985,7 +100939,24 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                 divStyle = {
                     fontSize: dataProps.fontSize,
                     color: dataProps.color,
+                    fontWeight: dataProps.isBold == true ? 'bold' : 'normal'
+                };
+                divStyleTxt = {
+                    fontSize: dataProps.fontSizeTxt,
+                    color: dataProps.colorTxt,
+                    fontWeight: dataProps.isBoldTxt == true ? 'bold' : 'normal'
+                };
+            } else {
+
+                divStyle = {
+                    fontSize: this.props.pAllData.fontSize + 'px',
+                    color: this.props.pAllData.color,
                     fontWeight: this.props.pAllData.isBold == true ? 'bold' : 'normal'
+                };
+                divStyleTxt = {
+                    fontSize: this.props.pAllData.fontSizeTxt + 'px',
+                    color: this.props.pAllData.colorTxt,
+                    fontWeight: this.props.pAllData.isBoldTxt == true ? 'bold' : 'normal'
                 };
             }
 
@@ -101003,6 +100974,7 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
             if (!numberValues) {
                 timerNumbers = false;
             } else {
+
                 timerNumbers = {
                     Years: numberValues.Years,
                     Months: numberValues.Months,
@@ -101011,11 +100983,7 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                     Hours: numberValues.Hours,
                     Minutes: numberValues.Minutes,
                     Seconds: numberValues.Seconds,
-                    Styles: {
-                        fontSize: this.props.pAllData.fontSize + 'px',
-                        color: this.props.pAllData.color,
-                        fontWeight: this.props.pAllData.isBold == true ? 'bold' : 'normal'
-                    }
+                    Styles: divStyle
                 };
             }
 
@@ -101028,11 +100996,7 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                 Minutes: dataProps.customTxtMinutes,
                 Seconds: dataProps.customTxtSeconds,
                 EndedTxt: dataProps.customTxtEndedTxt,
-                Styles: {
-                    fontSize: this.props.pAllData.fontSizeTxt + 'px',
-                    color: this.props.pAllData.colorTxt,
-                    fontWeight: this.props.pAllData.isBoldTxt == true ? 'bold' : 'normal'
-                }
+                Styles: divStyleTxt
             };
             var DynamicComponentName = components[this.state.timerStyle];
             return _react2.default.createElement(DynamicComponentName, { numbers: timerNumbers, customTxt: timerCustomTxt });
