@@ -43,7 +43,7 @@ export class LivePreview extends React.Component {
             customTxtHours: this.props.pAllData.Hours,
             customTxtMinutes: this.props.pAllData.Minutes,
             customTxtSeconds: this.props.pAllData.Seconds,
-            customTxtEndedTxt: this.props.pAllData.customTxtEndedTxt,
+            customTimerEndedTxt: this.props.pAllData.customTimerEndedTxt,
             pFormat: this.props.pAllData.timeFormat
         };
         var divStyle = {},
@@ -80,7 +80,7 @@ export class LivePreview extends React.Component {
                 customTxtHours: propertiesObj.customTxtHours,
                 customTxtMinutes: propertiesObj.customTxtMinutes,
                 customTxtSeconds: propertiesObj.customTxtSeconds,
-                customTxtEndedTxt: propertiesObj.customTxtEndedTxt
+                customTimerEndedTxt: propertiesObj.customTimerEndedTxt
             };
             divStyle = {
                 fontSize: dataProps.fontSize+'px',
@@ -150,7 +150,7 @@ export class LivePreview extends React.Component {
             Hours: dataProps.customTxtHours,
             Minutes: dataProps.customTxtMinutes,
             Seconds: dataProps.customTxtSeconds,
-            EndedTxt: dataProps.customTxtEndedTxt,
+            EndedTxt: dataProps.customTimerEndedTxt,
             Styles: divStyleTxt
         }
         const DynamicComponentName = components[this.state.timerStyle];

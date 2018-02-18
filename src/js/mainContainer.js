@@ -272,6 +272,12 @@ class MainContainer extends React.Component {
             />
           </TabPanel>
         </Tabs>
+        <EctShortcode pYears={this.state.yearsFormat} pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat}
+                pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat} pName={this.state.naMeP}
+                pTimeFormat={this.state.timeFormat} endDate={this.state.endDate} pFont={this.state.fontSize} pFontTxt={this.state.fontSizeTxt} pColor={this.state.pColor} pColorTxt={this.state.pColorTxt}
+                 chooseBold={this.state.pIsBold}  pIsBoldTxt={this.state.pIsBoldTxt}
+                pUtcTz={this.state.utcTz} pTimezoneOffset={this.state.timezoneOffset} pEndHour={this.state.endHour} pEndMinute={this.state.endMinute}
+                pFormat={this.state.timeFormat} pCustomTxtEndedTxt={this.state.customTxtEndedTxt} />
 
         <button
           type="button"
@@ -317,13 +323,14 @@ class MainContainer extends React.Component {
     return returnAllData;
   }
   ectInsertSC() {
-    if (typeof ectInsertSC != "undefined") {
-      ectInsertSC();
+    if (typeof window.ectWPInsertSC != "undefined") {
+      window.ectWPInsertSC();
     }
   }
   ectClosePopupButton() {
-    if (typeof ectPopup != "undefined") {
-      ectClosePopupButton();
+      
+    if (typeof window.ectWPClosePopupButton != "undefined") {
+      window.ectWPClosePopupButton();
     }
   }
   render() {

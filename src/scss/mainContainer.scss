@@ -75,7 +75,7 @@ html {
                     }
                     .ectSliderContainer{
                         width: 100%;
-                        div{
+                        &> div{
                         width: 100%;
                             
                         }
@@ -121,7 +121,8 @@ html {
                 }
                 #ectSCInput {
                     padding: 5px;
-                    width: 100%; // display: none;
+                    width: 100%; 
+                    // display: none;
                 }
                 button {
                     &.insertButton {
