@@ -96302,10 +96302,7 @@ var MainContainer = function (_React$Component) {
                 pTimezoneOffset: this.state.timezoneOffset,
                 pEndHour: this.state.endHour,
                 pEndMinute: this.state.endMinute,
-                pFormat: this.state.timeFormat }), _react2.default.createElement('button', {
-                type: 'button',
-                id: 'ectInsertSC',
-                className: 'insertButton button button-primary' }, 'Insert Shortcode'), _react2.default.createElement('button', { type: 'button', className: 'ectClosePopupButton', name: 'button' }, 'X Close'));
+                pFormat: this.state.timeFormat }), _react2.default.createElement('button', { type: 'button', id: 'ectInsertSC', className: 'insertButton button button-primary', onClick: this.ectInsertSC }, 'Insert Shortcode'), _react2.default.createElement('button', { type: 'button', className: 'ectClosePopupButton', onClick: this.ectClosePopupButton, name: 'button' }, 'X Close'));
             if (!isOnlyPreview) {
                 returnAllData.push(labelPreview);
             };
@@ -96321,6 +96318,40 @@ var MainContainer = function (_React$Component) {
             }
             return returnAllData;
         }
+    }, {
+        key: 'ectInsertSC',
+        value: function (_ectInsertSC) {
+            function ectInsertSC() {
+                return _ectInsertSC.apply(this, arguments);
+            }
+
+            ectInsertSC.toString = function () {
+                return _ectInsertSC.toString();
+            };
+
+            return ectInsertSC;
+        }(function () {
+            if (typeof ectInsertSC != 'undefined') {
+                ectInsertSC();
+            }
+        })
+    }, {
+        key: 'ectClosePopupButton',
+        value: function (_ectClosePopupButton) {
+            function ectClosePopupButton() {
+                return _ectClosePopupButton.apply(this, arguments);
+            }
+
+            ectClosePopupButton.toString = function () {
+                return _ectClosePopupButton.toString();
+            };
+
+            return ectClosePopupButton;
+        }(function () {
+            if (typeof ectPopup != 'undefined') {
+                ectClosePopupButton();
+            }
+        })
     }, {
         key: 'render',
         value: function render() {
