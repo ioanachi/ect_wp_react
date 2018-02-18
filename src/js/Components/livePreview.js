@@ -158,8 +158,11 @@ export class LivePreview extends React.Component {
     }
     render() {
         return (
+           
+            <div className="livePreviewBox">
             <div className="containerPreview">
                 {this.dinamicComponent()}
+            </div>
             </div>
         );
     }

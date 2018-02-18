@@ -128,10 +128,10 @@ class MainContainer extends React.Component {
             customTxtEndedTxt: this.state.customTxtEndedTxt
         };
         var labelPreview = (
-            <label key="labelLivePreview" htmlFor="tableStyles" className="containerLabels">
+            <label key="labelLivePreview" htmlFor="tableStyles" className="containerLabels livePreviewBox">
                 Preview</label>
         )
-        const livePreviewOnly = (<LivePreview key="LivePreview" pAllData={pData} />);
+        const livePreviewOnly = (<LivePreview className="livePrewiewOnly" key="LivePreview" pAllData={pData} />);
 
         // the rest of the data
         var configurationComponentsJSX = (
@@ -146,7 +146,7 @@ class MainContainer extends React.Component {
                     </TabList>
 
                     <TabPanel>
-                        <table>
+                        <table className="configTable">
                             <tbody>
                                 <tr>
                                     <td className="componentContainer">
@@ -180,7 +180,7 @@ class MainContainer extends React.Component {
                         </table>
                     </TabPanel>
                     <TabPanel>
-                        <table className="tableStyles">
+                        <table className="configTable">
                             <tbody>
                                 <tr>
                                     <td className="componentContainer">
@@ -306,7 +306,7 @@ class MainContainer extends React.Component {
         //only the live preview section
 
         var renderReturn = (
-            <div className="ContainerMain">
+            <div className="ContainerMain onlyPrewiew">
                 {this.showOnlyLivePreview()}
             </div>
         );

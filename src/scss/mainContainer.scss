@@ -16,9 +16,13 @@ html {
                 margin: 0 2%;
                 height: 100%;
                 width: 98%;
+                .onlyPrewiew{
+                    border:1px solid white;
+                }
                 .componentContainer {
-                    padding: 10px;
+                    padding: 20px;
                     margin-bottom: 10px;
+                    width: 15%;
                     label {
                         font-size: 20px;
                         margin-right: 20px;
@@ -47,7 +51,7 @@ html {
                                 background: #f0f0f0;
                                 label {
                                     align-self: flex-start;
-                                    padding: 5px;
+                                    padding: 20px;
                                     font-size: 18px;
                                     font-weight: bold;
                                     display: block;
@@ -117,7 +121,7 @@ html {
                         &.configTable{
                             width: 500px;
                             td{
-                                &:nth-child(1){
+                                &:nth-child(2){
                                     width: 170px;
                                 }
                             }
