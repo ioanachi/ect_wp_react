@@ -90,10 +90,10 @@ html {
                 .hourAndMinutes {
                     margin-left: 10px;
                 }
-                .ectSortcode {
+                #ectSCInput {
                     padding: 5px;
-                    width: 60%;
-                    display: none;
+                    width: 100%;
+                    // display: none;
                 }
                 button {
                     &.insertButton {
