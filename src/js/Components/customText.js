@@ -13,7 +13,8 @@ export class CustomText extends React.Component {
       daysFormat: this.props.pDays,
       hoursFormat: this.props.pHoursFormat,
       minutesFormat: this.props.pMinutesFormat,
-      secondsFormat: this.props.pSecondsFormat
+      secondsFormat: this.props.pSecondsFormat,
+      customTxtEndedTxt: this.props.pcustomTxtEndedTxt
     }
     this.chooseYears = this.chooseYears.bind(this);
     this.chooseMonths = this.chooseMonths.bind(this);
@@ -23,7 +24,7 @@ export class CustomText extends React.Component {
     this.chooseMinutes = this.chooseMinutes.bind(this);
     this.chooseSeconds = this.chooseSeconds.bind(this);
     this.sendValuesToParent = this.sendValuesToParent.bind(this);
-
+    this.chooseEndText = this.chooseEndText.bind(this);
   };
 
   chooseYears(evt) {
@@ -72,9 +73,23 @@ export class CustomText extends React.Component {
     this.setState({secondsFormat: FormatValue});
     this.sendValuesToParent();
   };
+  chooseEndText(evt) {
+    
+    const FormatValue = evt.target.value;
+    this.state.customTxtEndedTxt = FormatValue;
+    
+    console.log(FormatValue, this.props.pcustomTxtEndedTxt, "FormatValue");
+    
+    this.setState({customTxtEndedTxt: FormatValue});
+    this.sendValuesToParent();
+  };
+
+
+
+  
   sendValuesToParent() {
     const SubmitTF = this.props.callbackChildPropFormatText;
-    SubmitTF(this.state.yearsFormat, this.state.monthsFormat, this.state.weeksFormat, this.state.daysFormat, this.state.hoursFormat, this.state.minutesFormat, this.state.secondsFormat);
+    SubmitTF(this.state.yearsFormat, this.state.monthsFormat, this.state.weeksFormat, this.state.daysFormat, this.state.hoursFormat, this.state.minutesFormat, this.state.secondsFormat, this.state.customTxtEndedTxt);
 
   }
   render() {
@@ -107,6 +122,9 @@ export class CustomText extends React.Component {
           <tr>
             <td className="componentContainer">
             <TextField hintText="Hint Text" onChange={this.chooseSeconds} value={this.state.secondsFormat}/>
+            </td>
+            <td className="componentContainer">
+            <TextField hintText="Hint Text" onChange={this.chooseEndText} value={this.state.customTxtEndedTxt}/>
             </td>
           </tr>
         </tbody>

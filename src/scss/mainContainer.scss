@@ -24,7 +24,6 @@ html {
                     margin-bottom: 10px;
                     text-align: center;
                     align-content: center;
-                    
                     label {
                         font-size: 20px;
                         margin-right: 20px;
@@ -74,6 +73,13 @@ html {
                             }
                         }
                     }
+                    .ectSliderContainer{
+                        width: 100%;
+                        div{
+                        width: 100%;
+                            
+                        }
+                    }
                 }
                 .containerPreview {
                     width: 100%;
@@ -113,10 +119,9 @@ html {
                 .hourAndMinutes {
                     margin-left: 10px;
                 }
-                .ectSortcode {
+                #ectSCInput {
                     padding: 5px;
-                    width: 60%;
-                    display: none;
+                    width: 100%; // display: none;
                 }
                 button {
                     &.insertButton {
@@ -133,7 +138,7 @@ html {
                 .tableStyles {
                     table {
                         &.configuration {
-                            th {}
+                          
                             tr {
                                 th {
                                     font-size: 21px;
@@ -141,8 +146,12 @@ html {
                                     padding: 3px;
                                 }
                                 td {
-                                    
+                                    text-align: center;
                                     width: 38%;
+                                    div {
+                                        align-content: center;
+                                        display: inline-block;
+                                    }
                                 }
                             }
                         }
