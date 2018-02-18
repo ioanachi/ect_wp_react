@@ -8,7 +8,7 @@ html {
         padding: 0px;
         height: 100%;
         width: 100%;
-        #ectPopupContent {
+        .ectPopupContent {
             height: 100%;
             width: 100%;
             .ContainerMain {
@@ -122,7 +122,7 @@ html {
                 #ectSCInput {
                     padding: 5px;
                     width: 100%; 
-                    // display: none;
+                    display: none;
                 }
                 button {
                     &.insertButton {
@@ -139,7 +139,7 @@ html {
                 .tableStyles {
                     table {
                         &.configuration {
-                            th {}
+                          
                             tr {
                                 th {
                                     font-size: 21px;
@@ -151,7 +151,7 @@ html {
                                     width: 38%;
                                     div {
                                         align-content: center;
-                                        display: inline-block;
+                                     
                                     }
                                 }
                             }
