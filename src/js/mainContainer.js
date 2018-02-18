@@ -108,8 +108,6 @@ class MainContainer extends React.Component {
       secondsFormat: S,
       customTxtEndedTxt:endText
     });
-    console.log(this.state.customTxtEndedTxt, "jjjjjjjjj");
-    
   }
   showOnlyLivePreview() {
     var returnAllData = [];
