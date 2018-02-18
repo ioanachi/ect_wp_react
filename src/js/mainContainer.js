@@ -39,7 +39,8 @@ class MainContainer extends React.Component {
             minutesFormat: 'Minutes',
             secondsFormat: 'Seconds',
             customTxtEndedTxt: 'Timer Ended',
-            firstView: true
+            firstView: true,
+            livePrewiewOnly: ''
         };
         this.onFontSubmit = this
             .onFontSubmit
@@ -150,10 +151,14 @@ class MainContainer extends React.Component {
             customTxtEndedTxt: this.state.customTxtEndedTxt
         };
         var labelPreview = (
-            <label key="labelLivePreview" htmlFor="tableStyles" className="containerLabels">
+            <label key="labelLivePreview" htmlFor="tableStyles" className="containerLabels livePreviewBox">
                 Preview</label>
         )
-        const livePreviewOnly = (<LivePreview key="LivePreview" pAllData={pData}/>);
+        var livePreviewOnlyClass = '';
+        if (isOnlyPreview) {
+            livePreviewOnlyClass = 'livePreviewOnly';
+        }
+        const livePreviewOnly = (<LivePreview key="LivePreview" pAllData={pData} livePreviewOnly={livePreviewOnlyClass} />);
 
         // the rest of the data
         var configurationComponentsJSX = (
@@ -163,12 +168,12 @@ class MainContainer extends React.Component {
                 <Tabs className="tableStyles">
                     <TabList>
                         <Tab>General</Tab>
-                        <Tab>Styles</Tab>
+                        <Tab>Configuration</Tab>
                         <Tab>Custom Text</Tab>
                     </TabList>
 
                     <TabPanel>
-                        <table>
+                        <table className="configTable">
                             <tbody>
                                 <tr>
                                     <td className="componentContainer">
@@ -202,7 +207,14 @@ class MainContainer extends React.Component {
                         </table>
                     </TabPanel>
                     <TabPanel>
-                        <table className="tableStyles">
+                        <table className="configTable configuration">
+                            <thead>
+                                <tr>
+                                    <th>    </th>
+                                    <th>Numbers</th>
+                                    <th>Custom Text</th>
+                                </tr>
+                            </thead>
                             <tbody>
                                 <tr>
                                     <td className="componentContainer">
@@ -210,23 +222,31 @@ class MainContainer extends React.Component {
                                     </td>
                                     <td><PickColor
                                         callbackChildPropColor={this.returnChildColor}
-                                        pColor={this.state.pColor}/></td>
+                                        pColor={this.state.pColor} /></td>
+                                        <td className="componentContainer"><PickColor
+                                        callbackChildPropColor={this.returnChildColorTxt}
+                                        pColor={this.state.pColorTxt} /></td>
                                 </tr>
                                 <tr>
                                     <td className="componentContainer">
-                                        <label htmlFor="fontInput">Numbers Font Size</label>
+                                        <label htmlFor="fontInput">Font Size</label>
                                     </td>
                                     <td className="componentContainer">
                                         <EctSlider
                                             pFontSize={this.state.fontSize}
-                                            pFontSizeCallback={this.onFontSubmit}/></td>
+                                            pFontSizeCallback={this.onFontSubmit} /></td>
+                                             <td className="componentContainer"><EctSlider
+                                        pFontSize={this.state.fontSizeTxt}
+                                        pFontSizeCallback={this.onFontSubmitTxt} /></td>
                                 </tr>
                                 <tr>
                                     <td className="componentContainer">
-                                        <label>Select to make text Bold</label>
+                                        <label>Select to make  Bold</label>
                                     </td>
                                     <td className="componentContainer">
-                                        <Bold callbackChildPropB={this.isBold} pIsBold={this.state.pIsBold}/></td>
+                                        <Bold callbackChildPropB={this.isBold} pIsBold={this.state.pIsBold} /></td>
+                                        <td className="componentContainer">
+                                        <Bold callbackChildPropB={this.isBoldTxt} pIsBold={this.state.pIsBoldTxt} /></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -240,34 +260,8 @@ class MainContainer extends React.Component {
                             pHoursFormat={this.state.hoursFormat}
                             pMinutesFormat={this.state.minutesFormat}
                             pSecondsFormat={this.state.secondsFormat}
-                            callbackChildPropFormatText={this.returnTextFormat}/>
-                        <table className="configTable">
-                            <tbody>
-                                <tr>
-                                    <td className="componentContainer">
-                                        <label>Custom Text Color</label>
-                                    </td>
-                                    <td className="componentContainer"><PickColor
-                                        callbackChildPropColor={this.returnChildColorTxt}
-                                        pColor={this.state.pColorTxt}/></td>
-                                </tr>
-                                <tr>
-                                    <td className="componentContainer">
-                                        <label>Custom Text Size</label>
-                                    </td>
-                                    <td className="componentContainer"><EctSlider
-                                        pFontSize={this.state.fontSizeTxt}
-                                        pFontSizeCallback={this.onFontSubmitTxt}/></td>
-                                </tr>
-                                <tr>
-                                    <td className="componentContainer">
-                                        <label>Select to make text Bold</label>
-                                    </td>
-                                    <td className="componentContainer">
-                                        <Bold callbackChildPropB={this.isBoldTxt} pIsBold={this.state.pIsBoldTxt}/></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                            callbackChildPropFormatText={this.returnTextFormat} />
+                     
                     </TabPanel>
                 </Tabs>
 
@@ -335,7 +329,7 @@ class MainContainer extends React.Component {
         //only the live preview section
 
         var renderReturn = (
-            <div className="ContainerMain">
+            <div className="ContainerMain onlyPrewiew">
                 {this.showOnlyLivePreview()}
             </div>
         );

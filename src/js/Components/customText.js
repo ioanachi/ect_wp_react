@@ -78,7 +78,6 @@ export class CustomText extends React.Component {
 
   }
   render() {
-    // textArr = ['Years', 'Months', 'Weeks', 'Days', 'Hours', 'Minutes', 'Seconds'];
     return (<MuiThemeProvider >
 
       <table>
