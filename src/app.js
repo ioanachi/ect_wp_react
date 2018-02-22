@@ -14,6 +14,7 @@ import 'react-color';
 import 'reactcss';
 import 'react-tabs';
 import '../node_modules/react-tabs/style/react-tabs.css';
+import '../node_modules/axios/dist/axios.min';
 
 import "./scss/main.scss";
 import "./js/script.js";

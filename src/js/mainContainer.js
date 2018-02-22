@@ -8,10 +8,14 @@ import { CustomText } from "./Components/customText.js";
 import PickColor from "./Components/colorReactPicker.js";
 import { Bold } from "./Components/bold.js";
 import { Timezones } from "./Components/timezonePicker.js";
+import { Layout } from "./Components/ectLayouts.js";
 import { LivePreview } from "./Components/livePreview.js";
 import { TimeFormat } from "./Components/timeFormat.js";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import moment from "moment";
+import axios from "axios";
+console.log(typeof axios);
+
 
 class MainContainer extends React.Component {
     constructor(props) {
@@ -40,7 +44,8 @@ class MainContainer extends React.Component {
             secondsFormat: "Seconds",
             customTxtEndedTxt: "Timer Ended",
             firstView: true,
-            livePrewiewOnly: ''
+            livePrewiewOnly: '',
+            layoutType: "plainString"
         };
         this.onFontSubmit = this.onFontSubmit.bind(this);
         this.onFontSubmitTxt = this.onFontSubmitTxt.bind(this);
@@ -53,7 +58,7 @@ class MainContainer extends React.Component {
         this.returnFormat = this.returnFormat.bind(this);
         this.returnTextFormat = this.returnTextFormat.bind(this);
         this.isBoldTxt = this.isBoldTxt.bind(this);
-
+        this.ectInsertSC = this.ectInsertSC.bind(this);
     }
 
     isBold(childVal) {
@@ -96,6 +101,9 @@ class MainContainer extends React.Component {
 
     returnFormat(formatType) {
         this.setState({ timeFormat: formatType });
+    }
+    returnLayout(layoutSelected){
+        this.setState({ layoutType: layoutSelected });
     }
 
     returnTextFormat(Y, M, W, D, H, Minute, S, endText) {
@@ -177,20 +185,25 @@ class MainContainer extends React.Component {
                                         />
                                     </td>
                                 </tr>
-
                                 <tr>
                                     <td className="componentContainer">
-                                        <label>Timezone</label>
+                                        <label htmlFor="datePicker">Layouts</label>
                                     </td>
-                                    <td className="timezones">
-                                        <Timezones
-                                            pTimezoneOffset={this.state.timezoneOffset}
-                                            callbackChildPropT={this.returnTimezone}
+                                    <td className="componentContainer">
+                                        <Layout
+                                            callbackChildLayout={this.returnLayout}
+                                            layoutType={this.state.layoutType}
                                         />
                                     </td>
                                 </tr>
+                            </tbody>
+                        </table>
+                    </TabPanel>
+                    <TabPanel>
+                        <table className="configTable configuration">
+                            
                                 <tr>
-                                    <td className="componentContainer">
+                                    <td colSpan='2' className="componentContainer">
                                         <label htmlFor="username">Name</label>
                                     </td>
                                     <td className="componentContainer">
@@ -200,11 +213,17 @@ class MainContainer extends React.Component {
                                         />
                                     </td>
                                 </tr>
-                            </tbody>
-                        </table>
-                    </TabPanel>
-                    <TabPanel>
-                        <table className="configTable configuration">
+                                <tr>
+                                    <td colSpan='2' className="componentContainer">
+                                        <label>Timezone</label>
+                                    </td>
+                                    <td colSpan='2' className="timezones">
+                                        <Timezones
+                                            pTimezoneOffset={this.state.timezoneOffset}
+                                            callbackChildPropT={this.returnTimezone}
+                                        />
+                                    </td>
+                                </tr>
                             <thead>
                                 <tr>
                                     <th> </th>
@@ -326,14 +345,43 @@ class MainContainer extends React.Component {
         return returnAllData;
     }
     ectInsertSC() {
-        if (typeof ectInsertSC != "undefined") {
-            ectInsertSC();
-        }
+        // if (typeof ectInsertSC != "undefined") {
+        //     ectInsertSC();
+        // }
+        var dataToSendToServer = {
+            'timerName': this.state.naMeP,
+            'userID': 1,
+            'fontSize': this.state.fontSize,
+            'fontSizeTxt': this.state.fontSizeTxt,
+            'color': this.state.pColor,
+            'colorTxt': this.state.pColorTxt,
+            'isBold': this.state.pIsBold,
+            'isBoldTxt': this.state.pIsBoldTxt,
+            'timezoneOffset': this.state.timezoneOffset,
+            'endHour': this.state.endHour,
+            'endMinute': this.state.endMinute,
+            'utcTz': this.state.utcTz,
+            'yearsTxt': this.state.yearsFormat,
+            'monthsTxt': this.state.monthsFormat,
+            'weeksTxt': this.state.weeksFormat,
+            'daysTxt': this.state.daysFormat,
+            'hoursTxt': this.state.hoursFormat,
+            'minutesTxt': this.state.minutesFormat,
+            'secondsTxt': this.state.secondsFormat,
+            'customEndedTxt': this.state.customTxtEndedTxt,
+            'layoutType': this.state.layoutType,
+        };
+        axios({
+            method: 'put',
+            url: ' http://localhost/wordpress/wp-json/ect/v2/addTimer',
+            data: dataToSendToServer
+        });
     }
     ectClosePopupButton() {
         if (typeof ectPopup != "undefined") {
             ectClosePopupButton();
         }
+
     }
     render() {
         const { endDate, isDisabled } = this.state; //from the day picker

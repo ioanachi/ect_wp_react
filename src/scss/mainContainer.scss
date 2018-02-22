@@ -73,11 +73,25 @@ html {
                             }
                         }
                     }
-                    .ectSliderContainer{
+                    .ectSliderContainer {
                         width: 100%;
-                        div{
-                        width: 100%;
-                            
+                        div {
+                            width: 100%;
+                        }
+                    }
+                    .layoutsBox {
+                        width: 360px;
+                        height: 300px;
+                        // border: 1px solid rgb(121, 121, 121);
+                        overflow: scroll;
+                         .smallBox {
+                            width: 100px;
+                            height: 100px;
+                            // border: 1px solid rgb(121, 121, 121);
+                            float: left;
+                            margin: 5px;
+                          
+
                         }
                     }
                 }
@@ -138,7 +152,6 @@ html {
                 .tableStyles {
                     table {
                         &.configuration {
-                          
                             tr {
                                 th {
                                     font-size: 21px;
@@ -150,7 +163,6 @@ html {
                                     width: 38%;
                                     div {
                                         align-content: center;
-                                     
                                     }
                                 }
                             }
