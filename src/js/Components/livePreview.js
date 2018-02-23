@@ -8,7 +8,7 @@ export class LivePreview extends React.Component {
         super(props);
         this.state = {
             timeout: [],
-            timerStyle: 'VerticalTimer'
+            timerStyle: 'HorizontalSlider'
         };
         const tempClass = window[this.state.timerStyle + '2'];
     };

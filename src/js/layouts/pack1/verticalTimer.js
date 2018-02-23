@@ -16,10 +16,11 @@ export default class VerticalTimer extends React.Component {
             continue;
           }
         }
-        var tempItem = (<div key={key} className="verticalView">
-        <span style = {this.props.numbers.Styles}>
-        { this.props.numbers[key] } 
-        </span> <span style={this.props.customTxt.Styles}>{this.props.customTxt[key]}</span> &nbsp; </div>);
+        var tempItem = (<div key={key} className="spanDiv">
+        <div className="numbersPreview"><span style = {this.props.numbers.Styles}>{ this.props.numbers[key] } </span></div> 
+        <div className="textPreview"><span style={this.props.customTxt.Styles}>{this.props.customTxt[key]}</span> &nbsp;</div> </div>);
+
+
               finalResult.push(tempItem);
             }
           }

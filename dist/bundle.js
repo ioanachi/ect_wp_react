@@ -5462,7 +5462,7 @@ module.exports = isArray;
 
 
 var bind = __webpack_require__(368);
-var isBuffer = __webpack_require__(787);
+var isBuffer = __webpack_require__(790);
 
 /*global toString:true*/
 
@@ -14493,7 +14493,7 @@ function deepForEach(children, callback) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(24);
-var normalizeHeaderName = __webpack_require__(789);
+var normalizeHeaderName = __webpack_require__(792);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -36363,12 +36363,12 @@ module.exports = function bind(fn, thisArg) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(24);
-var settle = __webpack_require__(790);
-var buildURL = __webpack_require__(792);
-var parseHeaders = __webpack_require__(793);
-var isURLSameOrigin = __webpack_require__(794);
+var settle = __webpack_require__(793);
+var buildURL = __webpack_require__(795);
+var parseHeaders = __webpack_require__(796);
+var isURLSameOrigin = __webpack_require__(797);
 var createError = __webpack_require__(370);
-var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(795);
+var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(798);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -36461,7 +36461,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(796);
+      var cookies = __webpack_require__(799);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ? cookies.read(config.xsrfCookieName) : undefined;
@@ -36543,7 +36543,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(791);
+var enhanceError = __webpack_require__(794);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -97119,7 +97119,7 @@ var _ectLayouts = __webpack_require__(781);
 
 var _livePreview = __webpack_require__(782);
 
-var _timeFormat = __webpack_require__(784);
+var _timeFormat = __webpack_require__(787);
 
 var _reactTabs = __webpack_require__(364);
 
@@ -97127,7 +97127,7 @@ var _moment = __webpack_require__(3);
 
 var _moment2 = _interopRequireDefault(_moment);
 
-var _axios = __webpack_require__(785);
+var _axios = __webpack_require__(788);
 
 var _axios2 = _interopRequireDefault(_axios);
 
@@ -97174,7 +97174,7 @@ var MainContainer = function (_React$Component) {
             customTxtEndedTxt: "Timer Ended",
             firstView: true,
             livePrewiewOnly: '',
-            layoutType: " VerticalTimer"
+            layoutType: " HorizontalSlider"
         };
         _this.onFontSubmit = _this.onFontSubmit.bind(_this);
         _this.onFontSubmitTxt = _this.onFontSubmitTxt.bind(_this);
@@ -99069,7 +99069,7 @@ var _mathCountDown = __webpack_require__(783);
 
 var _mathCountDown2 = _interopRequireDefault(_mathCountDown);
 
-var _pack = __webpack_require__(805);
+var _pack = __webpack_require__(784);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -99089,7 +99089,7 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
 
         _this.state = {
             timeout: [],
-            timerStyle: 'VerticalTimer'
+            timerStyle: 'HorizontalSlider'
         };
         var tempClass = window[_this.state.timerStyle + '2'];
         return _this;
@@ -99387,6 +99387,160 @@ exports.default = _class;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.VerticalTimer = exports.HorizontalSlider = undefined;
+
+var _horizontalSlider = __webpack_require__(785);
+
+var _horizontalSlider2 = _interopRequireDefault(_horizontalSlider);
+
+var _verticalTimer = __webpack_require__(786);
+
+var _verticalTimer2 = _interopRequireDefault(_verticalTimer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.HorizontalSlider = _horizontalSlider2.default;
+exports.VerticalTimer = _verticalTimer2.default;
+
+/***/ }),
+/* 785 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var HorizontalSlider = function (_React$Component) {
+  _inherits(HorizontalSlider, _React$Component);
+
+  function HorizontalSlider(props) {
+    _classCallCheck(this, HorizontalSlider);
+
+    return _possibleConstructorReturn(this, (HorizontalSlider.__proto__ || Object.getPrototypeOf(HorizontalSlider)).call(this, props));
+  }
+
+  _createClass(HorizontalSlider, [{
+    key: 'render',
+    value: function render() {
+      var finalResult = [];
+      var isLast = true;
+      for (var key in this.props.numbers) {
+        if (key != 'Styles') {
+          if (isLast) {
+            if (this.props.numbers[key] != 0) {
+              isLast = false;
+            } else {
+              continue;
+            }
+          }
+          var tempItem = _react2.default.createElement('div', { key: key, className: 'spanDiv' }, _react2.default.createElement('span', { style: this.props.numbers.Styles }, this.props.numbers[key]), ' ', _react2.default.createElement('span', { style: this.props.customTxt.Styles }, this.props.customTxt[key]), ' \xA0 ');
+          finalResult.push(tempItem);
+        }
+      }
+      if (!this.props.numbers) {
+        finalResult = _react2.default.createElement('span', { style: this.props.customTxt.Styles }, ' ', this.props.customTxt.EndedTxt, ' ');
+      }
+      return _react2.default.createElement('div', null, ' ', finalResult, ' ');
+    }
+  }]);
+
+  return HorizontalSlider;
+}(_react2.default.Component);
+
+exports.default = HorizontalSlider;
+
+/***/ }),
+/* 786 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var VerticalTimer = function (_React$Component) {
+  _inherits(VerticalTimer, _React$Component);
+
+  function VerticalTimer(props) {
+    _classCallCheck(this, VerticalTimer);
+
+    return _possibleConstructorReturn(this, (VerticalTimer.__proto__ || Object.getPrototypeOf(VerticalTimer)).call(this, props));
+  }
+
+  _createClass(VerticalTimer, [{
+    key: 'render',
+    value: function render() {
+      var finalResult = [];
+      var isLast = true;
+      for (var key in this.props.numbers) {
+        if (key != 'Styles') {
+          if (isLast) {
+            if (this.props.numbers[key] != 0) {
+              isLast = false;
+            } else {
+              continue;
+            }
+          }
+          var tempItem = _react2.default.createElement('div', { key: key, className: 'spanDiv' }, _react2.default.createElement('div', { className: 'numbersPreview' }, _react2.default.createElement('span', { style: this.props.numbers.Styles }, this.props.numbers[key], ' ')), _react2.default.createElement('div', { className: 'textPreview' }, _react2.default.createElement('span', { style: this.props.customTxt.Styles }, this.props.customTxt[key]), ' \xA0'), ' ');
+
+          finalResult.push(tempItem);
+        }
+      }
+      if (!this.props.numbers) {
+        finalResult = _react2.default.createElement('span', { style: this.props.customTxt.Styles }, ' ', this.props.customTxt.EndedTxt, ' ');
+      }
+      return _react2.default.createElement('div', null, ' ', finalResult, ' ');
+    }
+  }]);
+
+  return VerticalTimer;
+}(_react2.default.Component);
+
+exports.default = VerticalTimer;
+
+/***/ }),
+/* 787 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.TimeFormat = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -99479,13 +99633,13 @@ var TimeFormat = exports.TimeFormat = function (_React$Component) {
 }(_react2.default.Component);
 
 /***/ }),
-/* 785 */
+/* 788 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(786);
+module.exports = __webpack_require__(789);
 
 /***/ }),
-/* 786 */
+/* 789 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99493,7 +99647,7 @@ module.exports = __webpack_require__(786);
 
 var utils = __webpack_require__(24);
 var bind = __webpack_require__(368);
-var Axios = __webpack_require__(788);
+var Axios = __webpack_require__(791);
 var defaults = __webpack_require__(142);
 
 /**
@@ -99528,14 +99682,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(372);
-axios.CancelToken = __webpack_require__(802);
+axios.CancelToken = __webpack_require__(805);
 axios.isCancel = __webpack_require__(371);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(803);
+axios.spread = __webpack_require__(806);
 
 module.exports = axios;
 
@@ -99543,7 +99697,7 @@ module.exports = axios;
 module.exports.default = axios;
 
 /***/ }),
-/* 787 */
+/* 790 */
 /***/ (function(module, exports) {
 
 /*!
@@ -99569,7 +99723,7 @@ function isSlowBuffer(obj) {
 }
 
 /***/ }),
-/* 788 */
+/* 791 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99577,8 +99731,8 @@ function isSlowBuffer(obj) {
 
 var defaults = __webpack_require__(142);
 var utils = __webpack_require__(24);
-var InterceptorManager = __webpack_require__(797);
-var dispatchRequest = __webpack_require__(798);
+var InterceptorManager = __webpack_require__(800);
+var dispatchRequest = __webpack_require__(801);
 
 /**
  * Create a new instance of Axios
@@ -99654,7 +99808,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = Axios;
 
 /***/ }),
-/* 789 */
+/* 792 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99672,7 +99826,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 };
 
 /***/ }),
-/* 790 */
+/* 793 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99698,7 +99852,7 @@ module.exports = function settle(resolve, reject, response) {
 };
 
 /***/ }),
-/* 791 */
+/* 794 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99726,7 +99880,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 };
 
 /***/ }),
-/* 792 */
+/* 795 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99791,7 +99945,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 };
 
 /***/ }),
-/* 793 */
+/* 796 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99847,7 +100001,7 @@ module.exports = function parseHeaders(headers) {
 };
 
 /***/ }),
-/* 794 */
+/* 797 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99916,7 +100070,7 @@ function nonStandardBrowserEnv() {
 }();
 
 /***/ }),
-/* 795 */
+/* 798 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99957,7 +100111,7 @@ function btoa(input) {
 module.exports = btoa;
 
 /***/ }),
-/* 796 */
+/* 799 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100016,7 +100170,7 @@ function nonStandardBrowserEnv() {
 }();
 
 /***/ }),
-/* 797 */
+/* 800 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100074,18 +100228,18 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
 module.exports = InterceptorManager;
 
 /***/ }),
-/* 798 */
+/* 801 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(24);
-var transformData = __webpack_require__(799);
+var transformData = __webpack_require__(802);
 var isCancel = __webpack_require__(371);
 var defaults = __webpack_require__(142);
-var isAbsoluteURL = __webpack_require__(800);
-var combineURLs = __webpack_require__(801);
+var isAbsoluteURL = __webpack_require__(803);
+var combineURLs = __webpack_require__(804);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -100147,7 +100301,7 @@ module.exports = function dispatchRequest(config) {
 };
 
 /***/ }),
-/* 799 */
+/* 802 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100173,7 +100327,7 @@ module.exports = function transformData(data, headers, fns) {
 };
 
 /***/ }),
-/* 800 */
+/* 803 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100195,7 +100349,7 @@ module.exports = function isAbsoluteURL(url) {
 };
 
 /***/ }),
-/* 801 */
+/* 804 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100214,7 +100368,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 };
 
 /***/ }),
-/* 802 */
+/* 805 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100277,7 +100431,7 @@ CancelToken.source = function source() {
 module.exports = CancelToken;
 
 /***/ }),
-/* 803 */
+/* 806 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100309,159 +100463,6 @@ module.exports = function spread(callback) {
     return callback.apply(null, arr);
   };
 };
-
-/***/ }),
-/* 804 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var HorizontalSlider = function (_React$Component) {
-  _inherits(HorizontalSlider, _React$Component);
-
-  function HorizontalSlider(props) {
-    _classCallCheck(this, HorizontalSlider);
-
-    return _possibleConstructorReturn(this, (HorizontalSlider.__proto__ || Object.getPrototypeOf(HorizontalSlider)).call(this, props));
-  }
-
-  _createClass(HorizontalSlider, [{
-    key: 'render',
-    value: function render() {
-      var finalResult = [];
-      var isLast = true;
-      for (var key in this.props.numbers) {
-        if (key != 'Styles') {
-          if (isLast) {
-            if (this.props.numbers[key] != 0) {
-              isLast = false;
-            } else {
-              continue;
-            }
-          }
-          var tempItem = _react2.default.createElement('div', { key: key, className: 'spanDiv' }, _react2.default.createElement('span', { style: this.props.numbers.Styles }, this.props.numbers[key]), ' ', _react2.default.createElement('span', { style: this.props.customTxt.Styles }, this.props.customTxt[key]), ' \xA0 ');
-          finalResult.push(tempItem);
-        }
-      }
-      if (!this.props.numbers) {
-        finalResult = _react2.default.createElement('span', { style: this.props.customTxt.Styles }, ' ', this.props.customTxt.EndedTxt, ' ');
-      }
-      return _react2.default.createElement('div', null, ' ', finalResult, ' ');
-    }
-  }]);
-
-  return HorizontalSlider;
-}(_react2.default.Component);
-
-exports.default = HorizontalSlider;
-
-/***/ }),
-/* 805 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.VerticalTimer = exports.HorizontalSlider = undefined;
-
-var _horizontalSlider = __webpack_require__(804);
-
-var _horizontalSlider2 = _interopRequireDefault(_horizontalSlider);
-
-var _verticalTimer = __webpack_require__(806);
-
-var _verticalTimer2 = _interopRequireDefault(_verticalTimer);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.HorizontalSlider = _horizontalSlider2.default;
-exports.VerticalTimer = _verticalTimer2.default;
-
-/***/ }),
-/* 806 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var VerticalTimer = function (_React$Component) {
-  _inherits(VerticalTimer, _React$Component);
-
-  function VerticalTimer(props) {
-    _classCallCheck(this, VerticalTimer);
-
-    return _possibleConstructorReturn(this, (VerticalTimer.__proto__ || Object.getPrototypeOf(VerticalTimer)).call(this, props));
-  }
-
-  _createClass(VerticalTimer, [{
-    key: 'render',
-    value: function render() {
-      var finalResult = [];
-      var isLast = true;
-      for (var key in this.props.numbers) {
-        if (key != 'Styles') {
-          if (isLast) {
-            if (this.props.numbers[key] != 0) {
-              isLast = false;
-            } else {
-              continue;
-            }
-          }
-          var tempItem = _react2.default.createElement('div', { key: key, className: 'verticalView' }, _react2.default.createElement('span', { style: this.props.numbers.Styles }, this.props.numbers[key]), ' ', _react2.default.createElement('span', { style: this.props.customTxt.Styles }, this.props.customTxt[key]), ' \xA0 ');
-          finalResult.push(tempItem);
-        }
-      }
-      if (!this.props.numbers) {
-        finalResult = _react2.default.createElement('span', { style: this.props.customTxt.Styles }, ' ', this.props.customTxt.EndedTxt, ' ');
-      }
-      return _react2.default.createElement('div', null, ' ', finalResult, ' ');
-    }
-  }]);
-
-  return VerticalTimer;
-}(_react2.default.Component);
-
-exports.default = VerticalTimer;
 
 /***/ })
 ],[373]);
