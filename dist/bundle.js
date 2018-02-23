@@ -5462,7 +5462,7 @@ module.exports = isArray;
 
 
 var bind = __webpack_require__(368);
-var isBuffer = __webpack_require__(789);
+var isBuffer = __webpack_require__(787);
 
 /*global toString:true*/
 
@@ -14493,7 +14493,7 @@ function deepForEach(children, callback) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(24);
-var normalizeHeaderName = __webpack_require__(791);
+var normalizeHeaderName = __webpack_require__(789);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -36363,12 +36363,12 @@ module.exports = function bind(fn, thisArg) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(24);
-var settle = __webpack_require__(792);
-var buildURL = __webpack_require__(794);
-var parseHeaders = __webpack_require__(795);
-var isURLSameOrigin = __webpack_require__(796);
+var settle = __webpack_require__(790);
+var buildURL = __webpack_require__(792);
+var parseHeaders = __webpack_require__(793);
+var isURLSameOrigin = __webpack_require__(794);
 var createError = __webpack_require__(370);
-var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(797);
+var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(795);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -36461,7 +36461,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(798);
+      var cookies = __webpack_require__(796);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ? cookies.read(config.xsrfCookieName) : undefined;
@@ -36543,7 +36543,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(793);
+var enhanceError = __webpack_require__(791);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -97064,7 +97064,7 @@ exports = module.exports = __webpack_require__(73)(undefined);
 
 
 // module
-exports.push([module.i, "html {\n  height: 100%;\n  width: 100%;\n  margin: 0px;\n  padding: 0px; }\n  html body {\n    margin: 0px;\n    padding: 0px;\n    height: 100%;\n    width: 100%; }\n    html body #ectPopupContent {\n      height: 100%;\n      width: 100%; }\n      html body #ectPopupContent .ContainerMain {\n        position: relative;\n        margin: 0 2%;\n        height: 100%;\n        width: 98%; }\n        html body #ectPopupContent .ContainerMain .onlyPrewiew {\n          border: 1px solid white; }\n        html body #ectPopupContent .ContainerMain .componentContainer {\n          padding: 20px;\n          margin-bottom: 10px;\n          text-align: center;\n          align-content: center; }\n          html body #ectPopupContent .ContainerMain .componentContainer label {\n            font-size: 20px;\n            margin-right: 20px; }\n          html body #ectPopupContent .ContainerMain .componentContainer .ectSliderContainer {\n            width: 100%; }\n            html body #ectPopupContent .ContainerMain .componentContainer .ectSliderContainer div {\n              width: 100%; }\n        html body #ectPopupContent .ContainerMain .containerPreview {\n          width: 100%;\n          display: flex;\n          justify-content: center; }\n          html body #ectPopupContent .ContainerMain .containerPreview div {\n            border: 1px solid #bdbdbd;\n            padding: 5px; }\n            html body #ectPopupContent .ContainerMain .containerPreview div.spanDiv {\n              display: inline-block;\n              border: 1px solid #ffffff; }\n        html body #ectPopupContent .ContainerMain .livePreviewOnly {\n          border: 1px solid white;\n          display: inline-block;\n          font-size: 12px; }\n          html body #ectPopupContent .ContainerMain .livePreviewOnly div {\n            border: 1px solid #ffffff;\n            padding: 5px; }\n            html body #ectPopupContent .ContainerMain .livePreviewOnly div.spanDiv {\n              display: inline-block;\n              border: 1px solid #ffffff; }\n        html body #ectPopupContent .ContainerMain .containerLabels {\n          padding: 20px 0;\n          font-style: italic;\n          text-decoration: underline;\n          font-size: 20px;\n          font-weight: bold;\n          display: grid;\n          align-self: center; }\n        html body #ectPopupContent .ContainerMain .hourAndMinutes {\n          margin-left: 10px; }\n        html body #ectPopupContent .ContainerMain #ectSCInput {\n          padding: 5px;\n          width: 100%; }\n        html body #ectPopupContent .ContainerMain button.insertButton {\n          margin: 20px 0; }\n        html body #ectPopupContent .ContainerMain button.ectClosePopupButton {\n          position: absolute;\n          top: 0;\n          right: 0;\n          padding: 5px;\n          font-size: 18px; }\n        html body #ectPopupContent .ContainerMain .tableStyles table.configuration tr th {\n          font-size: 21px;\n          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', Verdana, Geneva, Tahoma, sans-serif;\n          padding: 3px; }\n        html body #ectPopupContent .ContainerMain .tableStyles table.configuration tr td {\n          text-align: center;\n          width: 38%; }\n          html body #ectPopupContent .ContainerMain .tableStyles table.configuration tr td div {\n            align-content: center; }\n        html body #ectPopupContent .ContainerMain .tableStyles table {\n          width: 50%;\n          border: 1px solid #ffffff; }\n          html body #ectPopupContent .ContainerMain .tableStyles table tr:nth-child(2n) {\n            background-color: #f0f0f0; }\n          html body #ectPopupContent .ContainerMain .tableStyles table tr td {\n            align-content: center; }\n            html body #ectPopupContent .ContainerMain .tableStyles table tr td:nth-child(1) {\n              width: 48px; }\n        html body #ectPopupContent .ContainerMain .tableStyles .FirstPanelTable {\n          width: 40%;\n          border: 1px solid #ffffff; }\n          html body #ectPopupContent .ContainerMain .tableStyles .FirstPanelTable .FirstPanelLabel {\n            padding: 10px;\n            margin-bottom: 10px;\n            text-align: center;\n            align-content: center; }\n            html body #ectPopupContent .ContainerMain .tableStyles .FirstPanelTable .FirstPanelLabel label {\n              font-size: 20px;\n              margin-right: 20px;\n              margin-top: 19px; }\n          html body #ectPopupContent .ContainerMain .tableStyles .FirstPanelTable .FirstPanel {\n            padding: 20px;\n            margin-bottom: 10px;\n            text-align: center;\n            align-content: center;\n            width: 360px; }\n            html body #ectPopupContent .ContainerMain .tableStyles .FirstPanelTable .FirstPanel:after {\n              background-color: red; }\n            html body #ectPopupContent .ContainerMain .tableStyles .FirstPanelTable .FirstPanel div {\n              width: 360px; }\n            html body #ectPopupContent .ContainerMain .tableStyles .FirstPanelTable .FirstPanel .layoutsBox {\n              width: 360px;\n              height: 300px;\n              overflow: scroll;\n              margin-left: 80px; }\n              html body #ectPopupContent .ContainerMain .tableStyles .FirstPanelTable .FirstPanel .layoutsBox .smallBox {\n                width: 100px;\n                height: 100px;\n                float: left;\n                margin: 5px; }\n      html body #ectPopupContent .endDateShow {\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        height: 100%;\n        width: 100%; }\n        html body #ectPopupContent .endDateShow .endDateShowSmallContainer {\n          width: 300px;\n          height: 300px;\n          display: flex;\n          align-items: center;\n          justify-content: center;\n          align-items: flex-center;\n          -webkit-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          -moz-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          background: #f0f0f0; }\n          html body #ectPopupContent .endDateShow .endDateShowSmallContainer label {\n            align-self: flex-start;\n            padding: 10px;\n            font-size: 20px;\n            font-weight: bold;\n            display: block;\n            text-align: center; }\n          html body #ectPopupContent .endDateShow .endDateShowSmallContainer .DayPickerInput {\n            align-self: flex-end;\n            padding: 10px;\n            margin: 10px 0; }\n            html body #ectPopupContent .endDateShow .endDateShowSmallContainer .DayPickerInput input {\n              width: 190px;\n              height: 30px; }\n              html body #ectPopupContent .endDateShow .endDateShowSmallContainer .DayPickerInput input::-webkit-input-placeholder {\n                text-align: center; }\n    html body .react-datepicker__time-box ul {\n      margin: 0px;\n      padding: 0px; }\n", ""]);
+exports.push([module.i, "html {\n  height: 100%;\n  width: 100%;\n  margin: 0px;\n  padding: 0px; }\n  html body {\n    margin: 0px;\n    padding: 0px;\n    height: 100%;\n    width: 100%; }\n    html body #ectPopupContent {\n      height: 100%;\n      width: 100%; }\n      html body #ectPopupContent .ContainerMain {\n        position: relative;\n        margin: 0 2%;\n        height: 100%;\n        width: 98%; }\n        html body #ectPopupContent .ContainerMain .onlyPrewiew {\n          border: 1px solid white; }\n        html body #ectPopupContent .ContainerMain .componentContainer {\n          padding: 20px;\n          margin-bottom: 10px;\n          text-align: center;\n          align-content: center; }\n          html body #ectPopupContent .ContainerMain .componentContainer label {\n            font-size: 20px;\n            margin-right: 20px; }\n          html body #ectPopupContent .ContainerMain .componentContainer .ectSliderContainer {\n            width: 100%; }\n            html body #ectPopupContent .ContainerMain .componentContainer .ectSliderContainer div {\n              width: 100%; }\n        html body #ectPopupContent .ContainerMain .containerPreview {\n          width: 100%;\n          display: flex;\n          justify-content: center; }\n          html body #ectPopupContent .ContainerMain .containerPreview div {\n            border: 1px solid #bdbdbd;\n            padding: 5px; }\n            html body #ectPopupContent .ContainerMain .containerPreview div.spanDiv {\n              display: inline-block;\n              border: 1px solid #ffffff; }\n            html body #ectPopupContent .ContainerMain .containerPreview div.verticalView {\n              display: block; }\n        html body #ectPopupContent .ContainerMain .livePreviewOnly {\n          border: 1px solid white;\n          display: inline-block;\n          font-size: 12px; }\n          html body #ectPopupContent .ContainerMain .livePreviewOnly div {\n            border: 1px solid #ffffff;\n            padding: 5px; }\n            html body #ectPopupContent .ContainerMain .livePreviewOnly div.spanDiv {\n              display: inline-block;\n              border: 1px solid #ffffff; }\n        html body #ectPopupContent .ContainerMain .containerLabels {\n          padding: 20px 0;\n          font-style: italic;\n          text-decoration: underline;\n          font-size: 20px;\n          font-weight: bold;\n          display: grid;\n          align-self: center; }\n        html body #ectPopupContent .ContainerMain .hourAndMinutes {\n          margin-left: 10px; }\n        html body #ectPopupContent .ContainerMain #ectSCInput {\n          padding: 5px;\n          width: 100%; }\n        html body #ectPopupContent .ContainerMain button.insertButton {\n          margin: 20px 0; }\n        html body #ectPopupContent .ContainerMain button.ectClosePopupButton {\n          position: absolute;\n          top: 0;\n          right: 0;\n          padding: 5px;\n          font-size: 18px; }\n        html body #ectPopupContent .ContainerMain .tableStyles table.configuration tr .tableHeaders {\n          font-size: 21px;\n          font-weight: bold;\n          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', Verdana, Geneva, Tahoma, sans-serif;\n          padding: 20px; }\n        html body #ectPopupContent .ContainerMain .tableStyles table.configuration tr td {\n          text-align: center;\n          width: 38%; }\n          html body #ectPopupContent .ContainerMain .tableStyles table.configuration tr td div {\n            align-content: center; }\n        html body #ectPopupContent .ContainerMain .tableStyles table {\n          width: 50%;\n          border: 1px solid #ffffff; }\n          html body #ectPopupContent .ContainerMain .tableStyles table tr:nth-child(2n) {\n            background-color: #f0f0f0; }\n          html body #ectPopupContent .ContainerMain .tableStyles table tr td {\n            align-content: center; }\n            html body #ectPopupContent .ContainerMain .tableStyles table tr td:nth-child(1) {\n              width: 48px; }\n        html body #ectPopupContent .ContainerMain .tableStyles .FirstPanelTable {\n          width: 40%;\n          border: 1px solid #ffffff; }\n          html body #ectPopupContent .ContainerMain .tableStyles .FirstPanelTable .FirstPanelLabel {\n            padding: 10px;\n            margin-bottom: 10px;\n            text-align: center;\n            align-content: center; }\n            html body #ectPopupContent .ContainerMain .tableStyles .FirstPanelTable .FirstPanelLabel label {\n              font-size: 20px;\n              margin-right: 20px;\n              margin-top: 19px; }\n          html body #ectPopupContent .ContainerMain .tableStyles .FirstPanelTable .FirstPanel {\n            padding: 20px;\n            margin-bottom: 10px;\n            text-align: center;\n            align-content: center;\n            width: 360px; }\n        html body #ectPopupContent .ContainerMain .tableStyles .react-tabs__tab-panel .layoutsContainer {\n          display: -webkit-box;\n          background-color: red;\n          width: 50%;\n          margin-left: 0px; }\n          html body #ectPopupContent .ContainerMain .tableStyles .react-tabs__tab-panel .layoutsContainer .layoutsLabel {\n            padding: 20px;\n            margin-bottom: 10px;\n            text-align: center;\n            align-content: center;\n            display: flex;\n            justify-content: center;\n            width: 100px;\n            font-size: 20px; }\n            html body #ectPopupContent .ContainerMain .tableStyles .react-tabs__tab-panel .layoutsContainer .layoutsLabel div {\n              width: 360px; }\n          html body #ectPopupContent .ContainerMain .tableStyles .react-tabs__tab-panel .layoutsContainer .layouts div {\n            width: 360px; }\n          html body #ectPopupContent .ContainerMain .tableStyles .react-tabs__tab-panel .layoutsContainer .layouts .layoutsBox {\n            width: 360px;\n            height: 300px;\n            overflow: scroll;\n            margin-left: 80px;\n            overflow-x: hidden;\n            border: 1px solid red; }\n            html body #ectPopupContent .ContainerMain .tableStyles .react-tabs__tab-panel .layoutsContainer .layouts .layoutsBox::-webkit-scrollbar-track {\n              -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n              border-radius: 10px;\n              background-color: #F5F5F5; }\n            html body #ectPopupContent .ContainerMain .tableStyles .react-tabs__tab-panel .layoutsContainer .layouts .layoutsBox::-webkit-scrollbar {\n              width: 12px;\n              background-color: #F5F5F5; }\n            html body #ectPopupContent .ContainerMain .tableStyles .react-tabs__tab-panel .layoutsContainer .layouts .layoutsBox::-webkit-scrollbar-thumb {\n              border-radius: 10px;\n              -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n              background-color: #555; }\n            html body #ectPopupContent .ContainerMain .tableStyles .react-tabs__tab-panel .layoutsContainer .layouts .layoutsBox .smallBox {\n              width: 100px;\n              height: 100px;\n              float: left;\n              margin: 5px; }\n      html body #ectPopupContent .endDateShow {\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        height: 100%;\n        width: 100%; }\n        html body #ectPopupContent .endDateShow .endDateShowSmallContainer {\n          width: 300px;\n          height: 300px;\n          display: flex;\n          align-items: center;\n          justify-content: center;\n          align-items: flex-center;\n          -webkit-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          -moz-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          background: #f0f0f0; }\n          html body #ectPopupContent .endDateShow .endDateShowSmallContainer label {\n            align-self: flex-start;\n            padding: 10px;\n            font-size: 20px;\n            font-weight: bold;\n            display: block;\n            text-align: center; }\n          html body #ectPopupContent .endDateShow .endDateShowSmallContainer .DayPickerInput {\n            align-self: flex-end;\n            padding: 10px;\n            margin: 10px 0; }\n            html body #ectPopupContent .endDateShow .endDateShowSmallContainer .DayPickerInput input {\n              width: 190px;\n              height: 30px; }\n              html body #ectPopupContent .endDateShow .endDateShowSmallContainer .DayPickerInput input::-webkit-input-placeholder {\n                text-align: center; }\n    html body .react-datepicker__time-box ul {\n      margin: 0px;\n      padding: 0px; }\n", ""]);
 
 // exports
 
@@ -97119,7 +97119,7 @@ var _ectLayouts = __webpack_require__(781);
 
 var _livePreview = __webpack_require__(782);
 
-var _timeFormat = __webpack_require__(786);
+var _timeFormat = __webpack_require__(784);
 
 var _reactTabs = __webpack_require__(364);
 
@@ -97127,7 +97127,7 @@ var _moment = __webpack_require__(3);
 
 var _moment2 = _interopRequireDefault(_moment);
 
-var _axios = __webpack_require__(787);
+var _axios = __webpack_require__(785);
 
 var _axios2 = _interopRequireDefault(_axios);
 
@@ -97174,7 +97174,7 @@ var MainContainer = function (_React$Component) {
             customTxtEndedTxt: "Timer Ended",
             firstView: true,
             livePrewiewOnly: '',
-            layoutType: "plainString"
+            layoutType: " VerticalTimer"
         };
         _this.onFontSubmit = _this.onFontSubmit.bind(_this);
         _this.onFontSubmitTxt = _this.onFontSubmitTxt.bind(_this);
@@ -97313,16 +97313,13 @@ var MainContainer = function (_React$Component) {
             var configurationComponentsJSX = _react2.default.createElement("div", { key: "configurationComponentsJSX" }, _react2.default.createElement("label", { htmlFor: "tableStyles", className: "containerLabels" }, "Configuration"), _react2.default.createElement(_reactTabs.Tabs, { className: "tableStyles" }, _react2.default.createElement(_reactTabs.TabList, null, _react2.default.createElement(_reactTabs.Tab, null, "General"), _react2.default.createElement(_reactTabs.Tab, null, "Configuration"), _react2.default.createElement(_reactTabs.Tab, null, "Custom Text")), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement("table", { className: "FirstPanelTable" }, _react2.default.createElement("tbody", null, _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "FirstPanelLabel" }, _react2.default.createElement("label", { htmlFor: "datePicker" }, "End Date")), _react2.default.createElement("td", { className: "FirstPanel" }, _react2.default.createElement(_endDate.EndDate, {
                 callbackChildProp: this.returnChildDate,
                 pEndDate: this.state.endDate
-            }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "FirstPanelLabel" }, _react2.default.createElement("label", { htmlFor: "datePicker" }, "Layouts")), _react2.default.createElement("td", { className: "FirstPanel" }, _react2.default.createElement(_ectLayouts.Layout, {
-                callbackChildLayout: this.returnLayout,
-                layoutType: this.state.layoutType
-            })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement("table", { className: "configTable configuration" }, _react2.default.createElement("tbody", null, _react2.default.createElement("tr", null, _react2.default.createElement("td", { colSpan: "2", className: "componentContainer" }, _react2.default.createElement("label", { htmlFor: "username" }, "Name")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement(_nameInput.UserName, {
+            }))))), _react2.default.createElement("div", { className: "layoutsContainer" }, _react2.default.createElement("label", { className: "layoutsLabel", htmlFor: "datePicker" }, "Layouts"), _react2.default.createElement(_ectLayouts.Layout, { className: "layouts", callbackChildLayout: this.returnLayout, layoutType: this.state.layoutType }))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement("table", { className: "configTable configuration" }, _react2.default.createElement("tbody", null, _react2.default.createElement("tr", null, _react2.default.createElement("td", { colSpan: "2", className: "componentContainer" }, _react2.default.createElement("label", { htmlFor: "username" }, "Name")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement(_nameInput.UserName, {
                 NameParent: this.onNameSubmit,
                 nameValue: this.state.naMeP
             }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { colSpan: "2", className: "componentContainer" }, _react2.default.createElement("label", null, "Timezone")), _react2.default.createElement("td", { colSpan: "2", className: "timezones" }, _react2.default.createElement(_timezonePicker.Timezones, {
                 pTimezoneOffset: this.state.timezoneOffset,
                 callbackChildPropT: this.returnTimezone
-            })))), _react2.default.createElement("thead", null, _react2.default.createElement("tr", null, _react2.default.createElement("th", null, " "), _react2.default.createElement("th", null, "Numbers"), _react2.default.createElement("th", null, "Custom Text"))), _react2.default.createElement("tbody", null, _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Color")), _react2.default.createElement("td", null, _react2.default.createElement(_colorReactPicker2.default, {
+            }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", null, " "), _react2.default.createElement("td", { className: "tableHeaders" }, "Numbers"), _react2.default.createElement("td", { className: "tableHeaders" }, "Custom Text")), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Color")), _react2.default.createElement("td", null, _react2.default.createElement(_colorReactPicker2.default, {
                 callbackChildPropColor: this.returnChildColor,
                 pColor: this.state.pColor
             })), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement(_colorReactPicker2.default, {
@@ -99072,7 +99069,7 @@ var _mathCountDown = __webpack_require__(783);
 
 var _mathCountDown2 = _interopRequireDefault(_mathCountDown);
 
-var _pack = __webpack_require__(784);
+var _pack = __webpack_require__(805);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -99092,7 +99089,7 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
 
         _this.state = {
             timeout: [],
-            timerStyle: 'PlainString'
+            timerStyle: 'VerticalTimer'
         };
         var tempClass = window[_this.state.timerStyle + '2'];
         return _this;
@@ -99197,7 +99194,8 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
             }
 
             var components = {
-                PlainString: _pack.PlainString
+                HorizontalSlider: _pack.HorizontalSlider,
+                VerticalTimer: _pack.VerticalTimer
             };
             var tempDatesObj = {
                 endDate: dataProps.endDate,
@@ -99389,90 +99387,6 @@ exports.default = _class;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.PlainString = undefined;
-
-var _plainString = __webpack_require__(785);
-
-var _plainString2 = _interopRequireDefault(_plainString);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.PlainString = _plainString2.default;
-
-/***/ }),
-/* 785 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var PlainString = function (_React$Component) {
-  _inherits(PlainString, _React$Component);
-
-  function PlainString(props) {
-    _classCallCheck(this, PlainString);
-
-    return _possibleConstructorReturn(this, (PlainString.__proto__ || Object.getPrototypeOf(PlainString)).call(this, props));
-  }
-
-  _createClass(PlainString, [{
-    key: 'render',
-    value: function render() {
-      var finalResult = [];
-      var isLast = true;
-      for (var key in this.props.numbers) {
-        if (key != 'Styles') {
-          if (isLast) {
-            if (this.props.numbers[key] != 0) {
-              isLast = false;
-            } else {
-              continue;
-            }
-          }
-          var tempItem = _react2.default.createElement('div', { key: key, className: 'spanDiv' }, _react2.default.createElement('span', { style: this.props.numbers.Styles }, this.props.numbers[key]), ' ', _react2.default.createElement('span', { style: this.props.customTxt.Styles }, this.props.customTxt[key]), ' \xA0 ');
-          finalResult.push(tempItem);
-        }
-      }
-      if (!this.props.numbers) {
-        finalResult = _react2.default.createElement('span', { style: this.props.customTxt.Styles }, ' ', this.props.customTxt.EndedTxt, ' ');
-      }
-      return _react2.default.createElement('div', null, ' ', finalResult, ' ');
-    }
-  }]);
-
-  return PlainString;
-}(_react2.default.Component);
-
-exports.default = PlainString;
-
-/***/ }),
-/* 786 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 exports.TimeFormat = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -99565,13 +99479,13 @@ var TimeFormat = exports.TimeFormat = function (_React$Component) {
 }(_react2.default.Component);
 
 /***/ }),
-/* 787 */
+/* 785 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(788);
+module.exports = __webpack_require__(786);
 
 /***/ }),
-/* 788 */
+/* 786 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99579,7 +99493,7 @@ module.exports = __webpack_require__(788);
 
 var utils = __webpack_require__(24);
 var bind = __webpack_require__(368);
-var Axios = __webpack_require__(790);
+var Axios = __webpack_require__(788);
 var defaults = __webpack_require__(142);
 
 /**
@@ -99614,14 +99528,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(372);
-axios.CancelToken = __webpack_require__(804);
+axios.CancelToken = __webpack_require__(802);
 axios.isCancel = __webpack_require__(371);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(805);
+axios.spread = __webpack_require__(803);
 
 module.exports = axios;
 
@@ -99629,7 +99543,7 @@ module.exports = axios;
 module.exports.default = axios;
 
 /***/ }),
-/* 789 */
+/* 787 */
 /***/ (function(module, exports) {
 
 /*!
@@ -99655,7 +99569,7 @@ function isSlowBuffer(obj) {
 }
 
 /***/ }),
-/* 790 */
+/* 788 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99663,8 +99577,8 @@ function isSlowBuffer(obj) {
 
 var defaults = __webpack_require__(142);
 var utils = __webpack_require__(24);
-var InterceptorManager = __webpack_require__(799);
-var dispatchRequest = __webpack_require__(800);
+var InterceptorManager = __webpack_require__(797);
+var dispatchRequest = __webpack_require__(798);
 
 /**
  * Create a new instance of Axios
@@ -99740,7 +99654,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = Axios;
 
 /***/ }),
-/* 791 */
+/* 789 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99758,7 +99672,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 };
 
 /***/ }),
-/* 792 */
+/* 790 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99784,7 +99698,7 @@ module.exports = function settle(resolve, reject, response) {
 };
 
 /***/ }),
-/* 793 */
+/* 791 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99812,7 +99726,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 };
 
 /***/ }),
-/* 794 */
+/* 792 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99877,7 +99791,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 };
 
 /***/ }),
-/* 795 */
+/* 793 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99933,7 +99847,7 @@ module.exports = function parseHeaders(headers) {
 };
 
 /***/ }),
-/* 796 */
+/* 794 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100002,7 +99916,7 @@ function nonStandardBrowserEnv() {
 }();
 
 /***/ }),
-/* 797 */
+/* 795 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100043,7 +99957,7 @@ function btoa(input) {
 module.exports = btoa;
 
 /***/ }),
-/* 798 */
+/* 796 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100102,7 +100016,7 @@ function nonStandardBrowserEnv() {
 }();
 
 /***/ }),
-/* 799 */
+/* 797 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100160,18 +100074,18 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
 module.exports = InterceptorManager;
 
 /***/ }),
-/* 800 */
+/* 798 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(24);
-var transformData = __webpack_require__(801);
+var transformData = __webpack_require__(799);
 var isCancel = __webpack_require__(371);
 var defaults = __webpack_require__(142);
-var isAbsoluteURL = __webpack_require__(802);
-var combineURLs = __webpack_require__(803);
+var isAbsoluteURL = __webpack_require__(800);
+var combineURLs = __webpack_require__(801);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -100233,7 +100147,7 @@ module.exports = function dispatchRequest(config) {
 };
 
 /***/ }),
-/* 801 */
+/* 799 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100259,7 +100173,7 @@ module.exports = function transformData(data, headers, fns) {
 };
 
 /***/ }),
-/* 802 */
+/* 800 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100281,7 +100195,7 @@ module.exports = function isAbsoluteURL(url) {
 };
 
 /***/ }),
-/* 803 */
+/* 801 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100300,7 +100214,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 };
 
 /***/ }),
-/* 804 */
+/* 802 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100363,7 +100277,7 @@ CancelToken.source = function source() {
 module.exports = CancelToken;
 
 /***/ }),
-/* 805 */
+/* 803 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100395,6 +100309,159 @@ module.exports = function spread(callback) {
     return callback.apply(null, arr);
   };
 };
+
+/***/ }),
+/* 804 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var HorizontalSlider = function (_React$Component) {
+  _inherits(HorizontalSlider, _React$Component);
+
+  function HorizontalSlider(props) {
+    _classCallCheck(this, HorizontalSlider);
+
+    return _possibleConstructorReturn(this, (HorizontalSlider.__proto__ || Object.getPrototypeOf(HorizontalSlider)).call(this, props));
+  }
+
+  _createClass(HorizontalSlider, [{
+    key: 'render',
+    value: function render() {
+      var finalResult = [];
+      var isLast = true;
+      for (var key in this.props.numbers) {
+        if (key != 'Styles') {
+          if (isLast) {
+            if (this.props.numbers[key] != 0) {
+              isLast = false;
+            } else {
+              continue;
+            }
+          }
+          var tempItem = _react2.default.createElement('div', { key: key, className: 'spanDiv' }, _react2.default.createElement('span', { style: this.props.numbers.Styles }, this.props.numbers[key]), ' ', _react2.default.createElement('span', { style: this.props.customTxt.Styles }, this.props.customTxt[key]), ' \xA0 ');
+          finalResult.push(tempItem);
+        }
+      }
+      if (!this.props.numbers) {
+        finalResult = _react2.default.createElement('span', { style: this.props.customTxt.Styles }, ' ', this.props.customTxt.EndedTxt, ' ');
+      }
+      return _react2.default.createElement('div', null, ' ', finalResult, ' ');
+    }
+  }]);
+
+  return HorizontalSlider;
+}(_react2.default.Component);
+
+exports.default = HorizontalSlider;
+
+/***/ }),
+/* 805 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.VerticalTimer = exports.HorizontalSlider = undefined;
+
+var _horizontalSlider = __webpack_require__(804);
+
+var _horizontalSlider2 = _interopRequireDefault(_horizontalSlider);
+
+var _verticalTimer = __webpack_require__(806);
+
+var _verticalTimer2 = _interopRequireDefault(_verticalTimer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.HorizontalSlider = _horizontalSlider2.default;
+exports.VerticalTimer = _verticalTimer2.default;
+
+/***/ }),
+/* 806 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var VerticalTimer = function (_React$Component) {
+  _inherits(VerticalTimer, _React$Component);
+
+  function VerticalTimer(props) {
+    _classCallCheck(this, VerticalTimer);
+
+    return _possibleConstructorReturn(this, (VerticalTimer.__proto__ || Object.getPrototypeOf(VerticalTimer)).call(this, props));
+  }
+
+  _createClass(VerticalTimer, [{
+    key: 'render',
+    value: function render() {
+      var finalResult = [];
+      var isLast = true;
+      for (var key in this.props.numbers) {
+        if (key != 'Styles') {
+          if (isLast) {
+            if (this.props.numbers[key] != 0) {
+              isLast = false;
+            } else {
+              continue;
+            }
+          }
+          var tempItem = _react2.default.createElement('div', { key: key, className: 'verticalView' }, _react2.default.createElement('span', { style: this.props.numbers.Styles }, this.props.numbers[key]), ' ', _react2.default.createElement('span', { style: this.props.customTxt.Styles }, this.props.customTxt[key]), ' \xA0 ');
+          finalResult.push(tempItem);
+        }
+      }
+      if (!this.props.numbers) {
+        finalResult = _react2.default.createElement('span', { style: this.props.customTxt.Styles }, ' ', this.props.customTxt.EndedTxt, ' ');
+      }
+      return _react2.default.createElement('div', null, ' ', finalResult, ' ');
+    }
+  }]);
+
+  return VerticalTimer;
+}(_react2.default.Component);
+
+exports.default = VerticalTimer;
 
 /***/ })
 ],[373]);

@@ -45,7 +45,7 @@ class MainContainer extends React.Component {
             customTxtEndedTxt: "Timer Ended",
             firstView: true,
             livePrewiewOnly: '',
-            layoutType: "plainString"
+            layoutType: " VerticalTimer"
         };
         this.onFontSubmit = this.onFontSubmit.bind(this);
         this.onFontSubmitTxt = this.onFontSubmitTxt.bind(this);
@@ -102,7 +102,7 @@ class MainContainer extends React.Component {
     returnFormat(formatType) {
         this.setState({ timeFormat: formatType });
     }
-    returnLayout(layoutSelected){
+    returnLayout(layoutSelected) {
         this.setState({ layoutType: layoutSelected });
     }
 
@@ -185,19 +185,12 @@ class MainContainer extends React.Component {
                                         />
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td className="FirstPanelLabel">
-                                        <label htmlFor="datePicker">Layouts</label>
-                                    </td>
-                                    <td className="FirstPanel">
-                                        <Layout
-                                            callbackChildLayout={this.returnLayout}
-                                            layoutType={this.state.layoutType}
-                                        />
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
+                        <div className="layoutsContainer">
+                            <label className="layoutsLabel" htmlFor="datePicker">Layouts</label>
+                            <Layout className="layouts" callbackChildLayout={this.returnLayout} layoutType={this.state.layoutType} />
+                        </div>
                     </TabPanel>
                     <TabPanel>
                         <table className="configTable configuration">
@@ -224,15 +217,13 @@ class MainContainer extends React.Component {
                                         />
                                     </td>
                                 </tr>
-                                </tbody>
-                            <thead>
+                            
                                 <tr>
-                                    <th> </th>
-                                    <th>Numbers</th>
-                                    <th>Custom Text</th>
+                                    <td> </td>
+                                    <td className="tableHeaders">Numbers</td>
+                                    <td className="tableHeaders">Custom Text</td>
                                 </tr>
-                            </thead>
-                            <tbody>
+                           
                                 <tr>
                                     <td className="componentContainer">
                                         <label>Color</label>
@@ -373,15 +364,15 @@ class MainContainer extends React.Component {
             'layoutType': this.state.layoutType
         };
         console.log(params, "params");
-        
+
         axios.put('http://localhost/wordpress/wp-json/ect/v2/addTimer', params)
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-      
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
     }
     ectClosePopupButton() {
         if (typeof ectPopup != "undefined") {

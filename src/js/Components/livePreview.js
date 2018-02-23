@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import mathCountDown from './mathCountDown';
-import {PlainString} from '../TimerStyles/pack1';
+import {HorizontalSlider} from '../layouts/pack1';
+import {VerticalTimer} from '../layouts/pack1';
 export class LivePreview extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             timeout: [],
-            timerStyle: 'PlainString'
+            timerStyle: 'VerticalTimer'
         };
         const tempClass = window[this.state.timerStyle + '2'];
     };
@@ -115,7 +116,8 @@ export class LivePreview extends React.Component {
         }
 
         const components = {
-            PlainString: PlainString
+            HorizontalSlider: HorizontalSlider,
+            VerticalTimer: VerticalTimer
         };
         var tempDatesObj = {
             endDate: dataProps.endDate,
