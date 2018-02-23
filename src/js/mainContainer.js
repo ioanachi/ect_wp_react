@@ -172,13 +172,13 @@ class MainContainer extends React.Component {
                     </TabList>
 
                     <TabPanel>
-                        <table className="configTable">
+                        <table className="FirstPanelTable">
                             <tbody>
                                 <tr>
-                                    <td className="componentContainer">
+                                    <td className="FirstPanelLabel">
                                         <label htmlFor="datePicker">End Date</label>
                                     </td>
-                                    <td className="componentContainer">
+                                    <td className="FirstPanel">
                                         <EndDate
                                             callbackChildProp={this.returnChildDate}
                                             pEndDate={this.state.endDate}
@@ -186,10 +186,10 @@ class MainContainer extends React.Component {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="componentContainer">
+                                    <td className="FirstPanelLabel">
                                         <label htmlFor="datePicker">Layouts</label>
                                     </td>
-                                    <td className="componentContainer">
+                                    <td className="FirstPanel">
                                         <Layout
                                             callbackChildLayout={this.returnLayout}
                                             layoutType={this.state.layoutType}
@@ -201,7 +201,7 @@ class MainContainer extends React.Component {
                     </TabPanel>
                     <TabPanel>
                         <table className="configTable configuration">
-                            
+                            <tbody>
                                 <tr>
                                     <td colSpan='2' className="componentContainer">
                                         <label htmlFor="username">Name</label>
@@ -224,6 +224,7 @@ class MainContainer extends React.Component {
                                         />
                                     </td>
                                 </tr>
+                                </tbody>
                             <thead>
                                 <tr>
                                     <th> </th>
@@ -348,7 +349,7 @@ class MainContainer extends React.Component {
         // if (typeof ectInsertSC != "undefined") {
         //     ectInsertSC();
         // }
-        var dataToSendToServer = {
+        var params = {
             'timerName': this.state.naMeP,
             'userID': 1,
             'fontSize': this.state.fontSize,
@@ -369,13 +370,18 @@ class MainContainer extends React.Component {
             'minutesTxt': this.state.minutesFormat,
             'secondsTxt': this.state.secondsFormat,
             'customEndedTxt': this.state.customTxtEndedTxt,
-            'layoutType': this.state.layoutType,
+            'layoutType': this.state.layoutType
         };
-        axios({
-            method: 'put',
-            url: ' http://localhost/wordpress/wp-json/ect/v2/addTimer',
-            data: dataToSendToServer
-        });
+        console.log(params, "params");
+        
+        axios.put('http://localhost/wordpress/wp-json/ect/v2/addTimer', params)
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      
     }
     ectClosePopupButton() {
         if (typeof ectPopup != "undefined") {

@@ -28,73 +28,16 @@ html {
                         font-size: 20px;
                         margin-right: 20px;
                     }
-                    input {
-                        &.shortcode {
-                            padding: 5px;
-                            width: 60%;
-                        }
-                        .endDateShow {
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            height: 100%;
-                            width: 100%;
-                            .endDateShowSmallContainer {
-                                width: 300px;
-                                height: 300px; // background-color: red;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                align-items: flex-center;
-                                -webkit-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);
-                                -moz-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);
-                                box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);
-                                background: #f0f0f0;
-                                label {
-                                    align-self: flex-start;
-                                    padding: 20px;
-                                    font-size: 18px;
-                                    font-weight: bold;
-                                    display: block;
-                                    text-align: center;
-                                }
-                                .datePickerStyle {
-                                    align-self: flex-end;
-                                    padding: 0px;
-                                    margin: 10px 0;
-                                }
-                                input {
-                                    width: 190px;
-                                    height: 30px;
-                                    &::-webkit-input-placeholder {
-                                        text-align: center;
-                                    }
-                                }
-                            }
-                        }
-                    }
                     .ectSliderContainer {
                         width: 100%;
                         div {
                             width: 100%;
                         }
                     }
-                    .layoutsBox {
-                        width: 360px;
-                        height: 300px;
-                        // border: 1px solid rgb(121, 121, 121);
-                        overflow: scroll;
-                         .smallBox {
-                            width: 100px;
-                            height: 100px;
-                            // border: 1px solid rgb(121, 121, 121);
-                            float: left;
-                            margin: 5px;
-                          
-
-                        }
-                    }
                 }
+                
+           
+                
                 .containerPreview {
                     width: 100%;
                     display: flex;
@@ -178,11 +121,53 @@ html {
                             td {
                                 align-content: center;
                                 &:nth-child(1) {
+                                    width: 48px;
+                                }
+                            }
+
+                        }
+                    }
+                    .FirstPanelTable {
+                        width: 40%;
+                        border: 1px solid #ffffff;
+                        .FirstPanelLabel {
+                            padding: 10px;
+                            margin-bottom: 10px;
+                            text-align: center;
+                            align-content: center;
+                            label {
+                                font-size: 20px;
+                                margin-right: 20px;
+                                margin-top: 19px;
+                            }
+                        }
+                        .FirstPanel {
+                            padding: 20px;
+                            margin-bottom: 10px;
+                            text-align: center;
+                            align-content: center;
+                            width: 360px;
+                            &:after {
+                                background-color: red;
+                            }
+                            div {
+                                width: 360px;
+                            }
+                            .layoutsBox {
+                                width: 360px;
+                                height: 300px; // border: 1px solid rgb(121, 121, 121);
+                                overflow: scroll;
+                                margin-left: 80px;
+                                .smallBox {
                                     width: 100px;
+                                    height: 100px; // border: 1px solid rgb(121, 121, 121);
+                                    float: left;
+                                    margin: 5px;
                                 }
                             }
                         }
                     }
+
                 }
             }
             .endDateShow {
