@@ -46,10 +46,17 @@ html {
                             display: inline-block;
                             border: 1px solid #ffffff;
                         }
-                        &.verticalView{ 
-                            display:block;
-
-
+                        &.verticalView {
+                            display: inline-block;
+                            border: 1px solid #ffffff;
+                            .numbersPreview {
+                                border: 1px solid #ffffff;
+                                text-align: center;
+                                
+                            }
+                            .textPreview {
+                                border: 0px solid #ffffff;
+                            }
                         }
                     }
                 }
@@ -151,13 +158,12 @@ html {
                             width: 360px;
                         }
                     }
-                    .react-tabs__tab-panel{
+                    .react-tabs__tab-panel {
                         .layoutsContainer {
                             display: -webkit-box;
                             background-color: red;
-                            width:50%;
+                            width: 50%;
                             margin-left: 0px;
-
                             .layoutsLabel {
                                 padding: 20px;
                                 margin-bottom: 10px;
