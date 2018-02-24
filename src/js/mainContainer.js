@@ -336,9 +336,6 @@ class MainContainer extends React.Component {
         return returnAllData;
     }
     ectInsertSC() {
-        if (typeof window.ectWPInsertSC != "undefined") {
-            window.ectWPInsertSC();
-        }
         var params = {
             'timerName': this.state.naMeP,
             'userID': 1,
@@ -365,6 +362,9 @@ class MainContainer extends React.Component {
 
         axios.put(ectWPPath+'/wp-json/ect/v2/addTimer', params)
             .then(function (response) {
+                if (typeof window.ectWPInsertSC != "undefined") {
+                    window.ectWPInsertSC(response);
+                }
             })
             .catch(function (error) {
             });
