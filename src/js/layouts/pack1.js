@@ -1,4 +1,4 @@
-import HorizontalSlider from './pack1/horizontalSlider';
-export {HorizontalSlider};
+import HorizontalTimer from './pack1/horizontalTimer';
+export {HorizontalTimer};
 import VerticalTimer from './pack1/verticalTimer';
 export {VerticalTimer};

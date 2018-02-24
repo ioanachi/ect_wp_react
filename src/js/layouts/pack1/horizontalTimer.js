@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class HorizontalSlider extends React.Component {
+export default class HorizontalTimer extends React.Component {
   constructor(props) {
     super(props);
   }

@@ -5462,7 +5462,7 @@ module.exports = isArray;
 
 
 var bind = __webpack_require__(368);
-var isBuffer = __webpack_require__(790);
+var isBuffer = __webpack_require__(789);
 
 /*global toString:true*/
 
@@ -14493,7 +14493,7 @@ function deepForEach(children, callback) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(24);
-var normalizeHeaderName = __webpack_require__(792);
+var normalizeHeaderName = __webpack_require__(791);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -36363,12 +36363,12 @@ module.exports = function bind(fn, thisArg) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(24);
-var settle = __webpack_require__(793);
-var buildURL = __webpack_require__(795);
-var parseHeaders = __webpack_require__(796);
-var isURLSameOrigin = __webpack_require__(797);
+var settle = __webpack_require__(792);
+var buildURL = __webpack_require__(794);
+var parseHeaders = __webpack_require__(795);
+var isURLSameOrigin = __webpack_require__(796);
 var createError = __webpack_require__(370);
-var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(798);
+var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(797);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -36461,7 +36461,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(799);
+      var cookies = __webpack_require__(798);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ? cookies.read(config.xsrfCookieName) : undefined;
@@ -36543,7 +36543,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(794);
+var enhanceError = __webpack_require__(793);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -36645,7 +36645,7 @@ __webpack_require__(768);
 /* 375 */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n  </div>\r\n  <script type=\"text/javascript\">\r\n    var devMode = true;\r\n    var isOnlyPreview = false;\r\n    var ectWPPath = \"http://localhost/wordpress\";\r\n    var ectProperties = [{\r\n      'ectPopupContent': {\r\n        timeout: [],\r\n        endDate: '2029/2/16',\r\n        pTimezoneOffset: '+7200000',\r\n        endHour: '00',\r\n        endMinute: '00',\r\n        pFormat: 'D then H:M:S',\r\n        fontSize: 172,\r\n        fontSizeTxt: 32,\r\n        color: 'green',\r\n        colorTxt: '#F00',\r\n        isBold: false,\r\n        isBoldTxt: false,\r\n        customTxtYears: 'Years',\r\n        customTxtMonths: 'Months',\r\n        customTxtWeeks: 'Weeks',\r\n        customTxtDays: 'Days',\r\n        customTxtHours: 'Hours',\r\n        customTxtMinutes: 'Minutes',\r\n        customTxtSeconds: 'Seconds',\r\n        customTxtEndedTxt: 'Timer Ended'\r\n      }\r\n    }];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>";
+module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n  </div>\r\n  <script type=\"text/javascript\">\r\n    var devMode = true;\r\n    var isOnlyPreview = true;\r\n    var ectWPPath = \"http://localhost/wordpress\";\r\n    var ectProperties = [{\r\n      'ectPopupContent': {\r\n        timeout: [],\r\n        endDate: '2029/2/16',\r\n        timezoneOffset: '+7200000',\r\n        endHour: '00',\r\n        endMinute: '00',\r\n        pFormat: 'D then H:M:S',\r\n        fontSize: 172,\r\n        fontSizeTxt: 32,\r\n        color: 'green',\r\n        colorTxt: '#F00',\r\n        isBold: false,\r\n        isBoldTxt: false,\r\n        yearsTxt: 'Years',\r\n        monthsTxt: 'Months',\r\n        weeksTxt: 'Weeks',\r\n        daysTxt: 'Days',\r\n        hoursTxt: 'Hours',\r\n        minutesTxt: 'Minutes',\r\n        secondsTxt: 'Seconds',\r\n        customEndedTxt: 'Timer Ended'\r\n      }\r\n    }];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>";
 
 /***/ }),
 /* 376 */
@@ -97099,25 +97099,23 @@ var _nameInput = __webpack_require__(770);
 
 var _fontSize = __webpack_require__(771);
 
-var _ectShortcode = __webpack_require__(772);
+var _endDate = __webpack_require__(772);
 
-var _endDate = __webpack_require__(773);
+var _customText = __webpack_require__(775);
 
-var _customText = __webpack_require__(776);
-
-var _colorReactPicker = __webpack_require__(777);
+var _colorReactPicker = __webpack_require__(776);
 
 var _colorReactPicker2 = _interopRequireDefault(_colorReactPicker);
 
-var _bold = __webpack_require__(778);
+var _bold = __webpack_require__(777);
 
-var _timezonePicker = __webpack_require__(779);
+var _timezonePicker = __webpack_require__(778);
 
-var _ectLayouts = __webpack_require__(781);
+var _ectLayouts = __webpack_require__(780);
 
-var _livePreview = __webpack_require__(782);
+var _livePreview = __webpack_require__(781);
 
-var _timeFormat = __webpack_require__(787);
+var _timeFormat = __webpack_require__(786);
 
 var _reactTabs = __webpack_require__(364);
 
@@ -97125,7 +97123,7 @@ var _moment = __webpack_require__(3);
 
 var _moment2 = _interopRequireDefault(_moment);
 
-var _axios = __webpack_require__(788);
+var _axios = __webpack_require__(787);
 
 var _axios2 = _interopRequireDefault(_axios);
 
@@ -97167,10 +97165,10 @@ var MainContainer = function (_React$Component) {
             hoursFormat: "Hours",
             minutesFormat: "Minutes",
             secondsFormat: "Seconds",
-            customTxtEndedTxt: "Timer Ended",
+            customEndedTxt: "Timer Ended",
             firstView: true,
             livePrewiewOnly: '',
-            layoutType: ""
+            layoutType: "HorizontalTimer"
         };
         _this.onFontSubmit = _this.onFontSubmit.bind(_this);
         _this.onFontSubmitTxt = _this.onFontSubmitTxt.bind(_this);
@@ -97215,6 +97213,7 @@ var MainContainer = function (_React$Component) {
     }, {
         key: "returnChildDate",
         value: function returnChildDate(endDateChild, endHourChild, endMinuteChild, firstView) {
+
             this.setState({
                 endDate: (0, _moment2.default)(endDateChild),
                 endHour: endHourChild,
@@ -97264,7 +97263,7 @@ var MainContainer = function (_React$Component) {
                 hoursFormat: H,
                 minutesFormat: Minute,
                 secondsFormat: S,
-                customTxtEndedTxt: endText
+                customEndedTxt: endText
             });
         }
     }, {
@@ -97292,8 +97291,10 @@ var MainContainer = function (_React$Component) {
                 endHour: this.state.endHour,
                 endMinute: this.state.endMinute,
                 timeFormat: this.state.timeFormat,
-                customTxtEndedTxt: this.state.customTxtEndedTxt
+                customEndedTxt: this.state.customEndedTxt,
+                layoutType: this.state.layoutType
             };
+
             var labelPreview = _react2.default.createElement("label", {
                 key: "labelLivePreview",
                 htmlFor: "tableStyles",
@@ -97313,7 +97314,7 @@ var MainContainer = function (_React$Component) {
                 NameParent: this.onNameSubmit,
                 nameValue: this.state.naMeP
             }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { colSpan: "2", className: "componentContainer" }, _react2.default.createElement("label", null, "Timezone")), _react2.default.createElement("td", { colSpan: "2", className: "timezones" }, _react2.default.createElement(_timezonePicker.Timezones, {
-                pTimezoneOffset: this.state.timezoneOffset,
+                timezoneOffset: this.state.timezoneOffset,
                 callbackChildPropT: this.returnTimezone
             }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", null, " "), _react2.default.createElement("td", { className: "tableHeaders" }, "Numbers"), _react2.default.createElement("td", { className: "tableHeaders" }, "Custom Text")), _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement("label", null, "Color")), _react2.default.createElement("td", null, _react2.default.createElement(_colorReactPicker2.default, {
                 callbackChildPropColor: this.returnChildColor,
@@ -97341,7 +97342,7 @@ var MainContainer = function (_React$Component) {
                 pHoursFormat: this.state.hoursFormat,
                 pMinutesFormat: this.state.minutesFormat,
                 pSecondsFormat: this.state.secondsFormat,
-                pcustomTxtEndedTxt: this.state.customTxtEndedTxt,
+                pcustomEndedTxt: this.state.customEndedTxt,
                 callbackChildPropFormatText: this.returnTextFormat
             }))), _react2.default.createElement("button", {
                 type: "button",
@@ -97375,7 +97376,7 @@ var MainContainer = function (_React$Component) {
         value: function ectInsertSC() {
             var params = {
                 'timerName': this.state.naMeP,
-                'userID': 1,
+                'endDate': this.state.endDate.year() + '-' + (this.state.endDate.month() + 1) + '-' + this.state.endDate.date(),
                 'fontSize': this.state.fontSize,
                 'fontSizeTxt': this.state.fontSizeTxt,
                 'color': this.state.pColor,
@@ -97393,13 +97394,12 @@ var MainContainer = function (_React$Component) {
                 'hoursTxt': this.state.hoursFormat,
                 'minutesTxt': this.state.minutesFormat,
                 'secondsTxt': this.state.secondsFormat,
-                'customEndedTxt': this.state.customTxtEndedTxt,
+                'customEndedTxt': this.state.customEndedTxt,
                 'layoutType': this.state.layoutType
             };
 
             _axios2.default.put(ectWPPath + '/wp-json/ect/v2/addTimer', params).then(function (response) {
                 var idValue = response.data[1].returnID;
-                console.log(idValue);
 
                 if (typeof window.ectWPInsertSC != "undefined") {
                     window.ectWPInsertSC(idValue);
@@ -97597,73 +97597,6 @@ var EctSlider = exports.EctSlider = function (_React$Component) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.EctShortcode = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var EctShortcode = exports.EctShortcode = function (_React$Component) {
-  _inherits(EctShortcode, _React$Component);
-
-  function EctShortcode(props) {
-    _classCallCheck(this, EctShortcode);
-
-    var _this = _possibleConstructorReturn(this, (EctShortcode.__proto__ || Object.getPrototypeOf(EctShortcode)).call(this, props));
-
-    _this.state = {
-      displayShortcode: false
-    };
-    _this.selectAllText = _this.selectAllText.bind(_this);
-    return _this;
-  }
-
-  _createClass(EctShortcode, [{
-    key: 'selectAllText',
-    value: function selectAllText(e) {
-      e.target.setSelectionRange(0, e.target.value.length);
-      e.target.select();
-    }
-  }, {
-    key: 'showShortcode',
-    value: function showShortcode() {
-      this.setState({
-        displayShortcode: !this.state.displayShortcode
-      });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var finalEndDate = this.props.endDate.year() + '/' + (this.props.endDate.month() + 1) + '/' + this.props.endDate.date();
-      var shortValue = '[ectShortcode timername="' + this.props.pName + '"   enddate="' + finalEndDate + '"  numbercolor= "' + this.props.pColor + '" colortxt="' + this.props.pColorTxt + '" numberfontsize="' + this.props.pFont + '"  fontsizetxt="' + this.props.pFontTxt + '"' + ' numberbold="' + this.props.chooseBold + '" numberboldtxt="' + this.props.pIsBoldTxt + '" enddatetimezone="' + this.props.pTimezoneOffset + '" endhour="' + this.props.pEndHour + '"  endminute= "' + this.props.pEndMinute + '" timeFormat="' + this.props.pTimeFormat + '" customtxtyears=" ' + this.props.pYears + '"  customtxtmonths="' + this.props.pMonths + '" customtxtweeks="' + this.props.pWeeks + '" customtxtdays="' + this.props.pDays + '" customtxthours="' + this.props.pHoursFormat + '" customtxtminutes="' + this.props.pMinutesFormat + '" customtxtseconds="' + this.props.pSecondsFormat + '" customtimerendedtxt="' + this.props.pCustomTxtEndedTxt + '"]';
-
-      return _react2.default.createElement('div', { className: 'ectSortcode' }, _react2.default.createElement('div', { className: 'shortcode' }, _react2.default.createElement('input', { id: 'ectSCInput', onClick: this.selectAllText, onChange: this.selectAllText, value: shortValue })));
-    }
-  }]);
-
-  return EctShortcode;
-}(_react2.default.Component);
-
-/***/ }),
-/* 773 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 exports.EndDate = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -97682,7 +97615,7 @@ var _moment2 = _interopRequireDefault(_moment);
 
 __webpack_require__(268);
 
-__webpack_require__(774);
+__webpack_require__(773);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -97717,13 +97650,15 @@ var EndDate = exports.EndDate = function (_React$Component) {
   _createClass(EndDate, [{
     key: 'handleChange',
     value: function handleChange(date) {
+      var newDate;
       if (date.month() + 1 < 10) {
-        var newDate = date.year() + '-' + '0' + (date.month() + 1) + '-' + date.date();
+        newDate = date.year() + '-' + '0' + (date.month() + 1) + '-' + date.date();
       } else {
-        var newDate = date.year() + '-' + (date.month() + 1) + '-' + date.date();
+        newDate = date.year() + '-' + (date.month() + 1) + '-' + date.date();
       }
       var newHour = date.hour();
       var newMinute = date.minute();
+      console.log((0, _moment2.default)(newDate));
 
       this.setState({
         startDate: date,
@@ -97762,13 +97697,13 @@ var EndDate = exports.EndDate = function (_React$Component) {
 }(_react2.default.Component);
 
 /***/ }),
-/* 774 */
+/* 773 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(775);
+var content = __webpack_require__(774);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -97793,7 +97728,7 @@ if(false) {
 }
 
 /***/ }),
-/* 775 */
+/* 774 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(73)(undefined);
@@ -97807,7 +97742,7 @@ exports.push([module.i, ".react-datepicker-popper[data-placement^=\"bottom\"] .r
 
 
 /***/ }),
-/* 776 */
+/* 775 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -97959,7 +97894,7 @@ var CustomText = exports.CustomText = function (_React$Component) {
 }(_react2.default.Component);
 
 /***/ }),
-/* 777 */
+/* 776 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -98073,7 +98008,7 @@ var PickColor = function (_React$Component) {
 exports.default = PickColor;
 
 /***/ }),
-/* 778 */
+/* 777 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -98152,7 +98087,7 @@ var Bold = exports.Bold = function (_React$Component) {
 }(_react2.default.Component);
 
 /***/ }),
-/* 779 */
+/* 778 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -98169,7 +98104,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _timezoneArr = __webpack_require__(780);
+var _timezoneArr = __webpack_require__(779);
 
 var _timezoneArr2 = _interopRequireDefault(_timezoneArr);
 
@@ -98236,7 +98171,7 @@ var Timezones = exports.Timezones = function (_React$Component) {
 }(_react2.default.Component);
 
 /***/ }),
-/* 780 */
+/* 779 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -98970,7 +98905,7 @@ var timezoneArr = [{
 exports.default = timezoneArr;
 
 /***/ }),
-/* 781 */
+/* 780 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99030,7 +98965,7 @@ var Layout = exports.Layout = function (_React$Component) {
 }(_react2.default.Component);
 
 /***/ }),
-/* 782 */
+/* 781 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99051,11 +98986,11 @@ var _reactDom = __webpack_require__(14);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _mathCountDown = __webpack_require__(783);
+var _mathCountDown = __webpack_require__(782);
 
 var _mathCountDown2 = _interopRequireDefault(_mathCountDown);
 
-var _pack = __webpack_require__(784);
+var _pack = __webpack_require__(783);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -99075,9 +99010,9 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
 
         _this.state = {
             timeout: [],
-            timerStyle: 'VerticalTimer'
+            layoutType: _this.props.pAllData.layoutType
         };
-        var tempClass = window[_this.state.timerStyle + '2'];
+        var tempClass = window[_this.state.layoutType + '2'];
         return _this;
     }
 
@@ -99102,22 +99037,24 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                 tThis: this,
                 timeout: [],
                 endDate: this.props.pAllData.endDate,
-                pTimezoneOffset: this.props.pAllData.timezoneOffset,
+                timezoneOffset: this.props.pAllData.timezoneOffset,
                 endHour: this.props.pAllData.endHour,
                 endMinute: this.props.pAllData.endMinute,
                 fontSize: this.props.pAllData.fontSize,
                 fontSizeTxt: this.props.pAllData.fontSizeTxt,
                 isBold: this.props.pAllData.isBold,
                 isBoldTxt: this.props.pAllData.isBoldTxt,
-                customTxtYears: this.props.pAllData.Years,
-                customTxtMonths: this.props.pAllData.Months,
-                customTxtWeeks: this.props.pAllData.Weeks,
-                customTxtDays: this.props.pAllData.Days,
-                customTxtHours: this.props.pAllData.Hours,
-                customTxtMinutes: this.props.pAllData.Minutes,
-                customTxtSeconds: this.props.pAllData.Seconds,
+                yearsTxt: this.props.pAllData.Years,
+                monthsTxt: this.props.pAllData.Months,
+                weeksTxt: this.props.pAllData.Weeks,
+                daysTxt: this.props.pAllData.Days,
+                hoursTxt: this.props.pAllData.Hours,
+                minutesTxt: this.props.pAllData.Minutes,
+                secondsTxt: this.props.pAllData.Seconds,
                 customTxtEndedTxt: this.props.pAllData.customTxtEndedTxt,
-                pFormat: this.props.pAllData.timeFormat
+                pFormat: this.props.pAllData.timeFormat,
+                layoutType: this.props.pAllData.layoutType
+
             };
             var divStyle = {},
                 divStyleTxt = {};
@@ -99136,7 +99073,7 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                 dataProps = {
                     timeout: propertiesObj.timeout,
                     endDate: propertiesObj.endDate,
-                    pTimezoneOffset: propertiesObj.pTimezoneOffset,
+                    timezoneOffset: propertiesObj.timezoneOffset,
                     endHour: propertiesObj.endHour,
                     endMinute: propertiesObj.endMinute,
                     pFormat: propertiesObj.pFormat,
@@ -99146,14 +99083,16 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                     colorTxt: propertiesObj.colorTxt,
                     isBold: propertiesObj.isBold,
                     isBoldTxt: propertiesObj.isBoldTxt,
-                    customTxtYears: propertiesObj.customTxtYears,
-                    customTxtMonths: propertiesObj.customTxtMonths,
-                    customTxtWeeks: propertiesObj.customTxtWeeks,
-                    customTxtDays: propertiesObj.customTxtDays,
-                    customTxtHours: propertiesObj.customTxtHours,
-                    customTxtMinutes: propertiesObj.customTxtMinutes,
-                    customTxtSeconds: propertiesObj.customTxtSeconds,
-                    customTxtEndedTxt: propertiesObj.customTxtEndedTxt
+                    yearsTxt: propertiesObj.yearsTxt,
+                    monthsTxt: propertiesObj.monthsTxt,
+                    weeksTxt: propertiesObj.weeksTxt,
+                    daysTxt: propertiesObj.daysTxt,
+                    hoursTxt: propertiesObj.hoursTxt,
+                    minutesTxt: propertiesObj.minutesTxt,
+                    secondsTxt: propertiesObj.secondsTxt,
+                    customTxtEndedTxt: propertiesObj.customTxtEndedTxt,
+                    layoutType: propertiesObj.layoutType
+
                 };
                 divStyle = {
                     fontSize: dataProps.fontSize + 'px',
@@ -99180,16 +99119,17 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
             }
 
             var components = {
-                HorizontalSlider: _pack.HorizontalSlider,
+                HorizontalTimer: _pack.HorizontalTimer,
                 VerticalTimer: _pack.VerticalTimer
             };
             var tempDatesObj = {
                 endDate: dataProps.endDate,
-                pTimezoneOffset: dataProps.pTimezoneOffset,
+                timezoneOffset: dataProps.timezoneOffset,
                 endHour: dataProps.endHour,
                 endMinute: dataProps.endMinute
             };
             var numberValues = _mathCountDown2.default.mathFunc(tempDatesObj);
+
             var timerNumbers = {};
             if (!numberValues) {
                 timerNumbers = false;
@@ -99208,17 +99148,17 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
             }
 
             var timerCustomTxt = {
-                Years: dataProps.customTxtYears,
-                Months: dataProps.customTxtMonths,
-                Weeks: dataProps.customTxtWeeks,
-                Days: dataProps.customTxtDays,
-                Hours: dataProps.customTxtHours,
-                Minutes: dataProps.customTxtMinutes,
-                Seconds: dataProps.customTxtSeconds,
+                Years: dataProps.yearsTxt,
+                Months: dataProps.monthsTxt,
+                Weeks: dataProps.weeksTxt,
+                Days: dataProps.daysTxt,
+                Hours: dataProps.hoursTxt,
+                Minutes: dataProps.minutesTxt,
+                Seconds: dataProps.secondsTxt,
                 EndedTxt: dataProps.customTxtEndedTxt,
                 Styles: divStyleTxt
             };
-            var DynamicComponentName = components[this.state.timerStyle];
+            var DynamicComponentName = components[this.state.layoutType];
             return _react2.default.createElement(DynamicComponentName, { numbers: timerNumbers, customTxt: timerCustomTxt });
         }
     }, {
@@ -99232,7 +99172,7 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
 }(_react2.default.Component);
 
 /***/ }),
-/* 783 */
+/* 782 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99276,8 +99216,9 @@ var _class = function () {
                         //  localTimeSeconds secundele trecute din 1 jan 1970 pana la ora locala (asta face .getTime() de data locala
                         // obtinuta cu newDate() )
                         var localOffset = localDate.getTimezoneOffset() * oneMinute;
+
                         var utc = localTimeMiliseconds + localOffset;
-                        var timezoneOffset = obj.pTimezoneOffset;
+                        var timezoneOffset = obj.timezoneOffset;
                         var hourToMiliseconds = obj.endHour * oneHour;
                         var minutesToMiliseconds = obj.endMinute * oneMinute;
                         var date = new Date(obj.endDate);
@@ -99364,7 +99305,7 @@ var _class = function () {
 exports.default = _class;
 
 /***/ }),
-/* 784 */
+/* 783 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99373,23 +99314,23 @@ exports.default = _class;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.VerticalTimer = exports.HorizontalSlider = undefined;
+exports.VerticalTimer = exports.HorizontalTimer = undefined;
 
-var _horizontalSlider = __webpack_require__(785);
+var _horizontalTimer = __webpack_require__(784);
 
-var _horizontalSlider2 = _interopRequireDefault(_horizontalSlider);
+var _horizontalTimer2 = _interopRequireDefault(_horizontalTimer);
 
-var _verticalTimer = __webpack_require__(786);
+var _verticalTimer = __webpack_require__(785);
 
 var _verticalTimer2 = _interopRequireDefault(_verticalTimer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.HorizontalSlider = _horizontalSlider2.default;
+exports.HorizontalTimer = _horizontalTimer2.default;
 exports.VerticalTimer = _verticalTimer2.default;
 
 /***/ }),
-/* 785 */
+/* 784 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99413,16 +99354,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var HorizontalSlider = function (_React$Component) {
-  _inherits(HorizontalSlider, _React$Component);
+var HorizontalTimer = function (_React$Component) {
+  _inherits(HorizontalTimer, _React$Component);
 
-  function HorizontalSlider(props) {
-    _classCallCheck(this, HorizontalSlider);
+  function HorizontalTimer(props) {
+    _classCallCheck(this, HorizontalTimer);
 
-    return _possibleConstructorReturn(this, (HorizontalSlider.__proto__ || Object.getPrototypeOf(HorizontalSlider)).call(this, props));
+    return _possibleConstructorReturn(this, (HorizontalTimer.__proto__ || Object.getPrototypeOf(HorizontalTimer)).call(this, props));
   }
 
-  _createClass(HorizontalSlider, [{
+  _createClass(HorizontalTimer, [{
     key: 'render',
     value: function render() {
       var finalResult = [];
@@ -99447,13 +99388,13 @@ var HorizontalSlider = function (_React$Component) {
     }
   }]);
 
-  return HorizontalSlider;
+  return HorizontalTimer;
 }(_react2.default.Component);
 
-exports.default = HorizontalSlider;
+exports.default = HorizontalTimer;
 
 /***/ }),
-/* 786 */
+/* 785 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99518,7 +99459,7 @@ var VerticalTimer = function (_React$Component) {
 exports.default = VerticalTimer;
 
 /***/ }),
-/* 787 */
+/* 786 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99619,13 +99560,13 @@ var TimeFormat = exports.TimeFormat = function (_React$Component) {
 }(_react2.default.Component);
 
 /***/ }),
-/* 788 */
+/* 787 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(789);
+module.exports = __webpack_require__(788);
 
 /***/ }),
-/* 789 */
+/* 788 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99633,7 +99574,7 @@ module.exports = __webpack_require__(789);
 
 var utils = __webpack_require__(24);
 var bind = __webpack_require__(368);
-var Axios = __webpack_require__(791);
+var Axios = __webpack_require__(790);
 var defaults = __webpack_require__(142);
 
 /**
@@ -99668,14 +99609,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(372);
-axios.CancelToken = __webpack_require__(805);
+axios.CancelToken = __webpack_require__(804);
 axios.isCancel = __webpack_require__(371);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(806);
+axios.spread = __webpack_require__(805);
 
 module.exports = axios;
 
@@ -99683,7 +99624,7 @@ module.exports = axios;
 module.exports.default = axios;
 
 /***/ }),
-/* 790 */
+/* 789 */
 /***/ (function(module, exports) {
 
 /*!
@@ -99709,7 +99650,7 @@ function isSlowBuffer(obj) {
 }
 
 /***/ }),
-/* 791 */
+/* 790 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99717,8 +99658,8 @@ function isSlowBuffer(obj) {
 
 var defaults = __webpack_require__(142);
 var utils = __webpack_require__(24);
-var InterceptorManager = __webpack_require__(800);
-var dispatchRequest = __webpack_require__(801);
+var InterceptorManager = __webpack_require__(799);
+var dispatchRequest = __webpack_require__(800);
 
 /**
  * Create a new instance of Axios
@@ -99794,7 +99735,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = Axios;
 
 /***/ }),
-/* 792 */
+/* 791 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99812,7 +99753,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 };
 
 /***/ }),
-/* 793 */
+/* 792 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99838,7 +99779,7 @@ module.exports = function settle(resolve, reject, response) {
 };
 
 /***/ }),
-/* 794 */
+/* 793 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99866,7 +99807,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 };
 
 /***/ }),
-/* 795 */
+/* 794 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99931,7 +99872,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 };
 
 /***/ }),
-/* 796 */
+/* 795 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99987,7 +99928,7 @@ module.exports = function parseHeaders(headers) {
 };
 
 /***/ }),
-/* 797 */
+/* 796 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100056,7 +99997,7 @@ function nonStandardBrowserEnv() {
 }();
 
 /***/ }),
-/* 798 */
+/* 797 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100097,7 +100038,7 @@ function btoa(input) {
 module.exports = btoa;
 
 /***/ }),
-/* 799 */
+/* 798 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100156,7 +100097,7 @@ function nonStandardBrowserEnv() {
 }();
 
 /***/ }),
-/* 800 */
+/* 799 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100214,18 +100155,18 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
 module.exports = InterceptorManager;
 
 /***/ }),
-/* 801 */
+/* 800 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(24);
-var transformData = __webpack_require__(802);
+var transformData = __webpack_require__(801);
 var isCancel = __webpack_require__(371);
 var defaults = __webpack_require__(142);
-var isAbsoluteURL = __webpack_require__(803);
-var combineURLs = __webpack_require__(804);
+var isAbsoluteURL = __webpack_require__(802);
+var combineURLs = __webpack_require__(803);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -100287,7 +100228,7 @@ module.exports = function dispatchRequest(config) {
 };
 
 /***/ }),
-/* 802 */
+/* 801 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100313,7 +100254,7 @@ module.exports = function transformData(data, headers, fns) {
 };
 
 /***/ }),
-/* 803 */
+/* 802 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100335,7 +100276,7 @@ module.exports = function isAbsoluteURL(url) {
 };
 
 /***/ }),
-/* 804 */
+/* 803 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100354,7 +100295,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 };
 
 /***/ }),
-/* 805 */
+/* 804 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100417,7 +100358,7 @@ CancelToken.source = function source() {
 module.exports = CancelToken;
 
 /***/ }),
-/* 806 */
+/* 805 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

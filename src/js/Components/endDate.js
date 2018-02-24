@@ -23,14 +23,16 @@ export class EndDate extends React.Component {
       .bind(this);
   }
   handleChange(date) {
+    var newDate;
     if((date.month()+1)< 10 ){
-      var newDate = date.year() + '-' + '0'+(date.month() + 1) + '-' + date.date();
+      newDate = date.year() + '-' + '0'+(date.month() + 1) + '-' + date.date();
     }else{
-      var newDate = date.year() + '-' +(date.month() + 1) + '-' + date.date();
+      newDate = date.year() + '-' +(date.month() + 1) + '-' + date.date();
       
     }
     var newHour = date.hour();
     var newMinute = date.minute();
+    console.log(moment(newDate));
 
     this.setState({
       startDate: date, 
