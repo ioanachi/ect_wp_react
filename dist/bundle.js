@@ -36645,7 +36645,7 @@ __webpack_require__(768);
 /* 375 */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n  </div>\r\n  <script type=\"text/javascript\">\r\n    var devMode = true;\r\n    var isOnlyPreview = false;\r\n    var ectProperties = [{\r\n      'ectPopupContent': {\r\n        timeout: [],\r\n        endDate: '2029/2/16',\r\n        pTimezoneOffset: '+7200000',\r\n        endHour: '00',\r\n        endMinute: '00',\r\n        pFormat: 'D then H:M:S',\r\n        fontSize: 172,\r\n        fontSizeTxt: 32,\r\n        color: 'green',\r\n        colorTxt: '#F00',\r\n        isBold: false,\r\n        isBoldTxt: false,\r\n        customTxtYears: 'Years',\r\n        customTxtMonths: 'Months',\r\n        customTxtWeeks: 'Weeks',\r\n        customTxtDays: 'Days',\r\n        customTxtHours: 'Hours',\r\n        customTxtMinutes: 'Minutes',\r\n        customTxtSeconds: 'Seconds',\r\n        customTxtEndedTxt: 'Timer Ended'\r\n      }\r\n    }];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>";
+module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\">\r\n  </div>\r\n  <script type=\"text/javascript\">\r\n    var devMode = true;\r\n    var isOnlyPreview = false;\r\n    var ectWPPath = \"http://localhost/wordpress\";\r\n    var ectProperties = [{\r\n      'ectPopupContent': {\r\n        timeout: [],\r\n        endDate: '2029/2/16',\r\n        pTimezoneOffset: '+7200000',\r\n        endHour: '00',\r\n        endMinute: '00',\r\n        pFormat: 'D then H:M:S',\r\n        fontSize: 172,\r\n        fontSizeTxt: 32,\r\n        color: 'green',\r\n        colorTxt: '#F00',\r\n        isBold: false,\r\n        isBoldTxt: false,\r\n        customTxtYears: 'Years',\r\n        customTxtMonths: 'Months',\r\n        customTxtWeeks: 'Weeks',\r\n        customTxtDays: 'Days',\r\n        customTxtHours: 'Hours',\r\n        customTxtMinutes: 'Minutes',\r\n        customTxtSeconds: 'Seconds',\r\n        customTxtEndedTxt: 'Timer Ended'\r\n      }\r\n    }];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>";
 
 /***/ }),
 /* 376 */
@@ -97309,7 +97309,7 @@ var MainContainer = function (_React$Component) {
             var configurationComponentsJSX = _react2.default.createElement("div", { key: "configurationComponentsJSX" }, _react2.default.createElement("label", { htmlFor: "tableStyles", className: "containerLabels" }, "Configuration"), _react2.default.createElement(_reactTabs.Tabs, { className: "tableStyles" }, _react2.default.createElement(_reactTabs.TabList, null, _react2.default.createElement(_reactTabs.Tab, null, "General"), _react2.default.createElement(_reactTabs.Tab, null, "Configuration"), _react2.default.createElement(_reactTabs.Tab, null, "Custom Text")), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement("table", { className: "FirstPanelTable" }, _react2.default.createElement("tbody", null, _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "FirstPanelLabel" }, _react2.default.createElement("label", { htmlFor: "datePicker" }, "End Date")), _react2.default.createElement("td", { className: "FirstPanel" }, _react2.default.createElement(_endDate.EndDate, {
                 callbackChildProp: this.returnChildDate,
                 pEndDate: this.state.endDate
-            })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement("table", { className: "configTable configuration" }, _react2.default.createElement("tbody", null, _react2.default.createElement("tr", null, _react2.default.createElement("td", { colSpan: "2", className: "componentContainer" }, _react2.default.createElement("label", { htmlFor: "username" }, "Name")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement(_nameInput.UserName, {
+            }))))), _react2.default.createElement("div", { className: "layoutsContainer" }, _react2.default.createElement("label", { className: "layoutsLabel", htmlFor: "datePicker" }, "Layouts"), _react2.default.createElement(_ectLayouts.Layout, { className: "layouts", callbackChildLayout: this.returnLayout, layoutType: this.state.layoutType }))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement("table", { className: "configTable configuration" }, _react2.default.createElement("tbody", null, _react2.default.createElement("tr", null, _react2.default.createElement("td", { colSpan: "2", className: "componentContainer" }, _react2.default.createElement("label", { htmlFor: "username" }, "Name")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement(_nameInput.UserName, {
                 NameParent: this.onNameSubmit,
                 nameValue: this.state.naMeP
             }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { colSpan: "2", className: "componentContainer" }, _react2.default.createElement("label", null, "Timezone")), _react2.default.createElement("td", { colSpan: "2", className: "timezones" }, _react2.default.createElement(_timezonePicker.Timezones, {
@@ -97373,9 +97373,6 @@ var MainContainer = function (_React$Component) {
     }, {
         key: "ectInsertSC",
         value: function ectInsertSC() {
-            if (typeof window.ectWPInsertSC != "undefined") {
-                window.ectWPInsertSC();
-            }
             var params = {
                 'timerName': this.state.naMeP,
                 'userID': 1,
@@ -97400,7 +97397,12 @@ var MainContainer = function (_React$Component) {
                 'layoutType': this.state.layoutType
             };
 
-            _axios2.default.put('http://localhost/wordpress/wp-json/ect/v2/addTimer', params).then(function (response) {}).catch(function (error) {});
+            _axios2.default.put(ectWPPath + '/wp-json/ect/v2/addTimer', params).then(function (response) {
+                var idValue = response.data[1].returnID;
+                if (typeof window.ectWPInsertSC != "undefined") {
+                    window.ectWPInsertSC(idValue);
+                }
+            }).catch(function (error) {});
         }
     }, {
         key: "ectClosePopupButton",
@@ -97425,7 +97427,7 @@ var MainContainer = function (_React$Component) {
     return MainContainer;
 }(_react2.default.Component);
 
-ectProperties.forEach(function (eachTimer) {
+if (typeof ectProperties != "undefined") ectProperties.forEach(function (eachTimer) {
     for (var key in eachTimer) {
         _reactDom2.default.render(_react2.default.createElement(MainContainer, { id: "ectInsertSC", parentID: key }), document.getElementById(key));
     }
