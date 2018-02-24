@@ -390,11 +390,15 @@ class MainContainer extends React.Component {
         return renderReturn;
     }
 }
-ectProperties.forEach(function (eachTimer) {
-    for (var key in eachTimer) {
-        ReactDOM.render(
-            <MainContainer id="ectInsertSC" parentID={key} />,
-            document.getElementById(key)
-        );
-    }
-});
+
+if(typeof ectProperties != "undefined")
+    ectProperties.forEach(function (eachTimer) {
+        for (var key in eachTimer) {
+            ReactDOM.render(
+                <MainContainer id="ectInsertSC" parentID={key} />,
+                document.getElementById(key)
+            );
+        }
+    });
+
+
