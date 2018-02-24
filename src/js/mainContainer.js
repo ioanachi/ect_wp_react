@@ -186,10 +186,10 @@ class MainContainer extends React.Component {
                                 </tr>
                             </tbody>
                         </table>
-                        <div className="layoutsContainer">
+                        {/* <div className="layoutsContainer">
                             <label className="layoutsLabel" htmlFor="datePicker">Layouts</label>
                             <Layout className="layouts" callbackChildLayout={this.returnLayout} layoutType={this.state.layoutType} />
-                        </div>
+                        </div> */}
                     </TabPanel>
                     <TabPanel>
                         <table className="configTable configuration">
@@ -363,6 +363,8 @@ class MainContainer extends React.Component {
         axios.put(ectWPPath+'/wp-json/ect/v2/addTimer', params)
             .then(function (response) {
                 var idValue=response.data[1].returnID;
+                console.log(idValue);
+                
                 if (typeof window.ectWPInsertSC != "undefined") {
                     window.ectWPInsertSC(idValue);
                 }

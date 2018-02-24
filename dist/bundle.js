@@ -97309,7 +97309,7 @@ var MainContainer = function (_React$Component) {
             var configurationComponentsJSX = _react2.default.createElement("div", { key: "configurationComponentsJSX" }, _react2.default.createElement("label", { htmlFor: "tableStyles", className: "containerLabels" }, "Configuration"), _react2.default.createElement(_reactTabs.Tabs, { className: "tableStyles" }, _react2.default.createElement(_reactTabs.TabList, null, _react2.default.createElement(_reactTabs.Tab, null, "General"), _react2.default.createElement(_reactTabs.Tab, null, "Configuration"), _react2.default.createElement(_reactTabs.Tab, null, "Custom Text")), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement("table", { className: "FirstPanelTable" }, _react2.default.createElement("tbody", null, _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "FirstPanelLabel" }, _react2.default.createElement("label", { htmlFor: "datePicker" }, "End Date")), _react2.default.createElement("td", { className: "FirstPanel" }, _react2.default.createElement(_endDate.EndDate, {
                 callbackChildProp: this.returnChildDate,
                 pEndDate: this.state.endDate
-            }))))), _react2.default.createElement("div", { className: "layoutsContainer" }, _react2.default.createElement("label", { className: "layoutsLabel", htmlFor: "datePicker" }, "Layouts"), _react2.default.createElement(_ectLayouts.Layout, { className: "layouts", callbackChildLayout: this.returnLayout, layoutType: this.state.layoutType }))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement("table", { className: "configTable configuration" }, _react2.default.createElement("tbody", null, _react2.default.createElement("tr", null, _react2.default.createElement("td", { colSpan: "2", className: "componentContainer" }, _react2.default.createElement("label", { htmlFor: "username" }, "Name")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement(_nameInput.UserName, {
+            })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement("table", { className: "configTable configuration" }, _react2.default.createElement("tbody", null, _react2.default.createElement("tr", null, _react2.default.createElement("td", { colSpan: "2", className: "componentContainer" }, _react2.default.createElement("label", { htmlFor: "username" }, "Name")), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement(_nameInput.UserName, {
                 NameParent: this.onNameSubmit,
                 nameValue: this.state.naMeP
             }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { colSpan: "2", className: "componentContainer" }, _react2.default.createElement("label", null, "Timezone")), _react2.default.createElement("td", { colSpan: "2", className: "timezones" }, _react2.default.createElement(_timezonePicker.Timezones, {
@@ -97399,6 +97399,8 @@ var MainContainer = function (_React$Component) {
 
             _axios2.default.put(ectWPPath + '/wp-json/ect/v2/addTimer', params).then(function (response) {
                 var idValue = response.data[1].returnID;
+                console.log(idValue);
+
                 if (typeof window.ectWPInsertSC != "undefined") {
                     window.ectWPInsertSC(idValue);
                 }
