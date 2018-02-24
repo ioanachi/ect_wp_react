@@ -14,7 +14,6 @@ import { TimeFormat } from "./Components/timeFormat.js";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import moment from "moment";
 import axios from "axios";
-console.log(typeof axios);
 
 
 class MainContainer extends React.Component {
@@ -217,13 +216,13 @@ class MainContainer extends React.Component {
                                         />
                                     </td>
                                 </tr>
-                            
+
                                 <tr>
                                     <td> </td>
                                     <td className="tableHeaders">Numbers</td>
                                     <td className="tableHeaders">Custom Text</td>
                                 </tr>
-                           
+
                                 <tr>
                                     <td className="componentContainer">
                                         <label>Color</label>
@@ -337,9 +336,9 @@ class MainContainer extends React.Component {
         return returnAllData;
     }
     ectInsertSC() {
-        // if (typeof ectInsertSC != "undefined") {
-        //     ectInsertSC();
-        // }
+        if (typeof window.ectWPInsertSC != "undefined") {
+            window.ectWPInsertSC();
+        }
         var params = {
             'timerName': this.state.naMeP,
             'userID': 1,
@@ -363,20 +362,17 @@ class MainContainer extends React.Component {
             'customEndedTxt': this.state.customTxtEndedTxt,
             'layoutType': this.state.layoutType
         };
-        console.log(params, "params");
 
-        axios.put('http://localhost/wordpress/wp-json/ect/v2/addTimer', params)
+        axios.put(ectWPPath+'/wp-json/ect/v2/addTimer', params)
             .then(function (response) {
-                console.log(response);
             })
             .catch(function (error) {
-                console.log(error);
             });
 
     }
     ectClosePopupButton() {
-        if (typeof ectPopup != "undefined") {
-            ectClosePopupButton();
+        if (typeof window.ectWPClosePopupButton != "undefined") {
+              window.ectWPClosePopupButton();
         }
 
     }
