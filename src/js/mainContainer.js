@@ -187,10 +187,10 @@ class MainContainer extends React.Component {
                                 </tr>
                             </tbody>
                         </table>
-                        {/* <div className="layoutsContainer">
+                        <div className="layoutsContainer">
                             <label className="layoutsLabel" htmlFor="datePicker">Layouts</label>
                             <Layout className="layouts" callbackChildLayout={this.returnLayout} layoutType={this.state.layoutType} />
-                        </div> */}
+                        </div>
                     </TabPanel>
                     <TabPanel>
                         <table className="configTable configuration">
