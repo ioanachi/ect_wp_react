@@ -336,9 +336,6 @@ class MainContainer extends React.Component {
         return returnAllData;
     }
     ectInsertSC() {
-        if (typeof window.ectWPInsertSC != "undefined") {
-            window.ectWPInsertSC();
-        }
         var params = {
             'timerName': this.state.naMeP,
             'userID': 1,
@@ -365,6 +362,12 @@ class MainContainer extends React.Component {
 
         axios.put(ectWPPath+'/wp-json/ect/v2/addTimer', params)
             .then(function (response) {
+                var idValue=response.data[1].returnID;
+                console.log(idValue);
+                
+                if (typeof window.ectWPInsertSC != "undefined") {
+                    window.ectWPInsertSC(idValue);
+                }
             })
             .catch(function (error) {
             });
@@ -386,11 +389,15 @@ class MainContainer extends React.Component {
         return renderReturn;
     }
 }
-ectProperties.forEach(function (eachTimer) {
-    for (var key in eachTimer) {
-        ReactDOM.render(
-            <MainContainer id="ectInsertSC" parentID={key} />,
-            document.getElementById(key)
-        );
-    }
-});
+
+if(typeof ectProperties != "undefined")
+    ectProperties.forEach(function (eachTimer) {
+        for (var key in eachTimer) {
+            ReactDOM.render(
+                <MainContainer id="ectInsertSC" parentID={key} />,
+                document.getElementById(key)
+            );
+        }
+    });
+
+
