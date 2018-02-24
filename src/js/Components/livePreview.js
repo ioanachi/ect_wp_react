@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import mathCountDown from './mathCountDown';
-import {PlainString} from '../TimerStyles/pack1';
+import {HorizontalSlider} from '../layouts/pack1';
+import {VerticalTimer} from '../layouts/pack1';
 export class LivePreview extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             timeout: [],
-            timerStyle: 'PlainString'
+            timerStyle: 'VerticalTimer'
         };
         const tempClass = window[this.state.timerStyle + '2'];
     };
@@ -43,7 +44,7 @@ export class LivePreview extends React.Component {
             customTxtHours: this.props.pAllData.Hours,
             customTxtMinutes: this.props.pAllData.Minutes,
             customTxtSeconds: this.props.pAllData.Seconds,
-            customTimerEndedTxt: this.props.pAllData.customTimerEndedTxt,
+            customTxtEndedTxt: this.props.pAllData.customTxtEndedTxt,
             pFormat: this.props.pAllData.timeFormat
         };
         var divStyle = {},
@@ -80,7 +81,7 @@ export class LivePreview extends React.Component {
                 customTxtHours: propertiesObj.customTxtHours,
                 customTxtMinutes: propertiesObj.customTxtMinutes,
                 customTxtSeconds: propertiesObj.customTxtSeconds,
-                customTimerEndedTxt: propertiesObj.customTimerEndedTxt
+                customTxtEndedTxt: propertiesObj.customTxtEndedTxt
             };
             divStyle = {
                 fontSize: dataProps.fontSize+'px',
@@ -115,7 +116,8 @@ export class LivePreview extends React.Component {
         }
 
         const components = {
-            PlainString: PlainString
+            HorizontalSlider: HorizontalSlider,
+            VerticalTimer: VerticalTimer
         };
         var tempDatesObj = {
             endDate: dataProps.endDate,
@@ -150,7 +152,7 @@ export class LivePreview extends React.Component {
             Hours: dataProps.customTxtHours,
             Minutes: dataProps.customTxtMinutes,
             Seconds: dataProps.customTxtSeconds,
-            EndedTxt: dataProps.customTimerEndedTxt,
+            EndedTxt: dataProps.customTxtEndedTxt,
             Styles: divStyleTxt
         }
         const DynamicComponentName = components[this.state.timerStyle];

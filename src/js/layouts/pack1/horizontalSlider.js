@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class PlainString extends React.Component {
+export default class HorizontalSlider extends React.Component {
   constructor(props) {
     super(props);
   }

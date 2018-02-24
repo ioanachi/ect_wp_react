@@ -7,11 +7,12 @@
 </head>
 
 <body>
-  <div class="ectPopupContent" id="ectPopupContent">
+  <div id="ectPopupContent">
   </div>
   <script type="text/javascript">
-    var devMode = false;
+    var devMode = true;
     var isOnlyPreview = false;
+    var ectWPPath = "http://localhost/wordpress";
     var ectProperties = [{
       'ectPopupContent': {
         timeout: [],
@@ -33,7 +34,7 @@
         customTxtHours: 'Hours',
         customTxtMinutes: 'Minutes',
         customTxtSeconds: 'Seconds',
-        customTimerEndedTxt: 'Timer Ended'
+        customTxtEndedTxt: 'Timer Ended'
       }
     }];
   </script>

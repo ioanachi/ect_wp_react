@@ -8,10 +8,13 @@ import { CustomText } from "./Components/customText.js";
 import PickColor from "./Components/colorReactPicker.js";
 import { Bold } from "./Components/bold.js";
 import { Timezones } from "./Components/timezonePicker.js";
+import { Layout } from "./Components/ectLayouts.js";
 import { LivePreview } from "./Components/livePreview.js";
 import { TimeFormat } from "./Components/timeFormat.js";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import moment from "moment";
+import axios from "axios";
+
 
 class MainContainer extends React.Component {
     constructor(props) {
@@ -40,7 +43,8 @@ class MainContainer extends React.Component {
             secondsFormat: "Seconds",
             customTxtEndedTxt: "Timer Ended",
             firstView: true,
-            livePrewiewOnly: ''
+            livePrewiewOnly: '',
+            layoutType: ""
         };
         this.onFontSubmit = this.onFontSubmit.bind(this);
         this.onFontSubmitTxt = this.onFontSubmitTxt.bind(this);
@@ -53,7 +57,7 @@ class MainContainer extends React.Component {
         this.returnFormat = this.returnFormat.bind(this);
         this.returnTextFormat = this.returnTextFormat.bind(this);
         this.isBoldTxt = this.isBoldTxt.bind(this);
-
+        this.ectInsertSC = this.ectInsertSC.bind(this);
     }
 
     isBold(childVal) {
@@ -96,6 +100,9 @@ class MainContainer extends React.Component {
 
     returnFormat(formatType) {
         this.setState({ timeFormat: formatType });
+    }
+    returnLayout(layoutSelected) {
+        this.setState({ layoutType: layoutSelected });
     }
 
     returnTextFormat(Y, M, W, D, H, Minute, S, endText) {
@@ -164,128 +171,126 @@ class MainContainer extends React.Component {
                     </TabList>
 
                     <TabPanel>
-                        <table className="configTable">
+                        <table className="FirstPanelTable">
                             <tbody>
                                 <tr>
-                                    <td className="componentContainer">
+                                    <td className="FirstPanelLabel">
                                         <label htmlFor="datePicker">End Date</label>
                                     </td>
-                                    <td className="componentContainer">
+                                    <td className="FirstPanel">
                                         <EndDate
                                             callbackChildProp={this.returnChildDate}
                                             pEndDate={this.state.endDate}
                                         />
                                     </td>
                                 </tr>
+                            </tbody>
+                        </table>
+                        {/* <div className="layoutsContainer">
+                            <label className="layoutsLabel" htmlFor="datePicker">Layouts</label>
+                            <Layout className="layouts" callbackChildLayout={this.returnLayout} layoutType={this.state.layoutType} />
+                        </div> */}
+                    </TabPanel>
+                    <TabPanel>
+                        <table className="configTable configuration">
+                            <tbody>
+                                <tr>
+                                    <td colSpan='2' className="componentContainer">
+                                        <label htmlFor="username">Name</label>
+                                    </td>
+                                    <td className="componentContainer">
+                                        <UserName
+                                            NameParent={this.onNameSubmit}
+                                            nameValue={this.state.naMeP}
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colSpan='2' className="componentContainer">
+                                        <label>Timezone</label>
+                                    </td>
+                                    <td colSpan='2' className="timezones">
+                                        <Timezones
+                                            pTimezoneOffset={this.state.timezoneOffset}
+                                            callbackChildPropT={this.returnTimezone}
+                                        />
+                                    </td>
+                                </tr>
 
-                <tr>
-                  <td className="componentContainer">
-                    <label>Timezone</label>
-                  </td>
-                  <td className="timezones">
-                    <Timezones
-                      pTimezoneOffset={this.state.timezoneOffset}
-                      callbackChildPropT={this.returnTimezone}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="componentContainer">
-                    <label htmlFor="username">Name</label>
-                  </td>
-                  <td className="componentContainer">
-                    <UserName
-                      NameParent={this.onNameSubmit}
-                      nameValue={this.state.naMeP}
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </TabPanel>
-          <TabPanel>
-            <table className="configTable configuration">
-              <thead>
-                <tr>
-                  <th> </th>
-                  <th>Numbers</th>
-                  <th>Custom Text</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="componentContainer">
-                    <label>Color</label>
-                  </td>
-                  <td>
-                    <PickColor
-                      callbackChildPropColor={this.returnChildColor}
-                      pColor={this.state.pColor}
-                    />
-                  </td>
-                  <td className="componentContainer">
-                    <PickColor
-                      callbackChildPropColor={this.returnChildColorTxt}
-                      pColor={this.state.pColorTxt}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="componentContainer">
-                    <label htmlFor="fontInput">Font Size</label>
-                  </td>
-                  <td className="componentContainer">
-                    <EctSlider
-                      pFontSize={this.state.fontSize}
-                      pFontSizeCallback={this.onFontSubmit}
-                    />
-                  </td>
-                  <td className="componentContainer">
-                    <EctSlider
-                      pFontSize={this.state.fontSizeTxt}
-                      pFontSizeCallback={this.onFontSubmitTxt}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="componentContainer">
-                    <label>Select to make Bold</label>
-                  </td>
-                  <td className="componentContainer">
-                    <Bold
-                      callbackChildPropB={this.isBold}
-                      pIsBold={this.state.pIsBold}
-                    />
-                  </td>
-                  <td className="componentContainer">
-                    <Bold
-                      callbackChildPropB={this.isBoldTxt}
-                      pIsBold={this.state.pIsBoldTxt}
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </TabPanel>
-          <TabPanel>
-            <CustomText
-              pYears={this.state.yearsFormat}
-              pMonths={this.state.monthsFormat}
-              pWeeks={this.state.weeksFormat}
-              pDays={this.state.daysFormat}
-              pHoursFormat={this.state.hoursFormat}
-              pMinutesFormat={this.state.minutesFormat}
-              pSecondsFormat={this.state.secondsFormat}
-              callbackChildPropFormatText={this.returnTextFormat}
-            />
-          </TabPanel>
-        </Tabs>
-        <EctShortcode pYears={this.state.yearsFormat} pMonths={this.state.monthsFormat} pWeeks={this.state.weeksFormat} pDays={this.state.daysFormat}
-                pHoursFormat={this.state.hoursFormat} pMinutesFormat={this.state.minutesFormat} pSecondsFormat={this.state.secondsFormat} pName={this.state.naMeP}
-                pTimeFormat={this.state.timeFormat} endDate={this.state.endDate} pFont={this.state.fontSize} pFontTxt={this.state.fontSizeTxt} pColor={this.state.pColor} pColorTxt={this.state.pColorTxt}
-                 chooseBold={this.state.pIsBold}  pIsBoldTxt={this.state.pIsBoldTxt}
-                pUtcTz={this.state.utcTz} pTimezoneOffset={this.state.timezoneOffset} pEndHour={this.state.endHour} pEndMinute={this.state.endMinute}
-                pFormat={this.state.timeFormat} pCustomTxtEndedTxt={this.state.customTxtEndedTxt} />
+                                <tr>
+                                    <td> </td>
+                                    <td className="tableHeaders">Numbers</td>
+                                    <td className="tableHeaders">Custom Text</td>
+                                </tr>
+
+                                <tr>
+                                    <td className="componentContainer">
+                                        <label>Color</label>
+                                    </td>
+                                    <td>
+                                        <PickColor
+                                            callbackChildPropColor={this.returnChildColor}
+                                            pColor={this.state.pColor}
+                                        />
+                                    </td>
+                                    <td className="componentContainer">
+                                        <PickColor
+                                            callbackChildPropColor={this.returnChildColorTxt}
+                                            pColor={this.state.pColorTxt}
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="componentContainer">
+                                        <label htmlFor="fontInput">Font Size</label>
+                                    </td>
+                                    <td className="componentContainer">
+                                        <EctSlider
+                                            pFontSize={this.state.fontSize}
+                                            pFontSizeCallback={this.onFontSubmit}
+                                        />
+                                    </td>
+                                    <td className="componentContainer">
+                                        <EctSlider
+                                            pFontSize={this.state.fontSizeTxt}
+                                            pFontSizeCallback={this.onFontSubmitTxt}
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="componentContainer">
+                                        <label>Select to make Bold</label>
+                                    </td>
+                                    <td className="componentContainer">
+                                        <Bold
+                                            callbackChildPropB={this.isBold}
+                                            pIsBold={this.state.pIsBold}
+                                        />
+                                    </td>
+                                    <td className="componentContainer">
+                                        <Bold
+                                            callbackChildPropB={this.isBoldTxt}
+                                            pIsBold={this.state.pIsBoldTxt}
+                                        />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </TabPanel>
+                    <TabPanel>
+                        <CustomText
+                            pYears={this.state.yearsFormat}
+                            pMonths={this.state.monthsFormat}
+                            pWeeks={this.state.weeksFormat}
+                            pDays={this.state.daysFormat}
+                            pHoursFormat={this.state.hoursFormat}
+                            pMinutesFormat={this.state.minutesFormat}
+                            pSecondsFormat={this.state.secondsFormat}
+                            pcustomTxtEndedTxt={this.state.customTxtEndedTxt}
+                            callbackChildPropFormatText={this.returnTextFormat}
+                        />
+                    </TabPanel>
+                </Tabs>
 
                 <button
                     type="button"
@@ -334,11 +339,42 @@ class MainContainer extends React.Component {
         if (typeof window.ectWPInsertSC != "undefined") {
             window.ectWPInsertSC();
         }
+        var params = {
+            'timerName': this.state.naMeP,
+            'userID': 1,
+            'fontSize': this.state.fontSize,
+            'fontSizeTxt': this.state.fontSizeTxt,
+            'color': this.state.pColor,
+            'colorTxt': this.state.pColorTxt,
+            'isBold': this.state.pIsBold,
+            'isBoldTxt': this.state.pIsBoldTxt,
+            'timezoneOffset': this.state.timezoneOffset,
+            'endHour': this.state.endHour,
+            'endMinute': this.state.endMinute,
+            'utcTz': this.state.utcTz,
+            'yearsTxt': this.state.yearsFormat,
+            'monthsTxt': this.state.monthsFormat,
+            'weeksTxt': this.state.weeksFormat,
+            'daysTxt': this.state.daysFormat,
+            'hoursTxt': this.state.hoursFormat,
+            'minutesTxt': this.state.minutesFormat,
+            'secondsTxt': this.state.secondsFormat,
+            'customEndedTxt': this.state.customTxtEndedTxt,
+            'layoutType': this.state.layoutType
+        };
+
+        axios.put(ectWPPath+'/wp-json/ect/v2/addTimer', params)
+            .then(function (response) {
+            })
+            .catch(function (error) {
+            });
+
     }
     ectClosePopupButton() {
         if (typeof window.ectWPClosePopupButton != "undefined") {
-            window.ectWPClosePopupButton();
+              window.ectWPClosePopupButton();
         }
+
     }
     render() {
         const { endDate, isDisabled } = this.state; //from the day picker
