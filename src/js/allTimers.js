@@ -7,8 +7,8 @@ class AllTimers extends React.Component {
     constructor(props) {
         super(props);
         this.returnTimers();
-        this.state={
-            timersHTML:''
+        this.state = {
+            timersHTML: ''
         }
         this.returnTimers = this.returnTimers.bind(this);
     }
@@ -17,30 +17,33 @@ class AllTimers extends React.Component {
         console.log("mergeeee");
         var timersReturned;
         var _parent = this;
-        axios.get('http://localhost/wordpress/wp-json/ect/v2/getTimers')
+        axios.get(ectWPPath + '/ect/v2/getTimers')
             .then(function (response) {
                 var _data = response.data;
                 console.log(_data);
                 timersReturned = _data;
                 var timerToShow = [];
                 _data.forEach(function (element, i) {
-                    console.log(element);
-                    if(){
-                        var ListElement = (<li className="Timers" key={i}>{element.timerID}</li>)
-                    timerToShow.push(ListElement);
+                    var ListElement;
+                    var timerNameFinal;
+                    var imgUrl =  ectScriptBase+"/src/img/trash.jpg";
+                    if (typeof element.timerName != "undefined" && element.timerName !="" ) {
+                        timerNameFinal = element.timerName;
+                    } else {
+                        timerNameFinal = 'Timer-'+element.timerID;
                     }
-                    
+                    ListElement = (<li className="timers" key={i}><div className="timersName"><span>{timerNameFinal}</span></div> <div className="timersDeleteContainer"><input type="text" readOnly /><img src={imgUrl} /></div></li>)
+                    timerToShow.push(ListElement);
                 });
-                _parent.setState({timersHTML:timerToShow});
-                return (<div><ul>{timerToShow}</ul></div>);
+                _parent.setState({ timersHTML: timerToShow });
 
             })
             .catch(function (error) {
                 console.log(error);
 
             });
-            return (<div>x</div>);
-            
+        return (<div>x</div>);
+
         return
     }
     render() {

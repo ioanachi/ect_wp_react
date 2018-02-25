@@ -364,7 +364,7 @@ class MainContainer extends React.Component {
             'layoutType': this.state.layoutType
         };
 
-        axios.put(ectWPPath+'/wp-json/ect/v2/addTimer', params)
+        axios.put(ectWPPath+'/ect/v2/addTimer', params)
             .then(function (response) {
                 const idValue=response.data[1].returnID;
                 
