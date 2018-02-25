@@ -11,6 +11,7 @@ import 'material-ui';
 import 'material-ui/styles/MuiThemeProvider';
 
 import 'react-color';
+import 'google-fonts';
 import 'reactcss';
 import 'react-tabs';
 import '../node_modules/react-tabs/style/react-tabs.css';

@@ -7,7 +7,16 @@ class AllTimers extends React.Component {
     constructor(props) {
         super(props);
         
-
+        var returnTimers = function () {
+            return  axios.get('localhost/wordpress/wp-json/ect/v2/getTimers')
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+            
+        }
     }
 
 
@@ -17,7 +26,7 @@ class AllTimers extends React.Component {
     }
 }
 ReactDOM.render(
-    <AllTimers  />,
+    <AllTimers />,
     document.getElementById("allTimers")
 );
 

@@ -43,7 +43,7 @@ export class LivePreview extends React.Component {
             hoursTxt: this.props.pAllData.Hours,
             minutesTxt: this.props.pAllData.Minutes,
             secondsTxt: this.props.pAllData.Seconds,
-            customTxtEndedTxt: this.props.pAllData.customTxtEndedTxt,
+            customEndedTxt: this.props.pAllData.customEndedTxt,
             pFormat: this.props.pAllData.timeFormat,
             layoutType: this.props.pAllData.layoutType
             
@@ -82,7 +82,7 @@ export class LivePreview extends React.Component {
                 hoursTxt: propertiesObj.hoursTxt,
                 minutesTxt: propertiesObj.minutesTxt,
                 secondsTxt: propertiesObj.secondsTxt,
-                customTxtEndedTxt: propertiesObj.customTxtEndedTxt,
+                customEndedTxt: propertiesObj.customEndedTxt,
                 layoutType: propertiesObj.layoutType
                 
             };
@@ -130,6 +130,7 @@ export class LivePreview extends React.Component {
         };
         var numberValues = mathCountDown.mathFunc(tempDatesObj);
         
+        
         var timerNumbers = {};
         if (!numberValues) {
             timerNumbers = false;
@@ -156,7 +157,7 @@ export class LivePreview extends React.Component {
             Hours: dataProps.hoursTxt,
             Minutes: dataProps.minutesTxt,
             Seconds: dataProps.secondsTxt,
-            EndedTxt: dataProps.customTxtEndedTxt,
+            EndedTxt: dataProps.customEndedTxt,
             Styles: divStyleTxt
         }
         const DynamicComponentName = components[this.state.layoutType];

@@ -18,6 +18,7 @@ export default class {
       var endDate = new Date(obj.endDate);
       const localDate = new Date();
       const localTimeMiliseconds = localDate.getTime();
+      
 
       //  localTimeSeconds secundele trecute din 1 jan 1970 pana la ora locala (asta face .getTime() de data locala
       // obtinuta cu newDate() )
