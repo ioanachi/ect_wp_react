@@ -1,18 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import mathCountDown from './mathCountDown';
+<<<<<<< HEAD
 import {HorizontalSlider} from '../layouts/pack1';
 import {VerticalTimer} from '../layouts/pack1';
 import {CalendarTimer} from '../layouts/pack1';
 
+=======
+import {HorizontalTimer, VerticalTimer} from '../layouts/pack1';
+>>>>>>> 58c9202a8c0bbe0b714172843017331497683d66
 export class LivePreview extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             timeout: [],
+<<<<<<< HEAD
             timerStyle: 'CalendarTimer'
+=======
+            layoutType: this.props.pAllData.layoutType
+>>>>>>> 58c9202a8c0bbe0b714172843017331497683d66
         };
-        const tempClass = window[this.state.timerStyle + '2'];
+        const tempClass = window[this.state.layoutType + '2'];
     };
 
     dinamicComponent() {
@@ -32,22 +40,24 @@ export class LivePreview extends React.Component {
             tThis: this,
             timeout: [],
             endDate: this.props.pAllData.endDate,
-            pTimezoneOffset: this.props.pAllData.timezoneOffset,
+            timezoneOffset: this.props.pAllData.timezoneOffset,
             endHour: this.props.pAllData.endHour,
             endMinute: this.props.pAllData.endMinute,
             fontSize: this.props.pAllData.fontSize,
             fontSizeTxt: this.props.pAllData.fontSizeTxt,
             isBold: this.props.pAllData.isBold,
             isBoldTxt: this.props.pAllData.isBoldTxt,
-            customTxtYears: this.props.pAllData.Years,
-            customTxtMonths: this.props.pAllData.Months,
-            customTxtWeeks: this.props.pAllData.Weeks,
-            customTxtDays: this.props.pAllData.Days,
-            customTxtHours: this.props.pAllData.Hours,
-            customTxtMinutes: this.props.pAllData.Minutes,
-            customTxtSeconds: this.props.pAllData.Seconds,
+            yearsTxt: this.props.pAllData.Years,
+            monthsTxt: this.props.pAllData.Months,
+            weeksTxt: this.props.pAllData.Weeks,
+            daysTxt: this.props.pAllData.Days,
+            hoursTxt: this.props.pAllData.Hours,
+            minutesTxt: this.props.pAllData.Minutes,
+            secondsTxt: this.props.pAllData.Seconds,
             customTxtEndedTxt: this.props.pAllData.customTxtEndedTxt,
-            pFormat: this.props.pAllData.timeFormat
+            pFormat: this.props.pAllData.timeFormat,
+            layoutType: this.props.pAllData.layoutType
+            
         };
         var divStyle = {},
             divStyleTxt = {};
@@ -66,7 +76,7 @@ export class LivePreview extends React.Component {
             dataProps = {
                 timeout: propertiesObj.timeout,
                 endDate: propertiesObj.endDate,
-                pTimezoneOffset: propertiesObj.pTimezoneOffset,
+                timezoneOffset: propertiesObj.timezoneOffset,
                 endHour: propertiesObj.endHour,
                 endMinute: propertiesObj.endMinute,
                 pFormat: propertiesObj.pFormat,
@@ -76,14 +86,16 @@ export class LivePreview extends React.Component {
                 colorTxt: propertiesObj.colorTxt,
                 isBold: propertiesObj.isBold,
                 isBoldTxt: propertiesObj.isBoldTxt,
-                customTxtYears: propertiesObj.customTxtYears,
-                customTxtMonths: propertiesObj.customTxtMonths,
-                customTxtWeeks: propertiesObj.customTxtWeeks,
-                customTxtDays: propertiesObj.customTxtDays,
-                customTxtHours: propertiesObj.customTxtHours,
-                customTxtMinutes: propertiesObj.customTxtMinutes,
-                customTxtSeconds: propertiesObj.customTxtSeconds,
-                customTxtEndedTxt: propertiesObj.customTxtEndedTxt
+                yearsTxt: propertiesObj.yearsTxt,
+                monthsTxt: propertiesObj.monthsTxt,
+                weeksTxt: propertiesObj.weeksTxt,
+                daysTxt: propertiesObj.daysTxt,
+                hoursTxt: propertiesObj.hoursTxt,
+                minutesTxt: propertiesObj.minutesTxt,
+                secondsTxt: propertiesObj.secondsTxt,
+                customTxtEndedTxt: propertiesObj.customTxtEndedTxt,
+                layoutType: propertiesObj.layoutType
+                
             };
             divStyle = {
                 fontSize: dataProps.fontSize+'px',
@@ -118,17 +130,23 @@ export class LivePreview extends React.Component {
         }
 
         const components = {
+<<<<<<< HEAD
             HorizontalSlider: HorizontalSlider,
             CalendarTimer: CalendarTimer,
             VerticalTimer:VerticalTimer
+=======
+            HorizontalTimer: HorizontalTimer,
+            VerticalTimer: VerticalTimer
+>>>>>>> 58c9202a8c0bbe0b714172843017331497683d66
         };
         var tempDatesObj = {
             endDate: dataProps.endDate,
-            pTimezoneOffset: dataProps.pTimezoneOffset,
+            timezoneOffset: dataProps.timezoneOffset,
             endHour: dataProps.endHour,
             endMinute: dataProps.endMinute
         };
         var numberValues = mathCountDown.mathFunc(tempDatesObj);
+        
         var timerNumbers = {};
         if (!numberValues) {
             timerNumbers = false;
@@ -148,17 +166,17 @@ export class LivePreview extends React.Component {
         }
 
         const timerCustomTxt = {
-            Years: dataProps.customTxtYears,
-            Months: dataProps.customTxtMonths,
-            Weeks: dataProps.customTxtWeeks,
-            Days: dataProps.customTxtDays,
-            Hours: dataProps.customTxtHours,
-            Minutes: dataProps.customTxtMinutes,
-            Seconds: dataProps.customTxtSeconds,
+            Years: dataProps.yearsTxt,
+            Months: dataProps.monthsTxt,
+            Weeks: dataProps.weeksTxt,
+            Days: dataProps.daysTxt,
+            Hours: dataProps.hoursTxt,
+            Minutes: dataProps.minutesTxt,
+            Seconds: dataProps.secondsTxt,
             EndedTxt: dataProps.customTxtEndedTxt,
             Styles: divStyleTxt
         }
-        const DynamicComponentName = components[this.state.timerStyle];
+        const DynamicComponentName = components[this.state.layoutType];
         return (<DynamicComponentName numbers={timerNumbers} customTxt={timerCustomTxt}/>);
     }
     render() {

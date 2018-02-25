@@ -23,8 +23,9 @@ export default class {
       //  localTimeSeconds secundele trecute din 1 jan 1970 pana la ora locala (asta face .getTime() de data locala
       // obtinuta cu newDate() )
       var localOffset = (localDate.getTimezoneOffset()) * oneMinute;
+      
       var utc = localTimeMiliseconds + localOffset;
-      var timezoneOffset = obj.pTimezoneOffset;
+      var timezoneOffset = obj.timezoneOffset;
       let hourToMiliseconds = obj.endHour * oneHour;
       let minutesToMiliseconds = obj.endMinute * oneMinute;
       let date = new Date(obj.endDate);

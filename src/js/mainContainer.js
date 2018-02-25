@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { UserName } from "./Components/nameInput";
 import { EctSlider } from "./Components/fontSize";
-import { EctShortcode } from "./Components/ectShortcode";
 import { EndDate } from "./Components/endDate.js";
 import { CustomText } from "./Components/customText.js";
 import PickColor from "./Components/colorReactPicker.js";
@@ -41,10 +40,10 @@ class MainContainer extends React.Component {
             hoursFormat: "Hours",
             minutesFormat: "Minutes",
             secondsFormat: "Seconds",
-            customTxtEndedTxt: "Timer Ended",
+            customEndedTxt: "Timer Ended",
             firstView: true,
             livePrewiewOnly: '',
-            layoutType: ""
+            layoutType: "HorizontalTimer"
         };
         this.onFontSubmit = this.onFontSubmit.bind(this);
         this.onFontSubmitTxt = this.onFontSubmitTxt.bind(this);
@@ -77,6 +76,7 @@ class MainContainer extends React.Component {
         this.setState({ naMeP: childVal });
     }
     returnChildDate(endDateChild, endHourChild, endMinuteChild, firstView) {
+        
         this.setState({
             endDate: moment(endDateChild),
             endHour: endHourChild,
@@ -115,7 +115,7 @@ class MainContainer extends React.Component {
             hoursFormat: H,
             minutesFormat: Minute,
             secondsFormat: S,
-            customTxtEndedTxt: endText
+            customEndedTxt: endText
         });
     }
     showOnlyLivePreview() {
@@ -141,8 +141,10 @@ class MainContainer extends React.Component {
             endHour: this.state.endHour,
             endMinute: this.state.endMinute,
             timeFormat: this.state.timeFormat,
-            customTxtEndedTxt: this.state.customTxtEndedTxt
+            customEndedTxt: this.state.customEndedTxt,
+            layoutType: this.state.layoutType
         };
+        
         var labelPreview = (
             <label
                 key="labelLivePreview"
@@ -213,7 +215,7 @@ class MainContainer extends React.Component {
                                     </td>
                                     <td colSpan='2' className="timezones">
                                         <Timezones
-                                            pTimezoneOffset={this.state.timezoneOffset}
+                                            timezoneOffset={this.state.timezoneOffset}
                                             callbackChildPropT={this.returnTimezone}
                                         />
                                     </td>
@@ -288,7 +290,7 @@ class MainContainer extends React.Component {
                             pHoursFormat={this.state.hoursFormat}
                             pMinutesFormat={this.state.minutesFormat}
                             pSecondsFormat={this.state.secondsFormat}
-                            pcustomTxtEndedTxt={this.state.customTxtEndedTxt}
+                            pcustomEndedTxt={this.state.customEndedTxt}
                             callbackChildPropFormatText={this.returnTextFormat}
                         />
                     </TabPanel>
@@ -340,7 +342,7 @@ class MainContainer extends React.Component {
     ectInsertSC() {
         var params = {
             'timerName': this.state.naMeP,
-            'userID': 1,
+            'endDate': this.state.endDate.year()+'-'+(this.state.endDate.month()+1)+'-'+this.state.endDate.date(),
             'fontSize': this.state.fontSize,
             'fontSizeTxt': this.state.fontSizeTxt,
             'color': this.state.pColor,
@@ -358,14 +360,21 @@ class MainContainer extends React.Component {
             'hoursTxt': this.state.hoursFormat,
             'minutesTxt': this.state.minutesFormat,
             'secondsTxt': this.state.secondsFormat,
-            'customEndedTxt': this.state.customTxtEndedTxt,
+            'customEndedTxt': this.state.customEndedTxt,
             'layoutType': this.state.layoutType
         };
 
         axios.put(ectWPPath+'/wp-json/ect/v2/addTimer', params)
             .then(function (response) {
+<<<<<<< HEAD
                 if (typeof window.ectWPInsertSC != "undefined") {
                     window.ectWPInsertSC(response);
+=======
+                var idValue=response.data[1].returnID;
+                
+                if (typeof window.ectWPInsertSC != "undefined") {
+                    window.ectWPInsertSC(idValue);
+>>>>>>> 58c9202a8c0bbe0b714172843017331497683d66
                 }
             })
             .catch(function (error) {
