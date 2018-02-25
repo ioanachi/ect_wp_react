@@ -53,7 +53,7 @@ class AllTimers extends React.Component {
                     } else {
                         timerNameFinal = 'Timer-' + element.timerID;
                     }
-                    ListElement = (<li className="timers" key={element.timerID}><div className="timersName"><span>{timerNameFinal}</span></div> <div className="timersDeleteContainer"><input type="text" value={shortcodeId} readOnly /><img onClick={ () =>{ _parent.deleteTimer(element, element.timerID,i)}} src={imgUrl} /></div></li>)
+                    ListElement = (<li  key={element.timerID}><div className="timersName"><span>{timerNameFinal}</span></div> <div className="timersDeleteContainer"><input type="text" value={shortcodeId} readOnly /><img onClick={ () =>{ _parent.deleteTimer(element, element.timerID,i)}} src={imgUrl} /></div></li>)
                     timerToShow.push(ListElement);
                 });
                 _parent.setState({ timersHTML: timerToShow });
@@ -67,8 +67,9 @@ class AllTimers extends React.Component {
     }
     render() {
         return (
-            <div>
-                <ul className="listOfTimers">{this.state.timersHTML}</ul>
+            <div><h1>Easy Countdown Timer - Timers</h1>
+            <p> Manage your timers</p>
+                <ul>{this.state.timersHTML}</ul>
             </div>)
     }
 }
