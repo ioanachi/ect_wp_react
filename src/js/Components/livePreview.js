@@ -1,24 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import mathCountDown from './mathCountDown';
-<<<<<<< HEAD
-import {HorizontalSlider} from '../layouts/pack1';
-import {VerticalTimer} from '../layouts/pack1';
-import {CalendarTimer} from '../layouts/pack1';
-
-=======
 import {HorizontalTimer, VerticalTimer} from '../layouts/pack1';
->>>>>>> 58c9202a8c0bbe0b714172843017331497683d66
 export class LivePreview extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             timeout: [],
-<<<<<<< HEAD
-            timerStyle: 'CalendarTimer'
-=======
             layoutType: this.props.pAllData.layoutType
->>>>>>> 58c9202a8c0bbe0b714172843017331497683d66
         };
         const tempClass = window[this.state.layoutType + '2'];
     };
@@ -26,7 +15,7 @@ export class LivePreview extends React.Component {
     dinamicComponent() {
         var tempTimeout = this.state.timeout;
         if (!tempTimeout[0]) {
-            tempTimeout.push(setTimeout(() => {
+            tempTimeout.push(setTimeout(() => { 
                 this.setState({timeout: []});
             }, 1000));
         }
@@ -130,14 +119,8 @@ export class LivePreview extends React.Component {
         }
 
         const components = {
-<<<<<<< HEAD
-            HorizontalSlider: HorizontalSlider,
-            CalendarTimer: CalendarTimer,
-            VerticalTimer:VerticalTimer
-=======
             HorizontalTimer: HorizontalTimer,
             VerticalTimer: VerticalTimer
->>>>>>> 58c9202a8c0bbe0b714172843017331497683d66
         };
         var tempDatesObj = {
             endDate: dataProps.endDate,

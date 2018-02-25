@@ -366,15 +366,10 @@ class MainContainer extends React.Component {
 
         axios.put(ectWPPath+'/wp-json/ect/v2/addTimer', params)
             .then(function (response) {
-<<<<<<< HEAD
-                if (typeof window.ectWPInsertSC != "undefined") {
-                    window.ectWPInsertSC(response);
-=======
-                var idValue=response.data[1].returnID;
+                const idValue=response.data[1].returnID;
                 
                 if (typeof window.ectWPInsertSC != "undefined") {
                     window.ectWPInsertSC(idValue);
->>>>>>> 58c9202a8c0bbe0b714172843017331497683d66
                 }
             })
             .catch(function (error) {
