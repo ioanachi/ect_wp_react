@@ -1,4 +1,6 @@
 import "../index.html";
+import "../timers.html";
+
 import 'react';
 import 'react-dom';
 
