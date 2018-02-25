@@ -63,10 +63,11 @@ html {
                         }
                         &.calendarView {
                             display: inline-block;
-                            border: 0px solid #ffffff;
+                            border: 10px solid #ffffff;
                             position: relative;
                             text-align: center;
                             background: linear-gradient( to bottom, #242222 0%, #020202 50%, #242222 50%, #020202 100%);
+                            
                             .calendarNumbers {
                                 margin: 10px;
                                 border: 0px solid #ffffff;
@@ -88,9 +89,8 @@ html {
                     border: 0px solid white;
                     display: inline-block;
                     font-size: 12px;
-                    div{
-                    border: 0px solid white;
-                        
+                    div {
+                        border: 0px solid white;
                     }
                 }
                 .containerLabels {
@@ -137,8 +137,8 @@ html {
                                     div {
                                         align-content: center;
                                     }
-                                    &.timezones{
-                                        select{
+                                    &.timezones {
+                                        select {
                                             max-width: 104px;
                                         }
                                     }

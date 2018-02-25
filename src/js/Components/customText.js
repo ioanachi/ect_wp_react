@@ -99,32 +99,32 @@ export class CustomText extends React.Component {
         <tbody>
           <tr>
             <td className="componentContainer">
-              <TextField hintText="Hint Text" onChange={this.chooseYears} value={this.state.yearsFormat}/>
+              <TextField hintText="Years" onChange={this.chooseYears} value={this.state.yearsFormat}/>
             </td>
             <td className="componentContainer">
-            <TextField hintText="Hint Text" onChange={this.chooseMonths} value={this.state.monthsFormat}/>
+            <TextField hintText="Months" onChange={this.chooseMonths} value={this.state.monthsFormat}/>
             </td>
             <td className="componentContainer">
-            <TextField hintText="Hint Text" onChange={this.chooseWeeks} value={this.state.weeksFormat}/>
-            </td>
-          </tr>
-          <tr>
-            <td className="componentContainer">
-            <TextField hintText="Hint Text" onChange={this.chooseDays} value={this.state.daysFormat}/>
-            </td>
-            <td className="componentContainer">
-            <TextField hintText="Hint Text" onChange={this.chooseHours} value={this.state.hoursFormat}/>
-            </td>
-            <td className="componentContainer">
-            <TextField hintText="Hint Text" onChange={this.chooseMinutes} value={this.state.minutesFormat}/>
+            <TextField hintText="Weeks" onChange={this.chooseWeeks} value={this.state.weeksFormat}/>
             </td>
           </tr>
           <tr>
             <td className="componentContainer">
-            <TextField hintText="Hint Text" onChange={this.chooseSeconds} value={this.state.secondsFormat}/>
+            <TextField hintText="Days" onChange={this.chooseDays} value={this.state.daysFormat}/>
             </td>
             <td className="componentContainer">
-            <TextField hintText="Hint Text" onChange={this.chooseEndText} value={this.state.customTxtEndedTxt}/>
+            <TextField hintText="Hours" onChange={this.chooseHours} value={this.state.hoursFormat}/>
+            </td>
+            <td className="componentContainer">
+            <TextField hintText="Minutes" onChange={this.chooseMinutes} value={this.state.minutesFormat}/>
+            </td>
+          </tr>
+          <tr>
+            <td className="componentContainer">
+            <TextField hintText="Seconds" onChange={this.chooseSeconds} value={this.state.secondsFormat}/>
+            </td>
+            <td className="componentContainer">
+            <TextField hintText="Timer Ended" onChange={this.chooseEndText} value={this.state.customTxtEndedTxt}/>
             </td>
           </tr>
         </tbody>

@@ -12,7 +12,7 @@ export class LivePreview extends React.Component {
         const tempClass = window[this.state.layoutType + '2'];
     };
 
-    dinamicComponent() {
+    dinamicComponent() { 
         var tempTimeout = this.state.timeout;
         if (!tempTimeout[0]) {
             tempTimeout.push(setTimeout(() => {
