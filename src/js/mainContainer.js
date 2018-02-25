@@ -341,6 +341,8 @@ class MainContainer extends React.Component {
     }
     ectInsertSC() {
         var params = {
+            ectKs:ectKs,
+            data:{
             'timerName': this.state.naMeP,
             'endDate': this.state.endDate.year()+'-'+(this.state.endDate.month()+1)+'-'+this.state.endDate.date(),
             'fontSize': this.state.fontSize,
@@ -362,8 +364,8 @@ class MainContainer extends React.Component {
             'secondsTxt': this.state.secondsFormat,
             'customEndedTxt': this.state.customEndedTxt,
             'layoutType': this.state.layoutType
-        };
-
+        }
+    };
         axios.put(ectWPPath+'/ect/v2/addTimer', params)
             .then(function (response) {
                 const idValue=response.data[1].returnID;

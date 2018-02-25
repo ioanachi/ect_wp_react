@@ -21,6 +21,7 @@
     "html-loader": "^0.5.5",
     "lodash": "^4.0.1",
     "material-colors": "^1.2.1",
+    "react-animations": "^1.0.0",
     "material-ui": "^0.20.0",
     "moment": "^2.20.1",
     "node-sass": "^4.7.2",

@@ -24,7 +24,7 @@ export class LivePreview extends React.Component {
             tempTimeout.push(setTimeout(() => {
                 this.setState({timeout: []});
             }, 1000));
-        }
+        } 
         var dataProps = {
             tThis: this,
             timeout: [],

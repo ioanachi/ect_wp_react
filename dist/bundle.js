@@ -36655,13 +36655,13 @@ __webpack_require__(771);
 /* 376 */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\"  class=\"ectPopupContent\">\r\n  </div>\r\n  <script type=\"text/javascript\">\r\n    var devMode = true;\r\n    var isOnlyPreview = false;\r\n    var ectWPPath = \"http://localhost/wordpress/wp-json\";\r\n    var ectProperties = [{\r\n      'ectPopupContent': {\r\n        timeout: [],\r\n        endDate: '2029/2/16',\r\n        timezoneOffset: '+7200000',\r\n        endHour: '00',\r\n        endMinute: '00',\r\n        pFormat: 'D then H:M:S',\r\n        fontSize: 172,\r\n        fontSizeTxt: 32,\r\n        color: 'green',\r\n        colorTxt: '#F00',\r\n        isBold: false,\r\n        isBoldTxt: false,\r\n        yearsTxt: 'Years',\r\n        monthsTxt: 'Months',\r\n        weeksTxt: 'Weeks',\r\n        daysTxt: 'Days',\r\n        hoursTxt: 'Hours',\r\n        minutesTxt: 'Minutes',\r\n        secondsTxt: 'Seconds',\r\n        customEndedTxt: 'Timer Ended'\r\n      }\r\n    }];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>";
+module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\"  class=\"ectPopupContent\">\r\n  </div>\r\n  <script type=\"text/javascript\">\r\n    var devMode = true;\r\n    var isOnlyPreview = false;\r\n    var ectWPPath = \"http://localhost/wordpress/wp-json\";\r\n    var ectKs =  \"fee6029ca4b45e897b51291840e54e95\";\r\n    var ectProperties = [{\r\n      'ectPopupContent': {\r\n        timeout: [],\r\n        endDate: '2029/2/16',\r\n        timezoneOffset: '+7200000',\r\n        endHour: '00',\r\n        endMinute: '00',\r\n        pFormat: 'D then H:M:S',\r\n        fontSize: 172,\r\n        fontSizeTxt: 32,\r\n        color: 'green',\r\n        colorTxt: '#F00',\r\n        isBold: false,\r\n        isBoldTxt: false,\r\n        yearsTxt: 'Years',\r\n        monthsTxt: 'Months',\r\n        weeksTxt: 'Weeks',\r\n        daysTxt: 'Days',\r\n        hoursTxt: 'Hours',\r\n        minutesTxt: 'Minutes',\r\n        secondsTxt: 'Seconds',\r\n        customEndedTxt: 'Timer Ended'\r\n      }\r\n    }];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>";
 
 /***/ }),
 /* 377 */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"allTimers\">\r\n  </div>\r\n\r\n  <script type=\"text/javascript\">\r\n    var ectWPPath = \"http://localhost/wordpress/wp-json\";\r\n    var ectScriptBase = \"http://localhost:3000\";\r\n  </script>\r\n\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>";
+module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"allTimers\">\r\n  </div>\r\n\r\n  <script type=\"text/javascript\">\r\n    var ectWPPath = \"http://localhost/wordpress/wp-json\";\r\n    var ectScriptBase = \"http://localhost:3000\";\r\n    var ectKs =  \"fee6029ca4b45e897b51291840e54e95\";\r\n  </script>\r\n\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>";
 
 /***/ }),
 /* 378 */
@@ -97435,29 +97435,31 @@ var MainContainer = function (_React$Component) {
         key: "ectInsertSC",
         value: function ectInsertSC() {
             var params = {
-                'timerName': this.state.naMeP,
-                'endDate': this.state.endDate.year() + '-' + (this.state.endDate.month() + 1) + '-' + this.state.endDate.date(),
-                'fontSize': this.state.fontSize,
-                'fontSizeTxt': this.state.fontSizeTxt,
-                'color': this.state.pColor,
-                'colorTxt': this.state.pColorTxt,
-                'isBold': this.state.pIsBold,
-                'isBoldTxt': this.state.pIsBoldTxt,
-                'timezoneOffset': this.state.timezoneOffset,
-                'endHour': this.state.endHour,
-                'endMinute': this.state.endMinute,
-                'utcTz': this.state.utcTz,
-                'yearsTxt': this.state.yearsFormat,
-                'monthsTxt': this.state.monthsFormat,
-                'weeksTxt': this.state.weeksFormat,
-                'daysTxt': this.state.daysFormat,
-                'hoursTxt': this.state.hoursFormat,
-                'minutesTxt': this.state.minutesFormat,
-                'secondsTxt': this.state.secondsFormat,
-                'customEndedTxt': this.state.customEndedTxt,
-                'layoutType': this.state.layoutType
+                ectKs: ectKs,
+                data: {
+                    'timerName': this.state.naMeP,
+                    'endDate': this.state.endDate.year() + '-' + (this.state.endDate.month() + 1) + '-' + this.state.endDate.date(),
+                    'fontSize': this.state.fontSize,
+                    'fontSizeTxt': this.state.fontSizeTxt,
+                    'color': this.state.pColor,
+                    'colorTxt': this.state.pColorTxt,
+                    'isBold': this.state.pIsBold,
+                    'isBoldTxt': this.state.pIsBoldTxt,
+                    'timezoneOffset': this.state.timezoneOffset,
+                    'endHour': this.state.endHour,
+                    'endMinute': this.state.endMinute,
+                    'utcTz': this.state.utcTz,
+                    'yearsTxt': this.state.yearsFormat,
+                    'monthsTxt': this.state.monthsFormat,
+                    'weeksTxt': this.state.weeksFormat,
+                    'daysTxt': this.state.daysFormat,
+                    'hoursTxt': this.state.hoursFormat,
+                    'minutesTxt': this.state.minutesFormat,
+                    'secondsTxt': this.state.secondsFormat,
+                    'customEndedTxt': this.state.customEndedTxt,
+                    'layoutType': this.state.layoutType
+                }
             };
-
             _axios2.default.put(ectWPPath + '/ect/v2/addTimer', params).then(function (response) {
                 var idValue = response.data[1].returnID;
 
@@ -100562,18 +100564,40 @@ var AllTimers = function (_React$Component) {
             timersHTML: ''
         };
         _this.returnTimers = _this.returnTimers.bind(_this);
+        _this.deleteTimer = _this.deleteTimer.bind(_this);
         return _this;
     }
 
     _createClass(AllTimers, [{
+        key: "deleteTimer",
+        value: function deleteTimer(itemToDelete, id, index) {
+            var _parent = this;
+
+            _axios2.default.delete(ectWPPath + '/ect/v2/removeTimer/' + id + '/' + ectKs).then(function (response) {
+                var allTimers = _parent.state.timersHTML;
+                allTimers.forEach(function (item, tIndex) {
+                    console.log(item);
+                    console.log(itemToDelete);
+
+                    if (item.key == id) {
+                        index = tIndex;
+                        return;
+                    }
+                });
+
+                allTimers.splice(index, 1);
+                _parent.setState({ timersHTML: allTimers });
+                _parent.setState({ timersHTML: allTimers });
+            });
+        }
+    }, {
         key: "returnTimers",
         value: function returnTimers() {
             console.log("mergeeee");
             var timersReturned;
             var _parent = this;
-            _axios2.default.get(ectWPPath + '/ect/v2/getTimers').then(function (response) {
+            _axios2.default.get(ectWPPath + '/ect/v2/getTimers/' + ectKs).then(function (response) {
                 var _data = response.data;
-                console.log(_data);
                 timersReturned = _data;
                 var timerToShow = [];
                 _data.forEach(function (element, i) {
@@ -100585,16 +100609,15 @@ var AllTimers = function (_React$Component) {
                     } else {
                         timerNameFinal = 'Timer-' + element.timerID;
                     }
-                    ListElement = _react2.default.createElement("li", { className: "timers", key: i }, _react2.default.createElement("div", { className: "timersName" }, _react2.default.createElement("span", null, timerNameFinal)), " ", _react2.default.createElement("div", { className: "timersDeleteContainer" }, _react2.default.createElement("input", { type: "text", readOnly: true }), _react2.default.createElement("img", { src: imgUrl })));
+                    ListElement = _react2.default.createElement("li", { className: "timers", key: element.timerID }, _react2.default.createElement("div", { className: "timersName" }, _react2.default.createElement("span", null, timerNameFinal)), " ", _react2.default.createElement("div", { className: "timersDeleteContainer" }, _react2.default.createElement("input", { type: "text", readOnly: true }), _react2.default.createElement("img", { onClick: function onClick() {
+                            _parent.deleteTimer(element, element.timerID, i);
+                        }, src: imgUrl })));
                     timerToShow.push(ListElement);
                 });
                 _parent.setState({ timersHTML: timerToShow });
             }).catch(function (error) {
                 console.log(error);
             });
-            return _react2.default.createElement("div", null, "x");
-
-            return;
         }
     }, {
         key: "render",
@@ -100606,7 +100629,8 @@ var AllTimers = function (_React$Component) {
     return AllTimers;
 }(_react2.default.Component);
 
-_reactDom2.default.render(_react2.default.createElement(AllTimers, null), document.getElementById("allTimers"));
+var allTimersElem = document.getElementById("allTimers");
+if (allTimersElem != null) _reactDom2.default.render(_react2.default.createElement(AllTimers, null), allTimersElem);
 
 /***/ })
 ],[374]);
