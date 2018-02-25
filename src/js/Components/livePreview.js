@@ -1,24 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import mathCountDown from './mathCountDown';
-<<<<<<< HEAD
-import {HorizontalSlider} from '../layouts/pack1';
-import {VerticalTimer} from '../layouts/pack1';
-import {CalendarTimer} from '../layouts/pack1';
-
-=======
 import {HorizontalTimer, VerticalTimer} from '../layouts/pack1';
->>>>>>> 58c9202a8c0bbe0b714172843017331497683d66
 export class LivePreview extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             timeout: [],
-<<<<<<< HEAD
-            timerStyle: 'CalendarTimer'
-=======
             layoutType: this.props.pAllData.layoutType
->>>>>>> 58c9202a8c0bbe0b714172843017331497683d66
         };
         const tempClass = window[this.state.layoutType + '2'];
     };
@@ -54,7 +43,7 @@ export class LivePreview extends React.Component {
             hoursTxt: this.props.pAllData.Hours,
             minutesTxt: this.props.pAllData.Minutes,
             secondsTxt: this.props.pAllData.Seconds,
-            customTxtEndedTxt: this.props.pAllData.customTxtEndedTxt,
+            customEndedTxt: this.props.pAllData.customEndedTxt,
             pFormat: this.props.pAllData.timeFormat,
             layoutType: this.props.pAllData.layoutType
             
@@ -93,7 +82,7 @@ export class LivePreview extends React.Component {
                 hoursTxt: propertiesObj.hoursTxt,
                 minutesTxt: propertiesObj.minutesTxt,
                 secondsTxt: propertiesObj.secondsTxt,
-                customTxtEndedTxt: propertiesObj.customTxtEndedTxt,
+                customEndedTxt: propertiesObj.customEndedTxt,
                 layoutType: propertiesObj.layoutType
                 
             };
@@ -130,14 +119,8 @@ export class LivePreview extends React.Component {
         }
 
         const components = {
-<<<<<<< HEAD
-            HorizontalSlider: HorizontalSlider,
-            CalendarTimer: CalendarTimer,
-            VerticalTimer:VerticalTimer
-=======
             HorizontalTimer: HorizontalTimer,
             VerticalTimer: VerticalTimer
->>>>>>> 58c9202a8c0bbe0b714172843017331497683d66
         };
         var tempDatesObj = {
             endDate: dataProps.endDate,
@@ -146,6 +129,7 @@ export class LivePreview extends React.Component {
             endMinute: dataProps.endMinute
         };
         var numberValues = mathCountDown.mathFunc(tempDatesObj);
+        
         
         var timerNumbers = {};
         if (!numberValues) {
@@ -173,7 +157,7 @@ export class LivePreview extends React.Component {
             Hours: dataProps.hoursTxt,
             Minutes: dataProps.minutesTxt,
             Seconds: dataProps.secondsTxt,
-            EndedTxt: dataProps.customTxtEndedTxt,
+            EndedTxt: dataProps.customEndedTxt,
             Styles: divStyleTxt
         }
         const DynamicComponentName = components[this.state.layoutType];

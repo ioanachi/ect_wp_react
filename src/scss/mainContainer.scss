@@ -20,7 +20,7 @@ html {
                     border: 1px solid white;
                 }
                 .componentContainer {
-                    padding: 20px;
+                    padding: 10px;
                     margin-bottom: 10px;
                     text-align: center;
                     align-content: center;
@@ -136,6 +136,7 @@ html {
                                     width: 28%;
                                     div {
                                         align-content: center;
+                                        
                                     }
                                     &.timezones{
                                         select{
