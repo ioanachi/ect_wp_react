@@ -97211,7 +97211,7 @@ var MainContainer = function (_React$Component) {
             customEndedTxt: "Timer Ended",
             firstView: true,
             livePrewiewOnly: '',
-            layoutType: "HorizontalTimer"
+            layoutType: "CalendarTimer"
         };
         _this.onFontSubmit = _this.onFontSubmit.bind(_this);
         _this.onFontSubmitTxt = _this.onFontSubmitTxt.bind(_this);
@@ -99164,7 +99164,8 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
 
             var components = {
                 HorizontalTimer: _pack.HorizontalTimer,
-                VerticalTimer: _pack.VerticalTimer
+                VerticalTimer: _pack.VerticalTimer,
+                CalendarTimer: _pack.CalendarTimer
             };
             var tempDatesObj = {
                 endDate: dataProps.endDate,

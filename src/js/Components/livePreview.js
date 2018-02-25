@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import mathCountDown from './mathCountDown';
-import {HorizontalTimer, VerticalTimer} from '../layouts/pack1';
+import {HorizontalTimer, VerticalTimer, CalendarTimer} from '../layouts/pack1';
 export class LivePreview extends React.Component {
     constructor(props) {
         super(props);
@@ -120,7 +120,8 @@ export class LivePreview extends React.Component {
 
         const components = {
             HorizontalTimer: HorizontalTimer,
-            VerticalTimer: VerticalTimer
+            VerticalTimer: VerticalTimer,
+            CalendarTimer: CalendarTimer
         };
         var tempDatesObj = {
             endDate: dataProps.endDate,

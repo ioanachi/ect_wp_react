@@ -43,7 +43,7 @@ class MainContainer extends React.Component {
             customEndedTxt: "Timer Ended",
             firstView: true,
             livePrewiewOnly: '',
-            layoutType: "HorizontalTimer"
+            layoutType: "CalendarTimer"
         };
         this.onFontSubmit = this.onFontSubmit.bind(this);
         this.onFontSubmitTxt = this.onFontSubmitTxt.bind(this);
