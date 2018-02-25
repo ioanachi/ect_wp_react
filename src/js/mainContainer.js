@@ -83,6 +83,7 @@ class MainContainer extends React.Component {
             endMinute: endMinuteChild,
             firstView: firstView
         });
+        
         this.state.firstView = firstView;
     }
     returnChildColor(childVal) {
@@ -95,7 +96,7 @@ class MainContainer extends React.Component {
         this.setState({ pColorTxt: textColor });
     }
     returnTimezone(timezoneChosen, utcTz) {
-        this.setState({ timezoneOffset: timezoneChosen, utcTz: utcTz });
+        this.setState({ timezoneOffset: timezoneChosen});
     }
 
     returnFormat(formatType) {
@@ -195,10 +196,11 @@ class MainContainer extends React.Component {
                         <table className="configTable configuration">
                             <tbody>
                                 <tr>
+                                   
                                     <td colSpan='2' className="componentContainer">
                                         <label htmlFor="username">Name</label>
                                     </td>
-                                    <td className="componentContainer">
+                                    <td colSpan='2' className="componentContainer">
                                         <UserName
                                             NameParent={this.onNameSubmit}
                                             nameValue={this.state.naMeP}
