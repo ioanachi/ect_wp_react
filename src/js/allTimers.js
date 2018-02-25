@@ -47,12 +47,13 @@ class AllTimers extends React.Component {
                     var ListElement;
                     var timerNameFinal;
                     var imgUrl = ectScriptBase + "/src/img/trash.jpg";
+                    var shortcodeId = '[ectSc id="'+ element.timerID+'"]'
                     if (typeof element.timerName != "undefined" && element.timerName != "") {
                         timerNameFinal = element.timerName;
                     } else {
                         timerNameFinal = 'Timer-' + element.timerID;
                     }
-                    ListElement = (<li className="timers" key={element.timerID}><div className="timersName"><span>{timerNameFinal}</span></div> <div className="timersDeleteContainer"><input type="text" readOnly /><img onClick={ () =>{ _parent.deleteTimer(element, element.timerID,i)}} src={imgUrl} /></div></li>)
+                    ListElement = (<li className="timers" key={element.timerID}><div className="timersName"><span>{timerNameFinal}</span></div> <div className="timersDeleteContainer"><input type="text" value={shortcodeId} readOnly /><img onClick={ () =>{ _parent.deleteTimer(element, element.timerID,i)}} src={imgUrl} /></div></li>)
                     timerToShow.push(ListElement);
                 });
                 _parent.setState({ timersHTML: timerToShow });
