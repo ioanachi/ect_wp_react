@@ -97857,7 +97857,7 @@ var CustomText = exports.CustomText = function (_React$Component) {
       hoursFormat: _this.props.pHoursFormat,
       minutesFormat: _this.props.pMinutesFormat,
       secondsFormat: _this.props.pSecondsFormat,
-      customTxtEndedTxt: _this.props.pcustomTxtEndedTxt
+      customTxtEndedTxt: _this.props.pcustomEndedTxt
     };
     _this.chooseYears = _this.chooseYears.bind(_this);
     _this.chooseMonths = _this.chooseMonths.bind(_this);

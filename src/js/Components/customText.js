@@ -14,7 +14,7 @@ export class CustomText extends React.Component {
       hoursFormat: this.props.pHoursFormat,
       minutesFormat: this.props.pMinutesFormat,
       secondsFormat: this.props.pSecondsFormat,
-      customTxtEndedTxt: this.props.pcustomTxtEndedTxt
+      customTxtEndedTxt: this.props. pcustomEndedTxt
     }
     this.chooseYears = this.chooseYears.bind(this);
     this.chooseMonths = this.chooseMonths.bind(this);
