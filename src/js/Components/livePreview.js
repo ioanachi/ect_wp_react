@@ -15,7 +15,7 @@ export class LivePreview extends React.Component {
     dinamicComponent() {
         var tempTimeout = this.state.timeout;
         if (!tempTimeout[0]) {
-            tempTimeout.push(setTimeout(() => {
+            tempTimeout.push(setTimeout(() => { 
                 this.setState({timeout: []});
             }, 1000));
         }
@@ -24,7 +24,7 @@ export class LivePreview extends React.Component {
             tempTimeout.push(setTimeout(() => {
                 this.setState({timeout: []});
             }, 1000));
-        }
+        } 
         var dataProps = {
             tThis: this,
             timeout: [],

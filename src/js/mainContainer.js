@@ -83,6 +83,7 @@ class MainContainer extends React.Component {
             endMinute: endMinuteChild,
             firstView: firstView
         });
+        
         this.state.firstView = firstView;
     }
     returnChildColor(childVal) {
@@ -95,7 +96,7 @@ class MainContainer extends React.Component {
         this.setState({ pColorTxt: textColor });
     }
     returnTimezone(timezoneChosen, utcTz) {
-        this.setState({ timezoneOffset: timezoneChosen, utcTz: utcTz });
+        this.setState({ timezoneOffset: timezoneChosen});
     }
 
     returnFormat(formatType) {
@@ -197,10 +198,11 @@ class MainContainer extends React.Component {
                         <table className="configTable configuration">
                             <tbody>
                                 <tr>
+                                   
                                     <td colSpan='2' className="componentContainer">
                                         <label htmlFor="username">Name</label>
                                     </td>
-                                    <td className="componentContainer">
+                                    <td colSpan='2' className="componentContainer">
                                         <UserName
                                             NameParent={this.onNameSubmit}
                                             nameValue={this.state.naMeP}
@@ -339,6 +341,8 @@ class MainContainer extends React.Component {
     }
     ectInsertSC() {
         var params = {
+            ectKs:ectKs,
+            data:{
             'timerName': this.state.naMeP,
             'endDate': this.state.endDate.year()+'-'+(this.state.endDate.month()+1)+'-'+this.state.endDate.date(),
             'fontSize': this.state.fontSize,
@@ -360,11 +364,11 @@ class MainContainer extends React.Component {
             'secondsTxt': this.state.secondsFormat,
             'customEndedTxt': this.state.customEndedTxt,
             'layoutType': this.state.layoutType
-        };
-
-        axios.put(ectWPPath+'/wp-json/ect/v2/addTimer', params)
+        }
+    };
+        axios.put(ectWPPath+'/ect/v2/addTimer', params)
             .then(function (response) {
-                var idValue=response.data[1].returnID;
+                const idValue=response.data[1].returnID;
                 
                 if (typeof window.ectWPInsertSC != "undefined") {
                     window.ectWPInsertSC(idValue);
