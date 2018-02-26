@@ -46,7 +46,7 @@ class AllTimers extends React.Component {
                 _data.forEach(function (element, i) {
                     var ListElement;
                     var timerNameFinal;
-                    var imgUrl = ectScriptBase + "/src/img/trash.jpg";
+                    var imgUrl = ectScriptBase + "/src/img/trash.png";
                     var shortcodeId = '[ectSc id="'+ element.timerID+'"]'
                     if (typeof element.timerName != "undefined" && element.timerName != "") {
                         timerNameFinal = element.timerName;
