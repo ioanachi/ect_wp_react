@@ -88,9 +88,8 @@ html {
                     border: 0px solid white;
                     display: inline-block;
                     font-size: 12px;
-                    div{
-                    border: 0px solid white;
-                        
+                    div {
+                        border: 0px solid white;
                     }
                 }
                 .containerLabels {
@@ -109,15 +108,25 @@ html {
                     padding: 5px;
                     width: 100%; // display: none;
                 }
-                button {
-                    &.insertButton {
-                        margin: 20px 0;
-                    }
-                    &.ectClosePopupButton {
-                        position: absolute;
-                        top: 0;
-                        right: 0;
-                        padding: 5px;
+                .btnPosition {
+                    position: fixed;
+                    left: 0px;
+                    padding: 10px;
+                    bottom: 0px;
+                    background-color: #fff;
+                    border-top: 1px solid #c3c3c3;
+                    border-right: 1px solid #c3c3c3;
+                }
+                .btnClosePosition {
+                    position: fixed;
+                    right: 0px;
+                    padding: 10px;
+                    top: 0px;
+                    background-color: #fff;
+                    border-bottom: 1px solid #c3c3c3;
+                    border-left: 1px solid #c3c3c3;
+                    .ectClosePopupButton {
+                        
                         font-size: 18px;
                     }
                 }
@@ -137,8 +146,8 @@ html {
                                     div {
                                         align-content: center;
                                     }
-                                    &.timezones{
-                                        select{
+                                    &.timezones {
+                                        select {
                                             max-width: 104px;
                                         }
                                     }

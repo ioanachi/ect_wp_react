@@ -295,15 +295,18 @@ class MainContainer extends React.Component {
                         />
                     </TabPanel>
                 </Tabs>
-
+                < div className="btnPosition">  
                 <button
                     type="button"
                     id="ectInsertSC"
                     className="insertButton button button-primary"
                     onClick={this.ectInsertSC}
                 >
-                    Insert Shortcode
+                 Insert Shortcode
         </button>
+        </div>  
+        < div className="btnClosePosition">  
+        
                 <button
                     type="button"
                     className="ectClosePopupButton"
@@ -312,6 +315,7 @@ class MainContainer extends React.Component {
                 >
                     X Close
         </button>
+            </div>
             </div>
         );
         if (!isOnlyPreview) {
