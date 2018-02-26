@@ -76,14 +76,14 @@ class MainContainer extends React.Component {
         this.setState({ naMeP: childVal });
     }
     returnChildDate(endDateChild, endHourChild, endMinuteChild, firstView) {
-        
+
         this.setState({
             endDate: moment(endDateChild),
             endHour: endHourChild,
             endMinute: endMinuteChild,
             firstView: firstView
         });
-        
+
         this.state.firstView = firstView;
     }
     returnChildColor(childVal) {
@@ -96,7 +96,7 @@ class MainContainer extends React.Component {
         this.setState({ pColorTxt: textColor });
     }
     returnTimezone(timezoneChosen, utcTz) {
-        this.setState({ timezoneOffset: timezoneChosen});
+        this.setState({ timezoneOffset: timezoneChosen });
     }
 
     returnFormat(formatType) {
@@ -144,7 +144,7 @@ class MainContainer extends React.Component {
             customEndedTxt: this.state.customEndedTxt,
             layoutType: this.state.layoutType
         };
-        
+
         var labelPreview = (
             <label
                 key="labelLivePreview"
@@ -198,7 +198,7 @@ class MainContainer extends React.Component {
                         <table className="configTable configuration">
                             <tbody>
                                 <tr>
-                                   
+
                                     <td colSpan='2' className="componentContainer">
                                         <label htmlFor="username">Name</label>
                                     </td>
@@ -295,27 +295,31 @@ class MainContainer extends React.Component {
                         />
                     </TabPanel>
                 </Tabs>
-                < div className="btnPosition">  
-                <button
-                    type="button"
-                    id="ectInsertSC"
-                    className="insertButton button button-primary"
-                    onClick={this.ectInsertSC}
-                >
-                 Insert Shortcode
+                <div className="ectInsert">
+                    <div>
+                        <button
+                            type="button"
+                            id="ectInsertSC"
+                            className="insertButton button button-primary"
+                            onClick={this.ectInsertSC}
+                        >
+                            Insert Shortcode
         </button>
-        </div>  
-        < div className="btnClosePosition">  
-        
-                <button
-                    type="button"
-                    className="ectClosePopupButton"
-                    onClick={this.ectClosePopupButton}
-                    name="button"
-                >
-                    X Close
+                    </div>
+                </div>
+                <div className="btnClosePosition">
+                    <div className="btnBoxClosePosition">
+
+                        <button
+                            type="button"
+                            className="ectClosePopupButton"
+                            onClick={this.ectClosePopupButton}
+                            name="button"
+                        >
+                            X Close
         </button>
-            </div>
+                    </div>
+                </div>
             </div>
         );
         if (!isOnlyPreview) {
@@ -345,35 +349,35 @@ class MainContainer extends React.Component {
     }
     ectInsertSC() {
         var params = {
-            ectKs:ectKs,
-            data:{
-            'timerName': this.state.naMeP,
-            'endDate': this.state.endDate.year()+'-'+(this.state.endDate.month()+1)+'-'+this.state.endDate.date(),
-            'fontSize': this.state.fontSize,
-            'fontSizeTxt': this.state.fontSizeTxt,
-            'color': this.state.pColor,
-            'colorTxt': this.state.pColorTxt,
-            'isBold': this.state.pIsBold,
-            'isBoldTxt': this.state.pIsBoldTxt,
-            'timezoneOffset': this.state.timezoneOffset,
-            'endHour': this.state.endHour,
-            'endMinute': this.state.endMinute,
-            'utcTz': this.state.utcTz,
-            'yearsTxt': this.state.yearsFormat,
-            'monthsTxt': this.state.monthsFormat,
-            'weeksTxt': this.state.weeksFormat,
-            'daysTxt': this.state.daysFormat,
-            'hoursTxt': this.state.hoursFormat,
-            'minutesTxt': this.state.minutesFormat,
-            'secondsTxt': this.state.secondsFormat,
-            'customEndedTxt': this.state.customEndedTxt,
-            'layoutType': this.state.layoutType
-        }
-    };
-        axios.put(ectWPPath+'/ect/v2/addTimer', params)
+            ectKs: ectKs,
+            data: {
+                'timerName': this.state.naMeP,
+                'endDate': this.state.endDate.year() + '-' + (this.state.endDate.month() + 1) + '-' + this.state.endDate.date(),
+                'fontSize': this.state.fontSize,
+                'fontSizeTxt': this.state.fontSizeTxt,
+                'color': this.state.pColor,
+                'colorTxt': this.state.pColorTxt,
+                'isBold': this.state.pIsBold,
+                'isBoldTxt': this.state.pIsBoldTxt,
+                'timezoneOffset': this.state.timezoneOffset,
+                'endHour': this.state.endHour,
+                'endMinute': this.state.endMinute,
+                'utcTz': this.state.utcTz,
+                'yearsTxt': this.state.yearsFormat,
+                'monthsTxt': this.state.monthsFormat,
+                'weeksTxt': this.state.weeksFormat,
+                'daysTxt': this.state.daysFormat,
+                'hoursTxt': this.state.hoursFormat,
+                'minutesTxt': this.state.minutesFormat,
+                'secondsTxt': this.state.secondsFormat,
+                'customEndedTxt': this.state.customEndedTxt,
+                'layoutType': this.state.layoutType
+            }
+        };
+        axios.put(ectWPPath + '/ect/v2/addTimer', params)
             .then(function (response) {
-                const idValue=response.data[1].returnID;
-                
+                const idValue = response.data[1].returnID;
+
                 if (typeof window.ectWPInsertSC != "undefined") {
                     window.ectWPInsertSC(idValue);
                 }
@@ -384,7 +388,7 @@ class MainContainer extends React.Component {
     }
     ectClosePopupButton() {
         if (typeof window.ectWPClosePopupButton != "undefined") {
-              window.ectWPClosePopupButton();
+            window.ectWPClosePopupButton();
         }
 
     }
@@ -399,7 +403,7 @@ class MainContainer extends React.Component {
     }
 }
 
-if(typeof ectProperties != "undefined")
+if (typeof ectProperties != "undefined")
     ectProperties.forEach(function (eachTimer) {
         for (var key in eachTimer) {
             ReactDOM.render(

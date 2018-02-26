@@ -11,8 +11,9 @@ html {
         .ectPopupContent {
             height: 100%;
             width: 100%;
+            position: relative;
             .ContainerMain {
-                position: relative;
+                // position: relative;
                 margin: 0 2%;
                 height: 100%;
                 width: 98%;
@@ -108,26 +109,35 @@ html {
                     padding: 5px;
                     width: 100%; // display: none;
                 }
-                .btnPosition {
-                    position: fixed;
+                .ectInsert {
+                    position: absolute;
                     left: 0px;
-                    padding: 10px;
                     bottom: 0px;
-                    background-color: #fff;
-                    border-top: 1px solid #c3c3c3;
-                    border-right: 1px solid #c3c3c3;
+                    height: 40px;
+                    
+                    div {
+                        position: fixed;
+                        padding: 10px;
+                        background-color: #fff;
+                        border-top: 1px solid #c3c3c3;
+                        border-right: 1px solid #c3c3c3;
+                    }
                 }
                 .btnClosePosition {
-                    position: fixed;
+                    position: absolute;
                     right: 0px;
-                    padding: 10px;
                     top: 0px;
-                    background-color: #fff;
-                    border-bottom: 1px solid #c3c3c3;
-                    border-left: 1px solid #c3c3c3;
-                    .ectClosePopupButton {
-                        
-                        font-size: 18px;
+                    height: 40px;
+width: 106px;
+                    div {
+                        position: fixed;
+                        padding: 10px;
+                        background-color: #fff;
+                        border-bottom: 1px solid #c3c3c3;
+                        border-left: 1px solid #c3c3c3;
+                        .ectClosePopupButton {
+                            font-size: 18px;
+                        }
                     }
                 }
                 .tableStyles {
