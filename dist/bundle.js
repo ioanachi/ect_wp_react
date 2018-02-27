@@ -97367,10 +97367,10 @@ var MainContainer = function (_React$Component) {
             var livePreviewOnly = _react2.default.createElement(_livePreview.LivePreview, { key: "LivePreview", pAllData: pData, livePreviewOnly: livePreviewOnlyClass });
 
             // the rest of the data
-            var configurationComponentsJSX = _react2.default.createElement("div", { key: "configurationComponentsJSX" }, _react2.default.createElement("label", { htmlFor: "tableStyles", className: "containerLabels" }, "Configuration"), _react2.default.createElement(_reactTabs.Tabs, { className: "tableStyles" }, _react2.default.createElement(_reactTabs.TabList, null, _react2.default.createElement(_reactTabs.Tab, null, "General"), _react2.default.createElement(_reactTabs.Tab, null, "Configuration"), _react2.default.createElement(_reactTabs.Tab, null, "Custom Text")), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement("table", { className: "FirstPanelTable" }, _react2.default.createElement("tbody", null, _react2.default.createElement("tr", null, _react2.default.createElement("td", { className: "FirstPanelLabel" }, _react2.default.createElement("label", { htmlFor: "datePicker" }, "End Date")), _react2.default.createElement("td", { className: "FirstPanel" }, _react2.default.createElement(_endDate.EndDate, {
+            var configurationComponentsJSX = _react2.default.createElement("div", { key: "configurationComponentsJSX" }, _react2.default.createElement("label", { htmlFor: "tableStyles", className: "containerLabels" }, "Configuration"), _react2.default.createElement("div", { className: "tableStyles" }, _react2.default.createElement("table", { className: "configTable configuration" }, _react2.default.createElement("tbody", null, _react2.default.createElement("tr", null, _react2.default.createElement("td", { colSpan: "2", className: "componentContainer" }, _react2.default.createElement("label", { htmlFor: "datePicker" }, "End Date")), _react2.default.createElement("td", { colSpan: "2", className: "componentContainer" }, _react2.default.createElement(_endDate.EndDate, {
                 callbackChildProp: this.returnChildDate,
                 pEndDate: this.state.endDate
-            })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement("table", { className: "configTable configuration" }, _react2.default.createElement("tbody", null, _react2.default.createElement("tr", null, _react2.default.createElement("td", { colSpan: "2", className: "componentContainer" }, _react2.default.createElement("label", { htmlFor: "username" }, "Name")), _react2.default.createElement("td", { colSpan: "2", className: "componentContainer" }, _react2.default.createElement(_nameInput.UserName, {
+            }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { colSpan: "2", className: "componentContainer" }, _react2.default.createElement("label", { htmlFor: "username" }, "Name")), _react2.default.createElement("td", { colSpan: "2", className: "componentContainer" }, _react2.default.createElement(_nameInput.UserName, {
                 NameParent: this.onNameSubmit,
                 nameValue: this.state.naMeP
             }))), _react2.default.createElement("tr", null, _react2.default.createElement("td", { colSpan: "2", className: "componentContainer" }, _react2.default.createElement("label", null, "Timezone")), _react2.default.createElement("td", { colSpan: "2", className: "timezones" }, _react2.default.createElement(_timezonePicker.Timezones, {
@@ -97394,7 +97394,7 @@ var MainContainer = function (_React$Component) {
             })), _react2.default.createElement("td", { className: "componentContainer" }, _react2.default.createElement(_bold.Bold, {
                 callbackChildPropB: this.isBoldTxt,
                 pIsBold: this.state.pIsBoldTxt
-            })))))), _react2.default.createElement(_reactTabs.TabPanel, null, _react2.default.createElement(_customText.CustomText, {
+            }))))), _react2.default.createElement(_customText.CustomText, {
                 pYears: this.state.yearsFormat,
                 pMonths: this.state.monthsFormat,
                 pWeeks: this.state.weeksFormat,
@@ -97404,12 +97404,12 @@ var MainContainer = function (_React$Component) {
                 pSecondsFormat: this.state.secondsFormat,
                 pcustomEndedTxt: this.state.customEndedTxt,
                 callbackChildPropFormatText: this.returnTextFormat
-            }))), _react2.default.createElement("div", { className: "ectInsert" }, _react2.default.createElement("div", null, _react2.default.createElement("button", {
+            })), _react2.default.createElement("div", { className: "ectInsert" }, _react2.default.createElement("div", null, _react2.default.createElement("button", {
                 type: "button",
                 id: "ectInsertSC",
                 className: "insertButton button button-primary",
                 onClick: this.ectInsertSC
-            }, "Insert Shortcode"))), _react2.default.createElement("div", { className: "btnClosePosition" }, _react2.default.createElement("div", { className: "btnBoxClosePosition" }, _react2.default.createElement("button", {
+            }, "Insert Shortcode"))), _react2.default.createElement("div", { className: "btnClosePosition" }, _react2.default.createElement("div", null, _react2.default.createElement("button", {
                 type: "button",
                 className: "ectClosePopupButton",
                 onClick: this.ectClosePopupButton,
@@ -97434,6 +97434,7 @@ var MainContainer = function (_React$Component) {
     }, {
         key: "ectInsertSC",
         value: function ectInsertSC() {
+
             var params = {
                 ectKs: ectKs,
                 data: {

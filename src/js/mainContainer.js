@@ -166,37 +166,26 @@ class MainContainer extends React.Component {
                 <label htmlFor="tableStyles" className="containerLabels">
                     Configuration
         </label>
-                <Tabs className="tableStyles">
-                    <TabList>
-                        <Tab>General</Tab>
-                        <Tab>Configuration</Tab>
-                        <Tab>Custom Text</Tab>
-                    </TabList>
-
-                    <TabPanel>
-                        <table className="FirstPanelTable">
+                <div className="tableStyles">
+                 
+                        <table className="configTable configuration">
                             <tbody>
                                 <tr>
-                                    <td className="FirstPanelLabel">
+                                    <td colSpan='2' className="componentContainer">
                                         <label htmlFor="datePicker">End Date</label>
                                     </td>
-                                    <td className="FirstPanel">
+                                    <td colSpan='2' className="componentContainer">
                                         <EndDate
                                             callbackChildProp={this.returnChildDate}
                                             pEndDate={this.state.endDate}
                                         />
                                     </td>
                                 </tr>
-                            </tbody>
-                        </table>
                         {/* <div className="layoutsContainer">
                             <label className="layoutsLabel" htmlFor="datePicker">Layouts</label>
                             <Layout className="layouts" callbackChildLayout={this.returnLayout} layoutType={this.state.layoutType} />
                         </div> */}
-                    </TabPanel>
-                    <TabPanel>
-                        <table className="configTable configuration">
-                            <tbody>
+                   
                                 <tr>
 
                                     <td colSpan='2' className="componentContainer">
@@ -280,8 +269,7 @@ class MainContainer extends React.Component {
                                 </tr>
                             </tbody>
                         </table>
-                    </TabPanel>
-                    <TabPanel>
+                    
                         <CustomText
                             pYears={this.state.yearsFormat}
                             pMonths={this.state.monthsFormat}
@@ -293,8 +281,8 @@ class MainContainer extends React.Component {
                             pcustomEndedTxt={this.state.customEndedTxt}
                             callbackChildPropFormatText={this.returnTextFormat}
                         />
-                    </TabPanel>
-                </Tabs>
+                 </div>
+
                 <div className="ectInsert">
                     <div>
                         <button
@@ -308,7 +296,7 @@ class MainContainer extends React.Component {
                     </div>
                 </div>
                 <div className="btnClosePosition">
-                    <div className="btnBoxClosePosition">
+                    <div >
 
                         <button
                             type="button"
@@ -348,6 +336,8 @@ class MainContainer extends React.Component {
         return returnAllData;
     }
     ectInsertSC() {
+       
+        
         var params = {
             ectKs: ectKs,
             data: {
