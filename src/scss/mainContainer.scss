@@ -139,6 +139,7 @@ width: 106px;
                     }
                 }
                 .tableStyles {
+                    width: 50%;
                     table {
                         &.configuration {
                             tr {
@@ -178,27 +179,7 @@ width: 106px;
                             }
                         }
                     }
-                    .FirstPanelTable {
-                        width: 40%;
-                        border: 1px solid #ffffff;
-                        .FirstPanelLabel {
-                            padding: 10px;
-                            margin-bottom: 10px;
-                            text-align: center;
-                            align-content: center;
-                            label {
-                                font-size: 20px;
-                                margin-top: 19px;
-                            }
-                        }
-                        .FirstPanel {
-                            padding: 20px;
-                            margin-bottom: 10px;
-                            text-align: center;
-                            align-content: center;
-                            width: 360px;
-                        }
-                    }
+             
                     .react-tabs__tab-panel {
                         .layoutsContainer {
                             // background-color: red;
