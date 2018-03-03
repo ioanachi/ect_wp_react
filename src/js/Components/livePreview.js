@@ -43,7 +43,7 @@ export class LivePreview extends React.Component {
             hoursTxt: this.props.pAllData.Hours,
             minutesTxt: this.props.pAllData.Minutes,
             secondsTxt: this.props.pAllData.Seconds,
-            customTxtEndedTxt: this.props.pAllData.customTxtEndedTxt,
+            customTxtEndedTxt: this.props.pAllData.customEndedTxt,
             pFormat: this.props.pAllData.timeFormat,
             layoutType: this.props.pAllData.layoutType
             
@@ -64,7 +64,7 @@ export class LivePreview extends React.Component {
             var propertiesObj = ectProperties[ectPIndex][theMainID];
             dataProps = {
                 timeout: propertiesObj.timeout,
-                endDate: propertiesObj.endDate,
+                endDate: propertiesObj.endDate,  
                 timezoneOffset: propertiesObj.timezoneOffset,
                 endHour: propertiesObj.endHour,
                 endMinute: propertiesObj.endMinute,
@@ -82,7 +82,7 @@ export class LivePreview extends React.Component {
                 hoursTxt: propertiesObj.hoursTxt,
                 minutesTxt: propertiesObj.minutesTxt,
                 secondsTxt: propertiesObj.secondsTxt,
-                customTxtEndedTxt: propertiesObj.customTxtEndedTxt,
+                customTxtEndedTxt: propertiesObj.customEndedTxt,
                 layoutType: propertiesObj.layoutType
                 
             };

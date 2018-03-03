@@ -5,7 +5,7 @@ import TextField from 'material-ui/TextField';
 
 export class CustomText extends React.Component {
   constructor(props) {
-    super(props);
+    super(props);   
     this.state = {
       yearsFormat: this.props.pYears,
       monthsFormat: this.props.pMonths,
@@ -14,7 +14,7 @@ export class CustomText extends React.Component {
       hoursFormat: this.props.pHoursFormat,
       minutesFormat: this.props.pMinutesFormat,
       secondsFormat: this.props.pSecondsFormat,
-      customTxtEndedTxt: this.props. pcustomEndedTxt
+      customTxtEndedTxt: this.props.pcustomEndedTxt
     }
     this.chooseYears = this.chooseYears.bind(this);
     this.chooseMonths = this.chooseMonths.bind(this);
@@ -78,9 +78,10 @@ export class CustomText extends React.Component {
     const FormatValue = evt.target.value;
     this.state.customTxtEndedTxt = FormatValue;
     
-    console.log(FormatValue, this.props.pcustomTxtEndedTxt, "FormatValue");
     
     this.setState({customTxtEndedTxt: FormatValue});
+    console.log(FormatValue, this.state.customTxtEndedTxt, "FormatValue");
+    
     this.sendValuesToParent();
   };
 

@@ -11,8 +11,9 @@ html {
         .ectPopupContent {
             height: 100%;
             width: 100%;
+            position: relative;
             .ContainerMain {
-                position: relative;
+                // position: relative;
                 margin: 0 2%;
                 height: 100%;
                 width: 98%;
@@ -88,9 +89,8 @@ html {
                     border: 0px solid white;
                     display: inline-block;
                     font-size: 12px;
-                    div{
-                    border: 0px solid white;
-                        
+                    div {
+                        border: 0px solid white;
                     }
                 }
                 .containerLabels {
@@ -109,19 +109,37 @@ html {
                     padding: 5px;
                     width: 100%; // display: none;
                 }
-                button {
-                    &.insertButton {
-                        margin: 20px 0;
+                .ectInsert {
+                    position: absolute;
+                    left: -60px;
+                    bottom: -10px;
+                    height: 40px;
+                    
+                    div {
+                        position: fixed;
+                        padding: 10px;
+                        background-color: #fff;
+                        border: 1px solid #c3c3c3;
                     }
-                    &.ectClosePopupButton {
-                        position: absolute;
-                        top: 0;
-                        right: 0;
-                        padding: 5px;
-                        font-size: 18px;
+                }
+                .btnClosePosition {
+                    position: absolute;
+                    right: -70px;
+                    top: -22px;
+                    height: 40px;
+width: 106px;
+                    div {
+                        position: fixed;
+                        padding: 10px;
+                        background-color: #fff;
+                        border: 1px solid #c3c3c3;
+                        .ectClosePopupButton {
+                            font-size: 18px;
+                        }
                     }
                 }
                 .tableStyles {
+                    width: 50%;
                     table {
                         &.configuration {
                             tr {
@@ -137,8 +155,8 @@ html {
                                     div {
                                         align-content: center;
                                     }
-                                    &.timezones{
-                                        select{
+                                    &.timezones {
+                                        select {
                                             max-width: 104px;
                                         }
                                     }
@@ -161,27 +179,7 @@ html {
                             }
                         }
                     }
-                    .FirstPanelTable {
-                        width: 40%;
-                        border: 1px solid #ffffff;
-                        .FirstPanelLabel {
-                            padding: 10px;
-                            margin-bottom: 10px;
-                            text-align: center;
-                            align-content: center;
-                            label {
-                                font-size: 20px;
-                                margin-top: 19px;
-                            }
-                        }
-                        .FirstPanel {
-                            padding: 20px;
-                            margin-bottom: 10px;
-                            text-align: center;
-                            align-content: center;
-                            width: 360px;
-                        }
-                    }
+             
                     .react-tabs__tab-panel {
                         .layoutsContainer {
                             // background-color: red;
