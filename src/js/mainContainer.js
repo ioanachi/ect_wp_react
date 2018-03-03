@@ -133,7 +133,7 @@ class MainContainer extends React.Component {
             endDate: this.state.endDate,
             fontSize: this.state.fontSize,
             fontSizeTxt: this.state.fontSizeTxt,
-            color: this.state.pColor,
+            color: this.state.pColor,  
             colorTxt: this.state.pColorTxt,
             isBold: this.state.pIsBold,
             isBoldTxt: this.state.pIsBoldTxt,

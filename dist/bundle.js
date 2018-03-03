@@ -97935,9 +97935,9 @@ var CustomText = exports.CustomText = function (_React$Component) {
       var FormatValue = evt.target.value;
       this.state.customTxtEndedTxt = FormatValue;
 
-      console.log(FormatValue, this.props.pcustomTxtEndedTxt, "FormatValue");
-
       this.setState({ customTxtEndedTxt: FormatValue });
+      console.log(FormatValue, this.state.customTxtEndedTxt, "FormatValue");
+
       this.sendValuesToParent();
     }
   }, {
@@ -99114,7 +99114,7 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                 hoursTxt: this.props.pAllData.Hours,
                 minutesTxt: this.props.pAllData.Minutes,
                 secondsTxt: this.props.pAllData.Seconds,
-                customTxtEndedTxt: this.props.pAllData.customTxtEndedTxt,
+                customTxtEndedTxt: this.props.pAllData.customEndedTxt,
                 pFormat: this.props.pAllData.timeFormat,
                 layoutType: this.props.pAllData.layoutType
 
@@ -99153,7 +99153,7 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                     hoursTxt: propertiesObj.hoursTxt,
                     minutesTxt: propertiesObj.minutesTxt,
                     secondsTxt: propertiesObj.secondsTxt,
-                    customTxtEndedTxt: propertiesObj.customTxtEndedTxt,
+                    customTxtEndedTxt: propertiesObj.customEndedTxt,
                     layoutType: propertiesObj.layoutType
 
                 };
