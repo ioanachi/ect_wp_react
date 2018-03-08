@@ -1,3 +1,5 @@
+import 'babel-polyfill';
+
 import React from "react";
 import ReactDOM from "react-dom";
 import { UserName } from "./Components/nameInput";
@@ -10,13 +12,23 @@ import { Timezones } from "./Components/timezonePicker.js";
 import { Layout } from "./Components/ectLayouts.js";
 import { LivePreview } from "./Components/livePreview.js";
 import { TimeFormat } from "./Components/timeFormat.js";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import moment from "moment";
 import axios from "axios";
+
+
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import allReducers from './reducers';
 
 
 class MainContainer extends React.Component {
     constructor(props) {
         super(props);
+        console.log('asd');
+        
+        console.log(this.props.generalConfig);
+        
         this.state = {
             endDate: moment(),
             isDisabled: false,
@@ -392,14 +404,22 @@ class MainContainer extends React.Component {
     }
 }
 
-if (typeof ectProperties != "undefined")
+
+if (typeof ectProperties != "undefined"){
+    const store = createStore(
+        allReducers
+    );
     ectProperties.forEach(function (eachTimer) {
         for (var key in eachTimer) {
             ReactDOM.render(
-                <MainContainer id="ectInsertSC" parentID={key} />,
+                <Provider store={store}>
+                    <MainContainer id="ectInsertSC" parentID={key} />
+                </Provider>,
                 document.getElementById(key)
             );
         }
     });
+}
+    
 
 
