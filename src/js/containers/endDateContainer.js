@@ -27,10 +27,9 @@ class EndDateContainer extends Component {
       timezoneOffset: this.props.generalConfigChange.timezoneOffset,
       timerName: ''
     };
-    }
-    return () => { this.props.generalConfigChange(newDatex);
-
+    return this.props.generalConfigChange(newDatex);
     return moment(date);
+
 
     var newDate;
     if (date.month() + 1 < 10) {
@@ -72,7 +71,7 @@ class EndDateContainer extends Component {
       <DatePicker
         placeholderText="Select a date"
         dateFormat="YYYY/MM/DD"
-        selected={()=>this.props.generalConfigChange.endDate}
+        selected={this.props.generalConfigChange.endDate}
         onChange={this.handleChange}
         showTimeSelect
         dateFormat="LLL"
@@ -80,10 +79,10 @@ class EndDateContainer extends Component {
         timeCaption="time"
         timeIntervals={15}
         timeFormat="HH:mm"
-        minTime={this.selectMinTime(this.props.generalConfigChange)}
-        maxTime={moment()
-        .hours(23)
-        .minutes(59)}
+        // minTime={this.selectMinTime(this.props.generalConfigChange)}
+        // maxTime={moment()
+        // .hours(23)
+        // .minutes(59)}
         minDate={moment()}
         maxDate={moment().add(1000, "years")}
       />
