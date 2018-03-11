@@ -97354,9 +97354,8 @@ var MainContainer = function (_React$Component) {
         }
     }, {
         key: "returnLayout",
-        value: function returnLayout(layoutSelected) {
-            console.log(layoutSelected);
-            this.setState({ layoutType: layoutSelected });
+        value: function returnLayout(newLayout) {
+            this.setState({ layoutType: newLayout });
         }
     }, {
         key: "returnTextFormat",
@@ -99050,11 +99049,11 @@ var Layout = exports.Layout = function (_React$Component) {
     _this.state = {
       layoutType: '',
       layouts: [{
-        type: 'horizontalTimer',
+        type: 'HorizontalTimer',
         text: 'Horizontal Layout',
         img: _this.type + '.png'
       }, {
-        type: 'verticalTimer',
+        type: 'VerticalTimer',
         text: 'Vertical Layout',
         img: _this.type + '.png'
       }]
@@ -99067,8 +99066,8 @@ var Layout = exports.Layout = function (_React$Component) {
   _createClass(Layout, [{
     key: 'ChangeLayout',
     value: function ChangeLayout(type) {
-      var SubmitL = this.props.callbackChildLayout;
-      SubmitL(type);
+      var returnToPArent = this.props.callbackChildLayout;
+      returnToPArent(type);
     }
   }, {
     key: 'getLayouts',
@@ -99084,7 +99083,7 @@ var Layout = exports.Layout = function (_React$Component) {
     key: 'render',
     value: function render() {
 
-      return _react2.default.createElement('div', null, _react2.default.createElement('div', { className: 'layoutsBox' }, ' ', this.getLayouts(), ' '), ' ');
+      return _react2.default.createElement('div', null, _react2.default.createElement('div', { className: 'layoutsBox' }, ' ', this.getLayouts(), ' '));
     }
   }]);
 
@@ -99151,7 +99150,9 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
             var tempTimeout = this.state.timeout;
             if (!tempTimeout[0]) {
                 tempTimeout.push(setTimeout(function () {
+
                     _this2.setState({ timeout: [] });
+                    _this2.setState({ layoutType: _this2.props.pAllData.layoutType });
                 }, 1000));
             }
             var tempTimeout = this.state.timeout;

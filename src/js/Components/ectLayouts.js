@@ -6,12 +6,12 @@ export class Layout extends React.Component {
     this.state = {
       layoutType: '',
       layouts: [{
-          type: 'horizontalTimer',
+          type: 'HorizontalTimer',
           text: 'Horizontal Layout',
           img: this.type + '.png'
         },
         {
-          type: 'verticalTimer',
+          type: 'VerticalTimer',
           text: 'Vertical Layout',
           img: this.type + '.png'
         }
@@ -21,8 +21,8 @@ export class Layout extends React.Component {
     this.getLayouts = this.getLayouts.bind(this);
   };
   ChangeLayout(type) {
-    const SubmitL = this.props.callbackChildLayout;
-    SubmitL(type);
+    const returnToPArent = this.props.callbackChildLayout;
+    returnToPArent(type);
   };
   getLayouts() {
     const tThis = this;
@@ -33,14 +33,9 @@ export class Layout extends React.Component {
   }
   render() {
 
-    return ( <
-      div >
-      <
-      div className = "layoutsBox" > {
-        this.getLayouts()
-      } <
-      /div> < /
-      div >
+    return ( <div>
+      <div className="layoutsBox"> {this.getLayouts()} </div> 
+      </div>
     )
   }
 }

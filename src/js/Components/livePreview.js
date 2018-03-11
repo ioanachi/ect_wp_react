@@ -16,7 +16,9 @@ export class LivePreview extends React.Component {
         var tempTimeout = this.state.timeout;
         if (!tempTimeout[0]) {
             tempTimeout.push(setTimeout(() => { 
+                
                 this.setState({timeout: []});
+                this.setState({layoutType:this.props.pAllData.layoutType});
             }, 1000));
         }
         var tempTimeout = this.state.timeout;
