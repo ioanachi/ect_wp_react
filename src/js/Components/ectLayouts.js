@@ -24,15 +24,6 @@ export class Layout extends React.Component {
           pColorTxt:'#F5A623'
         },
         {
-          type: 'SeparateTimer',
-          text: 'Separate',
-          img: this.type + '.png',
-          fontSize:50,
-          fontSizeTxt:22,
-          pColor:'#FFC2C2',
-          pColorTxt:'#7ED321'
-        },
-        {
           type: 'CalendarTimer',
           text: 'Calendar',
           img: this.type + '.png',

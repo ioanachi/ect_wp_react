@@ -99072,14 +99072,6 @@ var Layout = exports.Layout = function (_React$Component) {
         pColor: '#417505',
         pColorTxt: '#F5A623'
       }, {
-        type: 'SeparateTimer',
-        text: 'Separate',
-        img: _this.type + '.png',
-        fontSize: 50,
-        fontSizeTxt: 22,
-        pColor: '#FFC2C2',
-        pColorTxt: '#7ED321'
-      }, {
         type: 'CalendarTimer',
         text: 'Calendar',
         img: _this.type + '.png',
