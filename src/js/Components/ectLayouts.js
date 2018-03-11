@@ -14,6 +14,16 @@ export class Layout extends React.Component {
           type: 'VerticalTimer',
           text: 'Vertical Layout',
           img: this.type + '.png'
+        },
+        {
+          type: 'SeparateTimer',
+          text: 'Separate Layout',
+          img: this.type + '.png'
+        },
+        {
+          type: 'CalendarTimer',
+          text: 'Calendar Layout',
+          img: this.type + '.png'
         }
       ]
     }
