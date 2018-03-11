@@ -4,30 +4,43 @@ export class Layout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      layoutType: ''
+      layoutType: '',
+      layouts: [{
+          type: 'horizontalTimer',
+          text: 'Horizontal Layout',
+          img: this.type + '.png'
+        },
+        {
+          type: 'verticalTimer',
+          text: 'Vertical Layout',
+          img: this.type + '.png'
+        }
+      ]
     }
     this.ChangeLayout = this.ChangeLayout.bind(this);
+    this.getLayouts = this.getLayouts.bind(this);
   };
-  ChangeLayout(evt) {
-    const selectedLayout = evt.target;
-    this.setState({ layoutType: selectedLayout });
+  ChangeLayout(type) {
     const SubmitL = this.props.callbackChildLayout;
-    SubmitL(selectedLayout);
+    SubmitL(type);
   };
+  getLayouts() {
+    const tThis = this;
+    return this.state.layouts.map(function (item, i) {
+      return ( <div key = {i} className = "smallBox" onClick = {() => tThis.ChangeLayout(item.type)} > { item.text} </div>
+      );
+    })
+  }
   render() {
 
-    return (
-      <div>
-        <div className="layoutsBox">
-          <div className="smallBox" onChange={this.ChangeLayout}><img src="../img/picture.jpg" alt="" /></div>
-          <div className="smallBox" onChange={this.ChangeLayout}>Second Layout</div>
-          <div className="smallBox" onChange={this.ChangeLayout}>Third Layout</div>
-          <div className="smallBox" onChange={this.ChangeLayout}>Fourth Layout</div>
-          <div className="smallBox" onChange={this.ChangeLayout}>Fifth Layout</div>
-          <div className="smallBox" onChange={this.ChangeLayout}>Sixth Layout</div>
-          <div className="smallBox" onChange={this.ChangeLayout}>Seventh Layout</div>
-        </div>
-      </div>
+    return ( <
+      div >
+      <
+      div className = "layoutsBox" > {
+        this.getLayouts()
+      } <
+      /div> < /
+      div >
     )
   }
 }

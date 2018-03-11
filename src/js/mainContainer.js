@@ -57,6 +57,7 @@ class MainContainer extends React.Component {
         this.returnTextFormat = this.returnTextFormat.bind(this);
         this.isBoldTxt = this.isBoldTxt.bind(this);
         this.ectInsertSC = this.ectInsertSC.bind(this);
+        this.returnLayout = this.returnLayout.bind(this);
     }
 
     isBold(childVal) {
@@ -103,6 +104,7 @@ class MainContainer extends React.Component {
         this.setState({ timeFormat: formatType });
     }
     returnLayout(layoutSelected) {
+        console.log(layoutSelected);
         this.setState({ layoutType: layoutSelected });
     }
 
@@ -181,10 +183,7 @@ class MainContainer extends React.Component {
                                         />
                                     </td>
                                 </tr>
-                        {/* <div className="layoutsContainer">
-                            <label className="layoutsLabel" htmlFor="datePicker">Layouts</label>
-                            <Layout className="layouts" callbackChildLayout={this.returnLayout} layoutType={this.state.layoutType} />
-                        </div> */}
+                       
                    
                                 <tr>
 
@@ -282,6 +281,10 @@ class MainContainer extends React.Component {
                             callbackChildPropFormatText={this.returnTextFormat}
                         />
                  </div>
+                  <div className="layoutsContainer">
+                            <label className="layoutsLabel" htmlFor="datePicker">Layouts</label>
+                            <Layout className="layouts" callbackChildLayout={this.returnLayout} layoutType={this.state.layoutType} />
+                        </div>
 
                 <div className="ectInsert">
                     <div>
