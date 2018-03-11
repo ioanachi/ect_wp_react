@@ -97987,7 +97987,6 @@ var CustomText = exports.CustomText = function (_React$Component) {
       this.state.customTxtEndedTxt = FormatValue;
 
       this.setState({ customTxtEndedTxt: FormatValue });
-      console.log(FormatValue, this.state.customTxtEndedTxt, "FormatValue");
 
       this.sendValuesToParent();
     }
@@ -99316,7 +99315,7 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                 EndedTxt: dataProps.customTxtEndedTxt,
                 Styles: divStyleTxt
             };
-            var DynamicComponentName = components[this.state.layoutType];
+            var DynamicComponentName = components[this.props.pAllData.layoutType];
             return _react2.default.createElement(DynamicComponentName, { numbers: timerNumbers,
                 customTxt: timerCustomTxt
             });

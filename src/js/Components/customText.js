@@ -80,7 +80,6 @@ export class CustomText extends React.Component {
     
     
     this.setState({customTxtEndedTxt: FormatValue});
-    console.log(FormatValue, this.state.customTxtEndedTxt, "FormatValue");
     
     this.sendValuesToParent();
   };

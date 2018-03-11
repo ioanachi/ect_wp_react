@@ -175,7 +175,7 @@ export class LivePreview extends React.Component {
                 EndedTxt: dataProps.customTxtEndedTxt,
                 Styles: divStyleTxt
             }
-            const DynamicComponentName = components[this.state.layoutType];
+            const DynamicComponentName = components[this.props.pAllData.layoutType];
             return ( < DynamicComponentName numbers = {
                     timerNumbers
                 }
