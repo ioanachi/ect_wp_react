@@ -97773,7 +97773,6 @@ var EndDate = exports.EndDate = function (_React$Component) {
       }
       var newHour = date.hour();
       var newMinute = date.minute();
-      console.log((0, _moment2.default)(newDate));
 
       this.setState({
         startDate: date,
@@ -99317,7 +99316,6 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                 EndedTxt: dataProps.customTxtEndedTxt,
                 Styles: divStyleTxt
             };
-            console.log(this.state.layoutType);
             var DynamicComponentName = components[this.state.layoutType];
             return _react2.default.createElement(DynamicComponentName, { numbers: timerNumbers,
                 customTxt: timerCustomTxt
@@ -99577,8 +99575,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
@@ -99616,7 +99612,6 @@ var VerticalTimer = function (_React$Component) {
               continue;
             }
           }
-          console.log(_typeof(this.props.numbers[key]), "this.props.numbers[key]");
 
           var tempItem = _react2.default.createElement('div', { key: key, className: 'verticalView' }, _react2.default.createElement('div', { className: 'numbersPreview' }, _react2.default.createElement('span', { style: this.props.numbers.Styles }, this.props.numbers[key], ' ')), _react2.default.createElement('div', { className: 'textPreview' }, _react2.default.createElement('span', { style: this.props.customTxt.Styles }, this.props.customTxt[key]), ' \xA0'), ' ');
 
@@ -100748,8 +100743,6 @@ var AllTimers = function (_React$Component) {
             _axios2.default.delete(ectWPPath + '/ect/v2/removeTimer/' + id + '/' + ectKs).then(function (response) {
                 var allTimers = _parent.state.timersHTML;
                 allTimers.forEach(function (item, tIndex) {
-                    console.log(item);
-                    console.log(itemToDelete);
 
                     if (item.key == id) {
                         index = tIndex;
@@ -100765,7 +100758,6 @@ var AllTimers = function (_React$Component) {
     }, {
         key: "returnTimers",
         value: function returnTimers() {
-            console.log("mergeeee");
             var timersReturned;
             var _parent = this;
             _axios2.default.get(ectWPPath + '/ect/v2/getTimers/' + ectKs).then(function (response) {
