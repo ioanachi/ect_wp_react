@@ -7,7 +7,7 @@ export class Layout extends React.Component {
       layoutType: '',
       layouts: [{
           type: 'HorizontalTimer',
-          text: 'Horizontal Layout',
+          text: 'Horizontal',
           img: this.type + '.png',
           fontSize:39,
           fontSizeTxt:18,
@@ -16,7 +16,7 @@ export class Layout extends React.Component {
         },
         {
           type: 'VerticalTimer',
-          text: 'Vertical Layout',
+          text: 'Vertical',
           img: this.type + '.png',
           fontSize:50,
           fontSizeTxt:22,
@@ -25,7 +25,7 @@ export class Layout extends React.Component {
         },
         {
           type: 'SeparateTimer',
-          text: 'Separate Layout',
+          text: 'Separate',
           img: this.type + '.png',
           fontSize:50,
           fontSizeTxt:22,
@@ -34,7 +34,7 @@ export class Layout extends React.Component {
         },
         {
           type: 'CalendarTimer',
-          text: 'Calendar Layout',
+          text: 'Calendar',
           img: this.type + '.png',
           fontSize:39,
           fontSizeTxt:18,

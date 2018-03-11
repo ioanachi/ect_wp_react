@@ -163,7 +163,6 @@ html {
                                 }
                             }
                         }
-                    
                         width: 95%;
                         border: 1px solid #ffffff;
                         tr {
@@ -227,8 +226,14 @@ html {
                             height: 130px; // border: 1px solid rgb(121, 121, 121);
                             float: left;
                             margin: 10px;
-                            &:hover{
-                                cursor:pointer;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-weight: 900;
+                            &:hover {
+                                cursor: pointer;
+                                background:#000;
+                                color:#fff;
                             }
                         }
                     }
