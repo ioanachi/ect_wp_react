@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import mathCountDown from './mathCountDown';
-import {HorizontalTimer, VerticalTimer} from '../layouts/pack1';
+import { HorizontalTimer, VerticalTimer } from '../layouts/pack1';
 export class LivePreview extends React.Component {
     constructor(props) {
         super(props);
@@ -15,16 +15,16 @@ export class LivePreview extends React.Component {
     dinamicComponent() {
         var tempTimeout = this.state.timeout;
         if (!tempTimeout[0]) {
-            tempTimeout.push(setTimeout(() => { 
-                this.setState({timeout: []});
+            tempTimeout.push(setTimeout(() => {
+                this.setState({ timeout: [] });
             }, 1000));
         }
         var tempTimeout = this.state.timeout;
         if (!tempTimeout[0]) {
             tempTimeout.push(setTimeout(() => {
-                this.setState({timeout: []});
+                this.setState({ timeout: [] });
             }, 1000));
-        } 
+        }
         var dataProps = {
             tThis: this,
             timeout: [],
@@ -46,7 +46,7 @@ export class LivePreview extends React.Component {
             customTxtEndedTxt: this.props.pAllData.customEndedTxt,
             pFormat: this.props.pAllData.timeFormat,
             layoutType: this.props.pAllData.layoutType
-            
+
         };
         var divStyle = {},
             divStyleTxt = {};
@@ -64,7 +64,7 @@ export class LivePreview extends React.Component {
             var propertiesObj = ectProperties[ectPIndex][theMainID];
             dataProps = {
                 timeout: propertiesObj.timeout,
-                endDate: propertiesObj.endDate,  
+                endDate: propertiesObj.endDate,
                 timezoneOffset: propertiesObj.timezoneOffset,
                 endHour: propertiesObj.endHour,
                 endMinute: propertiesObj.endMinute,
@@ -84,17 +84,17 @@ export class LivePreview extends React.Component {
                 secondsTxt: propertiesObj.secondsTxt,
                 customTxtEndedTxt: propertiesObj.customEndedTxt,
                 layoutType: propertiesObj.layoutType
-                
+
             };
             divStyle = {
-                fontSize: dataProps.fontSize+'px',
+                fontSize: dataProps.fontSize + 'px',
                 color: dataProps.color,
                 fontWeight: (dataProps.isBold == true
                     ? 'bold'
                     : 'normal')
             }
             divStyleTxt = {
-                fontSize: dataProps.fontSizeTxt+'px',
+                fontSize: dataProps.fontSizeTxt + 'px',
                 color: dataProps.colorTxt,
                 fontWeight: (dataProps.isBoldTxt == true
                     ? 'bold'
@@ -129,7 +129,7 @@ export class LivePreview extends React.Component {
             endMinute: dataProps.endMinute
         };
         var numberValues = mathCountDown.mathFunc(tempDatesObj);
-        
+
         var timerNumbers = {};
         if (!numberValues) {
             timerNumbers = false;
@@ -160,13 +160,17 @@ export class LivePreview extends React.Component {
             Styles: divStyleTxt
         }
         const DynamicComponentName = components[this.state.layoutType];
-        return (<DynamicComponentName numbers={timerNumbers} customTxt={timerCustomTxt}/>);
+        return (<DynamicComponentName numbers={timerNumbers} customTxt={timerCustomTxt} />);
     }
     render() {
+
         return (
-            <div className={'containerPreview '+this.props.livePreviewOnly}>
-                {this.dinamicComponent()}
-            </div>
+            
+            < div className ="previewBox" id="boxPreview" >
+                <div className={'containerPreview ' + this.props.livePreviewOnly}>
+                    {this.dinamicComponent()}
+                </div>
+            </div >
         );
     }
 }
