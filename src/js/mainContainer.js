@@ -104,7 +104,14 @@ class MainContainer extends React.Component {
         this.setState({ timeFormat: formatType });
     }
     returnLayout(newLayout) {
-        this.setState({ layoutType: newLayout });
+        this.setState({ 
+            layoutType: newLayout.type,
+            fontSize: newLayout.fontSize,
+            fontSizeTxt: newLayout.fontSizeTxt,
+            pColor: newLayout.pColor,
+            pColorTxt: newLayout.pColorTxt
+        
+        });
     }
 
     returnTextFormat(Y, M, W, D, H, Minute, S, endText) {

@@ -97355,7 +97355,14 @@ var MainContainer = function (_React$Component) {
     }, {
         key: "returnLayout",
         value: function returnLayout(newLayout) {
-            this.setState({ layoutType: newLayout });
+            this.setState({
+                layoutType: newLayout.type,
+                fontSize: newLayout.fontSize,
+                fontSizeTxt: newLayout.fontSizeTxt,
+                pColor: newLayout.pColor,
+                pColorTxt: newLayout.pColorTxt
+
+            });
         }
     }, {
         key: "returnTextFormat",
@@ -97678,11 +97685,11 @@ var EctSlider = exports.EctSlider = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(_MuiThemeProvider2.default, null, _react2.default.createElement('div', { className: 'ectSliderContainer' }, _react2.default.createElement('span', null, this.state.fontSize, ' px'), _react2.default.createElement(_Slider2.default, {
+      return _react2.default.createElement(_MuiThemeProvider2.default, null, _react2.default.createElement('div', { className: 'ectSliderContainer' }, _react2.default.createElement('span', null, this.props.pFontSize, ' px'), _react2.default.createElement(_Slider2.default, {
         min: 8,
         max: 100,
         step: 1,
-        value: this.state.fontSize,
+        value: this.props.pFontSize,
         onChange: this.inputfontSize,
         sliderStyle: {
           'height': '5px',
@@ -98083,7 +98090,7 @@ var PickColor = function (_React$Component) {
             width: '36px',
             height: '14px',
             borderRadius: '2px',
-            background: '' + this.state.color
+            background: '' + this.props.pColor
           },
           swatch: {
             padding: '5px',
@@ -98106,7 +98113,7 @@ var PickColor = function (_React$Component) {
           }
         }
       });
-      return _react2.default.createElement('div', { className: 'componentContainer' }, _react2.default.createElement('div', { style: styles.swatch, onClick: this.handleClick }, _react2.default.createElement('div', { style: styles.color })), this.state.displayColorPicker ? _react2.default.createElement('div', { style: styles.popover }, _react2.default.createElement('div', { style: styles.cover, onClick: this.handleClose }), _react2.default.createElement(_reactColor.SketchPicker, { disableAlpha: true, color: this.state.color, onChange: this.handleOnColorChange })) : null);
+      return _react2.default.createElement('div', { className: 'componentContainer' }, _react2.default.createElement('div', { style: styles.swatch, onClick: this.handleClick }, _react2.default.createElement('div', { style: styles.color })), this.state.displayColorPicker ? _react2.default.createElement('div', { style: styles.popover }, _react2.default.createElement('div', { style: styles.cover, onClick: this.handleClose }), _react2.default.createElement(_reactColor.SketchPicker, { disableAlpha: true, color: this.props.pColor, onChange: this.handleOnColorChange })) : null);
     }
   }]);
 
@@ -99051,19 +99058,35 @@ var Layout = exports.Layout = function (_React$Component) {
       layouts: [{
         type: 'HorizontalTimer',
         text: 'Horizontal Layout',
-        img: _this.type + '.png'
+        img: _this.type + '.png',
+        fontSize: 39,
+        fontSizeTxt: 18,
+        pColor: 'red',
+        pColorTxt: 'blue'
       }, {
         type: 'VerticalTimer',
         text: 'Vertical Layout',
-        img: _this.type + '.png'
+        img: _this.type + '.png',
+        fontSize: 50,
+        fontSizeTxt: 22,
+        pColor: '#417505',
+        pColorTxt: '#F5A623'
       }, {
         type: 'SeparateTimer',
         text: 'Separate Layout',
-        img: _this.type + '.png'
+        img: _this.type + '.png',
+        fontSize: 50,
+        fontSizeTxt: 22,
+        pColor: '#FFC2C2',
+        pColorTxt: '#7ED321'
       }, {
         type: 'CalendarTimer',
         text: 'Calendar Layout',
-        img: _this.type + '.png'
+        img: _this.type + '.png',
+        fontSize: 39,
+        fontSizeTxt: 18,
+        pColor: '#FFC2C2',
+        pColorTxt: '#7ED321'
       }]
     };
     _this.ChangeLayout = _this.ChangeLayout.bind(_this);
@@ -99073,9 +99096,9 @@ var Layout = exports.Layout = function (_React$Component) {
 
   _createClass(Layout, [{
     key: 'ChangeLayout',
-    value: function ChangeLayout(type) {
+    value: function ChangeLayout(data) {
       var returnToPArent = this.props.callbackChildLayout;
-      returnToPArent(type);
+      returnToPArent(data);
     }
   }, {
     key: 'getLayouts',
@@ -99083,7 +99106,7 @@ var Layout = exports.Layout = function (_React$Component) {
       var tThis = this;
       return this.state.layouts.map(function (item, i) {
         return _react2.default.createElement('div', { key: i, className: 'smallBox', onClick: function onClick() {
-            return tThis.ChangeLayout(item.type);
+            return tThis.ChangeLayout(item);
           } }, ' ', item.text, ' ');
       });
     }
