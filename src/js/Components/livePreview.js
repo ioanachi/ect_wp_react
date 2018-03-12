@@ -10,6 +10,8 @@ export class LivePreview extends React.Component {
             layoutType: this.props.pAllData.layoutType
         };
         const tempClass = window[this.state.layoutType + '2'];
+        this.handleScroll = this.handleScroll.bind(this);
+        
     };
 
     dinamicComponent() {
@@ -162,12 +164,32 @@ export class LivePreview extends React.Component {
         const DynamicComponentName = components[this.state.layoutType];
         return (<DynamicComponentName numbers={timerNumbers} customTxt={timerCustomTxt} />);
     }
+    handleScroll(){
+        var locatePreview =  ReactDOM.findDOMNode(this.refs['boxPreview']).getBoundingClientRect(); 
+        if(locatePreview.top < 1){
+            ReactDOM.findDOMNode(this.refs['boxPreview']).style.position="fixed";
+            // ReactDOM.findDOMNode(this.refs['boxPreview']).style.left="43%";
+            // ReactDOM.findDOMNode(this.refs['boxPreview']).style.top="0px;";
+            
+        }
+        // else{
+        //     ReactDOM.findDOMNode(this.refs['containerPreview']).style.left="45%";
+        //     console.log(" notrunning");
+            
+        // }
+        console.log(locatePreview.top);
+        
+       
+    }
+    componentDidMount() {
+        window.addEventListener('scroll', this.handleScroll);
+    };
     render() {
 
         return (
             
-            < div className ="previewBox" id="boxPreview" >
-                <div className={'containerPreview ' + this.props.livePreviewOnly}>
+            < div className ="previewBox" ref="boxPreview" >
+                <div className={'containerPreview ' + this.props.livePreviewOnly} ref="containerPreview">
                     {this.dinamicComponent()}
                 </div>
             </div >

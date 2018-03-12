@@ -14,9 +14,9 @@ html {
             position: relative;
             .ContainerMain {
                 position: relative;
-                margin: 0 2%;
+                margin: 0 ;
                 height: 100%;
-                width: 98%;
+                width: 100%;
                 .onlyPrewiew {
                     border: 1px solid white;
                 }
@@ -36,14 +36,13 @@ html {
                     }
                 }
                 .previewBox{
-                    position : absolute;
-                    top:10px;
-                    left:5%;
-                    z-index: 100;
+                    position : static;
+                    // top:10px;
+                    // left:45%;
                 .containerPreview,
                 .livePreviewOnly {
-                    position: fixed;
-                    width: 100%;
+                    position: relative;
+                    // width: 100%;
                     
                     display: flex;
                     justify-content: center;
@@ -51,7 +50,7 @@ html {
                         border: 1px solid #bdbdbd;
                     background-color: white;
                         
-                        padding: 5px;
+                        padding: 0px;
                         &.spanDiv {
                             display: inline-block;
                             border: 1px solid #ffffff;
