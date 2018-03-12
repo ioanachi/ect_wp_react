@@ -40,7 +40,7 @@ export default class SeparateTimer extends React.Component {
           this.props.customTxt.EndedTxt
         } </span>);
     }
-    return (<div> {
+    return (<div className="floatingPreview"> {
       finalResult
     } </div>
     );

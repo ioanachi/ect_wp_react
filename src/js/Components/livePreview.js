@@ -1,32 +1,43 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import mathCountDown from './mathCountDown';
-import { HorizontalTimer, VerticalTimer } from '../layouts/pack1';
+import {
+    HorizontalTimer,
+    VerticalTimer,
+    CalendarTimer,
+    SeparateTimer
+} from '../layouts/pack1';
 export class LivePreview extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             timeout: [],
-            layoutType: this.props.pAllData.layoutType,
+            layoutType: this.props.pAllData.layoutType
         };
-        // var locatePreview =  ReactDOM.findDOMNode(this.refs['boxPreview']).getBoundingClientRect(); 
-        // console.log(locatePreview.y, "positiobbbbbbbb");
         const tempClass = window[this.state.layoutType + '2'];
         this.handleScroll = this.handleScroll.bind(this);
-        
+
     };
 
     dinamicComponent() {
         var tempTimeout = this.state.timeout;
         if (!tempTimeout[0]) {
             tempTimeout.push(setTimeout(() => {
-                this.setState({ timeout: [] });
+
+                this.setState({
+                    timeout: []
+                });
+                this.setState({
+                    layoutType: this.props.pAllData.layoutType
+                }); //new layout type
             }, 1000));
         }
         var tempTimeout = this.state.timeout;
         if (!tempTimeout[0]) {
             tempTimeout.push(setTimeout(() => {
-                this.setState({ timeout: [] });
+                this.setState({
+                    timeout: []
+                });
             }, 1000));
         }
         var dataProps = {
@@ -65,6 +76,7 @@ export class LivePreview extends React.Component {
                     }
                 }
             });
+
             var propertiesObj = ectProperties[ectPIndex][theMainID];
             dataProps = {
                 timeout: propertiesObj.timeout,
@@ -93,38 +105,40 @@ export class LivePreview extends React.Component {
             divStyle = {
                 fontSize: dataProps.fontSize + 'px',
                 color: dataProps.color,
-                fontWeight: (dataProps.isBold == true
-                    ? 'bold'
-                    : 'normal')
+                fontWeight: (dataProps.isBold == true ?
+                    'bold' :
+                    'normal')
             }
             divStyleTxt = {
                 fontSize: dataProps.fontSizeTxt + 'px',
                 color: dataProps.colorTxt,
-                fontWeight: (dataProps.isBoldTxt == true
-                    ? 'bold'
-                    : 'normal')
+                fontWeight: (dataProps.isBoldTxt == true ?
+                    'bold' :
+                    'normal')
             };
         } else {
 
             divStyle = {
                 fontSize: this.props.pAllData.fontSize + 'px',
                 color: this.props.pAllData.color,
-                fontWeight: (this.props.pAllData.isBold == true
-                    ? 'bold'
-                    : 'normal')
+                fontWeight: (this.props.pAllData.isBold == true ?
+                    'bold' :
+                    'normal')
             }
             divStyleTxt = {
                 fontSize: this.props.pAllData.fontSizeTxt + 'px',
                 color: this.props.pAllData.colorTxt,
-                fontWeight: (this.props.pAllData.isBoldTxt == true
-                    ? 'bold'
-                    : 'normal')
+                fontWeight: (this.props.pAllData.isBoldTxt == true ?
+                    'bold' :
+                    'normal')
             }
         }
-
+        // all the available layouts
         const components = {
             HorizontalTimer: HorizontalTimer,
-            VerticalTimer: VerticalTimer
+            VerticalTimer: VerticalTimer,
+            SeparateTimer: SeparateTimer,
+            CalendarTimer: CalendarTimer
         };
         var tempDatesObj = {
             endDate: dataProps.endDate,
@@ -152,6 +166,7 @@ export class LivePreview extends React.Component {
             }
         }
 
+
         const timerCustomTxt = {
             Years: dataProps.yearsTxt,
             Months: dataProps.monthsTxt,
@@ -163,28 +178,23 @@ export class LivePreview extends React.Component {
             EndedTxt: dataProps.customTxtEndedTxt,
             Styles: divStyleTxt
         }
-        const DynamicComponentName = components[this.state.layoutType];
-        return (<DynamicComponentName numbers={timerNumbers} customTxt={timerCustomTxt} />);
+        const DynamicComponentName = components[this.props.pAllData.layoutType];
+
+        return (<DynamicComponentName className="floatingPreview" numbers={
+            timerNumbers
+        }
+            customTxt={
+                timerCustomTxt
+            }
+        />);
     }
-  
-    handleScroll(){
-        var previewOffset =  ReactDOM.findDOMNode(this.refs['boxPreview']).getBoundingClientRect(); 
-        console.log(previewOffset.y, "positiobbbbbbbb");
-        
-        if(previewOffset.y <= 1){
-            ReactDOM.findDOMNode(this.refs['containerPreview']).style.position="fixed";
-            ReactDOM.findDOMNode(this.refs['containerPreview']).style.top="0px";
-            // ReactDOM.findDOMNode(this.refs['boxPreview']).style.left="43%";
-            // ReactDOM.findDOMNode(this.refs['boxPreview']).style.top="0px;";
-            
-        }else{
-            console.log('teeeeest');
-            
-            ReactDOM.findDOMNode(this.refs['containerPreview']).style.position="relative";
-        //     // ReactDOM.findDOMNode(this.refs['boxPreview']).style.marginTop="10px";
-        //     console.log(" notrunning");
-        // console.log( ReactDOM.findDOMNode(this.refs['boxPreview']));
-            
+    handleScroll() {
+        var previewOffset = ReactDOM.findDOMNode(this.refs['boxPreview']).getBoundingClientRect();
+        if (previewOffset.y <= 1) {
+            ReactDOM.findDOMNode(this.refs['containerPreview']).style.position = "fixed";
+            ReactDOM.findDOMNode(this.refs['containerPreview']).style.top = "0px";
+        } else {
+            ReactDOM.findDOMNode(this.refs['containerPreview']).style.position = "relative";
         }
     }
     componentDidMount() {
@@ -193,10 +203,12 @@ export class LivePreview extends React.Component {
     render() {
 
         return (
-            
-            < div className ="previewBox" ref="boxPreview">
-                <div className={'containerPreview ' + this.props.livePreviewOnly} ref="containerPreview">
-                    {this.dinamicComponent()}
+
+            < div className="previewBox" ref="boxPreview">
+              
+                    <div className={'containerPreview ' + this.props.livePreviewOnly} ref="containerPreview">
+                        {this.dinamicComponent()}
+                
                 </div>
             </div >
         );
