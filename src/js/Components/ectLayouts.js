@@ -4,29 +4,54 @@ export class Layout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      layoutType: ''
+      layoutType: '',
+      layouts: [{
+          type: 'HorizontalTimer',
+          text: 'Horizontal',
+          img: this.type + '.png',
+          fontSize:39,
+          fontSizeTxt:18,
+          pColor:'red',
+          pColorTxt:'blue'
+        },
+        {
+          type: 'VerticalTimer',
+          text: 'Vertical',
+          img: this.type + '.png',
+          fontSize:50,
+          fontSizeTxt:22,
+          pColor:'#417505',
+          pColorTxt:'#F5A623'
+        },
+        {
+          type: 'CalendarTimer',
+          text: 'Calendar',
+          img: this.type + '.png',
+          fontSize:39,
+          fontSizeTxt:18,
+          pColor:'#FFC2C2',
+          pColorTxt:'#7ED321'
+        }
+      ]
     }
     this.ChangeLayout = this.ChangeLayout.bind(this);
+    this.getLayouts = this.getLayouts.bind(this);
   };
-  ChangeLayout(evt) {
-    const selectedLayout = evt.target;
-    this.setState({ layoutType: selectedLayout });
-    const SubmitL = this.props.callbackChildLayout;
-    SubmitL(selectedLayout);
+  ChangeLayout(data) {
+    const returnToPArent = this.props.callbackChildLayout;
+    returnToPArent(data);
   };
+  getLayouts() {
+    const tThis = this;
+    return this.state.layouts.map(function (item, i) {
+      return ( <div key = {i} className = "smallBox" onClick = {() => tThis.ChangeLayout(item)} > { item.text} </div>
+      );
+    })
+  }
   render() {
 
-    return (
-      <div>
-        <div className="layoutsBox">
-          <div className="smallBox" onChange={this.ChangeLayout}><img src="../img/picture.jpg" alt="" /></div>
-          <div className="smallBox" onChange={this.ChangeLayout}>Second Layout</div>
-          <div className="smallBox" onChange={this.ChangeLayout}>Third Layout</div>
-          <div className="smallBox" onChange={this.ChangeLayout}>Fourth Layout</div>
-          <div className="smallBox" onChange={this.ChangeLayout}>Fifth Layout</div>
-          <div className="smallBox" onChange={this.ChangeLayout}>Sixth Layout</div>
-          <div className="smallBox" onChange={this.ChangeLayout}>Seventh Layout</div>
-        </div>
+    return ( <div>
+      <div className="layoutsBox"> {this.getLayouts()} </div> 
       </div>
     )
   }

@@ -57,6 +57,7 @@ class MainContainer extends React.Component {
         this.returnTextFormat = this.returnTextFormat.bind(this);
         this.isBoldTxt = this.isBoldTxt.bind(this);
         this.ectInsertSC = this.ectInsertSC.bind(this);
+        this.returnLayout = this.returnLayout.bind(this);
     }
 
     isBold(childVal) {
@@ -102,8 +103,15 @@ class MainContainer extends React.Component {
     returnFormat(formatType) {
         this.setState({ timeFormat: formatType });
     }
-    returnLayout(layoutSelected) {
-        this.setState({ layoutType: layoutSelected });
+    returnLayout(newLayout) {
+        this.setState({ 
+            layoutType: newLayout.type,
+            fontSize: newLayout.fontSize,
+            fontSizeTxt: newLayout.fontSizeTxt,
+            pColor: newLayout.pColor,
+            pColorTxt: newLayout.pColorTxt
+        
+        });
     }
 
     returnTextFormat(Y, M, W, D, H, Minute, S, endText) {
@@ -181,10 +189,7 @@ class MainContainer extends React.Component {
                                         />
                                     </td>
                                 </tr>
-                        {/* <div className="layoutsContainer">
-                            <label className="layoutsLabel" htmlFor="datePicker">Layouts</label>
-                            <Layout className="layouts" callbackChildLayout={this.returnLayout} layoutType={this.state.layoutType} />
-                        </div> */}
+                       
                    
                                 <tr>
 
@@ -282,6 +287,10 @@ class MainContainer extends React.Component {
                             callbackChildPropFormatText={this.returnTextFormat}
                         />
                  </div>
+                  <div className="layoutsContainer">
+                            <label className="layoutsLabel" htmlFor="datePicker">Layouts</label>
+                            <Layout className="layouts" callbackChildLayout={this.returnLayout} layoutType={this.state.layoutType} />
+                        </div>
 
                 <div className="ectInsert">
                     <div>

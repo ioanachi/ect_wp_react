@@ -25,13 +25,13 @@ export class EctSlider extends React.Component {
       <MuiThemeProvider>
         <div className="ectSliderContainer">
           <span>
-            {this.state.fontSize} px
+            {this.props.pFontSize} px
           </span>
           <Slider
             min={8}
             max={100}
             step={1}
-            value={this.state.fontSize}
+            value={this.props.pFontSize}
             onChange={this.inputfontSize}
             sliderStyle={{
             'height': '5px',

@@ -19,8 +19,6 @@ class AllTimers extends React.Component {
         axios.delete(ectWPPath+'/ect/v2/removeTimer/'+id+'/'+ectKs).then(function(response){
             var allTimers = _parent.state.timersHTML;
             allTimers.forEach(function(item,tIndex){
-                console.log(item);
-                console.log(itemToDelete);
                 
                 if(item.key==id){
                     index = tIndex;
@@ -35,7 +33,6 @@ class AllTimers extends React.Component {
     }
 
     returnTimers() {
-        console.log("mergeeee");
         var timersReturned;
         var _parent = this;
         axios.get(ectWPPath + '/ect/v2/getTimers/' + ectKs)

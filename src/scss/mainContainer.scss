@@ -123,7 +123,6 @@ html {
                     left: -60px;
                     bottom: -10px;
                     height: 40px;
-                    
                     div {
                         position: fixed;
                         padding: 10px;
@@ -136,7 +135,7 @@ html {
                     right: -70px;
                     top: -22px;
                     height: 40px;
-width: 106px;
+                    width: 106px;
                     div {
                         position: fixed;
                         padding: 10px;
@@ -149,6 +148,7 @@ width: 106px;
                 }
                 .tableStyles {
                     width: 50%;
+                    float: left;
                     table {
                         &.configuration {
                             tr {
@@ -172,9 +172,7 @@ width: 106px;
                                 }
                             }
                         }
-                    }
-                    table {
-                        width: 50%;
+                        width: 95%;
                         border: 1px solid #ffffff;
                         tr {
                             &:nth-child(2n) {
@@ -188,56 +186,63 @@ width: 106px;
                             }
                         }
                     }
-             
-                    .react-tabs__tab-panel {
-                        .layoutsContainer {
-                            // background-color: red;
-                            width: 50%;
-                            margin-left: 0px;
-                            margin-top: 40px;
+                }
+                .layoutsContainer {
+                    width: 50%;
+                    margin-left: 0px;
+                    margin-top: 40px;
+                    justify-content: center;
+                    align-items: center;
+                    float: left;
+                    .layoutsLabel {
+                        padding: 20px 0px;
+                        margin-bottom: 10px;
+                        text-align: center;
+                        align-content: center;
+                        display: flex;
+                        justify-content: center;
+                        width: 100px;
+                        font-size: 20px;
+                        margin: 0;
+                    }
+                    .layoutsBox {
+                        padding: 10px;
+                        border: 1px solid #c5c5c5;
+                        margin: 0;
+                        width: 310px;
+                        height: 300px;
+                        overflow: scroll;
+                        overflow-x: hidden; // background-color: red;
+                        &::-webkit-scrollbar-track {
+                            -webkit-box-shadow: inset 0 0 3px rgba(46, 46, 46, .3);
+                            box-shadow: inset 0 0 3px rgba(46, 46, 46, .3);
+                            border-radius: 6px;
+                            background-color: #F5F5F5;
+                        }
+                        &::-webkit-scrollbar {
+                            width: 4px;
+                            background-color: #F5F5F5;
+                        }
+                        &::-webkit-scrollbar-thumb {
+                            border-radius: 6px;
+                            -webkit-box-shadow: inset 0 0 3px rgba(46, 46, 46, .3);
+                            box-shadow: inset 0 0 3px rgba(46, 46, 46, .3);
+                            background-color: #555;
+                        }
+                        .smallBox {
+                            border: 1px solid #c5c5c5;
+                            width: 130px;
+                            height: 130px; // border: 1px solid rgb(121, 121, 121);
+                            float: left;
+                            margin: 10px;
+                            display: flex;
                             justify-content: center;
                             align-items: center;
-                            display: block;
-                            .layoutsLabel {
-                                padding: 20px 0px;
-                                margin-bottom: 10px;
-                                text-align: center;
-                                align-content: center;
-                                display: flex;
-                                justify-content: center;
-                                width: 100px;
-                                font-size: 20px;
-                                margin: 0 auto;
-                            }
-                            .layoutsBox {
-                                padding: 10px;
-                                border: 1px solid #c5c5c5;
-                                margin: 0 auto;
-                                width: 380px;
-                                height: 300px;
-                                overflow: scroll;
-                                overflow-x: hidden; // background-color: red;
-                                &::-webkit-scrollbar-track {
-                                    -webkit-box-shadow: inset 0 0 3px rgba(46, 46, 46, .3);
-                                    border-radius: 6px;
-                                    background-color: #F5F5F5;
-                                }
-                                &::-webkit-scrollbar {
-                                    width: 4px;
-                                    background-color: #F5F5F5;
-                                }
-                                &::-webkit-scrollbar-thumb {
-                                    border-radius: 6px;
-                                    -webkit-box-shadow: inset 0 0 3px rgba(46, 46, 46, .3);
-                                    background-color: #555;
-                                }
-                                .smallBox {
-                                    border: 1px solid #c5c5c5;
-                                    width: 100px;
-                                    height: 100px; // border: 1px solid rgb(121, 121, 121);
-                                    float: left;
-                                    margin: 10px;
-                                }
+                            font-weight: 900;
+                            &:hover {
+                                cursor: pointer;
+                                background:#000;
+                                color:#fff;
                             }
                         }
                     }
