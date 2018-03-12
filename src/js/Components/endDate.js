@@ -32,7 +32,6 @@ export class EndDate extends React.Component {
     }
     var newHour = date.hour();
     var newMinute = date.minute();
-    console.log(moment(newDate));
 
     this.setState({
       startDate: date, 

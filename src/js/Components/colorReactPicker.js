@@ -38,7 +38,7 @@ class PickColor extends React.Component {
           width: '36px',
           height: '14px',
           borderRadius: '2px',
-          background: `${ this.state.color}`,
+          background: `${ this.props.pColor}`,
         },
         swatch: {
           padding: '5px',
@@ -68,7 +68,7 @@ class PickColor extends React.Component {
         </div>
         { this.state.displayColorPicker ? <div style={ styles.popover }>
           <div style={ styles.cover } onClick={ this.handleClose }/>
-          <SketchPicker disableAlpha={true} color={ this.state.color } onChange={ this.handleOnColorChange } />
+          <SketchPicker disableAlpha={true} color={ this.props.pColor } onChange={ this.handleOnColorChange } />
         </div> : null }
     </div>)
   }
