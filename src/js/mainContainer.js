@@ -45,6 +45,7 @@ class MainContainer extends React.Component {
             livePrewiewOnly: '',
             layoutType: "HorizontalTimer"
         };
+        
         this.onFontSubmit = this.onFontSubmit.bind(this);
         this.onFontSubmitTxt = this.onFontSubmitTxt.bind(this);
         this.returnChildDate = this.returnChildDate.bind(this);
