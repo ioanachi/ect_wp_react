@@ -36625,13 +36625,13 @@ __webpack_require__(773);
 /* 378 */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html>\n\n<head>\n  <meta charset='utf-8'>\n  <title>Easy Countdown Timer</title>\n</head>\n\n<body>\n  <div id=\"ectPopupContent\"  class=\"ectPopupContent\">\n  </div>\n  <script type=\"text/javascript\">\n    var devMode = true;\n    var isOnlyPreview = false;\n    var ectWPPath = \"http://localhost/wordpress/wp-json\";\n    var ectKs =  \"fee6029ca4b45e897b51291840e54e95\";\n    var ectProperties = [{\n      'ectPopupContent': {\n        timeout: [],\n        endDate: '2029/2/16',\n        timezoneOffset: '+7200000',\n        endHour: '00',\n        endMinute: '00',\n        pFormat: 'D then H:M:S',\n        fontSize: 172,\n        fontSizeTxt: 32,\n        color: 'green',\n        colorTxt: '#F00',\n        isBold: false,\n        isBoldTxt: false,\n        yearsTxt: 'Years',\n        monthsTxt: 'Months',\n        weeksTxt: 'Weeks',\n        daysTxt: 'Days',\n        hoursTxt: 'Hours',\n        minutesTxt: 'Minutes',\n        secondsTxt: 'Seconds',\n        customEndedTxt: 'Timer Ended'\n      }\n    }];\n  </script>\n  <script src=\"dist/commons.js\"></script>\n  <script src='dist/bundle.js'>\n  </script>\n</body>\n\n</html>";
+module.exports = "<!DOCTYPE html>\r\n<html >\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"ectPopupContent\"  class=\"ectPopupContent\">\r\n  </div>\r\n  <script type=\"text/javascript\">\r\n    var devMode = true;\r\n    var isOnlyPreview = false;\r\n    var ectWPPath = \"http://localhost/wordpress/wp-json\";\r\n    var ectKs =  \"fee6029ca4b45e897b51291840e54e95\";\r\n    var ectProperties = [{\r\n      'ectPopupContent': {\r\n        timeout: [],\r\n        endDate: '2029/2/16',\r\n        timezoneOffset: '+7200000',\r\n        endHour: '00',\r\n        endMinute: '00',\r\n        pFormat: 'D then H:M:S',\r\n        fontSize: 172,\r\n        fontSizeTxt: 32,\r\n        color: 'green',\r\n        colorTxt: '#F00',\r\n        isBold: false,\r\n        isBoldTxt: false,\r\n        yearsTxt: 'Years',\r\n        monthsTxt: 'Months',\r\n        weeksTxt: 'Weeks',\r\n        daysTxt: 'Days',\r\n        hoursTxt: 'Hours',\r\n        minutesTxt: 'Minutes',\r\n        secondsTxt: 'Seconds',\r\n        customEndedTxt: 'Timer Ended'\r\n      }\r\n    }];\r\n  </script>\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>";
 
 /***/ }),
 /* 379 */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html>\n\n<head>\n  <meta charset='utf-8'>\n  <title>Easy Countdown Timer</title>\n</head>\n\n<body>\n  <div id=\"allTimers\">\n  </div>\n\n  <script type=\"text/javascript\">\n    var ectWPPath = \"http://localhost/wordpress/wp-json\";\n    var ectScriptBase = \"http://localhost:3000\";\n    var ectKs =  \"fee6029ca4b45e897b51291840e54e95\";\n  </script>\n\n  <script src=\"dist/commons.js\"></script>\n  <script src='dist/bundle.js'>\n  </script>\n</body>\n\n</html>";
+module.exports = "<!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n  <meta charset='utf-8'>\r\n  <title>Easy Countdown Timer</title>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"allTimers\">\r\n  </div>\r\n\r\n  <script type=\"text/javascript\">\r\n    var ectWPPath = \"http://localhost/wordpress/wp-json\";\r\n    var ectScriptBase = \"http://localhost:3000\";\r\n    var ectKs =  \"fee6029ca4b45e897b51291840e54e95\";\r\n  </script>\r\n\r\n  <script src=\"dist/commons.js\"></script>\r\n  <script src='dist/bundle.js'>\r\n  </script>\r\n</body>\r\n\r\n</html>";
 
 /***/ }),
 /* 380 */
@@ -97165,7 +97165,7 @@ exports = module.exports = __webpack_require__(73)(false);
 
 
 // module
-exports.push([module.i, "html {\n  height: 100%;\n  width: 100%;\n  margin: 0px;\n  padding: 0px; }\n  html body {\n    margin: 0px;\n    padding: 0px;\n    height: 100%;\n    width: 100%; }\n    html body .ectPopupContent {\n      height: 100%;\n      width: 100%;\n      position: relative; }\n      html body .ectPopupContent .ContainerMain {\n        margin: 0 2%;\n        height: 100%;\n        width: 98%; }\n        html body .ectPopupContent .ContainerMain .onlyPrewiew {\n          border: 1px solid white; }\n        html body .ectPopupContent .ContainerMain .componentContainer {\n          padding: 20px;\n          margin-bottom: 10px;\n          text-align: center;\n          align-content: center; }\n          html body .ectPopupContent .ContainerMain .componentContainer label {\n            font-size: 20px; }\n          html body .ectPopupContent .ContainerMain .componentContainer .ectSliderContainer {\n            width: 100%; }\n            html body .ectPopupContent .ContainerMain .componentContainer .ectSliderContainer div {\n              width: 100%; }\n        html body .ectPopupContent .ContainerMain .containerPreview,\n        html body .ectPopupContent .ContainerMain .livePreviewOnly {\n          width: 100%;\n          display: flex;\n          justify-content: center; }\n          html body .ectPopupContent .ContainerMain .containerPreview div,\n          html body .ectPopupContent .ContainerMain .livePreviewOnly div {\n            border: 1px solid #bdbdbd;\n            padding: 5px; }\n            html body .ectPopupContent .ContainerMain .containerPreview div.spanDiv,\n            html body .ectPopupContent .ContainerMain .livePreviewOnly div.spanDiv {\n              display: inline-block;\n              border: 1px solid #ffffff; }\n            html body .ectPopupContent .ContainerMain .containerPreview div.verticalView,\n            html body .ectPopupContent .ContainerMain .livePreviewOnly div.verticalView {\n              display: inline-block;\n              border: 1px solid #ffffff; }\n              html body .ectPopupContent .ContainerMain .containerPreview div.verticalView .numbersPreview,\n              html body .ectPopupContent .ContainerMain .livePreviewOnly div.verticalView .numbersPreview {\n                border: 1px solid #ffffff;\n                text-align: center;\n                padding: 0px; }\n              html body .ectPopupContent .ContainerMain .containerPreview div.verticalView .textPreview,\n              html body .ectPopupContent .ContainerMain .livePreviewOnly div.verticalView .textPreview {\n                border: 0px solid #ffffff;\n                text-align: center;\n                padding: 0px;\n                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }\n            html body .ectPopupContent .ContainerMain .containerPreview div.calendarView,\n            html body .ectPopupContent .ContainerMain .livePreviewOnly div.calendarView {\n              display: inline-block;\n              border: 0px solid #ffffff;\n              position: relative;\n              text-align: center;\n              background: linear-gradient(to bottom, #242222 0%, #020202 50%, #242222 50%, #020202 100%); }\n              html body .ectPopupContent .ContainerMain .containerPreview div.calendarView .calendarNumbers,\n              html body .ectPopupContent .ContainerMain .livePreviewOnly div.calendarView .calendarNumbers {\n                margin: 10px;\n                border: 0px solid #ffffff; }\n                html body .ectPopupContent .ContainerMain .containerPreview div.calendarView .calendarNumbers .numbersInCalendar,\n                html body .ectPopupContent .ContainerMain .livePreviewOnly div.calendarView .calendarNumbers .numbersInCalendar {\n                  border: 0px solid #ffffff; }\n              html body .ectPopupContent .ContainerMain .containerPreview div.calendarView .calendarText,\n              html body .ectPopupContent .ContainerMain .livePreviewOnly div.calendarView .calendarText {\n                margin: 10px;\n                border: 0px solid #ffffff; }\n                html body .ectPopupContent .ContainerMain .containerPreview div.calendarView .calendarText .textInCalendar,\n                html body .ectPopupContent .ContainerMain .livePreviewOnly div.calendarView .calendarText .textInCalendar {\n                  border: 0px solid #ffffff; }\n        html body .ectPopupContent .ContainerMain .livePreviewOnly {\n          border: 0px solid white;\n          display: inline-block;\n          font-size: 12px; }\n          html body .ectPopupContent .ContainerMain .livePreviewOnly div {\n            border: 0px solid white; }\n        html body .ectPopupContent .ContainerMain .containerLabels {\n          padding: 20px 0;\n          font-style: italic;\n          text-decoration: underline;\n          font-size: 20px;\n          font-weight: bold;\n          display: grid;\n          align-self: center; }\n        html body .ectPopupContent .ContainerMain .hourAndMinutes {\n          margin-left: 10px; }\n        html body .ectPopupContent .ContainerMain #ectSCInput {\n          padding: 5px;\n          width: 100%; }\n        html body .ectPopupContent .ContainerMain .ectInsert {\n          position: absolute;\n          left: -60px;\n          bottom: -10px;\n          height: 40px; }\n          html body .ectPopupContent .ContainerMain .ectInsert div {\n            position: fixed;\n            padding: 10px;\n            background-color: #fff;\n            border: 1px solid #c3c3c3; }\n        html body .ectPopupContent .ContainerMain .btnClosePosition {\n          position: absolute;\n          right: -70px;\n          top: -22px;\n          height: 40px;\n          width: 106px; }\n          html body .ectPopupContent .ContainerMain .btnClosePosition div {\n            position: fixed;\n            padding: 10px;\n            background-color: #fff;\n            border: 1px solid #c3c3c3; }\n            html body .ectPopupContent .ContainerMain .btnClosePosition div .ectClosePopupButton {\n              font-size: 18px; }\n        html body .ectPopupContent .ContainerMain .tableStyles {\n          width: 50%;\n          float: left; }\n          html body .ectPopupContent .ContainerMain .tableStyles table {\n            width: 95%;\n            border: 1px solid #ffffff; }\n            html body .ectPopupContent .ContainerMain .tableStyles table.configuration tr .tableHeaders {\n              font-size: 21px;\n              font-weight: bold;\n              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', Verdana, Geneva, Tahoma, sans-serif;\n              padding: 20px; }\n            html body .ectPopupContent .ContainerMain .tableStyles table.configuration tr td {\n              text-align: center;\n              width: 28%; }\n              html body .ectPopupContent .ContainerMain .tableStyles table.configuration tr td div {\n                align-content: center; }\n              html body .ectPopupContent .ContainerMain .tableStyles table.configuration tr td.timezones select {\n                max-width: 104px; }\n            html body .ectPopupContent .ContainerMain .tableStyles table tr:nth-child(2n) {\n              background-color: #f0f0f0; }\n            html body .ectPopupContent .ContainerMain .tableStyles table tr td {\n              align-content: center; }\n              html body .ectPopupContent .ContainerMain .tableStyles table tr td:nth-child(1) {\n                width: 44%; }\n        html body .ectPopupContent .ContainerMain .layoutsContainer {\n          width: 50%;\n          margin-left: 0px;\n          margin-top: 40px;\n          justify-content: center;\n          align-items: center;\n          float: left; }\n          html body .ectPopupContent .ContainerMain .layoutsContainer .layoutsLabel {\n            padding: 20px 0px;\n            margin-bottom: 10px;\n            text-align: center;\n            align-content: center;\n            display: flex;\n            justify-content: center;\n            width: 100px;\n            font-size: 20px;\n            margin: 0; }\n          html body .ectPopupContent .ContainerMain .layoutsContainer .layoutsBox {\n            padding: 10px;\n            border: 1px solid #c5c5c5;\n            margin: 0;\n            width: 310px;\n            height: 300px;\n            overflow: scroll;\n            overflow-x: hidden; }\n            html body .ectPopupContent .ContainerMain .layoutsContainer .layoutsBox::-webkit-scrollbar-track {\n              -webkit-box-shadow: inset 0 0 3px rgba(46, 46, 46, 0.3);\n              box-shadow: inset 0 0 3px rgba(46, 46, 46, 0.3);\n              border-radius: 6px;\n              background-color: #F5F5F5; }\n            html body .ectPopupContent .ContainerMain .layoutsContainer .layoutsBox::-webkit-scrollbar {\n              width: 4px;\n              background-color: #F5F5F5; }\n            html body .ectPopupContent .ContainerMain .layoutsContainer .layoutsBox::-webkit-scrollbar-thumb {\n              border-radius: 6px;\n              -webkit-box-shadow: inset 0 0 3px rgba(46, 46, 46, 0.3);\n              box-shadow: inset 0 0 3px rgba(46, 46, 46, 0.3);\n              background-color: #555; }\n            html body .ectPopupContent .ContainerMain .layoutsContainer .layoutsBox .smallBox {\n              border: 1px solid #c5c5c5;\n              width: 130px;\n              height: 130px;\n              float: left;\n              margin: 10px;\n              display: flex;\n              justify-content: center;\n              align-items: center;\n              font-weight: 900; }\n              html body .ectPopupContent .ContainerMain .layoutsContainer .layoutsBox .smallBox:hover {\n                cursor: pointer;\n                background: #000;\n                color: #fff; }\n      html body .ectPopupContent .endDateShow {\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        height: 100%;\n        width: 100%; }\n        html body .ectPopupContent .endDateShow .endDateShowSmallContainer {\n          width: 300px;\n          height: 300px;\n          display: flex;\n          align-items: center;\n          justify-content: center;\n          align-items: flex-center;\n          -webkit-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          -moz-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          background: #f0f0f0; }\n          html body .ectPopupContent .endDateShow .endDateShowSmallContainer label {\n            align-self: flex-start;\n            padding: 10px;\n            font-size: 20px;\n            font-weight: bold;\n            display: block;\n            text-align: center; }\n          html body .ectPopupContent .endDateShow .endDateShowSmallContainer .DayPickerInput {\n            align-self: flex-end;\n            padding: 10px;\n            margin: 10px 0; }\n            html body .ectPopupContent .endDateShow .endDateShowSmallContainer .DayPickerInput input {\n              width: 190px;\n              height: 30px; }\n              html body .ectPopupContent .endDateShow .endDateShowSmallContainer .DayPickerInput input::-webkit-input-placeholder {\n                text-align: center; }\n    html body .react-datepicker__time-box ul {\n      margin: 0px;\n      padding: 0px; }\n\n#allTimers ul li {\n  list-style: none;\n  border-radius: 9px 9px 9px 9px;\n  -moz-border-radius: 9px 9px 9px 9px;\n  -webkit-border-radius: 9px 9px 9px 9px;\n  border: 1px solid #b7b7b7;\n  background-color: #f0f0f0;\n  margin: 10px 0;\n  padding: 5px;\n  height: 25px;\n  width: 40%; }\n  #allTimers ul li:hover {\n    background-color: #89f5ec;\n    cursor: pointer; }\n  #allTimers ul li .timersName {\n    float: left;\n    line-height: 29px;\n    font-size: 20px; }\n  #allTimers ul li .timersDeleteContainer {\n    float: right;\n    margin: 0px 10px; }\n    #allTimers ul li .timersDeleteContainer input {\n      margin-right: 10px;\n      float: left;\n      width: 120px; }\n    #allTimers ul li .timersDeleteContainer img {\n      float: right;\n      opacity: 0.4; }\n      #allTimers ul li .timersDeleteContainer img:hover {\n        opacity: 1;\n        cursor: pointer; }\n", ""]);
+exports.push([module.i, "html {\n  height: 100%;\n  width: 100%;\n  margin: 0px;\n  padding: 0px; }\n  html body {\n    margin: 0px;\n    padding: 0px;\n    height: 100%;\n    width: 100%; }\n    html body .ectPopupContent {\n      height: 100%;\n      width: 100%;\n      position: relative; }\n      html body .ectPopupContent .ContainerMain {\n        position: relative;\n        margin: 0;\n        height: 100%;\n        width: 100%; }\n        html body .ectPopupContent .ContainerMain .onlyPrewiew {\n          border: 1px solid white; }\n        html body .ectPopupContent .ContainerMain .componentContainer {\n          padding: 20px;\n          margin-bottom: 10px;\n          text-align: center;\n          align-content: center; }\n          html body .ectPopupContent .ContainerMain .componentContainer label {\n            font-size: 20px; }\n          html body .ectPopupContent .ContainerMain .componentContainer .ectSliderContainer {\n            width: 100%; }\n            html body .ectPopupContent .ContainerMain .componentContainer .ectSliderContainer div {\n              width: 100%; }\n        html body .ectPopupContent .ContainerMain .previewBox {\n          position: static; }\n          html body .ectPopupContent .ContainerMain .previewBox .containerPreview,\n          html body .ectPopupContent .ContainerMain .previewBox .livePreviewOnly {\n            position: relative;\n            width: 100%;\n            display: flex;\n            justify-content: center; }\n            html body .ectPopupContent .ContainerMain .previewBox .containerPreview div,\n            html body .ectPopupContent .ContainerMain .previewBox .livePreviewOnly div {\n              border: 1px solid #bdbdbd;\n              padding: 0px; }\n              html body .ectPopupContent .ContainerMain .previewBox .containerPreview div.spanDiv,\n              html body .ectPopupContent .ContainerMain .previewBox .livePreviewOnly div.spanDiv {\n                display: inline-block;\n                border: 1px solid #ffffff; }\n              html body .ectPopupContent .ContainerMain .previewBox .containerPreview div.verticalView,\n              html body .ectPopupContent .ContainerMain .previewBox .livePreviewOnly div.verticalView {\n                display: inline-block;\n                border: 1px solid #ffffff; }\n                html body .ectPopupContent .ContainerMain .previewBox .containerPreview div.verticalView .numbersPreview,\n                html body .ectPopupContent .ContainerMain .previewBox .livePreviewOnly div.verticalView .numbersPreview {\n                  border: 1px solid #ffffff;\n                  text-align: center;\n                  padding: 0px; }\n                html body .ectPopupContent .ContainerMain .previewBox .containerPreview div.verticalView .textPreview,\n                html body .ectPopupContent .ContainerMain .previewBox .livePreviewOnly div.verticalView .textPreview {\n                  border: 0px solid #ffffff;\n                  text-align: center;\n                  padding: 0px;\n                  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }\n              html body .ectPopupContent .ContainerMain .previewBox .containerPreview div.calendarView,\n              html body .ectPopupContent .ContainerMain .previewBox .livePreviewOnly div.calendarView {\n                display: inline-block;\n                border: 0px solid #ffffff;\n                position: relative;\n                text-align: center;\n                background: linear-gradient(to bottom, #242222 0%, #020202 50%, #242222 50%, #020202 100%); }\n                html body .ectPopupContent .ContainerMain .previewBox .containerPreview div.calendarView .calendarNumbers,\n                html body .ectPopupContent .ContainerMain .previewBox .livePreviewOnly div.calendarView .calendarNumbers {\n                  margin: 10px;\n                  border: 0px solid #ffffff; }\n                  html body .ectPopupContent .ContainerMain .previewBox .containerPreview div.calendarView .calendarNumbers .numbersInCalendar,\n                  html body .ectPopupContent .ContainerMain .previewBox .livePreviewOnly div.calendarView .calendarNumbers .numbersInCalendar {\n                    border: 0px solid #ffffff; }\n                html body .ectPopupContent .ContainerMain .previewBox .containerPreview div.calendarView .calendarText,\n                html body .ectPopupContent .ContainerMain .previewBox .livePreviewOnly div.calendarView .calendarText {\n                  margin: 10px;\n                  border: 0px solid #ffffff; }\n                  html body .ectPopupContent .ContainerMain .previewBox .containerPreview div.calendarView .calendarText .textInCalendar,\n                  html body .ectPopupContent .ContainerMain .previewBox .livePreviewOnly div.calendarView .calendarText .textInCalendar {\n                    border: 0px solid #ffffff; }\n          html body .ectPopupContent .ContainerMain .previewBox .containerPreview {\n            z-index: 1000; }\n            html body .ectPopupContent .ContainerMain .previewBox .containerPreview .floatingPreview {\n              background-color: white; }\n        html body .ectPopupContent .ContainerMain .livePreviewOnly {\n          border: 0px solid white;\n          display: inline-block;\n          font-size: 12px; }\n          html body .ectPopupContent .ContainerMain .livePreviewOnly div {\n            border: 0px solid white; }\n        html body .ectPopupContent .ContainerMain .containerLabels {\n          padding: 20px 0;\n          font-style: italic;\n          text-decoration: underline;\n          font-size: 20px;\n          font-weight: bold;\n          display: grid;\n          align-self: center; }\n        html body .ectPopupContent .ContainerMain .hourAndMinutes {\n          margin-left: 10px; }\n        html body .ectPopupContent .ContainerMain #ectSCInput {\n          padding: 5px;\n          width: 100%; }\n        html body .ectPopupContent .ContainerMain .ectInsert {\n          position: absolute;\n          left: -60px;\n          bottom: -10px;\n          height: 40px; }\n          html body .ectPopupContent .ContainerMain .ectInsert div {\n            position: fixed;\n            padding: 10px;\n            background-color: #fff;\n            border: 1px solid #c3c3c3; }\n        html body .ectPopupContent .ContainerMain .btnClosePosition {\n          position: absolute;\n          right: -70px;\n          top: -22px;\n          height: 40px;\n          width: 106px; }\n          html body .ectPopupContent .ContainerMain .btnClosePosition div {\n            position: fixed;\n            padding: 10px;\n            background-color: #fff;\n            border: 1px solid #c3c3c3; }\n            html body .ectPopupContent .ContainerMain .btnClosePosition div .ectClosePopupButton {\n              font-size: 18px; }\n        html body .ectPopupContent .ContainerMain .tableStyles {\n          width: 50%;\n          float: left; }\n          html body .ectPopupContent .ContainerMain .tableStyles table {\n            width: 95%;\n            border: 1px solid #ffffff; }\n            html body .ectPopupContent .ContainerMain .tableStyles table.configuration tr .tableHeaders {\n              font-size: 21px;\n              font-weight: bold;\n              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', Verdana, Geneva, Tahoma, sans-serif;\n              padding: 20px; }\n            html body .ectPopupContent .ContainerMain .tableStyles table.configuration tr td {\n              text-align: center;\n              width: 28%; }\n              html body .ectPopupContent .ContainerMain .tableStyles table.configuration tr td div {\n                align-content: center; }\n              html body .ectPopupContent .ContainerMain .tableStyles table.configuration tr td.timezones select {\n                max-width: 104px; }\n            html body .ectPopupContent .ContainerMain .tableStyles table tr:nth-child(2n) {\n              background-color: #f0f0f0; }\n            html body .ectPopupContent .ContainerMain .tableStyles table tr td {\n              align-content: center; }\n              html body .ectPopupContent .ContainerMain .tableStyles table tr td:nth-child(1) {\n                width: 44%; }\n        html body .ectPopupContent .ContainerMain .layoutsContainer {\n          width: 50%;\n          margin-left: 0px;\n          margin-top: 40px;\n          justify-content: center;\n          align-items: center;\n          float: left; }\n          html body .ectPopupContent .ContainerMain .layoutsContainer .layoutsLabel {\n            padding: 20px 0px;\n            margin-bottom: 10px;\n            text-align: center;\n            align-content: center;\n            display: flex;\n            justify-content: center;\n            width: 100px;\n            font-size: 20px;\n            margin: 0; }\n          html body .ectPopupContent .ContainerMain .layoutsContainer .layoutsBox {\n            padding: 10px;\n            border: 1px solid #c5c5c5;\n            margin: 0;\n            width: 310px;\n            height: 300px;\n            overflow: scroll;\n            overflow-x: hidden; }\n            html body .ectPopupContent .ContainerMain .layoutsContainer .layoutsBox::-webkit-scrollbar-track {\n              -webkit-box-shadow: inset 0 0 3px rgba(46, 46, 46, 0.3);\n              box-shadow: inset 0 0 3px rgba(46, 46, 46, 0.3);\n              border-radius: 6px;\n              background-color: #F5F5F5; }\n            html body .ectPopupContent .ContainerMain .layoutsContainer .layoutsBox::-webkit-scrollbar {\n              width: 4px;\n              background-color: #F5F5F5; }\n            html body .ectPopupContent .ContainerMain .layoutsContainer .layoutsBox::-webkit-scrollbar-thumb {\n              border-radius: 6px;\n              -webkit-box-shadow: inset 0 0 3px rgba(46, 46, 46, 0.3);\n              box-shadow: inset 0 0 3px rgba(46, 46, 46, 0.3);\n              background-color: #555; }\n            html body .ectPopupContent .ContainerMain .layoutsContainer .layoutsBox .smallBox {\n              border: 1px solid #c5c5c5;\n              width: 130px;\n              height: 130px;\n              float: left;\n              margin: 10px;\n              display: flex;\n              justify-content: center;\n              align-items: center;\n              font-weight: 900; }\n              html body .ectPopupContent .ContainerMain .layoutsContainer .layoutsBox .smallBox:hover {\n                cursor: pointer;\n                background: #000;\n                color: #fff; }\n      html body .ectPopupContent .endDateShow {\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        height: 100%;\n        width: 100%; }\n        html body .ectPopupContent .endDateShow .endDateShowSmallContainer {\n          width: 300px;\n          height: 300px;\n          display: flex;\n          align-items: center;\n          justify-content: center;\n          align-items: flex-center;\n          -webkit-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          -moz-box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.75);\n          background: #f0f0f0; }\n          html body .ectPopupContent .endDateShow .endDateShowSmallContainer label {\n            align-self: flex-start;\n            padding: 10px;\n            font-size: 20px;\n            font-weight: bold;\n            display: block;\n            text-align: center; }\n          html body .ectPopupContent .endDateShow .endDateShowSmallContainer .DayPickerInput {\n            align-self: flex-end;\n            padding: 10px;\n            margin: 10px 0; }\n            html body .ectPopupContent .endDateShow .endDateShowSmallContainer .DayPickerInput input {\n              width: 190px;\n              height: 30px; }\n              html body .ectPopupContent .endDateShow .endDateShowSmallContainer .DayPickerInput input::-webkit-input-placeholder {\n                text-align: center; }\n    html body .react-datepicker__time-box ul {\n      margin: 0px;\n      padding: 0px; }\n\n#allTimers ul li {\n  list-style: none;\n  border-radius: 9px 9px 9px 9px;\n  -moz-border-radius: 9px 9px 9px 9px;\n  -webkit-border-radius: 9px 9px 9px 9px;\n  border: 1px solid #b7b7b7;\n  background-color: #f0f0f0;\n  margin: 10px 0;\n  padding: 5px;\n  height: 25px;\n  width: 40%; }\n  #allTimers ul li:hover {\n    background-color: #89f5ec;\n    cursor: pointer; }\n  #allTimers ul li .timersName {\n    float: left;\n    line-height: 29px;\n    font-size: 20px; }\n  #allTimers ul li .timersDeleteContainer {\n    float: right;\n    margin: 0px 10px; }\n    #allTimers ul li .timersDeleteContainer input {\n      margin-right: 10px;\n      float: left;\n      width: 120px; }\n    #allTimers ul li .timersDeleteContainer img {\n      float: right;\n      opacity: 0.4; }\n      #allTimers ul li .timersDeleteContainer img:hover {\n        opacity: 1;\n        cursor: pointer; }\n", ""]);
 
 // exports
 
@@ -97273,6 +97273,7 @@ var MainContainer = function (_React$Component) {
             livePrewiewOnly: '',
             layoutType: "HorizontalTimer"
         };
+
         _this.onFontSubmit = _this.onFontSubmit.bind(_this);
         _this.onFontSubmitTxt = _this.onFontSubmitTxt.bind(_this);
         _this.returnChildDate = _this.returnChildDate.bind(_this);
@@ -97537,6 +97538,7 @@ var MainContainer = function (_React$Component) {
             //only the live preview section
 
             var renderReturn = _react2.default.createElement("div", { className: "ContainerMain" }, this.showOnlyLivePreview());
+
             return renderReturn;
         }
     }]);
@@ -99160,6 +99162,7 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
             layoutType: _this.props.pAllData.layoutType
         };
         var tempClass = window[_this.state.layoutType + '2'];
+        _this.handleScroll = _this.handleScroll.bind(_this);
         return _this;
     }
 
@@ -99224,6 +99227,7 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                         }
                     }
                 });
+
                 var propertiesObj = ectProperties[ectPIndex][theMainID];
                 dataProps = {
                     timeout: propertiesObj.timeout,
@@ -99316,15 +99320,32 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
                 Styles: divStyleTxt
             };
             var DynamicComponentName = components[this.props.pAllData.layoutType];
-            return _react2.default.createElement(DynamicComponentName, { numbers: timerNumbers,
+
+            return _react2.default.createElement(DynamicComponentName, { className: 'floatingPreview', numbers: timerNumbers,
                 customTxt: timerCustomTxt
             });
+        }
+    }, {
+        key: 'handleScroll',
+        value: function handleScroll() {
+            var previewOffset = _reactDom2.default.findDOMNode(this.refs['boxPreview']).getBoundingClientRect();
+            if (previewOffset.y <= 1) {
+                _reactDom2.default.findDOMNode(this.refs['containerPreview']).style.position = "fixed";
+                _reactDom2.default.findDOMNode(this.refs['containerPreview']).style.top = "0px";
+            } else {
+                _reactDom2.default.findDOMNode(this.refs['containerPreview']).style.position = "relative";
+            }
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            window.addEventListener('scroll', this.handleScroll);
         }
     }, {
         key: 'render',
         value: function render() {
 
-            return _react2.default.createElement('div', { className: 'containerPreview ' + this.props.livePreviewOnly }, ' ', this.dinamicComponent(), ' ');
+            return _react2.default.createElement('div', { className: 'previewBox', ref: 'boxPreview' }, _react2.default.createElement('div', { className: 'containerPreview ' + this.props.livePreviewOnly, ref: 'containerPreview' }, this.dinamicComponent()));
         }
     }]);
 
@@ -99339,7 +99360,7 @@ var LivePreview = exports.LivePreview = function (_React$Component) {
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+      value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -99347,119 +99368,119 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var _class = function () {
-  function _class() {
-    _classCallCheck(this, _class);
-  }
+      function _class() {
+            _classCallCheck(this, _class);
+      }
 
-  _createClass(_class, null, [{
-    key: 'mathFunc',
-    value: function mathFunc(obj) {
+      _createClass(_class, null, [{
+            key: 'mathFunc',
+            value: function mathFunc(obj) {
 
-      // var tempTimeout = obj.timeout;
-      // if (!tempTimeout[0]) {
-      //   tempTimeout.push(setTimeout(() => {
-      //      obj.tThis.setState({timeout: []});
-      //   }, 1000));
-      // }
-      if (obj.endDate !== '') {
-        var oneSecond = 1000;
-        var oneMinute = 60 * oneSecond;
-        var oneHour = 60 * oneMinute;
-        var oneDay = 24 * oneHour; // hours*minutes*seconds*milliseconds
-        var oneWeek = 7 * oneDay;
-        var oneMonth = 4 * oneWeek;
-        var oneYear = 12 * oneMonth;
-        var endDate = new Date(obj.endDate);
-        var localDate = new Date();
-        var localTimeMiliseconds = localDate.getTime();
+                  // var tempTimeout = obj.timeout;
+                  // if (!tempTimeout[0]) {
+                  //   tempTimeout.push(setTimeout(() => {
+                  //      obj.tThis.setState({timeout: []});
+                  //   }, 1000));
+                  // }
+                  if (obj.endDate !== '') {
+                        var oneSecond = 1000;
+                        var oneMinute = 60 * oneSecond;
+                        var oneHour = 60 * oneMinute;
+                        var oneDay = 24 * oneHour; // hours*minutes*seconds*milliseconds
+                        var oneWeek = 7 * oneDay;
+                        var oneMonth = 4 * oneWeek;
+                        var oneYear = 12 * oneMonth;
+                        var endDate = new Date(obj.endDate);
+                        var localDate = new Date();
+                        var localTimeMiliseconds = localDate.getTime();
 
-        //  localTimeSeconds secundele trecute din 1 jan 1970 pana la ora locala (asta face .getTime() de data locala
-        // obtinuta cu newDate() )
-        var localOffset = localDate.getTimezoneOffset() * oneMinute;
+                        //  localTimeSeconds secundele trecute din 1 jan 1970 pana la ora locala (asta face .getTime() de data locala
+                        // obtinuta cu newDate() )
+                        var localOffset = localDate.getTimezoneOffset() * oneMinute;
 
-        var utc = localTimeMiliseconds + localOffset;
-        var timezoneOffset = obj.timezoneOffset;
-        var hourToMiliseconds = obj.endHour * oneHour;
-        var minutesToMiliseconds = obj.endMinute * oneMinute;
-        var date = new Date(obj.endDate);
-        var endTimeMiliseconds = date.getTime() + hourToMiliseconds + minutesToMiliseconds;
+                        var utc = localTimeMiliseconds + localOffset;
+                        var timezoneOffset = obj.timezoneOffset;
+                        var hourToMiliseconds = obj.endHour * oneHour;
+                        var minutesToMiliseconds = obj.endMinute * oneMinute;
+                        var date = new Date(obj.endDate);
+                        var endTimeMiliseconds = date.getTime() + hourToMiliseconds + minutesToMiliseconds;
 
-        // timezoneDateSeconds  timezone-ul ales in secunde (se inmulteste cu 3600000
-        // pentru ca 1000 millseconds = 1 second, and 1 hour = 3600  seconds)
-        // Therefore, converting hours to milliseconds involves multiplying by 3600 * 1000 = 3600000.
-        var nowTimeMiliseconds = utc + parseInt(timezoneOffset);
+                        // timezoneDateSeconds  timezone-ul ales in secunde (se inmulteste cu 3600000
+                        // pentru ca 1000 millseconds = 1 second, and 1 hour = 3600  seconds)
+                        // Therefore, converting hours to milliseconds involves multiplying by 3600 * 1000 = 3600000.
+                        var nowTimeMiliseconds = utc + parseInt(timezoneOffset);
 
-        var timeToCount = endTimeMiliseconds - nowTimeMiliseconds;
+                        var timeToCount = endTimeMiliseconds - nowTimeMiliseconds;
 
-        var daysToCount = Math.floor(timeToCount / oneDay);
+                        var daysToCount = Math.floor(timeToCount / oneDay);
 
-        var milisecLeftWithoutDays = timeToCount - daysToCount * oneDay;
+                        var milisecLeftWithoutDays = timeToCount - daysToCount * oneDay;
 
-        var hoursToCount = Math.floor(milisecLeftWithoutDays / oneHour);
+                        var hoursToCount = Math.floor(milisecLeftWithoutDays / oneHour);
 
-        var milisecLeftWithoutHours = milisecLeftWithoutDays - hoursToCount * oneHour;
+                        var milisecLeftWithoutHours = milisecLeftWithoutDays - hoursToCount * oneHour;
 
-        var minutesToCount = Math.floor(milisecLeftWithoutHours / oneMinute);
+                        var minutesToCount = Math.floor(milisecLeftWithoutHours / oneMinute);
 
-        var milisecLeftWithoutMinutes = milisecLeftWithoutHours - minutesToCount * oneMinute;
-        var secondsToCount = Math.floor(milisecLeftWithoutMinutes / 1000);
+                        var milisecLeftWithoutMinutes = milisecLeftWithoutHours - minutesToCount * oneMinute;
+                        var secondsToCount = Math.floor(milisecLeftWithoutMinutes / 1000);
 
-        var onlyHMS_Hours = Math.floor(timeToCount / oneHour);
-        var onlyHMSNoHours = timeToCount - onlyHMS_Hours * oneHour;
-        var onlyHMS_Minutes = Math.floor(onlyHMSNoHours / oneMinute);
-        var onlyHMSNoHM = onlyHMSNoHours - onlyHMS_Minutes * oneMinute;
-        var onlyHMS_Seconds = Math.floor(onlyHMSNoHM / oneSecond);
+                        var onlyHMS_Hours = Math.floor(timeToCount / oneHour);
+                        var onlyHMSNoHours = timeToCount - onlyHMS_Hours * oneHour;
+                        var onlyHMS_Minutes = Math.floor(onlyHMSNoHours / oneMinute);
+                        var onlyHMSNoHM = onlyHMSNoHours - onlyHMS_Minutes * oneMinute;
+                        var onlyHMS_Seconds = Math.floor(onlyHMSNoHM / oneSecond);
 
-        var onlyMS_Min = Math.floor(timeToCount / oneMinute);
-        var onlyMSNoMin = timeToCount - onlyMS_Min * oneMinute;
-        var onlyMS_Sec = Math.floor(onlyMSNoMin / oneSecond);
-        var onlySeconds = Math.floor(timeToCount / oneSecond);
+                        var onlyMS_Min = Math.floor(timeToCount / oneMinute);
+                        var onlyMSNoMin = timeToCount - onlyMS_Min * oneMinute;
+                        var onlyMS_Sec = Math.floor(onlyMSNoMin / oneSecond);
+                        var onlySeconds = Math.floor(timeToCount / oneSecond);
 
-        var YearsMWDHMS = Math.floor(timeToCount / oneYear);
-        var timeWithoutY = timeToCount - YearsMWDHMS * oneYear;
+                        var YearsMWDHMS = Math.floor(timeToCount / oneYear);
+                        var timeWithoutY = timeToCount - YearsMWDHMS * oneYear;
 
-        var MonthsYWDHMS = Math.floor(timeWithoutY / oneMonth);
-        var timeWithoutM = timeWithoutY - MonthsYWDHMS * oneMonth;
+                        var MonthsYWDHMS = Math.floor(timeWithoutY / oneMonth);
+                        var timeWithoutM = timeWithoutY - MonthsYWDHMS * oneMonth;
 
-        var WeeksYMDHMS = Math.floor(timeWithoutM / oneWeek);
-        var timeWithoutW = timeWithoutM - WeeksYMDHMS * oneWeek;
+                        var WeeksYMDHMS = Math.floor(timeWithoutM / oneWeek);
+                        var timeWithoutW = timeWithoutM - WeeksYMDHMS * oneWeek;
 
-        var DaysYMWHMS = Math.floor(timeWithoutW / oneDay);
-        var timeWithoutD = timeWithoutW - DaysYMWHMS * oneDay;
+                        var DaysYMWHMS = Math.floor(timeWithoutW / oneDay);
+                        var timeWithoutD = timeWithoutW - DaysYMWHMS * oneDay;
 
-        var HoursYMWDMS = Math.floor(timeWithoutD / oneHour);
-        var timeWithoutH = timeWithoutD - HoursYMWDMS * oneHour;
+                        var HoursYMWDMS = Math.floor(timeWithoutD / oneHour);
+                        var timeWithoutH = timeWithoutD - HoursYMWDMS * oneHour;
 
-        var MinutesYMWDHS = Math.floor(timeWithoutH / oneMinute);
-        var timeWithoutM = timeWithoutH - MinutesYMWDHS * oneMinute;
+                        var MinutesYMWDHS = Math.floor(timeWithoutH / oneMinute);
+                        var timeWithoutM = timeWithoutH - MinutesYMWDHS * oneMinute;
 
-        var SecondsYMWDHM = Math.floor(timeWithoutM / oneSecond);
+                        var SecondsYMWDHM = Math.floor(timeWithoutM / oneSecond);
 
-        var weeksOnly = Math.floor(timeToCount / oneWeek);
-        var yearsOnly = Math.floor(timeToCount / oneYear);
-        var monthsOnly = Math.floor(timeToCount / oneMonth);
-        var countDownAllValues = {};
+                        var weeksOnly = Math.floor(timeToCount / oneWeek);
+                        var yearsOnly = Math.floor(timeToCount / oneYear);
+                        var monthsOnly = Math.floor(timeToCount / oneMonth);
+                        var countDownAllValues = {};
 
-        if (endTimeMiliseconds < nowTimeMiliseconds) {
+                        if (endTimeMiliseconds < nowTimeMiliseconds) {
 
-          return false;
-        } else {
-          countDownAllValues = {
-            Years: YearsMWDHMS,
-            Months: MonthsYWDHMS,
-            Weeks: WeeksYMDHMS,
-            Days: DaysYMWHMS,
-            Hours: HoursYMWDMS,
-            Minutes: MinutesYMWDHS,
-            Seconds: SecondsYMWDHM
-          };
-        };
-        return countDownAllValues;
-      };
-    }
-  }]);
+                              return false;
+                        } else {
+                              countDownAllValues = {
+                                    Years: YearsMWDHMS,
+                                    Months: MonthsYWDHMS,
+                                    Weeks: WeeksYMDHMS,
+                                    Days: DaysYMWHMS,
+                                    Hours: HoursYMWDMS,
+                                    Minutes: MinutesYMWDHS,
+                                    Seconds: SecondsYMWDHM
+                              };
+                        };
+                        return countDownAllValues;
+                  };
+            }
+      }]);
 
-  return _class;
+      return _class;
 }();
 
 exports.default = _class;
@@ -99554,7 +99575,7 @@ var HorizontalTimer = function (_React$Component) {
       if (!this.props.numbers) {
         finalResult = _react2.default.createElement('span', { style: this.props.customTxt.Styles }, ' ', this.props.customTxt.EndedTxt, ' ');
       }
-      return _react2.default.createElement('div', null, ' ', finalResult, ' ');
+      return _react2.default.createElement('div', { className: 'floatingPreview' }, ' ', finalResult, ' ');
     }
   }]);
 
@@ -99620,7 +99641,7 @@ var VerticalTimer = function (_React$Component) {
       if (!this.props.numbers) {
         finalResult = _react2.default.createElement('span', { style: this.props.customTxt.Styles }, ' ', this.props.customTxt.EndedTxt, ' ');
       }
-      return _react2.default.createElement('div', null, ' ', finalResult, ' ');
+      return _react2.default.createElement('div', { className: 'floatingPreview' }, ' ', finalResult, ' ');
     }
   }]);
 
@@ -99686,7 +99707,7 @@ var CalendarTimer = function (_React$Component) {
       if (!this.props.numbers) {
         finalResult = _react2.default.createElement('span', { style: this.props.customTxt.Styles }, ' ', this.props.customTxt.EndedTxt, ' ');
       }
-      return _react2.default.createElement('div', null, ' ', finalResult, ' ');
+      return _react2.default.createElement('div', { className: 'floatingPreview' }, ' ', finalResult, ' ');
     }
   }]);
 
@@ -99752,7 +99773,7 @@ var SeparateTimer = function (_React$Component) {
       if (!this.props.numbers) {
         finalResult = _react2.default.createElement('span', { style: this.props.customTxt.Styles }, ' ', this.props.customTxt.EndedTxt, ' ');
       }
-      return _react2.default.createElement('div', null, ' ', finalResult, ' ');
+      return _react2.default.createElement('div', { className: 'floatingPreview' }, ' ', finalResult, ' ');
     }
   }]);
 

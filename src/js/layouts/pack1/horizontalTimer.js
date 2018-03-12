@@ -30,7 +30,7 @@ export default class HorizontalTimer extends React.Component {
                 this.props.customTxt.EndedTxt
               } </span>);
       }
-      return ( <div> {
+      return ( <div className="floatingPreview"> {
         finalResult
       } </div>
             );

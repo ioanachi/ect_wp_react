@@ -45,6 +45,7 @@ class MainContainer extends React.Component {
             livePrewiewOnly: '',
             layoutType: "HorizontalTimer"
         };
+        
         this.onFontSubmit = this.onFontSubmit.bind(this);
         this.onFontSubmitTxt = this.onFontSubmitTxt.bind(this);
         this.returnChildDate = this.returnChildDate.bind(this);
@@ -145,7 +146,7 @@ class MainContainer extends React.Component {
             colorTxt: this.state.pColorTxt,
             isBold: this.state.pIsBold,
             isBoldTxt: this.state.pIsBoldTxt,
-            timezoneOffset: this.state.timezoneOffset,
+            timezoneOffset: this.state.timezoneOffset,  
             endHour: this.state.endHour,
             endMinute: this.state.endMinute,
             timeFormat: this.state.timeFormat,
@@ -392,12 +393,14 @@ class MainContainer extends React.Component {
 
     }
     render() {
+
         const { endDate, isDisabled } = this.state; //from the day picker
         //only the live preview section
 
         var renderReturn = (
             <div className="ContainerMain">{this.showOnlyLivePreview()}</div>
         );
+     
         return renderReturn;
     }
 }
