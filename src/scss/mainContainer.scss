@@ -91,6 +91,7 @@ html {
                     .containerPreview {
                         .floatingPreview {
                             background-color: white;
+                            line-height: 36px;
                         }
                         z-index: 1000;
                     }
@@ -120,21 +121,26 @@ html {
                     width: 100%; // display: none;
                 }
                 .ectInsert {
-                    position: absolute;
-                    left: -60px;
-                    bottom: -10px;
+                    position: fixed;
+                    left: 0px;
+                    bottom: 10px;
                     height: 40px;
                     div {
                         position: fixed;
                         padding: 10px;
                         background-color: #fff;
                         border: 1px solid #c3c3c3;
+                        button{
+                            &.insertButton{
+                                margin-right:10px;
+                            }
+                        }
                     }
                 }
                 .btnClosePosition {
                     position: absolute;
-                    right: -70px;
-                    top: -22px;
+                    right: -19px;
+                    top: -10px;
                     height: 40px;
                     width: 106px;
                     div {
@@ -252,7 +258,7 @@ html {
             .endDateShow {
                 display: flex;
                 justify-content: center;
-                align-items: center;
+                align-items: top;
                 height: 100%;
                 width: 100%;
                 .endDateShowSmallContainer {

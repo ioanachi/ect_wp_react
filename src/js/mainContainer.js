@@ -303,14 +303,9 @@ class MainContainer extends React.Component {
                         >
                             Insert Shortcode
         </button>
-                    </div>
-                </div>
-                <div className="btnClosePosition">
-                    <div >
-
                         <button
                             type="button"
-                            className="ectClosePopupButton"
+                            className="ectClosePopupButton button button-danger"
                             onClick={this.ectClosePopupButton}
                             name="button"
                         >
